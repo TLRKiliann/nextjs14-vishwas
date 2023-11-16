@@ -71,7 +71,7 @@ All components are server component by default.
 
 6) Nested routes
 
-- () = not appear in address url
+- () = not appear in url
 - ex with blog folder => blog/first/page.tsx & blog/second/page.tsx
 - when calling path with first (blog/first) page.tsx is called.
 - same thing with second folder for the second page.tsx
@@ -231,7 +231,15 @@ https://nextjs.org/docs/app/api-reference/functions/permanentRedirect
 
 Route groups
 
-(auth) contains login, register, forgot-password
+```
+(auth):
+	> login
+	> forgot-password
+	> register
+```
+
+- () = auth will not appears in url
+- url = localhost:3000/login
 
 ---
 
