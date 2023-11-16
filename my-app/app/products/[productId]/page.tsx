@@ -5,6 +5,6 @@ export default function DetailsProduct({params}: {params: {productId: string}}) 
         notFound();
     }
     return (
-        <p className="m-4">Details of product id: {params.productId}</p>
+        <p className="m-4">Details by product id: {params.productId}</p>
     )
 }
