@@ -74,15 +74,33 @@ All components are server component by default.
 - Dynamic value
 - products/[productId] folder with page.tsx
 
-(details page.tsx)
+```
+(products page.tsx)
+export default function ProductList() {
+	const products = [
+		{
+			id: 1,
+			name: "apple"
+		},
+		...
+	]
+	return (
+		<>
+			<h1>List of products</h1>
+			{products.map((product) => (
+				<Link href={`/products/${product.id}`}></Link>
+			))}
+		</>
+	)
+}
+```
+
+```
+(productId page.tsx)
 export default function ProductDetails({ params }: {params: {productId: string}}) {
 	return <h1>Details about product {params.productId}</h1>
 }
-
-(main page.tsx)
-export default function ProductList() {
-	return <h1>List of all products</h1>
-}
+```
 
 ---
 
