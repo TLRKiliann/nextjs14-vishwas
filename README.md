@@ -71,7 +71,7 @@ All components are server component by default.
 
 6) Nested routes
 
-- () = not appear in address url
+- () = not appear in url
 - ex with blog folder => blog/first/page.tsx & blog/second/page.tsx
 - when calling path with first (blog/first) page.tsx is called.
 - same thing with second folder for the second page.tsx
@@ -148,9 +148,13 @@ export default function Docs({params}: {params: {slug:[]}}) {
 
 test it with : ".../docs/feature1/concept1"
 
+we can also use [[...slug]] to access to "docs folder", otherwise, nextjs return a 404 not found.
+
+test it with : ".../docs"
+
 ---
 
-10) not found
+10) Page not found
 
 In same folder you can create a "not-found.tsx" aside "page.tsx"
 For example: 
@@ -231,7 +235,15 @@ https://nextjs.org/docs/app/api-reference/functions/permanentRedirect
 
 Route groups
 
-(auth) contains login, register, forgot-password
+```
+(auth):
+	> login
+	> forgot-password
+	> register
+```
+
+- () = auth will not appears in url
+- url = localhost:3000/login
 
 ---
 
@@ -260,5 +272,27 @@ export default function ProductDetailsLayout({children}: {children: React.ReactN
             {children}
         </div>
     )
+}
+```
+
+16) ## Authlayout
+
+We can use a layout into auth such as follow:
+
+```
+(auth):
+	> forgot-password
+	> (with-auth-layout)
+		> login
+		> register
+		> layout.tsx
+```
+
+```
+(layout.tsx)
+export default function authLayout() {
+	return (
+		...
+	)
 }
 ```

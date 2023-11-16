@@ -3,4 +3,8 @@ export type ProductsProps = {
     name: string;
     color: string;
 }
-export default ProductsProps;
+
+export type ReviewsProps = {
+    id: number;
+    ref: string;
+}
