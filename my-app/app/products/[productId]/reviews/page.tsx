@@ -29,21 +29,18 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
     }
 
     return (
-        <>
-            <div>
-                {reviews.map((rev) => (
-                    <p key={rev.id}>
-                        <Link 
-                            href={`/products/${params.productId}/reviews/${rev.id}`}
-                            className="text-slate-200 hover:text-blue-400"
-                        >
-                            Refs : {rev.ref}
-                        </Link>
-                    </p>
-                ))}  
-            </div>
-
-        </>
+        <div className='h-sceen'>
+            {reviews.map((rev) => (
+                <p key={rev.id}>
+                    <Link 
+                        href={`/products/${params.productId}/reviews/${rev.id}`}
+                        className="text-slate-200 hover:text-blue-400"
+                    >
+                        Refs : {rev.ref}
+                    </Link>
+                </p>
+            ))}  
+        </div>
     )
 }
 

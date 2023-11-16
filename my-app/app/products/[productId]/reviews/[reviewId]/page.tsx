@@ -8,6 +8,8 @@ export default function ReviewById({params}: {params: {
             notFound();
         }
     return (
-        <p>Product id: {params.productId} and review id: {params.reviewId}</p>
+        <div className='h-sceen'>
+            <p>Product id: {params.productId} and review id: {params.reviewId}</p>
+        </div>
     )
 }

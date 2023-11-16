@@ -10,7 +10,7 @@ export default function ListProducts() {
     const dropDownMenu = menuDropdown(products);
     // 2 params ne fonctionnent pas dans une même URL !!!
     return (
-        <>
+        <div className="h-screen">
             <div>{dropDownMenu}</div>
             <h1 className='m-4'>List of products</h1>
 
@@ -36,6 +36,6 @@ export default function ListProducts() {
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
