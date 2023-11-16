@@ -11,7 +11,7 @@ const Docs = ({ params }: { params: { slug: string[] } }) => {
         return <h2>This is about {params.slug[0]}</h2>
     } 
     return (
-    <div>
+    <div className="h-screen">
         
         <h1 className='text-3xl m-4'>Docs Page</h1>
 
