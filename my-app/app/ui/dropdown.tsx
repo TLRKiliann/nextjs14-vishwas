@@ -1,11 +1,9 @@
 "use client"; // with useEffect()
 
 import React, { useState, useEffect } from 'react'
-import ProductsProps from "../lib/definitions";
+import { ProductsProps } from "../lib/definitions";
 import Link from 'next/link'
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
-//import './styles/dropdown.module.css'
-
 export default function DropDownComp(products: ProductsProps[]) {
 
   const menuDropdown = () => {
@@ -35,9 +33,6 @@ export default function DropDownComp(products: ProductsProps[]) {
     callFn();
     return () => console.log("menu drop-down loaded");
   }, [])
-
-  //const dropdowntilte: string = "dropdowntitle";
-  const [dropdowntilte] = useState<string>("dropdowntilte");
 
   return (
     <Dropdown>

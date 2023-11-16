@@ -1,7 +1,6 @@
 "use client";
 
-import ProductsProps from "../lib/definitions";
-import products from "../lib/datas";
+import { products } from "../lib/datas";
 import menuDropdown from "../ui/dropdown"
 import Link from 'next/link'
 

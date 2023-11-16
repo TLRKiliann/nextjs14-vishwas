@@ -1,6 +1,7 @@
-import ProductsProps from "./definitions";
+import { ProductsProps } from "./definitions";
+import { ReviewsProps } from "./definitions";
 
-const products: ProductsProps[] = [
+export const products: ProductsProps[] = [
     {
         id: 1,
         name: "apples",
@@ -18,4 +19,17 @@ const products: ProductsProps[] = [
     }
 ];
 
-export default products;
+export const reviews: ReviewsProps[] = [
+    {
+        id: 1,
+        ref: "267816378261"
+    },
+    {
+        id: 2,
+        ref: "267816378262"
+    },
+    {
+        id: 3,
+        ref: "267816378263"
+    }
+]
