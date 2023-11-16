@@ -1,33 +1,17 @@
-import Link from 'next/link'
+"use client";
 
-type ProductProps = {
-    id: number;
-    name: string;
-    color: string;
-}
+import ProductsProps from "../lib/definitions";
+import products from "../lib/datas";
+import menuDropdown from "../ui/dropdown"
+import Link from 'next/link'
 
 export default function ListProducts() {
 
-    const products: ProductProps[] = [
-        {
-            id: 1,
-            name: "apples",
-            color: "red"
-        },
-        {
-            id: 2,
-            name: "banana",
-            color: "yellow"
-        },
-        {
-            id: 3,
-            name: "orange",
-            color: "orange"
-        }
-    ];
+    const dropDownMenu = menuDropdown(products);
     // 2 params ne fonctionnent pas dans une même URL !!!
     return (
-        <>
+        <div className="h-screen">
+            <div>{dropDownMenu}</div>
             <h1 className='m-4'>List of products</h1>
 
             <div className="flex flex-col m-10">
@@ -52,7 +36,6 @@ export default function ListProducts() {
                     </div>
                 ))}
             </div>
-
-        </>
+        </div>
     )
 }

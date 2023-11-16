@@ -22,9 +22,19 @@ NextJS => file-system based routing mechanism
 
 2) Install
 
+basic installation with Options:
 - node.js is required
 - pnpm dlx (or pnpx) create-next-app@latest
-- Options: TS - EsLint - Tailwind - Router
+
+Options:
+- TypeScript 
+- EsLint 
+- Tailwind 
+- Router
+- (prefixer & postcss are automatically installed)
+
+dropdown:
+- pnpm add @nextui-org/react
 
 ---
 
@@ -47,15 +57,15 @@ Control flow:
 
 All components are server component by default.
 
-- "use client";
-- "use server";
+- "use client"; (for client)
+- "use server"; (for server actions)
 
 ---
 
 5) Routing
 
-- page.tsx define the route for url.
-- first layout.tsx of app folder is automaticaly created when the app is launched.
+- page.tsx define automatically the route for url.
+- first layout.tsx of app folder is automatically created when the app is launched.
 
 ---
 
@@ -74,15 +84,33 @@ All components are server component by default.
 - Dynamic value
 - products/[productId] folder with page.tsx
 
-(details page.tsx)
+```
+(products page.tsx)
+export default function ProductList() {
+	const products = [
+		{
+			id: 1,
+			name: "apple"
+		},
+		...
+	]
+	return (
+		<>
+			<h1>List of products</h1>
+			{products.map((product) => (
+				<Link href={`/products/${product.id}`}></Link>
+			))}
+		</>
+	)
+}
+```
+
+```
+(productId page.tsx)
 export default function ProductDetails({ params }: {params: {productId: string}}) {
 	return <h1>Details about product {params.productId}</h1>
 }
-
-(main page.tsx)
-export default function ProductList() {
-	return <h1>List of all products</h1>
-}
+```
 
 ---
 
@@ -124,13 +152,29 @@ test it with : ".../docs/feature1/concept1"
 
 10) not found
 
+In same folder you can create a "not-found.tsx" aside "page.tsx"
+For example: 
+
+```
+reviews:
+	> not-found.tsx
+	> page.tsx
+```
+
 ```
 (page.tsx)
 
 import { notFound } from 'next/navigation'
 
-if (parseInt(params.rewieId) > 100) {
-	notFound()
+export default function Page({params}: {params: {reviewId: string}}) {
+	if (parseInt(params.rewieId) > 100) {
+		notFound()
+	}
+	return (
+		<div>
+			<p>{params.reviewId}</p>
+		</div>
+	)
 }
 ```
 
@@ -147,15 +191,39 @@ export default function NotFound() {
 
 ```
 
-11) collocation
+---
 
-Si le fichier n'est pas nommé par page.tsx le routeur ne le prend pas en compte.
+11) Collocation
+
+If the file is not named page.tsx, the router ignores it.
+
+The function name in "page.tsx" can be named differently.
+
+Basic structure of a folder:
+
+```
+reviews:
+	> error.tsx
+	> layout.tsx
+	> not-found.tsx
+	> page.tsx
+```
 
 ---
 
 12) Private folder
 
-Folder is private witn an underscore: example _lib
+For example: _private
+
+Folder is private with an underscore. You cannot access by URL. It requires a redirect.
+
+look at redirect: 
+
+https://nextjs.org/docs/app/api-reference/functions/redirect
+
+permanentRedirect:
+
+https://nextjs.org/docs/app/api-reference/functions/permanentRedirect
 
 ---
 
@@ -163,7 +231,7 @@ Folder is private witn an underscore: example _lib
 
 Route groups
 
-(auth) with login, register, forgot-password
+(auth) contains login, register, forgot-password
 
 ---
 
@@ -178,12 +246,19 @@ example with : Header & Footer
 
 15) Nested layout
 
+RootLayout is used into the main layout of app. For others layout, we can replace name of function by name function of page.tsx. For example:
+
 ```
+/products/[productId]/layout.tsx
+
+import React from 'react'
+
 export default function ProductDetailsLayout({children}: {children: React.ReactNode}) {
     return (
-        <>
+        <div>
+	        <h2>Display from the top of layout (DetailsProduct)!</h2>
             {children}
-        </>
+        </div>
     )
 }
 ```
