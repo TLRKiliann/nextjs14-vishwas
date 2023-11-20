@@ -3,9 +3,6 @@
 Codeevolution:
 --------------
 
-!!! params.slug & params.productId ou params.reviewId !!!
-([[...slug]] - products => [productId] => reviews => [reviewId])
-
 NextJS => file-system based routing mechanism
 
 1) Intro
@@ -275,7 +272,7 @@ export default function ProductDetailsLayout({children}: {children: React.ReactN
 }
 ```
 
-16) ## Authlayout
+16) Authlayout
 
 We can use a layout into auth such as follow:
 
@@ -296,3 +293,16 @@ export default function authLayout() {
 	)
 }
 ```
+
+17) Metadata from head & Dynamic metadata to improve SEO
+
+- metadata can be used with page.tsx and layout.tsx.
+- metadata improve ranking **SEO**.
+- we can use it for every page of an app.
+- metada can be dynamic for dynamic segment, such as [productId].
+
+Example of standard metadata into **main** `layout.tsx`.
+
+Example of dynamic segment into `page.tsx` of dynamic segment [productId].
+
+---
