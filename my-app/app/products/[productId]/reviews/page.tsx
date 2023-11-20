@@ -2,6 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { reviews } from '../../../lib/datas'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "All reviews",
+    description: "list of reviews"
+}
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
@@ -25,4 +31,6 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
     )
 }
 
-export default ReviewsList
+export default ReviewsList;
+
+//const ReviewsList = ({params}: {params: {productId: string}}) => {...

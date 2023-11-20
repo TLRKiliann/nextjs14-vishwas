@@ -22,14 +22,14 @@ export const products: ProductsProps[] = [
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        ref: "267816378261"
+        ref: "extra 1"
     },
     {
         id: 2,
-        ref: "267816378262"
+        ref: "extra 2"
     },
     {
         id: 3,
-        ref: "267816378263"
+        ref: "extra 3"
     }
 ]

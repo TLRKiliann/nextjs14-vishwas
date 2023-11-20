@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { ProductsProps } from "../lib/definitions";
 import Link from 'next/link'
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+
 export default function DropDownComp(products: ProductsProps[]) {
 
   const menuDropdown = () => {
