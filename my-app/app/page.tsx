@@ -33,12 +33,36 @@ export default function Home() {
           </h1>
         </div>
         
-        <aside className='flex flex-col w-40 bg-slate-800 ml-4'>
+        <aside className='flex flex-col w-[200px] bg-slate-800 ml-4'>
           
             <Link href="/products" 
               className='text-blue-400 hover:bg-slate-700 py-2 pl-6 hover:text-blue-300'
             >
               Products
+            </Link>
+
+            <hr className='border-t border-slate-600' />
+
+            <Link href="/dashboard" 
+              className='text-blue-400 hover:bg-slate-700 py-2 pl-6 hover:text-blue-300'
+            >
+              Dashboard
+            </Link>
+
+            <hr className='border-t border-slate-600' />
+
+            <Link href="/forgot-password" 
+              className='text-blue-400 hover:bg-slate-700 py-2 pl-6 hover:text-blue-300'
+            >
+              Forgot-password
+            </Link>
+
+            <hr className='border-t border-slate-600' />
+
+            <Link href="/register" 
+              className='text-blue-400 hover:bg-slate-700 py-2 pl-6 hover:text-blue-300'
+            >
+              Register
             </Link>
 
             <hr className='border-t border-slate-600' />
@@ -52,19 +76,23 @@ export default function Home() {
         
         </aside>
 
-        <div className='flex flex-col w-full border border-cyan-400 p-10'>
 
-            <div className='w-full flex justify-end border border-orange-600'>
-              <span className='w-2/5 h-10 border border-blue-600
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-                rounded-tl-lg rounded-tr-lg'
-              >
-              </span >
-            </div>
+        <div className='flex justify-between w-full border border-cyan-400 p-10'>
 
-            <section className='w-full flex justify-end border border-teal-600'>
+          <div className='w-5/12 flex align-center justify-center border border-orange-400'>
+            <h2 className='border border-cyan-300'>title to space</h2>
+          </div>
 
-              <article className='w-2/5 h-auto bg-slate-950 border border-blue-600 p-6'>
+          <div className='w-6/12 flex flex-col shadow-lg shadow-indigo-500/50'>
+
+            <span className='h-10 border-none
+              bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
+              rounded-tl-lg rounded-tr-lg'>
+            </span >
+
+            <section className='w-full flex'>
+
+              <article className='h-auto bg-slate-950 p-6'>
                 <h2 className='text-2xl font-bold mt-0 mb-3'>Title</h2>
                 <p className='text-justify'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
@@ -78,59 +106,56 @@ export default function Home() {
 
             </section>
 
-            <div className='w-full flex justify-end border border-orange-600'>
-              <span className='w-2/5 h-10 border border-blue-600
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-                rounded-bl-lg rounded-br-lg'
-              >
-              </span >
-            </div>
-
-        </div>
-
-        <div className='flex flex-col w-full border border-cyan-400 p-10'>
-          
-          <div className='w-full flex justify-start border border-orange-600'>
-            <span className='w-2/5 h-10 border border-blue-600
-              bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-              rounded-tl-lg rounded-tr-lg'
-            >
-            </span >
-          </div>
-
-          <section className='w-full flex justify-start border border-teal-600'>
-
-            <article className='w-2/5 h-auto bg-slate-950 border border-blue-600 p-6'>
-              <h2 className='text-2xl font-bold mt-0 mb-3'>
-                Title 2
-              </h2>
-              <p className='text-justify'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </article>
-
-          </section>
-
-          <div className='w-full flex justify-start border border-orange-600'>
-            <span className='w-2/5 h-10 border border-blue-600
+            <span className='h-10 border-none
               bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
               rounded-bl-lg rounded-br-lg'
             >
             </span >
+
+          </div>
+        </div>
+
+        <div className='flex justify-between w-full border border-cyan-400 p-10'>
+
+          <div className='w-6/12 flex flex-col shadow-lg shadow-indigo-500/50'>
+
+            <span className='h-10 border-none
+              bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
+              rounded-tl-lg rounded-tr-lg'>
+            </span >
+
+            <section className='w-full flex'>
+
+              <article className='h-auto bg-slate-950 p-6'>
+                <h2 className='text-2xl font-bold mt-0 mb-3'>Title 2</h2>
+                <p className='text-justify'>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+                  culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+              </article>
+
+            </section>
+
+            <span className='h-10 border-none
+              bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
+              rounded-bl-lg rounded-br-lg'
+            >
+            </span >
+
+          </div>
+
+          <div className='w-5/12 flex flex-col justify-start border border-orange-300'>
+            <h2 className='border border-cyan-300'>title to space</h2>
           </div>
 
         </div>
 
-
       </main>
 
     </div>
-
-
   )
 }
