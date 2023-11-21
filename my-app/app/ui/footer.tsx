@@ -12,15 +12,19 @@ export default function Footer() {
                 
                 <nav className='w-full flex justify-end mr-10 border border-green-400'>
                     <ul className='flex font-bold border border-orange-400'>
-                        <li className='ml-10 border border-blue-400 p-2 hover:text-slate-400'>
-                            <Link href="/products">Products</Link>
-                        </li>
-                        <li className='ml-10 border border-blue-400 p-2'>
-                            <Link href="/docs">Docs</Link>
-                        </li>
-                        <li className='ml-10 border border-blue-400 p-2'>
-                            <Link href="/login">Login</Link>
-                        </li>
+
+                        <Link href="/products" className='ml-10 border border-blue-400 p-2 hover:text-slate-400'>
+                            Products
+                        </Link>
+
+                        <Link href="/docs" className='ml-10 border border-blue-400 p-2 hover:text-slate-400'>
+                            Docs
+                        </Link>
+
+                        <Link href="/login" className='ml-10 border border-blue-400 p-2 hover:text-slate-400'>
+                            Login
+                        </Link>
+
                     </ul>
                 </nav>
             </footer>
