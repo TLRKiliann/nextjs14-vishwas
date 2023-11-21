@@ -5,7 +5,9 @@ import { reviews } from '../../../lib/datas'
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "All reviews",
+    title: {
+        absolute: "Reviews"
+    },
     description: "list of reviews"
 }
 

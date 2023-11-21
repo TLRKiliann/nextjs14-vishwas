@@ -1,6 +1,6 @@
-"use client"; // with useEffect()
+"use client";
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { ProductsProps } from "../lib/definitions";
 import Link from 'next/link'
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
@@ -26,14 +26,7 @@ export default function DropDownComp(products: ProductsProps[]) {
       }
     });
   }
-
-  useEffect(() => {
-    const callFn = () => {
-      menuDropdown();
-    }
-    callFn();
-    return () => console.log("menu drop-down loaded");
-  }, [])
+  menuDropdown;
 
   return (
     <Dropdown>
