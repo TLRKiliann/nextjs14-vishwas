@@ -8,7 +8,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <main className="w-full h-screen">
+    <main className="flex flex-col min-h-screen">
       <h1 className='text-2xl p-4'>Main Page</h1>
       <div className='flex flex-col w-40 bg-slate-800'>
         

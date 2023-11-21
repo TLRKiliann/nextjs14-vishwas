@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 
 export default function Login() {
   return (
-    <div>Login</div>
+    <div className='flex flex-col min-h-screen'>
+      <h1 className='text-2xl p-2'>Login</h1>
+    </div>
   )
 }

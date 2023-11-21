@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Dashboard() {
     return (
-        <>
-            <h1>Dashboard</h1>
-        </>
+        <div className='flex flex-col min-h-screen'>
+            <h1 className='text-2xl p-2'>Dashboard</h1>
+        </div>
     )
 }

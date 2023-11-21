@@ -25,7 +25,7 @@ export default function ReviewById({ params }: Props) {
     }
     console.log(params.reviewId, "reviewid")
     return (
-        <div className='h-sceen'>
+        <div className='flex flex-col min-h-screen'>
             <p>Product id: {params.productId} and review id: {params.reviewId}</p>
         </div>
     )
