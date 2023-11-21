@@ -43,7 +43,7 @@ dropdown:
 - public folder contains static assets with all img and icon.
 
 Control flow:
-- pnpm dev execute layout.tsx (RootLayout) and the children after who's comming from page.tsx
+- pnpm run dev => execute layout.tsx (RootLayout) and the children after who's comming from page.tsx
 
 ---
 
@@ -54,8 +54,13 @@ Control flow:
 
 All components are server component by default.
 
-- "use client"; (for client)
-- "use server"; (for server actions)
+- "use client"; (for client : module from 'next/navigation')
+for example: useRouter, useParams, useSearchParams...
+
+- "use server"; (for server actions : async + await)
+for example: by fetching data, non-interactive UI.
+
+https://stackoverflow.com/questions/76369521/how-does-the-use-client-directive-work-in-next-js-13
 
 ---
 
@@ -63,6 +68,34 @@ All components are server component by default.
 
 - page.tsx define automatically the route for url.
 - first layout.tsx of app folder is automatically created when the app is launched.
+- you cannot use 2 params in same url excepted with slug.
+- Link permit to reach page by.
+
+replace attribute erase history of routing (you will be redirected to the home page by click back button of browser).
+
+```
+import Link from 'next/link'
+...
+<Link href="/products" replace>Products</Link>
+```
+
+```
+<Link href={`/products/${productId}`} replace>Products</Link>
+```
+
+main page or home = "/"
+
+you can also use useRouter(), such as :
+
+```
+"use client";
+
+import {useRouter} from 'next/navigation'
+...
+const router = useRouter()
+...
+router.push("/product")
+```
 
 ---
 
@@ -272,6 +305,8 @@ export default function ProductDetailsLayout({children}: {children: React.ReactN
 }
 ```
 
+---
+
 16) Authlayout
 
 We can use a layout into auth such as follow:
@@ -294,6 +329,8 @@ export default function authLayout() {
 }
 ```
 
+---
+
 17) Metadata from head & Dynamic metadata to improve SEO
 
 - metadata can be used with page.tsx and layout.tsx.
@@ -301,8 +338,42 @@ export default function authLayout() {
 - we can use it for every page of an app.
 - metada can be dynamic for dynamic segment, such as [productId].
 
-Example of standard metadata into **main** `layout.tsx`.
+Example of standard metadata into `layout.tsx` of root.
 
 Example of dynamic segment into `page.tsx` of dynamic segment [productId].
 
 ---
+
+18) Metadata with title
+
+- layout.tsx of the root
+
+```
+export const metadata: Metadata = {
+	title: {
+		default: "NextJS14 Tutorial",
+		template: "%s | Codeevolution",
+	},
+	description: "nextjs14 tutorial"
+}
+```
+
+- page.tsx (children)
+
+```
+export const metadata: Metadata = {
+  	title: "dashboard",
+  	description: "access restricted"
+}
+```
+
+or with absolute:
+
+```
+export const metadata: Metadata = {
+    title: {
+        absolute: "Docs"
+    },
+    description: "entire docs"
+}
+```
