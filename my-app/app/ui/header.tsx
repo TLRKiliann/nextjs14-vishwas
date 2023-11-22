@@ -6,13 +6,12 @@ export default function Header() {
     return (
         <>
             <header className="sticky flex top-0 left-0 w-full
-                border border-blue-600
+              
                 bg-gradient-to-r from-slate-900 from-10% via-sky-500 via-30% to-slate-900 to-90%
-                py-4 z-10"
+                py-2 z-10"
             >
                 
-                <div className="relative flex align-center justify-center w-20 h-auto ml-4 
-                    border border-orange-400"
+                <div className="relative flex align-center justify-center w-20 h-auto ml-4"
                 >
                     <Image
                         src={logoImg}
@@ -23,20 +22,20 @@ export default function Header() {
                     />
                 </div>
                 
-                <nav className='w-full flex align-center justify-end mr-5 border border-green-400'>
-                    <ul className='flex font-bold border border-orange-400'>
+                <nav className='w-full flex align-center justify-end mr-5'>
+                    <ul className='flex font-bold'>
                       
-                        <Link href="/" className='m-auto ml-10 border border-blue-400 p-2'>Home</Link>
+                        <Link href="/" className='text-lg m-auto ml-10 p-2'>Home</Link>
                         
-                        <Link href="/products" className='m-auto ml-10 border border-blue-400 p-2'>
+                        <Link href="/products" className='text-lg m-auto ml-10 p-2'>
                             Products
                         </Link>
 
-                        <Link href="/docs" className='m-auto ml-10 border border-blue-400 p-2'>
+                        <Link href="/docs" className='text-lg m-auto ml-10 p-2'>
                             Docs
                         </Link>
 
-                        <Link href="/login" className='m-auto ml-10 border border-blue-400 p-2'>
+                        <Link href="/login" className='text-lg m-auto ml-10 p-2'>
                             Login
                         </Link>
 
