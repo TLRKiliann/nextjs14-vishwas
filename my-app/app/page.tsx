@@ -9,6 +9,10 @@ export default function Home() {
   
   const router = useRouter();
 
+  const handleClick = () => {
+    router.push('/docs');
+  }
+
   return (
     <div className='relative flex bg-black z-0'>
       
@@ -67,7 +71,7 @@ export default function Home() {
 
             <hr className='border-t border-slate-600' />
 
-            <button onClick={() => router.push("/docs")}
+            <button onClick={handleClick}
               className='flex justify-start text-blue-400 
                 hover:bg-slate-700 py-2 pl-6 hover:text-blue-300'
             >
