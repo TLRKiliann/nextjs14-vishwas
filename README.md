@@ -383,6 +383,18 @@ export const metadata: Metadata = {
 
 19) Link
 
+Useful to access to a route.
+
+```
+import Link from 'next/link'
+
+export default function LinkExample() {
+	return (
+		<Link href="/login" replace>Login</Link>
+	)
+}
+```
+
 ---
 
 20) Dynamic link
