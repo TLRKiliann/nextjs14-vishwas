@@ -47,6 +47,16 @@ const Docs = ({ params }: { params: { slug: string[] } }) => {
                 </Link>
             </p>
 
+            <p className='text-lg mx-4 my-2 hover:text-blue-400'>
+                <Link 
+                    href='/docs/info'
+                    className="text-slate-200 hover:text-blue-400"
+                    replace
+                >
+                    Info
+                </Link>
+            </p>
+
         </div>
     )
 }
