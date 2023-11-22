@@ -55,7 +55,7 @@ Control flow:
 All components are server component by default.
 
 - "use client"; (for client : module from 'next/navigation')
-for example: useRouter, useParams, useSearchParams...
+for example: useRouter, useParams, useSearchParams, usePathname, ...
 
 - "use server"; (for server actions : async + await)
 for example: by fetching data, non-interactive UI.
@@ -88,6 +88,7 @@ main page or home = "/"
 you can also use useRouter(), such as :
 
 ```
+(look at 21)
 "use client";
 
 import {useRouter} from 'next/navigation'
@@ -377,3 +378,82 @@ export const metadata: Metadata = {
     description: "entire docs"
 }
 ```
+
+---
+
+19) Link
+
+---
+
+20) Dynamic link
+
+It's possible for a link to become dynamic with styles.
+
+```
+(layout.tsx)
+
+"use client";
+
+import Link from 'next/link'
+
+export default function AuthLayout({children}: {children: React.ReactNode}) {
+
+	const navLinks = [
+		{ name: 'Login', href: '/login' },
+		{ name: 'Register', href: '/register' },
+		{ name: 'Forgot password', href: '/forgot-password'}
+	];
+
+	const pathname = usePathname()
+
+	return (
+		<>
+			{navLinks.map((link) => {
+
+				const isActive = pathname.startWith(link.href);
+
+				return <Link key={link.name} href={link.href}
+
+					className={isActive ? 'font-bold mr-4' : 'text-blue-400 mr-4'}
+				
+				>			
+					{link.name}
+				</Link>
+			})}
+			{children}
+		</>
+	)
+
+}
+```
+
+---
+
+21) useRouter()
+
+It's possible to access to a file by clicking button with useRouter.
+
+```
+"use client";
+
+import { useRouter } from 'next/navigation';
+
+export default function Info() {
+
+	const handleClick = () => {
+		router.push('/');
+		router.replace('/');
+		router.back('/');
+		router.forward('/');
+	}
+
+	return (
+		<>
+			<h2>Info</h2>
+			<button type="button" onClick={handleClick}>Click</button>
+		</>
+	)
+}
+```
+
+---
