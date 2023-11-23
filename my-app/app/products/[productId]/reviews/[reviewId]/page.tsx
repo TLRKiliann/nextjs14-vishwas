@@ -20,7 +20,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
 }
 
 export default function ReviewById({ params }: Props) {
-    if (parseInt(params.reviewId) > 100) {
+    if (parseInt(params.reviewId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
     console.log(params.reviewId, "reviewid")

@@ -19,7 +19,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
 }
 
 const DetailsProduct = async ({params}: Props) => {
-    if (parseInt(params.productId) > 100) {
+    if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
     console.log(params, "params")

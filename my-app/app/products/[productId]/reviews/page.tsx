@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 100) {
+    if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
 
