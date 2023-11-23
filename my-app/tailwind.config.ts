@@ -8,8 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-      },
+      boxShadow: {
+        'xl': '0px 0px 10px rgba(0, 0, 0, 1)',
+        '2xl': '0px 0px 20px rgba(0, 0, 0, 1)',
+        '3xl': '0px 0px 30px rgba(0, 0, 0, 1)',
+      }
     },
   },
   plugins: [],
