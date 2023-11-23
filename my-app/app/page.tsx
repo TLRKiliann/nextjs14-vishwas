@@ -14,30 +14,32 @@ export default function Home() {
   }
 
   return (
-    <div className='relative flex bg-black z-0'>
+    <div className='relative text-blue-300 flex bg-black z-0'>
       
-      <div className='fixed flex align-center justify-center w-full h-full border border-orange-400 -z-10'>
+      <div className='fixed flex align-center justify-center w-full h-auto -z-10'>
         <Image
           src={forestImg}
           width={1920}
           height={1080}
           alt="cpu img" 
-          className='flex w-auto h-auto opacity-40 m-auto object-cover'
+          className='flex w-auto h-auto m-auto object-cover'
         />
       </div>
 
       <main className="flex flex-col w-full min-h-screen">
   
         <div>
-          <h1 className='text-3xl font-extrabold 
-            text-transparent bg-clip-text 
-            bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% p-4'
+          <h1 className='text-3xl font-extrabold
+              text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
+              via-sky-500 via-40% to-emerald-500 to-90% p-4'
           >
-            Main Page
+            Home Page
           </h1>
         </div>
         
         <div className="w-full flex flex-row align-center">
+
+
           <aside className='flex flex-col w-[300px] bg-slate-800'>
             
             <Link href="/products" 
@@ -81,9 +83,12 @@ export default function Home() {
           
           </aside>
 
-
-          <div className='w-4/5 bg-black border border-blue-400'>
-            <h2 className='text-2xl text-slate-50 opacity-90 my-4 px-10'>Title intermediate</h2>
+          <div className='w-full bg-slate-900 border-b border-blue-400/20'>
+            <h2 className='text-3xl font-extrabold
+              text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
+              via-sky-500 via-50% to-emerald-500 to-90% my-4 px-10'>
+              First Title
+            </h2>
             <p className='text-justify px-10'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
@@ -93,22 +98,30 @@ export default function Home() {
               culpa qui officia deserunt mollit anim id est laborum.
             </p>
           </div>
+
         </div>
 
+        <div className='w-full h-20 bg-slate-900'>
+        </div>
 
-        <div className='flex align-center justify-around w-full border border-cyan-400 py-5'>
+        <div className='flex align-center justify-around w-full m-auto'>
 
-          <div className='w-2/5 max-w-lg h-80 max-h-xs flex border border-orange-400 m-auto'>
+          <div className='w-[60px] bg-slate-900'>
+          </div>
+
+          <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 border border-red-600/50 m-auto my-10 p-12'>
             <Image
               src={forestImg}
               width={1920}
               height={1080}
               alt="forest img"
-              className='flex w-auto h-auto m-auto object-cover'
+              className='flex w-auto h-auto m-auto border border-red-600/40 object-cover'
             />
           </div>
 
-          <div className='w-6/12 max-w-xl flex flex-col shadow-lg shadow-indigo-500/50 m-auto'>
+          <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto my-10
+            transition ease-in-out 
+            hover:scale-105 hover:text-blue-200 hover:shadow-2xl'>
 
             <span className='h-10 border-none
               bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
@@ -117,9 +130,9 @@ export default function Home() {
 
             <section className='w-full flex'>
 
-              <article className='h-auto bg-slate-950 p-6'>
-                <h2 className='text-2xl font-bold mt-0 mb-3'>Title</h2>
-                <p className='text-justify'>
+              <article className='h-auto bg-slate-900'>
+                <h2 className='text-2xl font-bold py-4 pl-10'>Title 1</h2>
+                <p className='text-justify px-10 pb-5'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -133,17 +146,22 @@ export default function Home() {
 
             <span className='h-10 border-none
               bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-              rounded-bl-lg rounded-br-lg'
-            >
+              rounded-bl-lg rounded-br-lg'>
             </span >
 
           </div>
+
+          <div className='w-[60px] bg-slate-900'>
+          </div>
+
         </div>
 
 
-        <div className='w-full h-40 bg-black'>
-          <h2 className='text-2xl text-slate-50 opacity-90 my-4 px-20'>Title intermediate</h2>
-          <p className='text-justify px-20'>
+        <div className='w-full bg-slate-900 p-3'>
+          <h2 className='w-[800px] text-2xl font-bold opacity-90 mx-auto mt-3 px-4 pb-4'>
+            Title intermediate
+          </h2>
+          <p className='w-[800px] text-justify mx-auto px-4 mb-3'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -154,9 +172,14 @@ export default function Home() {
         </div>
 
 
-        <div className='flex align-center justify-around w-full border border-cyan-400 py-5'>
+        <div className='flex align-center justify-around w-full m-auto'>
 
-          <div className='w-6/12 max-w-xl flex flex-col shadow-lg shadow-indigo-500/50 m-auto'>
+          <div className='w-[60px] bg-slate-900'>
+          </div>
+
+          <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto my-10
+            transition ease-in-out
+            hover:scale-105 hover:text-blue-200 hover:shadow-2xl'>
 
             <span className='h-10 border-none
               bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
@@ -165,9 +188,9 @@ export default function Home() {
 
             <section className='w-full flex'>
 
-              <article className='h-auto bg-slate-950 p-6'>
-                <h2 className='text-2xl font-bold mt-0 mb-3'>Title 2</h2>
-                <p className='text-justify'>
+              <article className='h-auto bg-slate-900'>
+                <h2 className='text-2xl font-bold py-4 pl-10'>Title 2</h2>
+                <p className='text-justify px-10 pb-5'>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -181,35 +204,40 @@ export default function Home() {
 
             <span className='h-10 border-none
               bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-              rounded-bl-lg rounded-br-lg'
-            >
+              rounded-bl-lg rounded-br-lg'>
             </span >
 
           </div>
 
-          <div className='w-2/5 max-w-lg h-80 max-h-xs flex
-            border border-orange-400 m-auto'>
+          <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 border border-red-600/50 m-auto my-10 p-12'>
             <Image
               src={forestImg}
               width={1920}
               height={1080}
               alt="forest img"
-              className='flex w-auto h-auto m-auto object-cover'
+              className='flex w-auto h-auto m-auto border border-red-600/40 object-cover'
             />
+          </div>
+
+          <div className='w-[60px] bg-slate-900'>
           </div>
 
         </div>
 
-        <div className='w-full h-40 bg-black'>
-          <h2 className='text-2xl text-slate-50 opacity-90 my-4 px-20'>Title intermediate</h2>
-          <p className='text-justify px-20'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+
+
+        <div className='flex flex-col w-full bg-slate-900 p-3'>
+            <h2 className='w-[800px] text-2xl mx-auto p-4'>
+              Last title
+            </h2>
+            <p className='w-[800px] text-blue-300 text-justify mx-auto mb-4 px-4 rounded-lg'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+              culpa qui officia deserunt mollit anim id est laborum.
+            </p>
         </div>
 
       </main>
