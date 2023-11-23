@@ -22,7 +22,7 @@ const DetailsProduct = async ({params}: Props) => {
     if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
-    console.log(params, "params")
+    //console.log(params, "params")
     return (
         <div className='h-screen'>
             <p className="m-4">Details by product id: {params.productId}</p>

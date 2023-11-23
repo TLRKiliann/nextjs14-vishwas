@@ -20,10 +20,10 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
 }
 
 export default function ReviewById({ params }: Props) {
-    if (parseInt(params.reviewId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
+    if (parseInt(params.reviewId) > 100 || parseInt(params.reviewId) !== Number(params.reviewId)) {
         notFound();
     }
-    console.log(params.reviewId, "reviewid")
+    //console.log(params.reviewId, "reviewid")
     return (
         <div className='flex flex-col min-h-screen'>
             <p>Product id: {params.productId} and review id: {params.reviewId}</p>
