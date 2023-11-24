@@ -14,9 +14,15 @@ export default function Info() {
         //router.forward()
     }
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='min-h-screen'>
         <h2>Info</h2>
-        <button type="button" onClick={handleClick}>Go home</button>
+        <button
+          type="button"
+          onClick={handleClick}
+          className='text-cyan-300 font-bold bg-slate-800 border border-blue-400 rounded-lg m-4 px-3 py-2'
+        >
+          Go home
+        </button>
     </div>
   )
 }

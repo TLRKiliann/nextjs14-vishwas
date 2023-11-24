@@ -1,9 +1,9 @@
 "use client";
 
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import Template from './template'
 
 export default function AuthLayout({children}: {children: React.ReactNode}) {
 
@@ -13,16 +13,18 @@ export default function AuthLayout({children}: {children: React.ReactNode}) {
         { name: 'Forgot password', href: '/forgot-password' }
     ]
 
-    const pathname = usePathname()
+    const layoutSwitch = true;
 
-    const [input, setInput] = useState<string>("");
+    const callerTemplate = Template(layoutSwitch);
+    
+    const pathname = usePathname();
 
     return (
         <>
-            <input value={input} onChange={(e) => setInput(e.target.value)} 
-                className='text-black'
-            />
+            <p>{layoutSwitch === true ? "From layout.tsx:" : "From template.tsx"}</p>
             
+            {callerTemplate}
+
             {navLinks.map((link) => {
                 const isActive = pathname.startsWith(link.href)
                 
