@@ -19,7 +19,7 @@ export default function AuthLayout({children}: {children: React.ReactNode}) {
 
     return (
         <>
-            <input value={input} onChange={(e) => setInput(e.currentTarget.value)} 
+            <input value={input} onChange={(e) => setInput(e.target.value)} 
                 className='text-black'
             />
             
