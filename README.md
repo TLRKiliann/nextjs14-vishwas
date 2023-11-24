@@ -469,3 +469,22 @@ export default function Info() {
 ```
 
 ---
+
+22) Template
+
+For example in (auth) layout.tsx, it's possible to navigate between page and preserve state for better performance.
+Because layout don't remount the part representing content of newly change page with keep no change element on touch.
+
+Refresh the state.
+
+```
+import { useState } from 'react'
+...
+const [input, setInput] = useState<string>("")
+...
+<input value={input} onChange={(e) => setInput(e.target.value)}>
+```
+
+Template.tsx can collocate with layout.tsx in same folder.
+
+---
