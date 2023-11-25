@@ -5,6 +5,8 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { generatePagination } from '@/app/lib/utils';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { FaArrowAltCircleLeft } from "react-icons/fa";
+import { FaArrowAltCircleRight } from "react-icons/fa";
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
   // NOTE: comment in this code when you get to this point in the course
@@ -21,8 +23,6 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
   };
   return (
     <>
-      {/* NOTE: comment in this code when you get to this point in the course */}
-
       <div className="inline-flex">
         <PaginationArrow
           direction="left"
@@ -113,9 +113,9 @@ function PaginationArrow({
 
   const icon =
     direction === 'left' ? (
-      <div className="w-4" />
+      <FaArrowAltCircleLeft className="w-4" />
     ) : (
-      <div className="w-4" />
+      <FaArrowAltCircleRight className="w-4" />
     );
 
   return isDisabled ? (

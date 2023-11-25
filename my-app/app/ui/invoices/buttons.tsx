@@ -1,5 +1,8 @@
 import Link from 'next/link';
 //import { deleteInvoice } from '@/app/lib/actions';
+import { FaTrashAlt } from "react-icons/fa";
+import { FaPencilAlt } from "react-icons/fa";
+import { GrUpdate } from "react-icons/gr";
 
 export function CreateInvoice() {
     return (
@@ -10,7 +13,7 @@ export function CreateInvoice() {
           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
       >
         <span className="hidden md:block">Create Invoice</span>{' '}
-        <div className="h-5 md:ml-4" />
+        <GrUpdate className="h-5 md:ml-4" />
       </Link>
     );
 }
@@ -21,7 +24,7 @@ export function UpdateInvoice({ id }: { id: string }) {
       href={`/dashboard/invoices/${id}/edit`}
       className="rounded-md border p-2 hover:bg-gray-100"
     >
-      <div className="w-5" />
+      <FaPencilAlt className="w-5" />
     </Link>
   );
 }
@@ -35,7 +38,7 @@ export function DeleteInvoice({ id }: { id: string }) {
   
       <button className="rounded-md border p-2 hover:bg-gray-100">
         <span className="sr-only">Delete</span>
-        <div className="w-4" />
+        <FaTrashAlt className="w-4" />
       </button>
   
     </form>

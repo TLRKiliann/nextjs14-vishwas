@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useRouter } from 'next/navigation';
+import { BsInfoCircle } from "react-icons/bs";
 
 export default function Info() {
     
@@ -15,7 +16,7 @@ export default function Info() {
     }
   return (
     <div className='min-h-screen'>
-        <h2>Info</h2>
+        <h2 className='flex flex-row align-center text-xl font-bold m-4'>Info &nbsp;<BsInfoCircle /></h2>
         <button
           type="button"
           onClick={handleClick}
