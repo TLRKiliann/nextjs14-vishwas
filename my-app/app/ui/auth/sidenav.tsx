@@ -5,7 +5,7 @@ export default function SideNav() {
         <div className='flex flex-col w-1/5 text-gray-700 bg-slate-50 border rounded-br-lg p-4'>
             <h3 className="text-xl font-bold">SideNav</h3>
             <ul className='list-disc p-2'>
-                <li className='mb-2'>
+                <li className='mb-2 hover:text-blue-400'>
                     <Link 
                         href="/"
                     >
@@ -14,7 +14,7 @@ export default function SideNav() {
                 </li>
                 <hr />
 
-                <li className='mb-2'>
+                <li className='mb-2 hover:text-blue-400'>
                     <Link 
                         href="/products"
                     >
@@ -23,7 +23,7 @@ export default function SideNav() {
                 </li>
                 <hr />
 
-                <li className='mb-2'>
+                <li className='mb-2 hover:text-blue-400'>
                     <Link 
                         href="/docs"
                     >
@@ -31,6 +31,25 @@ export default function SideNav() {
                     </Link>
                 </li>
                 <hr />
+
+                <li className='mb-2 hover:text-blue-400'>
+                    <Link 
+                        href="/dashboard"
+                    >
+                        Dashboard
+                    </Link>
+                </li>
+                <hr />
+
+                <li className='mb-2 hover:text-blue-400'>
+                    <Link 
+                        href="/login"
+                    >
+                        Login
+                    </Link>
+                </li>
+                <hr />
+
             </ul>
         </div>
     )
