@@ -16,7 +16,7 @@ export default function Invoices({ searchParams }: {
     
     return (
         <>
-            <div>
+            <div className='flex justify-center mt-6'>
                 <Search placeholder="Something for placeholder" />
                 <CreateInvoice />
             </div>
@@ -28,7 +28,6 @@ export default function Invoices({ searchParams }: {
             <div className="mt-5 flex w-full justify-center">
                 <Pagination totalPages={totalPages} />
             </div>
- 
         </>
     )
 }

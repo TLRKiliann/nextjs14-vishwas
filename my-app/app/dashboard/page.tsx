@@ -9,9 +9,15 @@ export const metadata: Metadata = {
 
 export default function Dashboard() {
     return (
-        <div className='flex flex-col min-h-screen'>
-            <h1 className='text-2xl p-2'>Dashboard</h1>
-            <Link href="/dashboard/invoices">Invoices</Link>
-        </div>
+        <ul className='list-disc m-2 pl-4 hover:text-blue-400'>
+            <li>
+                <Link 
+                    href="/dashboard/invoices"
+                    className='font-bold'
+                >
+                    Invoices
+                </Link>
+            </li>
+        </ul>
     )
 }
