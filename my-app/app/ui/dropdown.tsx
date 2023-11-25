@@ -1,59 +1,50 @@
-"use client"; // with useEffect()
-
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ProductsProps } from "../lib/definitions";
 import Link from 'next/link'
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+
 export default function DropDownComp(products: ProductsProps[]) {
 
-  const menuDropdown = () => {
-    const rubriques = document.querySelectorAll('aside > ul > li > a');
-    Array.prototype.forEach.call( rubriques, (rubrique) => {
-      rubrique.onclick = ( e: React.MouseEvent<HTMLButtonElement> ) => {
-        e.preventDefault();
-        let li = rubrique.parentNode; // ul
-        let openHeight = li.querySelector('ul').scrollHeight; // adjust automaticaly
-        if ( li.classList.contains('active') )
-        {
-          li.querySelector('ul').style.height = '0px';
-          li.classList.remove('active');
-        }
-        else {
-          li.querySelector('ul').style.height = openHeight + 'px';
-          li.classList.add('active');
-        }
-      }
-    });
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const toggle = () => {
+    setIsOpen((old) => !old);
   }
 
-  useEffect(() => {
-    const callFn = () => {
-      menuDropdown();
-    }
-    callFn();
-    return () => console.log("menu drop-down loaded");
-  }, [])
+  const transClass = isOpen ? "flex" : "hidden";
 
   return (
-    <Dropdown>
-      <DropdownTrigger>
-        <Button 
-          variant="bordered" 
-        >
-          Open Menu
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu aria-label="Dynamic Actions" items={products}>
-        {(product) => (
-          <DropdownItem
-            key={product.id}
-            color={product.name === "delete" ? "danger" : "default"}
-            className={product.name === "delete" ? "text-danger" : ""}
-          >
-            <Link href={`/products/${product.id}`}>Product by id : {product.id}</Link>
-          </DropdownItem>
-        )}
-      </DropdownMenu>
-    </Dropdown>
-  );
+    <>
+        <div className='relative'>
+            <button
+              className="bg-blue-600 m-4 px-[20px] py-[5px] rounded"
+              onClick={toggle}
+            >
+              Menu
+            </button>
+
+            <div className={`absolute top-12 z-20 w-[140px]] h-[auto] 
+              flex flex-col bg-blue-400 rounded-md ml-4 ${transClass}`}>
+                
+                {products.map(product =>
+                  <Link
+                    key={product.name}
+                    className="hover:bg-blue-600 hover:text-blue-200 px-4 py-1"
+                    href={`products/${product.name}`}
+                    onClick={toggle}
+                  >
+                    {product.name}
+                  </Link>
+                )}
+
+            </div>
+        </div>
+        
+        {isOpen === true ? (
+          <div className="fixed top-0 right-0 bottom-0 left-0 z-10 bg-black/40"
+            onClick={toggle}>
+          </div>
+        ) : null
+        }
+    </>
+  )
 }

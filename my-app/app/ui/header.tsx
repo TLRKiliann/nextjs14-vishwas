@@ -1,21 +1,44 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import logoImg from '@/public/img_logo/processor.png';
 
 export default function Header() {
     return (
         <>
-            <header className="flex w-full bg-slate-500 py-2" >
-                <h1 className="flex items-center text-xl ml-10 border border-orange-400">Header</h1>
-                <nav className='w-full flex justify-end mr-10 border border-green-400'>
-                    <ul className='flex font-bold border border-orange-400'>
-                        <li className='ml-10 border border-blue-400 p-2'>
-                            <Link href="/products">Products</Link>
-                        </li>
-                        <li className='ml-10 border border-blue-400 p-2'>
-                            <Link href="/docs">Docs</Link>
-                        </li>
-                        <li className='ml-10 border border-blue-400 p-2'>
-                            <Link href="/login">Login</Link>
-                        </li>
+            <header className="sticky flex top-0 left-0 w-full
+              
+                bg-gradient-to-r from-slate-900 from-10% via-sky-500 via-30% to-slate-900 to-90%
+                py-2 z-10"
+            >
+                
+                <div className="relative flex align-center justify-center w-20 h-auto ml-4"
+                >
+                    <Image
+                        src={logoImg}
+                        width={500}
+                        height={500}
+                        alt="img logo"
+                        className="flex w-auto h-auto m-auto object-cover"
+                    />
+                </div>
+                
+                <nav className='w-full flex align-center justify-end mr-5'>
+                    <ul className='flex font-bold'>
+                      
+                        <Link href="/" className='text-lg m-auto ml-10 p-2'>Home</Link>
+                        
+                        <Link href="/products" className='text-lg m-auto ml-10 p-2'>
+                            Products
+                        </Link>
+
+                        <Link href="/docs" className='text-lg m-auto ml-10 p-2'>
+                            Docs
+                        </Link>
+
+                        <Link href="/login" className='text-lg m-auto ml-10 p-2'>
+                            Login
+                        </Link>
+
                     </ul>
                 </nav>
             </header>

@@ -2,10 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { reviews } from '../../../lib/datas'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: {
+        absolute: "Reviews"
+    },
+    description: "list of reviews"
+}
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 100) {
+    if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
 
@@ -25,4 +33,6 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
     )
 }
 
-export default ReviewsList
+export default ReviewsList;
+
+//const ReviewsList = ({params}: {params: {productId: string}}) => {...
