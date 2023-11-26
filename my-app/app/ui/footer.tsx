@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FaRegCopyright } from "react-icons/fa6";
 
 export default function Footer() {
     return (
@@ -8,8 +9,8 @@ export default function Footer() {
                 py-4"
             >
                 
-                <Link href="/docs/info" className='ml-10 p-2 hover:text-blue-400'>
-                    ko@l@tr33 - handcraft 2023
+                <Link href="/docs/info" className='flex align-center ml-10 p-2 hover:text-blue-400'>
+                    koalatr33<FaRegCopyright className="mt-1" />handcraft 2023
                 </Link>
 
             </footer>

@@ -109,13 +109,15 @@ export default function Home() {
           <div className='w-[60px] bg-slate-900'>
           </div>
 
-          <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 border border-red-600/50 m-auto my-10 p-12'>
+          <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 border border-red-600/50 m-auto my-10 p-12
+            hover:transition hover:-skew-y-6'>
             <Image
               src={forestImg}
               width={1920}
               height={1080}
               alt="forest img"
-              className='flex w-auto h-auto m-auto border border-red-600/40 object-cover'
+              className='flex w-auto h-auto m-auto border border-red-600/40 object-cover 
+                transition duration-0 hover:duration-300 hover:ease-in-out hover:skew-y-12'
             />
           </div>
 
@@ -223,8 +225,6 @@ export default function Home() {
           </div>
 
         </div>
-
-
 
         <div className='flex flex-col w-full bg-slate-900 p-3'>
             <h2 className='w-[800px] text-2xl mx-auto p-4'>
