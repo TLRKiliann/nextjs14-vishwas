@@ -28,6 +28,23 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
+        <div className='flex flex-col align-center justify-center w-full h-40 bg-slate-100'>
+          
+          <div className='text-4xl font-bold text-blue-800 m-auto border border-blue-600'>
+            NextJS Tutorial
+          </div>
+
+          <div className='flex justify-around w-full text-sm font-bold text-blue-800 m-auto mb-3 
+            border border-orange-600'>
+            <Link href="" className='hover:text-green-500'>Poducts</Link>
+            <Link href="" className='hover:text-green-500'>Info</Link>
+            <Link href="" className='hover:text-green-500'>About</Link>
+            <Link href="" className='hover:text-green-500'>Contact</Link>
+            <Link href="" className='hover:text-green-500'>Login</Link>
+          </div>
+
+        </div>
+
         <div>
           <h1 className='text-3xl font-extrabold
               text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
