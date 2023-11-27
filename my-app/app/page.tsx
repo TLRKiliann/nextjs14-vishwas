@@ -28,34 +28,53 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className='flex flex-col align-center justify-center w-full h-40 bg-slate-100'>
+        <div className='absolute mt-0 flex flex-col align-center justify-center w-full h-40 bg-cyan-50 
+          border border-b-blue-500 shadow-xl z-10'>
           
-          <div className='text-4xl font-bold text-blue-800 m-auto border border-blue-600'>
-            NextJS Tutorial
+          <div className='flex flex-col h-40'>
+            <p className='text-xl text-blue-800 font-bold m-auto mb-0'>The</p>
+            <h1 className='text-4xl font-bold 
+              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
+              via-sky-600 via-40% to-indigo-800 to-90% m-auto my-0'>
+              NextJS Tutorial
+            </h1>
+            <p className='text-lg text-blue-800 font-bold m-auto mt-0'>
+              All features includes
+            </p>
           </div>
 
-          <div className='flex justify-around w-full text-sm font-bold text-blue-800 m-auto mb-3 
-            border border-orange-600'>
-            <Link href="" className='hover:text-green-500'>Poducts</Link>
-            <Link href="" className='hover:text-green-500'>Info</Link>
-            <Link href="" className='hover:text-green-500'>About</Link>
-            <Link href="" className='hover:text-green-500'>Contact</Link>
-            <Link href="" className='hover:text-green-500'>Login</Link>
+          <div className='flex justify-around w-full text-lg text-blue-800 m-auto mb-1'>
+            <Link href="" className='hover:text-cyan-600'>Home</Link>
+            <Link href="" className='hover:text-cyan-600'>Products</Link>
+            <Link href="" className='hover:text-cyan-600'>About</Link>
+            <Link href="" className='hover:text-cyan-600'>Contact</Link>
+            <Link href="" className='hover:text-cyan-600'>Login</Link>
           </div>
 
         </div>
 
-        <div>
-          <h1 className='text-3xl font-extrabold
-              text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
-              via-sky-500 via-40% to-emerald-500 to-90% p-4'
-          >
-            Home Page
-          </h1>
+
+
+        <div className='relative flex align-center justify-center h-12 bg-cyan-100 
+          shadow-xl mt-40 z-0'>
+          <h2 className='text-2xl text-blue-800 m-auto'>Some text</h2>
         </div>
         
-        <div className="w-full flex flex-row align-center">
+        <div className='h-100 bg-cyan-100'>
+          <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 border border-red-600/50 m-auto my-10 p-12'>
+            <Image
+              src={forestImg}
+              width={1920}
+              height={1080}
+              alt="forest img"
+              className='flex w-auto h-auto m-auto border border-red-600/40 object-cover'
+            />
+          </div>
+        </div>
 
+
+
+        <div className="w-full flex flex-row align-center">
 
           <aside className='flex flex-col w-[300px] bg-slate-800'>
             
