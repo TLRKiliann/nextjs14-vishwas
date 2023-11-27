@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from "next";
+import { BsInfoCircle } from "react-icons/bs";
 
 export const metadata: Metadata = {
     title: {
@@ -53,7 +54,7 @@ const Docs = ({ params }: { params: { slug: string[] } }) => {
                     className="text-slate-200 hover:text-blue-400"
                     replace
                 >
-                    Info
+                    <h2 className='flex flex-row align-center font-bold'>Info &nbsp;<BsInfoCircle /></h2>
                 </Link>
             </p>
 

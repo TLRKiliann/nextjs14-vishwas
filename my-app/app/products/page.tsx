@@ -1,7 +1,7 @@
 "use client";
 
-import { products } from "../lib/datas";
-import menuDropdown from "../ui/dropdown"
+import { products } from "@/app/lib/datas";
+import menuDropdown from "@/app/ui/dropdown"
 import Link from 'next/link'
 
 export default function ListProducts() {

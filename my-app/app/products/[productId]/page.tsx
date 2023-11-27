@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { products } from "@/app/lib/datas";
 
 type Props = {
     params: {
@@ -22,27 +23,25 @@ const DetailsProduct = async ({params}: Props) => {
     if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
-    //console.log(params, "params")
+
+    // To display name & color of product
+    const productName = products.map((prod) => {
+        if (prod.id === parseInt(params.productId)) {
+        return <div key={prod.id} className='m-4'>
+                <p>Name: {prod.name}</p>
+                <p>Color: {prod.color}</p>
+                </div>
+    }})
+
     return (
         <div className='h-screen'>
             <p className="m-4">Details by product id: {params.productId}</p>
+
+            {productName}
+
         </div>
     )
 }
 export default DetailsProduct;
 
 // params take the value of product.id
-
-/*
-export default function DetailsProduct({params}: {params: {productId: string}}) {
-    if (parseInt(params.productId) > 100) {
-        notFound();
-    }
-    console.log(params, "params")
-    return (
-        <div className='h-screen'>
-            <p className="m-4">Details by product id: {params.productId}</p>
-        </div>
-    )
-}
-*/
