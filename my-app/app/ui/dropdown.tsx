@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ProductsProps } from "../lib/definitions";
+import { ProductsProps } from "@/app/lib/definitions";
 import Link from 'next/link'
 
 export default function DropDownComp(products: ProductsProps[]) {
@@ -27,9 +27,9 @@ export default function DropDownComp(products: ProductsProps[]) {
                 
                 {products.map(product =>
                   <Link
-                    key={product.name}
+                    key={product.id}
                     className="hover:bg-blue-600 hover:text-blue-200 px-4 py-1"
-                    href={`products/${product.name}`}
+                    href={`/products/${product.id}`}
                     onClick={toggle}
                   >
                     {product.name}

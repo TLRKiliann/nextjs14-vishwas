@@ -24,18 +24,21 @@ const DetailsProduct = async ({params}: Props) => {
         notFound();
     }
 
-    // To display name of product
+    // To display name & color of product
     const productName = products.map((prod) => {
         if (prod.id === parseInt(params.productId)) {
-        return <p key={prod.id}>Name : {prod.name}</p>
+        return <div key={prod.id} className='m-4'>
+                <p>Name: {prod.name}</p>
+                <p>Color: {prod.color}</p>
+                </div>
     }})
 
     return (
         <div className='h-screen'>
             <p className="m-4">Details by product id: {params.productId}</p>
-            <div className='m-4'>
-                {productName}
-            </div>
+
+            {productName}
+
         </div>
     )
 }
