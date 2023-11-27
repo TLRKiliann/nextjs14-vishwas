@@ -25,17 +25,17 @@ export default function Header() {
                 <nav className='w-full flex align-center justify-end mr-5'>
                     <ul className='flex font-bold'>
                       
-                        <Link href="/" className='text-lg m-auto ml-10 p-2'>Home</Link>
+                        <Link href="/" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>Home</Link>
                         
-                        <Link href="/products" className='text-lg m-auto ml-10 p-2'>
+                        <Link href="/products" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
                             Products
                         </Link>
 
-                        <Link href="/docs" className='text-lg m-auto ml-10 p-2'>
+                        <Link href="/docs" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
                             Docs
                         </Link>
 
-                        <Link href="/login" className='text-lg m-auto ml-10 p-2'>
+                        <Link href="/login" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
                             Login
                         </Link>
 
