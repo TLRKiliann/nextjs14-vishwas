@@ -9,8 +9,8 @@ export default function Footer() {
                 py-4"
             >
                 
-                <Link href="/docs/info" className='flex align-center ml-10 p-2 hover:text-blue-400'>
-                    koalatr33<FaRegCopyright className="mt-1" />handcraft 2023
+                <Link href="/docs/info" className='flex align-center text-slate-50 ml-10 p-2 hover:text-cyan-200'>
+                    handcrafted by koalatr33 -&nbsp;<FaRegCopyright className="mt-1" />2023
                 </Link>
 
             </footer>
