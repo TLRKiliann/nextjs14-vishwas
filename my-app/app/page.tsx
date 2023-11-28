@@ -8,6 +8,7 @@ import { BsCpu } from "react-icons/bs";
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/cpu_i9.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
+import ScrollIndicator from '@/app/ui/scroll-indicator';
 
 export default function Home() {
   
@@ -24,7 +25,9 @@ export default function Home() {
 
   return (
     <div className='relative flex text-blue-300 bg-black z-0'>
-      
+      <ScrollIndicator />
+
+
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto -z-10'>
         <Image
@@ -42,13 +45,22 @@ export default function Home() {
           border border-b-blue-200 shadow-xl z-10'>
           
           <div className='flex flex-col h-40'>
-            <p className='text-xl text-blue-800 font-bold m-auto mb-0'>The</p>
+            <p className='text-xl text-blue-800 font-bold 
+              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
+              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
+              m-auto mb-0'>
+                The
+            </p>
             <h1 className='text-4xl font-bold 
               text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% m-auto my-0'>
+              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
+              m-auto my-0'>
               NextJS Tutorial
             </h1>
-            <p className='text-lg text-blue-800 font-bold m-auto mt-0'>
+            <p className='text-lg text-blue-800 font-bold 
+              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
+              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
+              m-auto mt-0'>
               All features includes
             </p>
           </div>
@@ -160,18 +172,18 @@ export default function Home() {
           <div className='w-[60px] h-auto bg-slate-900'>
           </div>
 
-          <div className='flex align-center justify-around w-full m-auto shadow-in'>
+          <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
 
 
-            <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 shadow-out
-              m-auto my-10 p-12 hover:transition hover:-skew-y-6 rounded-lg'
+            <div className='flex w-[400px] h-auto
+              m-auto hover:transition hover:-skew-y-6 rounded-lg'
             >
               <Image
                 src={cpuI9}
                 width={2157}
                 height={1440}
                 alt="forest img"
-                className='flex w-auto h-auto m-auto border border-slate-600/40 object-cover 
+                className='flex w-auto h-auto m-auto object-cover shadow-out
                   transition duration-0 hover:duration-300 hover:ease-in-out hover:rotate-[360deg] rounded-lg'
               />
             </div>
@@ -278,7 +290,7 @@ export default function Home() {
           <div className='w-[60px] h-auto bg-slate-900'>
           </div>
 
-          <div className='flex align-center justify-around w-full m-auto shadow-in'>
+          <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
 
             <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
               transition ease-in-out rounded-lg
@@ -320,15 +332,15 @@ export default function Home() {
 
             </div>
 
-            <div className='flex w-2/5 max-w-lg max-h-xs bg-slate-900/20 shadow-out
-              m-auto my-10 p-12 hover:transition hover:-skew-y-6 rounded-lg'
+            <div className='flex w-[400px] h-auto
+              m-auto hover:transition hover:-skew-y-6 rounded-lg'
             >
               <Image
                 src={cpuI7}
-                width={2157}
-                height={1440}
+                width={2500}
+                height={2500}
                 alt="forest img"
-                className='flex w-auto h-auto m-auto border border-slate-600/40 object-cover 
+                className='flex w-auto h-auto m-auto object-cover shadow-out
                   transition duration-0 hover:duration-300 hover:ease-in-out hover:rotate-[360deg] rounded-lg'
               />
             </div>
