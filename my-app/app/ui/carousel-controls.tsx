@@ -6,9 +6,10 @@ type Props = {
   onPrev(): void;
   onNext(): void;
 };
+
 const CarouselControls = (props: Props) => {
   return (
-    <div className="flex justify-end gap-2 ">
+    <div className="flex justify-end gap-2 mr-4">
       <button
         onClick={() => {
           if (props.canScrollPrev) {
@@ -18,8 +19,8 @@ const CarouselControls = (props: Props) => {
         disabled={!props.canScrollPrev}
         className={classNames({
           "px-4 py-2 text-white rounded-md": true,
-          "bg-indigo-200": !props.canScrollPrev,
-          "bg-indigo-400": props.canScrollPrev,
+          "bg-blue-200": !props.canScrollPrev,
+          "bg-blue-500": props.canScrollPrev,
         })}
       >
         Prev
@@ -33,8 +34,8 @@ const CarouselControls = (props: Props) => {
         disabled={!props.canScrollNext}
         className={classNames({
           "px-4 py-2 text-white rounded-md": true,
-          "bg-indigo-200": !props.canScrollNext,
-          "bg-indigo-400": props.canScrollNext,
+          "bg-blue-200": !props.canScrollNext,
+          "bg-blue-500": props.canScrollNext,
         })}
       >
         Next

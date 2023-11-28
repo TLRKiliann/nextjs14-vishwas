@@ -5,8 +5,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BsCpu } from "react-icons/bs";
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
-import cpuI9 from "@/public/img_cpu/cpu_i9.jpg";
+import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
+import boxCpui7 from "@/public/img_carousel/box-corei7.png";
+import boxCpui9 from "@/public/img_carousel/box-corei9.png";
+import multiBox from "@/public/img_carousel/multi-box.png";
 import ScrollIndicator from '@/app/ui/scroll-indicator';
 import Carousel from '@/app/ui/carousel';
 
@@ -15,8 +18,9 @@ export default function Home() {
   const pathname = usePathname();
 
   const images = [
-    cpuI9,
-    cpuI7
+    boxCpui7,
+    boxCpui9,
+    multiBox
   ];
 
   return (
@@ -112,7 +116,7 @@ export default function Home() {
 
 
 
-        <div className='h-100 bg-cyan-100'>
+        <div className='w-full h-[480px] bg-cyan-100'>
 
           <Carousel loop>
             {images.map((src, i) => {
@@ -120,17 +124,20 @@ export default function Home() {
                 // 👇 style each individual slide.
                 // relative - needed since we use the fill prop from next/image component
                 // h-64 - arbitrary height
-                // flex[0_0_100%]
+                // flex-[0_0_100%]
                 //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
                 //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
-                <div className="relative h-64 flex-[0_0_100%]" key={i}>
+                <div className="relative h-64 flex-[0_0_100%] md:px-[400px] xl:px[500px] mt-8 mb-20" key={i}>
                   {/* use object-cover + fill since we don't know the height and width of the parent */}
-                  <Image src={src} fill className="object-cover" alt="alt" />
+                  <Image src={src} 
+                    width={1920} height={1080} fill={false} 
+                    className="absolute  w-2/5 h-auto object-cover" 
+                    alt="alt"
+                  />
                 </div>
               );
             })}
           </Carousel>
-
 
           { /*<div className='flex w-3/5 min-h-xs bg-slate-900/20 m-auto mt-10 p-12 rounded-lg'>
             <Image
@@ -210,8 +217,8 @@ export default function Home() {
             >
               <Image
                 src={cpuI9}
-                width={2157}
-                height={1440}
+                width={5475}
+                height={3705}
                 alt="forest img"
                 className='flex w-auto h-auto m-auto object-cover shadow-out
                   transition duration-0 hover:duration-300 hover:ease-in-out hover:rotate-[360deg] rounded-lg'
