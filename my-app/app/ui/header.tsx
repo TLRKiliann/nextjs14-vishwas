@@ -10,7 +10,6 @@ export default function Header() {
     return (
         <>
             <header className="sticky flex top-0 left-0 w-full
-              
                 bg-gradient-to-r from-slate-900 from-10% via-sky-500 via-30% to-slate-900 to-90%
                 py-2 z-10"
             >
@@ -30,23 +29,23 @@ export default function Header() {
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
-                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 text-blue-200"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
                         >Home</Link>
                         
                         <Link href="/products" className={`${pathname === '/products'
-                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 text-blue-200"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
                         >Products</Link>
 
                         <Link href="/docs" className={`${pathname === '/docs'
-                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 text-blue-200"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
-                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 text-blue-200"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
                         >Login</Link>
 
                     </ul>
