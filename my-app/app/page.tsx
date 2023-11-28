@@ -61,7 +61,6 @@ export default function Home() {
               Home
             </Link>
             
-            
             <Link href="/products" className={`${pathname === '/products' 
               ? "text-cyan-600" 
               : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
@@ -96,7 +95,7 @@ export default function Home() {
         </div>
         
         <div className='h-100 bg-cyan-100'>
-          <div className='flex w-3/5 min-h-xs bg-slate-900/20 m-auto my-10 p-12 rounded-lg'>
+          <div className='flex w-3/5 min-h-xs bg-slate-900/20 m-auto mt-10 p-12 rounded-lg'>
             <Image
               src={boxCpu}
               width={1192}
@@ -105,6 +104,9 @@ export default function Home() {
               className='flex w-auto h-auto m-auto object-cover rounded-lg'
             />
           </div>
+          <legend className='text-sm text-blue-800 text-center my-4'>
+            Core i9 X-SERIES & Core i9 EXTREME
+          </legend>
         </div>
 
         <div className='w-full h-10 bg-slate-900'>
@@ -191,7 +193,7 @@ export default function Home() {
                     bg-gradient-to-br from-indigo-500 from-10% 
                   via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
                   >
-                    CPU i9<BsCpu className="text-blue-400 mt-1 ml-4" />
+                    Core CPU i9<BsCpu className="text-blue-400 mt-1 ml-4" />
                   </h2>
 
                   <p className='text-justify px-10 pb-5'>
@@ -295,7 +297,7 @@ export default function Home() {
                     bg-gradient-to-br from-indigo-500 from-10% 
                   via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
                   >
-                    CPU i7<BsCpu className="text-blue-400 mt-1 ml-4" />
+                    Core CPU i7<BsCpu className="text-blue-400 mt-1 ml-4" />
                   </h2>
 
                   <p className='text-justify px-10 pb-5'>

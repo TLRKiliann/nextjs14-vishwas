@@ -31,22 +31,22 @@ export default function Header() {
                       
                         <Link href="/" className={`${pathname === '/' 
                             ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
                         >Home</Link>
                         
                         <Link href="/products" className={`${pathname === '/products'
                             ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
                         >Products</Link>
 
                         <Link href="/docs" className={`${pathname === '/docs'
                             ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "text-lg m-auto ml-10 p-2 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-400 hover:scale-105"}`}
                         >Login</Link>
 
                     </ul>
