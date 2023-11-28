@@ -1,8 +1,12 @@
+"use client";
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link'
 import Image from 'next/image'
 import logoImg from '@/public/img_logo/processor.png';
 
 export default function Header() {
+    const pathname = usePathname();
     return (
         <>
             <header className="sticky flex top-0 left-0 w-full
@@ -25,19 +29,25 @@ export default function Header() {
                 <nav className='w-full flex align-center justify-end mr-5'>
                     <ul className='flex font-bold'>
                       
-                        <Link href="/" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>Home</Link>
+                        <Link href="/" className={`${pathname === '/' 
+                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                        >Home</Link>
                         
-                        <Link href="/products" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
-                            Products
-                        </Link>
+                        <Link href="/products" className={`${pathname === '/products'
+                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                        >Products</Link>
 
-                        <Link href="/docs" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
-                            Docs
-                        </Link>
+                        <Link href="/docs" className={`${pathname === '/docs'
+                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                        >Docs</Link>
 
-                        <Link href="/login" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
-                            Login
-                        </Link>
+                        <Link href="/login" className={`${pathname === '/login'
+                            ? "text-lg m-auto ml-10 p-2 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400"}`}
+                        >Login</Link>
 
                     </ul>
                 </nav>
