@@ -16,6 +16,40 @@
 
 - filter grayscale blur-sm contrast-200
 
+# animations
+
+- skew-y-6
+
+- transition
+
+- delay-300
+
+- duration-300
+
+- ease-in-out
+
+- translate-x(or:-y)-1/4 = 25%
+- translate-x(or:-y)-96 = 24rem
+
+example :
+
+      keyframes: {
+        slideanime: {
+          '0%': { transform: 'translateY(200px)'},
+          '100%': { transform: 'translateY(0px)' }
+        }
+      },
+      animation: {
+        "slide-anime": "slideanime 0.4s ease-in-out 3",
+      },
+
+and call
+
+className="animate-slide-anime"
+
+
+
+
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
