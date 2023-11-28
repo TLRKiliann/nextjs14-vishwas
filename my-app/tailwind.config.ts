@@ -8,6 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        sliceappear: {
+          "0%": {
+            opacity: "0.5"
+          },
+          "100%": {
+            opacity: "1"
+          }
+        }
+      },
+      animation: {
+        "slice-appear": "sliceappear 0.4s ease-in-out 1",
+      },
       dropShadow: {
         'lg': '2px 2px 1px rgba(0, 0, 0, 0.4)',
       },

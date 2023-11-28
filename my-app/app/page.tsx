@@ -41,14 +41,17 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className='absolute mt-0 flex flex-col align-center justify-center w-full h-40 bg-cyan-50 
-          border border-b-blue-200 shadow-xl z-10'>
+        <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 bg-cyan-50 
+          border border-b-blue-200 shadow-xl z-10                
+          animate-slice-appear"
+        >
           
           <div className='flex flex-col h-40'>
             <p className='text-xl text-blue-800 font-bold 
               text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
               via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto mb-0'>
+              m-auto mb-0'
+              >
                 The
             </p>
             <h1 className='text-4xl font-bold 
@@ -176,7 +179,7 @@ export default function Home() {
 
 
             <div className='flex w-[400px] h-auto
-              m-auto hover:transition hover:-skew-y-6 rounded-lg'
+              m-auto rounded-lg'
             >
               <Image
                 src={cpuI9}
@@ -333,7 +336,7 @@ export default function Home() {
             </div>
 
             <div className='flex w-[400px] h-auto
-              m-auto hover:transition hover:-skew-y-6 rounded-lg'
+              m-auto rounded-lg'
             >
               <Image
                 src={cpuI7}
