@@ -10,8 +10,22 @@ export default function ListProducts() {
     // 2 params ne fonctionnent pas dans une même URL !!!
     return (
         <div className="h-screen">
-            <div>{dropDownMenu}</div>
-            <h1 className='m-4'>List of products</h1>
+            
+            <div className="flex align-center justify-between">
+
+                <h1 className='text-4xl font-bold 
+                    text-transparent bg-clip-text 
+                    bg-gradient-to-br from-indigo-500 from-10% 
+                    via-sky-500 via-50% to-emerald-500 to-90%
+                    mx-2 my-auto'
+                >
+                    Products
+                </h1>
+            
+                <div>{dropDownMenu}</div>
+
+            </div>
+
 
             <div className="flex flex-col m-10">
                 {products.map((prod) => (

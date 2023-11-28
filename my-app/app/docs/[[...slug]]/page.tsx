@@ -26,7 +26,6 @@ const Docs = ({ params }: { params: { slug: string[] } }) => {
     return (
         <div className='flex flex-col min-h-screen'>
             
-            <h1 className='text-3xl m-4'>Docs Page</h1>
 
             <p className='text-lg mx-4 my-2 hover:text-blue-400'>
                 <Link 
