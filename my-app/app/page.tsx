@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,19 +8,16 @@ import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/cpu_i9.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
 import ScrollIndicator from '@/app/ui/scroll-indicator';
+import Carousel from '@/app/ui/carousel';
 
 export default function Home() {
   
   const pathname = usePathname();
-  /*
-  console.log(pathname, "pathname");
-  */
 
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push('/docs');
-  }
+  const images = [
+    cpuI9,
+    cpuI7
+  ];
 
   return (
     <div className='relative flex text-blue-300 bg-black z-0'>
@@ -109,8 +105,34 @@ export default function Home() {
           <h2 className='text-2xl text-blue-800 m-auto'>Welcome to our shop !</h2>
         </div>
         
+
+
+
+
+
+
+
         <div className='h-100 bg-cyan-100'>
-          <div className='flex w-3/5 min-h-xs bg-slate-900/20 m-auto mt-10 p-12 rounded-lg'>
+
+          <Carousel loop>
+            {images.map((src, i) => {
+              return (
+                // 👇 style each individual slide.
+                // relative - needed since we use the fill prop from next/image component
+                // h-64 - arbitrary height
+                // flex[0_0_100%]
+                //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
+                //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
+                <div className="relative h-64 flex-[0_0_100%]" key={i}>
+                  {/* use object-cover + fill since we don't know the height and width of the parent */}
+                  <Image src={src} fill className="object-cover" alt="alt" />
+                </div>
+              );
+            })}
+          </Carousel>
+
+
+          { /*<div className='flex w-3/5 min-h-xs bg-slate-900/20 m-auto mt-10 p-12 rounded-lg'>
             <Image
               src={boxCpu}
               width={1192}
@@ -118,11 +140,16 @@ export default function Home() {
               alt="forest img"
               className='flex w-auto h-auto m-auto object-cover rounded-lg'
             />
-          </div>
+          </div> */}
+
           <legend className='text-sm text-blue-800 text-center my-4'>
             Core i9 X-SERIES & Core i9 EXTREME
           </legend>
+        
         </div>
+
+
+
 
         <div className='w-full h-10 bg-slate-900'>
         </div>
