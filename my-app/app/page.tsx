@@ -116,7 +116,7 @@ export default function Home() {
 
 
 
-        <div className='w-full h-[480px] bg-cyan-100'>
+        <div className='w-full h-[360px] bg-cyan-100'>
 
           <Carousel loop>
             {images.map((src, i) => {
@@ -127,11 +127,11 @@ export default function Home() {
                 // flex-[0_0_100%]
                 //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
                 //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
-                <div className="relative h-64 flex-[0_0_100%] md:px-[400px] xl:px[500px] mt-8 mb-20" key={i}>
+                <div className="relative w-2/6 h-64 flex shrink-0 grow-0 mx-[350px]" key={i}>
                   {/* use object-cover + fill since we don't know the height and width of the parent */}
                   <Image src={src} 
                     width={1920} height={1080} fill={false} 
-                    className="absolute  w-2/5 h-auto object-cover" 
+                    className="absolute m-auto object-cover" 
                     alt="alt"
                   />
                 </div>
