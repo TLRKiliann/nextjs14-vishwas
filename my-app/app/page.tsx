@@ -10,6 +10,8 @@ import { FaYoutube } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
+import ScrollIndicator from '@/app/ui/scroll-indicator';
+import Carousel from '@/app/ui/carousel';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
@@ -17,8 +19,7 @@ import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import multiBox from "@/public/img_carousel/multi-box.png";
-import ScrollIndicator from '@/app/ui/scroll-indicator';
-import Carousel from '@/app/ui/carousel';
+
 
 export default function Home() {
   
@@ -75,6 +76,7 @@ export default function Home() {
             </p>
           </div>
 
+
           <div className='flex justify-around w-full text-lg text-blue-800 m-auto mb-1'>
             <Link href="/" className={`${pathname === '/' 
               ? "text-cyan-600" 
@@ -112,30 +114,24 @@ export default function Home() {
 
         </div>
 
+
         <div className='relative flex align-center justify-center h-12 bg-cyan-100 shadow-xl mt-40 z-0'>
           <h2 className='text-2xl text-blue-800 m-auto'>Welcome to our shop !</h2>
         </div>
         
-
-
-
-
-
-
 
         <div className='w-full h-[360px] bg-cyan-100'>
 
           <Carousel loop>
             {images.map((src, i) => {
               return (
-                // 👇 style each individual slide.
-                // relative - needed since we use the fill prop from next/image component
-                // h-64 - arbitrary height
-                // flex-[0_0_100%]
-                //   - shorthand for flex-grow:0; flex-shrink:0; flex-basis:100%
-                //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
-                <div className="relative w-2/6 h-64 flex shrink-0 grow-0 mx-[350px]" key={i}>
-                  {/* use object-cover + fill since we don't know the height and width of the parent */}
+                <div 
+                  className="relative 
+                    w-2/6 sm:w-3/6 lg:w-2/6 xl:w-[400px] h-64 
+                    flex shrink-0 grow-0
+                    sm:mx-[350px] lg:mx-[350px] 2xl:mx-[850px]
+                    sm:pt-4 md:pt-3"
+                  key={i}>
                   <Image src={src} 
                     width={1920} height={1080} fill={false} 
                     className="absolute m-auto object-cover" 
@@ -146,23 +142,11 @@ export default function Home() {
             })}
           </Carousel>
 
-          { /*<div className='flex w-3/5 min-h-xs bg-slate-900/20 m-auto mt-10 p-12 rounded-lg'>
-            <Image
-              src={boxCpu}
-              width={1192}
-              height={671}
-              alt="forest img"
-              className='flex w-auto h-auto m-auto object-cover rounded-lg'
-            />
-          </div> */}
-
           <legend className='text-sm text-blue-800 text-center my-4'>
             Core i9 X-SERIES & Core i9 EXTREME
           </legend>
         
         </div>
-
-
 
 
         <div className='w-full h-10 bg-slate-900'>
@@ -200,15 +184,6 @@ export default function Home() {
 
         <div className='w-full h-10 bg-slate-900'>
         </div>
-
-
-
-
-
-
-
-
-
 
 
         <div className='flex w-full'>
@@ -280,12 +255,6 @@ export default function Home() {
         </div>
 
 
-
-
-
-
-
-
         <div className='w-full h-10 bg-slate-900'>
         </div>
 
@@ -321,12 +290,6 @@ export default function Home() {
 
         <div className='w-full h-10 bg-slate-900'>
         </div>
-
-
-
-
-
-
 
 
         <div className='flex w-full'>
@@ -397,8 +360,6 @@ export default function Home() {
         </div>
 
 
-
-
         <div className='w-full h-10 bg-slate-900'>
         </div>
 
@@ -443,6 +404,7 @@ export default function Home() {
 
         <div className='w-full h-10 bg-slate-900'>
         </div>
+
 
       </main>
 
