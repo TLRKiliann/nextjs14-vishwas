@@ -49,9 +49,9 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 bg-cyan-50 
-          border border-b-blue-200 shadow-xl z-10                
-          animate-slice-appear"
+        <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
+          dark:bg-cyan-50 bg-slate-50
+          border border-b-blue-200 shadow-xllight z-10 animate-slice-appear"
         >
           
           <div className='flex flex-col h-40'>
@@ -59,19 +59,21 @@ export default function Home() {
               text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
               via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
               m-auto mb-0'
-              >
-                The
+            >
+              The
             </p>
             <h1 className='text-4xl font-bold 
               text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
               via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto my-0'>
+              m-auto my-0'
+            >
               NextJS Tutorial
             </h1>
             <p className='text-lg text-blue-800 font-bold 
               text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
               via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto mt-0'>
+              m-auto mt-0'
+            >
               All features includes
             </p>
           </div>
@@ -115,12 +117,14 @@ export default function Home() {
         </div>
 
 
-        <div className='relative flex align-center justify-center h-12 bg-cyan-100 shadow-xl mt-40 z-0'>
+        <div className='relative flex align-center justify-center h-12 
+          dark:bg-cyan-100 bg-slate-100 shadow-xllight mt-40 z-0'
+        >
           <h2 className='text-2xl text-blue-800 m-auto'>Welcome to our shop !</h2>
         </div>
         
 
-        <div className='w-full h-[360px] bg-white dark:bg-cyan-100'>
+        <div className='w-full h-[360px] bg-slate-200 dark:bg-cyan-100'>
 
           <Carousel loop>
             {images.map((src, i) => {
@@ -149,24 +153,27 @@ export default function Home() {
         </div>
 
 
-        <div className='w-full h-10 bg-slate-900'>
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
 
-        <div className='w-full bg-slate-900 py-10'>
+        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
           
           <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
 
           <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
 
             <h2 className='text-3xl font-extrabold
-              text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
-              via-sky-500 via-50% to-emerald-500 to-90% mb-4'
+              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
+              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
+              dark:to-emerald-500 dark:to-90% 
+              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
+              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
             >
               High performance for demanding customers
             </h2>
 
-            <p className='text-justify'>
+            <p className='text-justify dark:text-blue-300 text-blue-600'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -182,13 +189,13 @@ export default function Home() {
         </div>
 
 
-        <div className='w-full h-10 bg-slate-900'>
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
 
         <div className='flex w-full'>
 
-          <div className='w-[60px] h-auto bg-slate-900'>
+          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
           <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
@@ -218,16 +225,16 @@ export default function Home() {
 
               <section className='w-full flex'>
 
-                <article className='h-auto bg-slate-900'>
+                <article className='h-auto dark:bg-slate-900 bg-slate-100'>
 
                   <h2 className='flex align-center text-2xl font-bold text-transparent bg-clip-text 
                     bg-gradient-to-br from-indigo-500 from-10% 
                   via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
                   >
-                    Core CPU i9<BsCpu className="text-blue-400 mt-1 ml-4" />
+                    Core CPU i9<BsCpu className="dark:text-blue-400 text-blue-600 mt-1 ml-4" />
                   </h2>
 
-                  <p className='text-justify px-10 pb-5'>
+                  <p className='text-justify dark:text-blue-300 text-blue-600 px-10 pb-5'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -249,30 +256,33 @@ export default function Home() {
 
           </div>
 
-          <div className='w-[60px] h-auto bg-slate-900'>
+          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>
 
 
-        <div className='w-full h-10 bg-slate-900'>
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
 
-        <div className='w-full bg-slate-900 py-10'>
+        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
           
           <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
 
           <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
 
             <h2 className='text-3xl font-extrabold
-              text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
-              via-sky-500 via-50% to-emerald-500 to-90% mb-4'
+              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
+              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
+              dark:to-emerald-500 dark:to-90% 
+              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
+              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
             >
               We can help you make the right choice
             </h2>
 
-            <p className='text-justify'>
+            <p className='text-justify dark:text-blue-300 text-blue-600'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -288,13 +298,13 @@ export default function Home() {
         </div>
 
 
-        <div className='w-full h-10 bg-slate-900'>
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
 
         <div className='flex w-full'>
 
-          <div className='w-[60px] h-auto bg-slate-900'>
+          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
           <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
@@ -310,16 +320,16 @@ export default function Home() {
 
               <section className='w-full flex'>
 
-                <article className='h-auto bg-slate-900'>
+                <article className='h-auto dark:bg-slate-900 bg-slate-100'>
 
                   <h2 className='flex align-center text-2xl font-bold text-transparent bg-clip-text 
                     bg-gradient-to-br from-indigo-500 from-10% 
                   via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
                   >
-                    Core CPU i7<BsCpu className="text-blue-400 mt-1 ml-4" />
+                    Core CPU i7<BsCpu className="dark:text-blue-400 text-blue-600 mt-1 ml-4" />
                   </h2>
 
-                  <p className='text-justify px-10 pb-5'>
+                  <p className='text-justify dark:text-blue-300 text-blue-600 px-10 pb-5'>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
                     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
                     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -354,30 +364,33 @@ export default function Home() {
 
           </div>
 
-          <div className='w-[60px] h-auto bg-slate-900'>
+          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>
 
 
-        <div className='w-full h-10 bg-slate-900'>
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
 
-        <div className='w-full bg-slate-900 py-10'>
+        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
           
           <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
 
           <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
 
             <h2 className='text-3xl font-extrabold
-              text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
-              via-sky-500 via-50% to-emerald-500 to-90% mb-4'
+              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
+              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
+              dark:to-emerald-500 dark:to-90% 
+              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
+              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
             >
               We're present on every network
             </h2>
 
-            <p className='text-justify'>
+            <p className='text-justify dark:text-blue-300 text-blue-600'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -387,12 +400,12 @@ export default function Home() {
             </p>
 
             <div className='flex align-center justify-end mt-4'>
-              <span className='ml-4'><FaGithub size={28} /></span>
-              <span className='ml-4'><FaSquareTwitter size={28} /></span>
-              <span className='ml-4'><FaYoutube size={28} /></span>
-              <span className='ml-4'><FaInstagram size={28} /></span>
-              <span className='ml-4'><FaTiktok size={28} /></span>
-              <span className='ml-4'><FaLinkedin size={28} /></span>
+              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaGithub size={28} /></span>
+              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaSquareTwitter size={28} /></span>
+              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaYoutube size={28} /></span>
+              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaInstagram size={28} /></span>
+              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaTiktok size={28} /></span>
+              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaLinkedin size={28} /></span>
             </div>
 
           </div>
@@ -402,7 +415,7 @@ export default function Home() {
         </div>
 
 
-        <div className='w-full h-10 bg-slate-900'>
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
 
