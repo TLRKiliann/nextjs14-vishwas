@@ -1,13 +1,33 @@
+"use client";
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 import logoImg from '@/public/img_logo/processor.png';
 
 export default function Header() {
+    const pathname = usePathname();
+    const [mounted, setMounted] = useState(false)
+    const { theme, setTheme } = useTheme()
+
+    useEffect(() => {
+      setMounted(true)
+    }, [])
+  
+    if (!mounted) {
+      return null
+    }
+
     return (
         <>
             <header className="sticky flex top-0 left-0 w-full
-              
-                bg-gradient-to-r from-slate-900 from-10% via-sky-500 via-30% to-slate-900 to-90%
+                text-blue-900 dark:text-slate-50
+                dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
+                dark:via-sky-500 dark:via-30% dark:to-slate-900 dark:to-90%
+                bg-gradient-to-r from-blue-400 from-10% 
+                via-slate-50 via-30% to-blue-400 to-90%
                 py-2 z-10"
             >
                 
@@ -25,19 +45,36 @@ export default function Header() {
                 <nav className='w-full flex align-center justify-end mr-5'>
                     <ul className='flex font-bold'>
                       
-                        <Link href="/" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>Home</Link>
+                        <Link href="/" className={`${pathname === '/' 
+                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                        >Home</Link>
                         
-                        <Link href="/products" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
-                            Products
-                        </Link>
+                        <Link href="/products" className={`${pathname === '/products'
+                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                        >Products</Link>
 
-                        <Link href="/docs" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
-                            Docs
-                        </Link>
+                        <Link href="/docs" className={`${pathname === '/docs'
+                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                        >Docs</Link>
 
-                        <Link href="/login" className='text-lg m-auto ml-10 p-2 hover:text-blue-400'>
-                            Login
-                        </Link>
+                        <Link href="/login" className={`${pathname === '/login'
+                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                        >Login</Link>
+
+                        <select 
+                            value={theme} 
+                            onChange={e => setTheme(e.target.value)}
+                            className='text-lg dark:bg-slate-900 bg-blue-400 text-blue-900 
+                            dark:text-slate-50 my-2 ml-10 rounded-lg'
+                        >
+                            <option value="system">System</option>
+                            <option value="dark">Dark</option>
+                            <option value="light">Light</option>
+                        </select>
 
                     </ul>
                 </nav>
