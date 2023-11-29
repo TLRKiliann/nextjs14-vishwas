@@ -4,6 +4,13 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { BsCpu } from "react-icons/bs";
+import { FaGithub } from "react-icons/fa6";
+import { FaSquareTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
+
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
@@ -406,7 +413,7 @@ export default function Home() {
               text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 from-10% 
               via-sky-500 via-50% to-emerald-500 to-90% mb-4'
             >
-              High performance for demanding customers
+              We're present on every network
             </h2>
 
             <p className='text-justify'>
@@ -417,6 +424,15 @@ export default function Home() {
               fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
               culpa qui officia deserunt mollit anim id est laborum.
             </p>
+
+            <div className='flex align-center justify-end mt-4'>
+              <span className='ml-4'><FaGithub size={28} /></span>
+              <span className='ml-4'><FaSquareTwitter size={28} /></span>
+              <span className='ml-4'><FaYoutube size={28} /></span>
+              <span className='ml-4'><FaInstagram size={28} /></span>
+              <span className='ml-4'><FaTiktok size={28} /></span>
+              <span className='ml-4'><FaLinkedin size={28} /></span>
+            </div>
 
           </div>
 
