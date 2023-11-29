@@ -120,7 +120,7 @@ export default function Home() {
         </div>
         
 
-        <div className='w-full h-[360px] bg-cyan-100'>
+        <div className='w-full h-[360px] bg-white dark:bg-cyan-100'>
 
           <Carousel loop>
             {images.map((src, i) => {
