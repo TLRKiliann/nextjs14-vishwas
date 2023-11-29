@@ -63,7 +63,7 @@ export default function ListProducts() {
                         transition-all hover:scale-[1.025] hover:shadow-xl'
                     >
                         <div className='flex flex-col w-[300px] m-auto 
-                            border-4 border-slate-700 rounded-tl-xl rounded-bl-xl'
+                            border-r-none border-t-8 border-b-8 border-l-8 border-slate-700 rounded-tl-xl rounded-bl-xl'
                         >
                             <Image
                                 src={cpuI9}
@@ -73,23 +73,23 @@ export default function ListProducts() {
                                 className="w-auto h-auto object-cover rounded-tl-xl"
                             />
                             <div className='flex justify-around w-full h-auto 
-                                bg-slate-300/50 border-t-4 border-t-slate-700 rounded-bl-lg'
+                                border-t-8 border-t-slate-700 rounded-bl-lg'
                             >
                                 <button className='w-16
-                                    text-lg font-bold
-                                    bg-sky-500 border-none                                
+                                    text-lg font-extrabold
+                                    bg-blue-500 border-none                                
                                     my-2 py-1 rounded-full shadow-btn 
-                                    hover:scale-[0.95] hover:bg-sky-400 hover:shadow-none
-                                    active:bg-sky-300 active:shadow-in'
+                                    hover:scale-[0.95] hover:bg-blue-600 hover:shadow-none
+                                    active:bg-blue-600 active:shadow-inlight active:text-slate-300'
                                 >
                                     -
                                 </button>
                                 <button className='w-16
-                                    text-lg font-bold
-                                    bg-sky-500 border-none                                
+                                    text-lg font-extrabold
+                                    bg-blue-500 border-none                                
                                     my-2 py-1 rounded-full shadow-btn 
-                                    hover:scale-[0.95] hover:bg-sky-400 hover:shadow-none
-                                    active:bg-sky-300 active:shadow-in'
+                                    hover:scale-[0.95] hover:bg-blue-600 hover:shadow-none
+                                    active:bg-blue-600 active:shadow-inlight active:text-slate-300'
                                 >
                                     +
                                 </button>
