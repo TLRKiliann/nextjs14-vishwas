@@ -1,7 +1,8 @@
 export type ProductsProps = {
     id: number;
     name: string;
-    color: string;
+    price: number;
+    stock: number;
 }
 
 export type ReviewsProps = {

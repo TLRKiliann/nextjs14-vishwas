@@ -5,18 +5,21 @@ import { CustomersProps } from "./definitions";
 export const products: ProductsProps[] = [
     {
         id: 1,
-        name: "apples",
-        color: "red"
+        name: "Core i9",
+        price: 1230,
+        stock: 23
     },
     {
         id: 2,
-        name: "banana",
-        color: "yellow"
+        name: "Core i7",
+        price: 1130,
+        stock: 23
     },
     {
         id: 3,
-        name: "orange",
-        color: "orange"
+        name: "Core i5",
+        price: 1030,
+        stock: 23
     }
 ];
 
