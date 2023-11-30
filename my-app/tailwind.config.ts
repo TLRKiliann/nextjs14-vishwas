@@ -25,7 +25,7 @@ const config: Config = {
         'lg': '2px 2px 1px rgba(0, 0, 0, 0.4)',
       },
       boxShadow: {
-        'btn': '0px 0px 7px rgba(0, 0, 0, 0.8)',
+        'btn': '0px 0px 7px rgba(40, 40, 40, 0.8)',
         'out': '0px 0px 10px rgba(0, 0, 0, 0.8)',
         'in': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
         'inlight': 'inset 0px 0px 10px rgba(0, 0, 0, 0.5)',
