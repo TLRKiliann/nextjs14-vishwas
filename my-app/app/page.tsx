@@ -12,14 +12,12 @@ import { FaTiktok } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import ScrollIndicator from '@/app/ui/scroll-indicator';
 import Carousel from '@/app/ui/carousel';
-
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import multiBox from "@/public/img_carousel/multi-box.png";
-
 
 export default function Home() {
   
@@ -201,7 +199,7 @@ export default function Home() {
           <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
 
 
-            <div className='flex w-[400px] h-auto
+            <div className='flex md:w-[300px] xl:w-[400px] h-auto
               m-auto rounded-lg'
             >
               <Image
@@ -209,13 +207,14 @@ export default function Home() {
                 width={5475}
                 height={3705}
                 alt="forest img"
-                className='flex w-auto h-auto m-auto object-cover shadow-out
-                  transition duration-0 hover:duration-300 hover:ease-in-out hover:rotate-[360deg] rounded-lg'
+                className='object-cover shadow-out
+                  transition duration-0 hover:duration-300 hover:ease-in-out rounded-lg
+                  hover:filter hover:hue-rotate-90'
               />
             </div>
 
             <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
-              transition ease-in-out rounded-lg
+              transform transition ease-in-out rounded-lg
               hover:scale-105 hover:text-blue-200 hover:shadow-2xl'>
 
               <span className='h-10 border-none
@@ -310,7 +309,7 @@ export default function Home() {
           <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
 
             <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
-              transition ease-in-out rounded-lg
+              transform transition ease-in-out rounded-lg
               hover:scale-105 hover:text-blue-200 hover:shadow-2xl'>
 
               <span className='h-10 border-none
@@ -349,16 +348,15 @@ export default function Home() {
 
             </div>
 
-            <div className='flex w-[400px] h-auto
-              m-auto rounded-lg'
-            >
+            <div className='flex md:w-[300px] xl:w-[400px] h-auto m-auto rounded-lg'>
               <Image
                 src={cpuI7}
                 width={2500}
                 height={2500}
                 alt="forest img"
-                className='flex w-auto h-auto m-auto object-cover shadow-out
-                  transition duration-0 hover:duration-300 hover:ease-in-out hover:rotate-[360deg] rounded-lg'
+                className='object-cover shadow-out
+                  transition duration-0 hover:duration-300 hover:ease-in-out hover:skew-y-12 rounded-lg
+                  hover:filter hover:grayscale hover:contrast-200'
               />
             </div>
 
