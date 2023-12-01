@@ -114,11 +114,23 @@ export default function Home() {
 
         </div>
 
-
         <div className='relative flex align-center justify-center h-12 
-          dark:bg-cyan-100 bg-slate-100 shadow-xllight mt-40 z-0'
+          dark:text-slate-50 text-cyan-600
+          dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
+          dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
+          bg-gradient-to-r from-blue-400 from-10% 
+          via-slate-50 via-30% to-blue-400 to-90%
+          shadow-xllight mt-40 z-0'
         >
-          <h2 className='text-2xl text-blue-800 m-auto'>Welcome to our shop !</h2>
+          <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text 
+            dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
+            dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
+            dark:drop-shadow-lg
+            bg-gradient-to-br from-slate-600 from-10% 
+            via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg'
+          >
+            Welcome to shop !
+          </h2>
         </div>
         
 
@@ -355,7 +367,8 @@ export default function Home() {
                 height={2500}
                 alt="forest img"
                 className='object-cover shadow-out
-                  transition duration-0 hover:duration-300 hover:ease-in-out hover:skew-y-12 rounded-lg
+                  transition ease-in-out duration-0 
+                  hover:duration-300 hover:ease-in-out hover:skew-y-12 rounded-lg
                   hover:filter hover:grayscale hover:contrast-200'
               />
             </div>
