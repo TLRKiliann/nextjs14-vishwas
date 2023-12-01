@@ -8,7 +8,7 @@ export type ProductsProps = {
 
 export type ReviewsProps = {
     id: number;
-    ref: string;
+    categories: string;
 }
 
 export type CustomersProps = {

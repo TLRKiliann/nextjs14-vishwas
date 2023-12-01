@@ -6,7 +6,7 @@ export const products: ProductsProps[] = [
     {
         id: 1,
         name: "Core i9",
-        img: "/img_cpu/i9_cpu.jpg",
+        img: "/img_cpu/cpu_i9.jpg",
         price: 1230,
         stock: 23
     },
@@ -27,7 +27,7 @@ export const products: ProductsProps[] = [
     {
         id: 4,
         name: "Core i9",
-        img: "/img_cpu/i9_cpu.jpg",
+        img: "/img_cpu/cpu_i9.jpg",
         price: 1230,
         stock: 23
     },
@@ -50,15 +50,15 @@ export const products: ProductsProps[] = [
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        ref: "extra 1"
+        categories: "article for id 1"
     },
     {
         id: 2,
-        ref: "extra 2"
+        categories: "article for id 2"
     },
     {
         id: 3,
-        ref: "extra 3"
+        categories: "article for id 3"
     }
 ];
 
