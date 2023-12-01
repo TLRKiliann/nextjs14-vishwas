@@ -33,15 +33,15 @@ export const products: ProductsProps[] = [
     },
     {
         id: 5,
-        name: "Xeon",
-        img: "/img_cpu/cpu_i7.jpg",
+        name: "Pentium",
+        img: "/img_cpu/pentium.jpg",
         price: 1130,
         stock: 23
     },
     {
         id: 6,
         name: "Athalon",
-        img: "/img_cpu/cpu_i5.jpg",
+        img: "/img_cpu/athalon.jpg",
         price: 1030,
         stock: 23
     }

@@ -17,6 +17,7 @@ import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
+import dualBox from "@/public/img_carousel/dual-box.png";
 import multiBox from "@/public/img_carousel/multi-box.png";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
   const images = [
     boxCpui7,
     boxCpui9,
+    dualBox,
     multiBox
   ];
 
@@ -119,7 +121,7 @@ export default function Home() {
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
           bg-gradient-to-r from-blue-400 from-10% 
-          via-slate-50 via-30% to-blue-400 to-90%
+          via-slate-50 via-40% to-blue-400 to-90%
           shadow-xllight mt-40 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text 
@@ -135,7 +137,7 @@ export default function Home() {
         </div>
         
 
-        <div className='w-full h-[360px] bg-slate-200 dark:bg-cyan-100'>
+        <div className='w-full h-[360px] bg-slate-200/90 dark:bg-cyan-100/90'>
 
           <Carousel loop>
             {images.map((src, i) => {
