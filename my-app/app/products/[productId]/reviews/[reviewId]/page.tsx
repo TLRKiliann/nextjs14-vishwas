@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { products } from "@/app/lib/datas";
+import { reviews } from "@/app/lib/datas";
 
 type Props = {
     params: {
@@ -26,7 +28,25 @@ export default function ReviewById({ params }: Props) {
     //console.log(params.reviewId, "reviewid")
     return (
         <div className='flex flex-col min-h-screen'>
-            <p>Product id: {params.productId} and review id: {params.reviewId}</p>
+            <div className='p-4'>
+                <p>Product id: {params.productId} and article id: {params.reviewId}</p>
+            </div>
+            {products.map((prod) => (
+                prod.id === parseInt(params.productId) ? (
+                    <div key={prod.id} className='p-4'>
+                        <p>{prod.name}</p>
+                        <p>{prod.price}.- CHF</p>
+                    </div>
+                ) : null
+            ))}
+            {reviews.map((rev) => (
+                rev.id === parseInt(params.reviewId) ? (
+                    <div key={rev.id} className='p-4'>
+                        <h3 className='text-2xl'>{rev.categories}</h3>
+                        <p className='text-md mt-2'>{rev.review}</p>
+                    </div>
+                ) : null
+            ))}
         </div>
     )
 }

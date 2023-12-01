@@ -1,12 +1,15 @@
 export type ProductsProps = {
     id: number;
     name: string;
-    color: string;
+    img: string;
+    price: number;
+    stock: number;
 }
 
 export type ReviewsProps = {
     id: number;
-    ref: string;
+    categories: string;
+    review: string;
 }
 
 export type CustomersProps = {

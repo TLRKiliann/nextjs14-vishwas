@@ -31,6 +31,10 @@
 - translate-x(or:-y)-1/4 = 25%
 - translate-x(or:-y)-96 = 24rem
 
+- scale
+
+ex: scale-105 (transform + transition)
+
 example :
 
       keyframes: {

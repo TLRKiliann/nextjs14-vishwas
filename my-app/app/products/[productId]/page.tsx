@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { products } from "@/app/lib/datas";
+import { reviews } from "@/app/lib/datas";
 
 type Props = {
     params: {
@@ -27,17 +29,32 @@ const DetailsProduct = async ({params}: Props) => {
     // To display name & color of product
     const productName = products.map((prod) => {
         if (prod.id === parseInt(params.productId)) {
-        return <div key={prod.id} className='m-4'>
-                <p>Name: {prod.name}</p>
-                <p>Color: {prod.color}</p>
+            return (
+                <div key={prod.id} className='p-4'>
+                    <p>Name: {prod.name}</p>
+                    <p>Price: {prod.price}.- CHF</p>
                 </div>
-    }})
+            )
+        }
+    })
 
     return (
         <div className='h-screen'>
-            <p className="m-4">Details by product id: {params.productId}</p>
+            <p className="p-4">Details by product id: {params.productId}</p>
 
             {productName}
+
+            {reviews.map((rev) => (
+                rev.id === parseInt(params.productId) ? (
+                    <Link 
+                        key={rev.id} 
+                        href={`/products/${params.productId}/reviews/${rev.id}`}
+                        className='text-blue-400 hover:text-blue-300 p-4'
+                    >
+                        {rev.categories}
+                    </Link>
+                ) : null
+            ))}
 
         </div>
     )

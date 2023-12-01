@@ -5,33 +5,63 @@ import { CustomersProps } from "./definitions";
 export const products: ProductsProps[] = [
     {
         id: 1,
-        name: "apples",
-        color: "red"
+        name: "Core i9",
+        img: "/img_cpu/cpu-i92.png",
+        price: 1230,
+        stock: 23
     },
     {
         id: 2,
-        name: "banana",
-        color: "yellow"
+        name: "Core i7",
+        img: "/img_cpu/cpu_i7.jpg",
+        price: 1130,
+        stock: 23
     },
     {
         id: 3,
-        name: "orange",
-        color: "orange"
+        name: "Core i5",
+        img: "/img_cpu/cpu_i5.jpg",
+        price: 1030,
+        stock: 23
+    },
+    {
+        id: 4,
+        name: "Core i3",
+        img: "/img_cpu/cpu_i3.jpg",
+        price: 1230,
+        stock: 23
+    },
+    {
+        id: 5,
+        name: "Pentium",
+        img: "/img_cpu/pentium.jpg",
+        price: 1130,
+        stock: 23
+    },
+    {
+        id: 6,
+        name: "Athalon",
+        img: "/img_cpu/athalon.jpg",
+        price: 1030,
+        stock: 23
     }
 ];
 
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        ref: "extra 1"
+        categories: "Last article about cpu i9",
+        review: "little text to display something (cpu-i9)"
     },
     {
         id: 2,
-        ref: "extra 2"
+        categories: "Last article about cpu i7",
+        review: "little text to display something (cpu-i7)"
     },
     {
         id: 3,
-        ref: "extra 3"
+        categories: "Last article about cpu i5",
+        review: "little text to display something (cpu-i5)"
     }
 ];
 
