@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { products } from "@/app/lib/datas";
-import menuDropdown from "@/app/ui/dropdown";
+import menuDropdown from "@/app/ui/products/dropdown";
 //import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 
 export default function ListProducts() {
@@ -11,7 +11,7 @@ export default function ListProducts() {
     const dropDownMenu = menuDropdown(products);
     // 2 params ne fonctionnent pas dans une même URL !!!
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
             
             <div className="flex align-center justify-between">
 
@@ -19,7 +19,7 @@ export default function ListProducts() {
                     text-transparent bg-clip-text 
                     bg-gradient-to-br from-indigo-500 from-10% 
                     via-sky-500 via-50% to-emerald-500 to-90%
-                    mx-2 my-auto'
+                    p-2'
                 >
                     Products
                 </h1>
@@ -32,7 +32,8 @@ export default function ListProducts() {
             <div className='px-20'>
 
                 <div className='grid grid-cols-3 grid-rows-2 justify-items-center 
-                    gap-y-10 border-4 bg-blue-50 p-10'>
+                    gap-y-10 border border-slate-100 bg-slate-200/50 dark:border-slate-900 
+                    dark:bg-cyan-50 rounded-2xl shadow-in p-10'>
 
                     {products.map((prod) => (
                         <div key={prod.id} className='flex flex-col m-auto h-auto bg-slate-700 rounded-lg
@@ -72,8 +73,8 @@ export default function ListProducts() {
                                     </p>
                                     <Link 
                                         href={`/products/${prod.id}`} 
-                                        className='text-xs font-bold mx-auto text-blue-500 hover:text-blue-400'>
-                                        Details
+                                        className='text-xs font-bold mx-auto text-blue-500 hover:text-blue-400 pb-1'>
+                                        View details
                                     </Link>
                                 </div>
 

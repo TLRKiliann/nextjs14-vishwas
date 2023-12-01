@@ -30,7 +30,7 @@ const DetailsProduct = async ({params}: Props) => {
     const productName = products.map((prod) => {
         if (prod.id === parseInt(params.productId)) {
             return (
-                <div key={prod.id} className='m-4'>
+                <div key={prod.id} className='p-4'>
                     <p>Name: {prod.name}</p>
                     <p>Price: {prod.price}.- CHF</p>
                 </div>
@@ -40,13 +40,17 @@ const DetailsProduct = async ({params}: Props) => {
 
     return (
         <div className='h-screen'>
-            <p className="m-4">Details by product id: {params.productId}</p>
+            <p className="p-4">Details by product id: {params.productId}</p>
 
             {productName}
 
             {reviews.map((rev) => (
                 rev.id === parseInt(params.productId) ? (
-                    <Link key={rev.id} href={`/products/${params.productId}/reviews/${rev.id}`}>
+                    <Link 
+                        key={rev.id} 
+                        href={`/products/${params.productId}/reviews/${rev.id}`}
+                        className='text-blue-400 hover:text-blue-300 p-4'
+                    >
                         {rev.categories}
                     </Link>
                 ) : null
