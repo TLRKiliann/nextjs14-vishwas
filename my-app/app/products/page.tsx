@@ -29,42 +29,19 @@ export default function ListProducts() {
             </div>
 
 
-            <div className="flex flex-col m-10">
-                {products.map((prod) => (
-                    <div key={prod.id}>
-                        <p>
-                            <Link 
-                                href={`/products/${prod.id}`}
-                                className="text-slate-200 hover:text-emerald-400"    
-                            >
-                                {prod.name}
-                            </Link>
-                        </p>
-                        <p>
-                            <Link 
-                                href={`/products/${prod.id}/reviews`}
-                                className="text-slate-200 hover:text-blue-400"
-                            >    
-                                reviews
-                            </Link>
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-
-            <div className='border border-red-600 px-20'>
+            <div className='px-20'>
 
                 <div className='grid grid-cols-3 grid-rows-2 justify-items-center 
-                    gap-y-10 border-4 border-lime-400 bg-cyan-50 p-10'>
+                    gap-y-10 border-4 bg-blue-50 p-10'>
 
                     {products.map((prod) => (
-                        <div key={prod.id} className='flex flex-col m-auto h-auto rounded-lg
-                            transform transition hover:scale-105 hover:shadow-xl bg-slate-700'
+                        <div key={prod.id} className='flex flex-col m-auto h-auto bg-slate-700 rounded-lg
+                            transform transition hover:scale-[1.025] hover:shadow-xl 
+                            translate-y-0 animate-up-start'
                         >
 
                             <div className='px-3 py-2 pt-3'>
-                                <div className='w-[200px] h-auto rounded-lg shadow-in'
+                                <div className='md:w-[200px] xl:w-[300px] h-auto rounded-lg shadow-in'
                                 >
                                     <Image
                                         src={prod.img}
@@ -81,9 +58,9 @@ export default function ListProducts() {
                                 <div className='flex flex-col align-center justify-center 
                                     bg-slate-700 shadow-in border-none m-auto rounded-lg py-2'
                                 >
-                                    <p className='text-xl font-bold text-slate-100 mx-auto'>
+                                    <h3 className='text-xl font-bold text-slate-100 m-auto transform'>
                                         {prod.name}
-                                    </p>
+                                    </h3>
                                     <p className='text-md font-bold text-slate-100 mx-auto my-1'>
                                         {prod.price}.- CHF
                                     </p>
@@ -95,7 +72,7 @@ export default function ListProducts() {
                                     </p>
                                     <Link 
                                         href={`/products/${prod.id}`} 
-                                        className='text-xs font-bold mx-auto text-blue-500'>
+                                        className='text-xs font-bold mx-auto text-blue-500 hover:text-blue-400'>
                                         Details
                                     </Link>
                                 </div>
