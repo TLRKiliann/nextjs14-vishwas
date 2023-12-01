@@ -19,15 +19,16 @@ import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import dualBox from "@/public/img_carousel/dual-box.png";
 import multiBox from "@/public/img_carousel/multi-box.png";
+import wallPerf from '@/public/img_bg/wall-i9.jpg';
 
 export default function Home() {
   
   const pathname = usePathname();
 
   const images = [
+    dualBox,
     boxCpui7,
     boxCpui9,
-    dualBox,
     multiBox
   ];
 
@@ -137,7 +138,7 @@ export default function Home() {
         </div>
         
 
-        <div className='w-full h-[360px] bg-slate-200/90 dark:bg-cyan-100/90'>
+        <div className='w-full h-[360px] bg-slate-200/80 dark:bg-blue-100/80'>
 
           <Carousel loop>
             {images.map((src, i) => {
@@ -162,6 +163,31 @@ export default function Home() {
             Core i9 X-SERIES & Core i9 EXTREME
           </legend>
         
+        </div>
+
+
+        <div className='w-full h-20 dark:bg-slate-900 bg-slate-100'>
+        </div>
+
+
+        <div className='flex w-full'>
+
+          <div className='w-[160px] h-auto bg-slate-100 dark:bg-slate-900'>
+          </div>
+
+          <div className='flex w-full h-auto bg-transparent dark:bg-slate-900'>
+            <Image
+              src={wallPerf}
+              width={1485}
+              height={823}
+              alt="wall perf" 
+              className='object-cover opacity-80 dark:opacity-90'
+            />
+          </div>
+
+          <div className='w-[160px] bg-slate-100 dark:bg-slate-900'>
+          </div>
+
         </div>
 
 

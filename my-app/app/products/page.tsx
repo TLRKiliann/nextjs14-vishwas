@@ -29,16 +29,21 @@ export default function ListProducts() {
             </div>
 
 
-            <div className='px-20'>
+            <div className='px-20 pb-10'>
 
                 <div className='grid grid-cols-3 grid-rows-2 justify-items-center 
                     gap-y-10 border border-slate-100 bg-slate-200/50 dark:border-slate-900 
                     dark:bg-cyan-50 rounded-2xl shadow-in p-10'>
 
                     {products.map((prod) => (
-                        <div key={prod.id} className='flex flex-col m-auto h-auto bg-slate-700 rounded-lg
-                            transform transition hover:scale-[1.025] hover:shadow-xl 
-                            translate-y-0 animate-up-start'
+                        <div key={prod.id} className='flex flex-col m-auto h-auto
+                            font-bold text-slate-100
+                            dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
+                            dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
+                            bg-gradient-to-r from-blue-400 from-10% 
+                            via-slate-50 via-50% to-indigo-400 to-90%
+                            transform transition hover:scale-[1.025] hover:shadow-lg
+                            translate-y-0 animate-up-start rounded-lg'
                         >
 
                             <div className='px-3 py-2 pt-3'>
@@ -59,21 +64,21 @@ export default function ListProducts() {
                                 <div className='flex flex-col align-center justify-center 
                                     bg-slate-700 shadow-in border-none m-auto rounded-lg py-2'
                                 >
-                                    <h3 className='text-xl font-bold text-slate-100 m-auto transform'>
+                                    <h3 className='text-xl m-auto transform'>
                                         {prod.name}
                                     </h3>
-                                    <p className='text-md font-bold text-slate-100 mx-auto my-1'>
+                                    <p className='text-md mx-auto my-1'>
                                         {prod.price}.- CHF
                                     </p>
-                                    <p className='text-sm font-bold text-slate-100 mx-auto mb-1'>
+                                    <p className='text-sm mx-auto mb-1'>
                                         Stock: {prod.stock}
                                     </p>
-                                    <p className='text-sm font-bold text-slate-100 mx-auto mb-2'>
+                                    <p className='text-sm mx-auto mb-2'>
                                         Count: 0 {/* comment faire */}
                                     </p>
                                     <Link 
                                         href={`/products/${prod.id}`} 
-                                        className='text-xs font-bold mx-auto text-blue-500 hover:text-blue-400 pb-1'>
+                                        className='text-xs mx-auto text-blue-500 hover:text-blue-400 pb-1'>
                                         View details
                                     </Link>
                                 </div>
