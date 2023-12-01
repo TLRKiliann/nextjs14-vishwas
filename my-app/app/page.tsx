@@ -35,7 +35,7 @@ export default function Home() {
 
 
       <div className='fixed flex align-center justify-center w-full h-full 
-        filter blur-sm contrast-200 m-auto -z-10'>
+        filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
         <Image
           src={boxCpu}
           width={1192}
@@ -49,7 +49,7 @@ export default function Home() {
   
         <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
           dark:bg-cyan-50 bg-slate-50
-          border border-b-blue-200 shadow-xllight z-10 animate-slice-appear"
+          border border-b-blue-200 shadow-xllight z-10"
         >
           
           <div className='flex flex-col h-40'>
@@ -127,7 +127,8 @@ export default function Home() {
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
             dark:drop-shadow-lg
             bg-gradient-to-br from-slate-600 from-10% 
-            via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg'
+            via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg
+            transition animate-slice-appear'
           >
             Welcome to shop !
           </h2>
@@ -140,8 +141,7 @@ export default function Home() {
             {images.map((src, i) => {
               return (
                 <div 
-                  className="relative 
-                    w-2/6 sm:w-3/6 lg:w-2/6 xl:w-[400px] h-64 
+                  className="relative w-2/6 sm:w-3/6 lg:w-2/6 xl:w-[400px] h-64 
                     flex shrink-0 grow-0
                     sm:mx-[350px] lg:mx-[350px] 2xl:mx-[850px]
                     sm:pt-4 md:pt-3"

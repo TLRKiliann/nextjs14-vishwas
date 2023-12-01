@@ -9,6 +9,7 @@ export type ProductsProps = {
 export type ReviewsProps = {
     id: number;
     categories: string;
+    review: string;
 }
 
 export type CustomersProps = {

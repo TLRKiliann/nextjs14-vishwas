@@ -6,7 +6,7 @@ export const products: ProductsProps[] = [
     {
         id: 1,
         name: "Core i9",
-        img: "/img_cpu/cpu_i9.jpg",
+        img: "/img_cpu/cpu_i3.jpg",
         price: 1230,
         stock: 23
     },
@@ -26,21 +26,21 @@ export const products: ProductsProps[] = [
     },
     {
         id: 4,
-        name: "Core i9",
-        img: "/img_cpu/cpu_i9.jpg",
+        name: "Core i3",
+        img: "/img_cpu/cpu_i3.jpg",
         price: 1230,
         stock: 23
     },
     {
         id: 5,
-        name: "Core i7",
+        name: "Xeon",
         img: "/img_cpu/cpu_i7.jpg",
         price: 1130,
         stock: 23
     },
     {
         id: 6,
-        name: "Core i5",
+        name: "Athalon",
         img: "/img_cpu/cpu_i5.jpg",
         price: 1030,
         stock: 23
@@ -50,15 +50,18 @@ export const products: ProductsProps[] = [
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        categories: "article for id 1"
+        categories: "Last article about cpu i9",
+        review: "little text to display something (cpu-i9)"
     },
     {
         id: 2,
-        categories: "article for id 2"
+        categories: "Last article about cpu i7",
+        review: "little text to display something (cpu-i7)"
     },
     {
         id: 3,
-        categories: "article for id 3"
+        categories: "Last article about cpu i5",
+        review: "little text to display something (cpu-i5)"
     }
 ];
 

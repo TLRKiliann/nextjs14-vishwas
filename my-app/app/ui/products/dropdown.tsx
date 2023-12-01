@@ -23,7 +23,7 @@ export default function DropDownComp(products: ProductsProps[]) {
             </button>
 
             <div className={`absolute top-12 z-20 w-[140px]] h-[auto] 
-              flex flex-col bg-blue-400 rounded-md ml-4 ${transClass}`}>
+              flex flex-col bg-blue-400 ml-4 ${transClass}`}>
                 
                 {products.map(product =>
                   <Link

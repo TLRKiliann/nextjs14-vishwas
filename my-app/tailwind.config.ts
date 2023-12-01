@@ -29,7 +29,7 @@ const config: Config = {
         }
       },
       animation: {
-        "slice-appear": "sliceappear 0.4s ease-in-out 1",
+        "slice-appear": "sliceappear 0.5s ease-out 1",
         "up-start": "upstart 0.4s ease-in-out 1",
       },
       dropShadow: {
@@ -43,6 +43,7 @@ const config: Config = {
         'inlight': 'inset 0px 0px 10px rgba(0, 0, 0, 0.5)',
         'xl': '0px 0px 10px rgba(0, 0, 0, 1)',
         'xllight': '0px 0px 10px rgba(0, 0, 0, 0.5)',
+        'lg': '0px 0px 7px rgba(0, 0, 0, 0.5)',
         '2xl': '0px 0px 20px rgba(0, 0, 0, 1)',
         '3xl': '0px 0px 30px rgba(0, 0, 0, 1)',
       }
