@@ -25,7 +25,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                         href={`/products/${params.productId}/reviews/${rev.id}`}
                         className="text-slate-200 hover:text-blue-400"
                     >
-                        Refs : {rev.ref}
+                        Refs : {rev.categories}
                     </Link>
                 </p>
             ))}  
