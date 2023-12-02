@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import CartComponent from './cart-component';
 import logoImg from '@/public/img_logo/processor.png';
 
 export default function Header() {
@@ -47,29 +48,31 @@ export default function Header() {
                       
                         <Link href="/" className={`${pathname === '/' 
                             ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Home</Link>
                         
                         <Link href="/products" className={`${pathname === '/products'
                             ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Products</Link>
 
                         <Link href="/docs" className={`${pathname === '/docs'
                             ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
-                            : "text-lg m-auto ml-10 p-2 hover:text-blue-400 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Login</Link>
+
+                        <CartComponent />
 
                         <select 
                             value={theme} 
                             onChange={e => setTheme(e.target.value)}
-                            className='text-lg dark:bg-slate-900 bg-blue-400 text-blue-900 
-                            dark:text-slate-50 my-2 ml-10 rounded-lg'
+                            className='text-lg dark:bg-slate-900 bg-blue-400 text-blue-900
+                            hover:text-slate-100 dark:text-slate-50 my-2 ml-10 rounded-lg'
                         >
                             <option value="system">System</option>
                             <option value="dark">Dark</option>
