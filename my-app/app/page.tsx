@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import ScrollIndicator from '@/app/ui/scroll-indicator';
+import Carousel from '@/app/ui/carousel';
 import { BsCpu } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa6";
 import { FaSquareTwitter } from "react-icons/fa6";
@@ -10,8 +12,7 @@ import { FaYoutube } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
-import ScrollIndicator from '@/app/ui/scroll-indicator';
-import Carousel from '@/app/ui/carousel';
+
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";

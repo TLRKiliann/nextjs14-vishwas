@@ -14,16 +14,17 @@ export default function DropDownComp(products: ProductsProps[]) {
 
   return (
     <>
-        <div className='relative'>
+        <div className='relative w-full m-auto'>
             <button
-              className="bg-blue-600 m-4 px-[20px] py-[5px] rounded"
+              className="font-bold bg-blue-600 px-4 py-2 
+                hover:bg-blue-700 active:bg-blue-800 rounded-lg"
               onClick={toggle}
             >
               Menu
             </button>
 
             <div className={`absolute top-12 z-20 w-[140px]] h-[auto] 
-              flex flex-col bg-blue-400 ml-4 ${transClass}`}>
+              flex flex-col bg-blue-400 mr-2 ${transClass}`}>
                 
                 {products.map(product =>
                   <Link
