@@ -72,7 +72,7 @@ export default function Header() {
                             value={theme} 
                             onChange={e => setTheme(e.target.value)}
                             className='text-lg dark:bg-slate-900 bg-blue-400 text-blue-900
-                            hover:text-slate-100 dark:text-slate-50 my-2 ml-10 rounded-lg'
+                            hover:scale-[1.02] hover:text-slate-100 dark:text-slate-50 ml-10 rounded-lg'
                         >
                             <option value="system">System</option>
                             <option value="dark">Dark</option>

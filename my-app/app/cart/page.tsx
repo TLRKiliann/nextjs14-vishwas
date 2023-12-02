@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Cart() {
+export default function Cart() {
   return (
     <div className='min-h-screen bg-slate-900'>
         <h1 className='text-2xl p-4'>Cart</h1>
@@ -14,5 +14,3 @@ function Cart() {
     </div>
   )
 }
-
-export default Cart
