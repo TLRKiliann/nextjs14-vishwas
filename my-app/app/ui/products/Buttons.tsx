@@ -20,10 +20,10 @@ export default function Buttons({id, handleFusion, sign}: PropsBtn) {
                     shadow-btn dark:border-none dark:shadow-btn
                     transition transform ease-in-out
                     dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
-                    dark:via-sky-400 dark:via-50% dark:to-slate-900 dark:to-90%
+                    dark:via-sky-600 dark:via-50% dark:to-slate-900 dark:to-90%
                     dark:hover:from-slate-600 dark:hover:from-10% dark:hover:via-sky-500 
                     dark:hover:via-50% dark:hover:to-slate-600 dark:hover:to-90% 
-                    dark:hover:shadow-none dark:active:text-emerald-500
+                    dark:hover:shadow-none dark:active:text-cyan-500
                     dark:active:shadow-in my-3 py-1 rounded-full'
             >
                 {sign}
