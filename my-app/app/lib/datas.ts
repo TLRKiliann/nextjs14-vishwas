@@ -15,28 +15,28 @@ export const products: ProductsProps[] = [
         name: "Core i7",
         img: "/img_cpu/cpu_i7.jpg",
         price: 1130,
-        stock: 23
+        stock: 2
     },
     {
         id: 3,
         name: "Core i5",
         img: "/img_cpu/cpu_i5.jpg",
         price: 1030,
-        stock: 23
+        stock: 11
     },
     {
         id: 4,
         name: "Core i3",
         img: "/img_cpu/cpu_i3.jpg",
         price: 1230,
-        stock: 23
+        stock: 4
     },
     {
         id: 5,
         name: "Pentium",
         img: "/img_cpu/pentium.jpg",
         price: 1130,
-        stock: 23
+        stock: 12
     },
     {
         id: 6,
