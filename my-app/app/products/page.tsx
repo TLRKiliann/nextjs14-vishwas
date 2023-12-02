@@ -24,12 +24,12 @@ export default function ListProducts() {
                     text-transparent bg-clip-text 
                     bg-gradient-to-br from-indigo-500 from-10% 
                     via-sky-500 via-50% to-emerald-500 to-90%
-                    my-auto'
+                    mx-0 my-auto'
                 >
                     Products
                 </h1>
             
-                <div className='my-auto'>{dropDownMenu}</div>
+                <div className='my-auto mr-2'>{dropDownMenu}</div>
 
             </div>
 

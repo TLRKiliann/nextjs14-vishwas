@@ -14,9 +14,9 @@ export default function DropDownComp(products: ProductsProps[]) {
 
   return (
     <>
-        <div className='relative w-full my-auto'>
+        <div className='relative w-full m-auto'>
             <button
-              className="w-full font-bold bg-blue-600 px-4 py-2 
+              className="font-bold bg-blue-600 px-4 py-2 
                 hover:bg-blue-700 active:bg-blue-800 rounded-lg"
               onClick={toggle}
             >
