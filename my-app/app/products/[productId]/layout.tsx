@@ -7,7 +7,7 @@ export default function DetailsProduct({children}: {children: React.ReactNode}) 
             text-transparent bg-clip-text 
             bg-gradient-to-br from-indigo-500 from-10% 
             via-sky-500 via-50% to-emerald-500 to-90%
-            p-2'
+            p-4'
         >
             Products
         </h1>
