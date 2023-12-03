@@ -20,3 +20,19 @@ export type CustomersProps = {
     amount: number;
     status: string;
 }
+
+export type AllTitlesProps = {
+    titleOne: string;
+    titleTwo: string;
+    titleThree: string;
+    titlebox_1: string;
+    titlebox_2: string;
+}
+
+export type AllTextProps = {
+    textOne: string;
+    textTwo: string;
+    textThree: string;
+    textbox_1: string;
+    textbox_2: string;
+}

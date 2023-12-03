@@ -1,6 +1,7 @@
 import { ProductsProps } from "./definitions";
 import { ReviewsProps } from "./definitions";
 import { CustomersProps } from "./definitions";
+import { AllTitlesProps, AllTextProps } from "./definitions";
 
 export const products: ProductsProps[] = [
     {
@@ -147,6 +148,49 @@ const customers: CustomersProps[] = [
         status: "pending"
     }
 ];
+
+
+export const allTitle: AllTitlesProps = {
+    titleOne: "High performance for demanding customers",
+    titleTwo: "We can help you make the right choice",
+    titleThree: "We're present on every network",
+    titlebox_1: "Core CPU i9",
+    titlebox_2: "Core CPU i7"
+}
+
+export const allText: AllTextProps = {
+    textOne: "Text 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+        culpa qui officia deserunt mollit anim id est laborum.",
+    textTwo: "Text 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+        culpa qui officia deserunt mollit anim id est laborum.",
+    textThree: "Text 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+        culpa qui officia deserunt mollit anim id est laborum.",
+    textbox_1: "Text 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+        culpa qui officia deserunt mollit anim id est laborum.",
+    textbox_2: "Text 5 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+        culpa qui officia deserunt mollit anim id est laborum."
+}
+
 
 const ITEMS_PER_PAGE = 6;
 export function fetchInvoicesPages(query: string) {
