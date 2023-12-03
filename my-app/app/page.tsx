@@ -5,14 +5,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ScrollIndicator from '@/app/ui/scroll-indicator';
 import Carousel from '@/app/ui/carousel';
-import { BsCpu } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa6";
-import { FaSquareTwitter } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaTiktok } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
+import SocialIcons from './ui/main/social-icons';
+import TextBlocks from './ui/main/text-blocs';
 
+import { BsCpu } from "react-icons/bs";
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
 import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
@@ -21,6 +17,7 @@ import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import dualBox from "@/public/img_carousel/dual-box.png";
 import multiBox from "@/public/img_carousel/multi-box.png";
 import wallPerf from '@/public/img_bg/wall-i9.jpg';
+import { Children } from 'react';
 
 export default function Home() {
   
@@ -32,6 +29,31 @@ export default function Home() {
     boxCpui9,
     multiBox
   ];
+
+  const titleOne: string = "High performance for demanding customers";
+  const titleTwo: string = "We can help you make the right choice";
+  const titleThree: string = "We're present on every network";
+
+  const textOne: string = "Text 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+    culpa qui officia deserunt mollit anim id est laborum.";
+
+  const textTwo: string = "Text 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+    culpa qui officia deserunt mollit anim id est laborum.";
+
+  const textThree: string = "Text 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
+    culpa qui officia deserunt mollit anim id est laborum.";
 
   return (
     <div className='relative flex text-blue-300 bg-black z-0'>
@@ -82,38 +104,32 @@ export default function Home() {
 
 
           <div className='flex justify-around w-full text-lg text-blue-800 m-auto mb-1'>
+
             <Link href="/" className={`${pathname === '/' 
               ? "text-cyan-600" 
               : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Home
-            </Link>
+            >Home</Link>
             
             <Link href="/products" className={`${pathname === '/products' 
               ? "text-cyan-600" 
               : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Products
-            </Link>
+            >Products</Link>
 
             <Link href="/about" className={`${pathname === '/about' 
               ? "text-cyan-600" 
               : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              About
-            </Link>
+            >About</Link>
+
             <Link href="/contact" className={`${pathname === '/contact' 
               ? "text-cyan-600" 
               : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Contact
-            </Link>
+            >Contact</Link>
+
             <Link href="/login" className={`${pathname === '/products' 
               ? "text-cyan-600" 
               : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Login
-            </Link>
+            >Login</Link>
+
           </div>
 
         </div>
@@ -196,36 +212,7 @@ export default function Home() {
         </div>
 
 
-        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
-          
-          <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
-
-          <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
-
-            <h2 className='text-3xl font-extrabold
-              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
-              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-              dark:to-emerald-500 dark:to-90% 
-              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
-              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
-            >
-              High performance for demanding customers
-            </h2>
-
-            <p className='text-justify dark:text-blue-300 text-blue-600'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-          </div>
-
-          <hr className='w-3/5 m-auto mt-10 border border-blue-600/40'/>
-
-        </div>
+        <TextBlocks title={titleOne} text={textOne} />
 
 
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
@@ -306,41 +293,11 @@ export default function Home() {
         </div>
 
 
-        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
-          
-          <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
-
-          <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
-
-            <h2 className='text-3xl font-extrabold
-              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
-              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-              dark:to-emerald-500 dark:to-90% 
-              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
-              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
-            >
-              We can help you make the right choice
-            </h2>
-
-            <p className='text-justify dark:text-blue-300 text-blue-600'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-          </div>
-
-          <hr className='w-3/5 m-auto mt-10 border border-blue-600/40'/>
-
-        </div>
+        <TextBlocks title={titleTwo} text={textTwo} />
 
 
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
         <div className='flex w-full'>
 
@@ -409,51 +366,19 @@ export default function Home() {
 
         </div>
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
-
-        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
-          
-          <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
-
-          <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
-
-            <h2 className='text-3xl font-extrabold
-              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
-              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-              dark:to-emerald-500 dark:to-90% 
-              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
-              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
-            >
-              We're present on every network
-            </h2>
-
-            <p className='text-justify dark:text-blue-300 text-blue-600'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-            <div className='flex align-center justify-end mt-4'>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaGithub size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaSquareTwitter size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaYoutube size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaInstagram size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaTiktok size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaLinkedin size={28} /></span>
-            </div>
-
-          </div>
-
-          <hr className='w-3/5 m-auto mt-10 border border-blue-600/40'/>
-
-        </div>
 
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
+
+
+        <TextBlocks title={titleThree} text={textThree}>
+          <SocialIcons />
+        </TextBlocks>
+
+
+        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
+        </div>
+
 
       </main>
 
