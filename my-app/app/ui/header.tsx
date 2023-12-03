@@ -1,25 +1,18 @@
 "use client";
 
 import { usePathname } from 'next/navigation';
-import Link from 'next/link'
-import Image from 'next/image'
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
+import Link from 'next/link';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { FiMoon } from "react-icons/fi";
+import { FiSun } from "react-icons/fi";
 import CartComponent from './cart-component';
 import logoImg from '@/public/img_logo/processor.png';
 
 export default function Header() {
-    const pathname = usePathname();
-    const [mounted, setMounted] = useState(false)
-    const { theme, setTheme } = useTheme()
 
-    useEffect(() => {
-      setMounted(true)
-    }, [])
-  
-    if (!mounted) {
-      return null
-    }
+    const pathname = usePathname();
+    const { theme, setTheme } = useTheme();
 
     return (
         <>
@@ -68,16 +61,15 @@ export default function Header() {
 
                         <CartComponent />
 
-                        <select 
-                            value={theme} 
-                            onChange={e => setTheme(e.target.value)}
+                        <button 
+                            type="button"
+                            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                             className='text-lg dark:bg-slate-900 bg-blue-400 text-blue-900
-                            hover:scale-[1.02] hover:text-slate-100 dark:text-slate-50 ml-10 rounded-lg'
+                                hover:scale-105 hover:text-slate-100 dark:text-slate-50 
+                                mr-8 ml-12 rounded-lg'
                         >
-                            <option value="system">System</option>
-                            <option value="dark">Dark</option>
-                            <option value="light">Light</option>
-                        </select>
+                            {theme === 'light' ? <FiMoon size={24} /> : <FiSun size={24} />}
+                        </button>
 
                     </ul>
                 </nav>
@@ -85,3 +77,4 @@ export default function Header() {
         </>
     )
 }
+

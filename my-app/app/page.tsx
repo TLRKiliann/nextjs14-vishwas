@@ -409,10 +409,8 @@ export default function Home() {
 
         </div>
 
-
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
         <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
           
@@ -454,10 +452,8 @@ export default function Home() {
 
         </div>
 
-
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
       </main>
 
