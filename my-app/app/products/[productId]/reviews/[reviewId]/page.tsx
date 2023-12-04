@@ -13,11 +13,11 @@ type Props = {
 export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     const title = await new Promise((resolve) => {
         setTimeout(() => {
-            resolve(`iPhone ${params.productId} extra: ${params.reviewId}`)
+            resolve(`CPU: ${params.productId} Art: ${params.reviewId}`)
         }, 300)
     })
     return {
-        title: `Product ${title}`
+        title: `Prod-${title}-`
     }
 }
 
