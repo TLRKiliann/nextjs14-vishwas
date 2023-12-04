@@ -1,10 +1,7 @@
-"use client";
-
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
 import { allTitle, allText } from '@/app/lib/datas';
 import ScrollIndicator from '@/app/ui/scroll-indicator';
+import Links from '@/app/ui/main/links';
 import Carousel from '@/app/ui/carousel';
 import SocialIcons from '@/app/ui/main/social-icons';
 import TextBlocks from '@/app/ui/main/text-blocs';
@@ -21,8 +18,6 @@ import wallPerf from '@/public/img_bg/wall-i9.jpg';
 
 export default function Home() {
   
-  const pathname = usePathname();
-
   const images = [
     dualBox,
     boxCpui7,
@@ -89,34 +84,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className='flex justify-around w-full text-lg text-blue-800 m-auto mb-1'>
-
-            <Link href="/" className={`${pathname === '/' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Home</Link>
-            
-            <Link href="/products" className={`${pathname === '/products' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Products</Link>
-
-            <Link href="/about" className={`${pathname === '/about' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >About</Link>
-
-            <Link href="/contact" className={`${pathname === '/contact' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Contact</Link>
-
-            <Link href="/login" className={`${pathname === '/products' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Login</Link>
-
-          </div>
+          <Links />
 
         </div>
 
