@@ -12,6 +12,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
 
     let newCount: number = count;
 
+    // useAuth - useContext
     const handleSub = (id: number) => {
         console.log(id)
         if (count === 0) {
@@ -26,10 +27,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
         console.log(id)
         setCount((count) => count + 1);
     }
-
-    const signPlus: string = "+";
-    const signMinus: string = "-";
-
+    
     return (
 
         <div className='flex flex-col m-auto h-auto
@@ -95,8 +93,8 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
                 <div className='flex justify-around bg-slate-600 
                         m-auto rounded-lg shadow-in'
                 >
-                    <Buttons id={id} handleFusion={() => handleSub(id)} sign={signMinus} />
-                    <Buttons id={id} handleFusion={() => handleAdd(id)} sign={signPlus} />
+                    <Buttons id={id} handleFusion={() => handleSub(id)}>-</Buttons>
+                    <Buttons id={id} handleFusion={() => handleAdd(id)}>+</Buttons>
                 </div>
             </div>
         </div>
