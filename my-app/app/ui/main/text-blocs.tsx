@@ -24,7 +24,7 @@ export default function TextBlocks({title, text, children}: PropsText) {
                     {title}
                 </h2>
 
-                <p className='text-justify dark:text-blue-300 text-blue-600'>
+                <p className='text-justify dark:text-blue-300'>
                     {text}
                 </p>
 

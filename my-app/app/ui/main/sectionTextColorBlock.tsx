@@ -25,7 +25,7 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
                         {titleBox}<BsCpu className="dark:text-blue-400 text-blue-600 mt-1 ml-4" />
                     </h2>
 
-                    <p className='text-justify dark:text-blue-300 text-blue-600 px-10 pb-5'>
+                    <p className='text-justify dark:text-blue-300 text-slate-900 px-10 pb-5'>
                         {textBox}
                     </p>
 

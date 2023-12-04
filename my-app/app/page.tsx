@@ -38,7 +38,7 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-blue-300 bg-black z-0'>
+    <div className='relative flex text-slate-900 bg-black z-0'>
       <ScrollIndicator />
 
 
