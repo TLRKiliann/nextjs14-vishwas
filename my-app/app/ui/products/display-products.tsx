@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductsProps } from '@/app/lib/definitions';
-import Buttons from './Buttons'
+import Buttons from './buttons'
 
 export default function DisplayProducts({ id, name, price, img, stock }: ProductsProps) {
 

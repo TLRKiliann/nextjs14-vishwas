@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+"use client";
+
+import React, { useState } from 'react';
 import { ProductsProps } from "@/app/lib/definitions";
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function DropDownComp(products: ProductsProps[]) {
 

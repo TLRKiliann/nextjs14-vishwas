@@ -2,6 +2,7 @@ import { ProductsProps } from "./definitions";
 import { ReviewsProps } from "./definitions";
 import { CustomersProps } from "./definitions";
 import { AllTitlesProps, AllTextProps } from "./definitions";
+// import { unstable_noStore as noStore } from 'next/cache';
 
 export const products: ProductsProps[] = [
     {
@@ -47,6 +48,28 @@ export const products: ProductsProps[] = [
         stock: 23
     }
 ];
+
+/*
+export async function fetchAllProducts() {
+    // Add noStore() here prevent the response from being cached.
+    // This is equivalent to in fetch(..., {cache: 'no-store'}).
+    noStore();
+    try {
+      // Artificially delay a reponse for demo purposes.
+      // Don't do this in real life :)
+      console.log('Fetching revenue data...');
+      //await new Promise((resolve) => setTimeout(resolve, 3000));
+  
+      const data: ProductsProps[] = await products;
+      console.log('Data fetch complete!');
+  
+      return data;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch revenue data.');
+    }
+}
+*/
 
 export const reviews: ReviewsProps[] = [
     {
