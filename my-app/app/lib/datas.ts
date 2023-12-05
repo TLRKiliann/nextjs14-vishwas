@@ -8,7 +8,7 @@ export const products: ProductsProps[] = [
     {
         id: 1,
         name: "Core i9",
-        img: "/img_cpu/cpu-i92.png",
+        img: "/img_cpu/cpu-i9.png",
         price: 1230,
         stock: 23
     },

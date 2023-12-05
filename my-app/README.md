@@ -51,8 +51,28 @@ and call
 
 className="animate-slide-anime"
 
+## Database
 
+- Create a db:
 
+MariaDB [mytable]> SELECT * FROM `products`;
++----+---------+----------------------+--------+-------+
+| id | name    | img                  | price  | stock |
++----+---------+----------------------+--------+-------+
+|  1 | CORE i9 | /img_cpu/cpu-i9.png  | 369.40 |    52 |
+|  2 | CORE i7 | /img_cpu/cpu-i7.png  | 339.70 |    38 |
+|  3 | CORE i5 | /img_cpu/cpu-i5.png  | 250.30 |    17 |
+|  4 | CORE i3 | /img_cpu/cpu-i3.png  | 190.20 |    23 |
+|  5 | Pentium | /img_cpu/pentium.jpg | 177.80 |    24 |
+|  6 | Athalon | /img_cpu/athalon.jpg | 133.40 |    12 |
++----+---------+----------------------+--------+-------+
+6 rows in set (0.001 sec)
+
+- Install mysql
+
+$ pnpm add mysql2
+
+- Create file ...
 
 ---
 
