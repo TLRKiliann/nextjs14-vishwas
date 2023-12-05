@@ -49,6 +49,18 @@ export const products: ProductsProps[] = [
     }
 ];
 
+export function fetchProducts(query: string) {
+    try {
+        const data: ProductsProps[] = products;
+        return data
+    }
+    catch (error) {
+        console.log(error);
+        return error;
+    }
+
+}
+
 /*
 export async function fetchAllProducts() {
     // Add noStore() here prevent the response from being cached.

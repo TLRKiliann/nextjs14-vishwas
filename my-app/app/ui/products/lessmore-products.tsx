@@ -6,7 +6,7 @@ import { ProductsProps } from "@/app/lib/definitions";
 import DisplayProducts from "./display-products";
 import LoadMore from './loadmore';
 
-export default function LessMoreProducts(products: ProductsProps[]) {
+export default function LessMoreProducts(newProducts: ProductsProps[]) {
 
     const [load, setLoad] = useState<boolean>(false);
 
@@ -21,7 +21,7 @@ export default function LessMoreProducts(products: ProductsProps[]) {
                 dark:border-slate-900 dark:bg-cyan-50 rounded-2xl shadow-in py-10`}>
 
                 {load === false ? (
-                    products.slice(0, 3).map((prod) => (
+                    newProducts.slice(0, 3).map((prod) => (
                         <DisplayProducts
                             key={prod.id}
                             id={prod.id}
@@ -31,7 +31,7 @@ export default function LessMoreProducts(products: ProductsProps[]) {
                             stock={prod.stock}
                         />
                     ))) : (
-                        products.slice(0, 6).map((prod) => (
+                        newProducts.slice(0, 6).map((prod) => (
                         <DisplayProducts
                             key={prod.id}
                             id={prod.id}
