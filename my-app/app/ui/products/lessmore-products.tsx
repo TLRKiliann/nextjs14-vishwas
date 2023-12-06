@@ -1,18 +1,32 @@
 "use client";
 
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ProductsProps } from "@/app/lib/definitions";
 import DisplayProducts from "./display-products";
 import LoadMore from './loadmore';
 
-export default function LessMoreProducts(newProducts: ProductsProps[]) {
+export default function LessMoreProducts(products: ProductsProps[]) {
 
+    const [newProducts, setNewProducts] = useState<ProductsProps[]>([]);
     const [load, setLoad] = useState<boolean>(false);
 
     const handleClick = () => {
         setLoad((load) => !load);
     };
+
+    console.log(newProducts, "newProd (1)")
+
+    useEffect(() => {
+        const fn = () => {
+            console.log("into the fn")
+            setNewProducts(products)
+        }
+        fn;
+        return () => console.log("Clear effect")
+    }, [])
+
+    console.log(newProducts, "newProducts (2)")
 
     return (
         <div>

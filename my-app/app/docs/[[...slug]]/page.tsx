@@ -53,7 +53,7 @@ const Docs = ({ params }: { params: { slug: string[] } }) => {
                     className="text-slate-200 hover:text-blue-400"
                     replace
                 >
-                    <h2 className='flex flex-row align-center font-bold'>Info &nbsp;<BsInfoCircle /></h2>
+                    <span className='flex flex-row align-center font-bold'>Info &nbsp;<BsInfoCircle /></span>
                 </Link>
             </p>
 

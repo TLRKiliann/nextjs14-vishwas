@@ -1,10 +1,10 @@
-"use client";
+//"use client";
 
 import React from 'react'
-import { products } from "@/app/lib/datas";
+// import { products } from "@/app/lib/datas";
 import DropDownComp from "./dropdown";
 
-export default function DropDownMenu() {
+export default async function DropDownMenu() {
 
     const dropDownMenu = DropDownComp(products);
 
