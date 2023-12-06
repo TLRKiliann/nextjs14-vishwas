@@ -7,9 +7,9 @@ import { callProducts } from '@/app/lib/actions';
 
 export async function fetchProducts() {
     try {
-        const data = await callProducts("SELECT * FROM products", []);
-        const products = JSON.stringify(data);
-        return products;
+        const response = await callProducts("SELECT * FROM products");
+        const data = JSON.stringify(response);
+        return data;
     }
     catch (error) {
         console.log(error);

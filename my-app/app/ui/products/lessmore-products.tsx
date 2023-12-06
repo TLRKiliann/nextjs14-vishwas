@@ -6,27 +6,25 @@ import { ProductsProps } from "@/app/lib/definitions";
 import DisplayProducts from "./display-products";
 import LoadMore from './loadmore';
 
-export default function LessMoreProducts(products: ProductsProps[]) {
+export default function LessMoreProducts(products: ProductsProps) {
 
-    const [newProducts, setNewProducts] = useState<ProductsProps[]>([]);
+    const [newState, setNewState] = useState<ProductsProps[]>([]);
     const [load, setLoad] = useState<boolean>(false);
 
     const handleClick = () => {
         setLoad((load) => !load);
     };
 
-    console.log(newProducts, "newProd (1)")
-
     useEffect(() => {
         const fn = () => {
-            console.log("into the fn")
-            setNewProducts(products)
+            setNewState(Array(products))
         }
-        fn;
-        return () => console.log("Clear effect")
+        fn();
+        return () => console.log("clear useEffect")
     }, [])
-
-    console.log(newProducts, "newProducts (2)")
+    //console.log(newProducts, "newProd (1)")
+    //console.log(newProducts, "newProducts (2)")
+    console.log(typeof products, "products final")
 
     return (
         <div>
@@ -35,31 +33,29 @@ export default function LessMoreProducts(products: ProductsProps[]) {
                 dark:border-slate-900 dark:bg-cyan-50 rounded-2xl shadow-in py-10`}>
 
                 {load === false ? (
-                    newProducts.slice(0, 3).map((prod) => (
+                    newState.slice(0, 3).map((prod: ProductsProps) => (
                         <DisplayProducts
                             key={prod.id}
                             id={prod.id}
                             name={prod.name}
-                            price={prod.price}
                             img={prod.img}
+                            price={prod.price}
                             stock={prod.stock}
                         />
                     ))) : (
-                        newProducts.slice(0, 6).map((prod) => (
+                        newState.slice(0, 6).map((prod: ProductsProps) => (
                         <DisplayProducts
                             key={prod.id}
                             id={prod.id}
                             name={prod.name}
-                            price={prod.price}
                             img={prod.img}
+                            price={prod.price}
                             stock={prod.stock}
                         />
                     ))
                 )}
             </div>
-
                 <LoadMore load={load} handleClick={handleClick}/>
-
         </div>
     )
 }

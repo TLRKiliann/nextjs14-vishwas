@@ -9,7 +9,7 @@ import SectionTextColorBlock from '@/app/ui/main/sectionTextColorBlock';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
-import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
+import cpuI7 from "@/public/img_cpu/cpu-i7.png";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import dualBox from "@/public/img_carousel/dual-box.png";

@@ -49,7 +49,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
                         src={img}
                         width={1920}
                         height={1080}
-                        alt="img cpui9"
+                        alt="img cpui"
                         className="object-fill rounded-lg shadow-in"
                     />
 
@@ -64,7 +64,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
                         {name}
                     </h3>
                     <p className='text-md mx-auto my-1'>
-                        {count === 0 ? price : totalPrice * newCount}.- CHF
+                        {count === 0 ? price.toFixed(2) : (totalPrice * newCount).toFixed(2)}.- CHF
                     </p>
                     <p className='text-sm mx-auto mb-1'>
                         {stock >= count 

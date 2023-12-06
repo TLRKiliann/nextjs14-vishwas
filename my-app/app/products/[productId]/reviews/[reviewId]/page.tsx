@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { products } from "@/app/lib/datas";
+import { fetchProducts } from '@/app/lib/datas';
+import { ProductsProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 
 type Props = {
@@ -21,10 +22,14 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     }
 }
 
-export default function ReviewById({ params }: Props) {
+export default async function ReviewById({ params }: Props) {
     if (parseInt(params.reviewId) > 100 || parseInt(params.reviewId) !== Number(params.reviewId)) {
         notFound();
     }
+
+    const data = await fetchProducts();
+    const products: ProductsProps[] = JSON.parse(data);
+
     //console.log(params.reviewId, "reviewid")
     return (
         <div className='flex flex-col min-h-screen'>
