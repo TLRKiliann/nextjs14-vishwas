@@ -3,62 +3,18 @@ import { ReviewsProps } from "./definitions";
 import { CustomersProps } from "./definitions";
 import { AllTitlesProps, AllTextProps } from "./definitions";
 // import { unstable_noStore as noStore } from 'next/cache';
+import { callProducts } from '@/app/lib/actions';
 
-export const products: ProductsProps[] = [
-    {
-        id: 1,
-        name: "Core i9",
-        img: "/img_cpu/cpu-i9.png",
-        price: 1230,
-        stock: 23
-    },
-    {
-        id: 2,
-        name: "Core i7",
-        img: "/img_cpu/cpu_i7.jpg",
-        price: 1130,
-        stock: 2
-    },
-    {
-        id: 3,
-        name: "Core i5",
-        img: "/img_cpu/cpu_i5.jpg",
-        price: 1030,
-        stock: 11
-    },
-    {
-        id: 4,
-        name: "Core i3",
-        img: "/img_cpu/cpu_i3.jpg",
-        price: 1230,
-        stock: 4
-    },
-    {
-        id: 5,
-        name: "Pentium",
-        img: "/img_cpu/pentium.jpg",
-        price: 1130,
-        stock: 12
-    },
-    {
-        id: 6,
-        name: "Athalon",
-        img: "/img_cpu/athalon.jpg",
-        price: 1030,
-        stock: 23
-    }
-];
-
-export function fetchProducts(query: string) {
+export async function fetchProducts() {
     try {
-        const data: ProductsProps[] = products;
-        return data
+        const data = await callProducts("SELECT * FROM products", []);
+        const products = JSON.stringify(data);
+        return products;
     }
     catch (error) {
         console.log(error);
-        return error;
+        throw new Error('Failed to fetch revenue data.');
     }
-
 }
 
 /*

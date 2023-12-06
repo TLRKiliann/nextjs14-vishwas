@@ -1,28 +1,41 @@
-import { callProducts } from '@/app/lib/actions';
-//import { ProductsProps } from '@/app/lib/definitions';
-//import { products } from "@/app/lib/datas";
+import { fetchProducts } from '@/app/lib/datas';
+// import { ProductsProps } from '@/app/lib/definitions';
+// import { products } from "@/app/lib/datas";
 // import DropDownMenu from '@/app/ui/products/dropdown-menu';
-import lessMoreProducts from "@/app/ui/products/lessmore-products";
-import { fetchProducts } from '../lib/datas';
+
+//import lessMoreProducts from "@/app/ui/products/lessmore-products";
+
 
 export default async function ListProducts() {
 
-    const productsCall = await callProducts("SELECT * FROM products", []);
-    const newProducts = JSON.stringify(productsCall);
+    const products = await fetchProducts();
 
-    //const products = await fetchProducts(data)
+    console.log(typeof(products), "+ products (1)")
+
+    // Not stringify => one string !
+    // const newProducts = JSON.stringify(products);
+
+    let array: any[] = [];
+    array.push(products)
+
+    console.log(typeof(array), "+ concatTest (2)")
+
+    const parsedData = JSON.parse(products);
+
+    //{ Object.values(products).map((key, value) => key ) }
 
     // invoke client component
     // const productsFetched = lessMoreProducts(products); fetch qqch oui mais pas client comp
 
-    // console.log(newProducts)
-
     return (
         <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
             <h2>Call test of products from MySQL db</h2>
-                <p>
-                    {Object.values(newProducts).map((prod) => prod)}
-                </p>
+                
+                {/* JSON.stringify(products) */}
+
+                {/* Object.values(products).map((d) => d) */}
+
+                {parsedData.map((m: { name: string; }) => m.name)}
 
          </div>
     )
@@ -30,6 +43,11 @@ export default async function ListProducts() {
 
 
 /*
+                <div key={}>
+                    <p>{}</p>
+                    <p>{}</p>
+                </div>
+
     const productsFetched = lessMoreProducts(products);
 
         <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
