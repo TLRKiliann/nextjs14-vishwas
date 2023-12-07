@@ -8,8 +8,8 @@ export default function Footer() {
                 text-blue-900 dark:text-slate-50
                 dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-60% dark:to-slate-900 dark:to-90%
-                bg-gradient-to-r from-blue-400 from-10% 
-                via-slate-50 via-60% to-blue-400 to-90%
+                bg-gradient-to-r from-violet-400 from-10% 
+                via-slate-50 via-60% to-violet-400 to-90%
                 py-4"
             >
                 <Link href="/docs/info" className='flex align-center

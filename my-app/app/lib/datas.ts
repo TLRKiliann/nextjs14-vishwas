@@ -3,7 +3,7 @@ import { ReviewsProps } from "./definitions";
 import { CustomersProps } from "./definitions";
 import { AllTitlesProps, AllTextProps } from "./definitions";
 // import { unstable_noStore as noStore } from 'next/cache';
-import { callProducts } from '@/app/lib/actions';
+import { callProducts } from '@/app/lib/db';
 
 export async function fetchProducts() {
     try {

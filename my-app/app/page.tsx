@@ -6,10 +6,10 @@ import Carousel from '@/app/ui/carousel';
 import SocialIcons from '@/app/ui/main/social-icons';
 import TextBlocks from '@/app/ui/main/text-blocs';
 import SectionTextColorBlock from '@/app/ui/main/sectionTextColorBlock';
+import SectionImgOne from '@/app/ui/main/sectionImgOne';
+import SectionImgTwo from '@/app/ui/main/sectionImgTwo';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
-import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
-import cpuI7 from "@/public/img_cpu/cpu-i7.png";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import dualBox from "@/public/img_carousel/dual-box.png";
@@ -92,8 +92,8 @@ export default function Home() {
           dark:text-slate-50 text-cyan-600
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
-          bg-gradient-to-r from-blue-400 from-10% 
-          via-slate-50 via-40% to-blue-400 to-90%
+          bg-gradient-to-r from-violet-400 from-10% 
+          via-slate-50 via-30% to-violet-400 to-90%
           shadow-xllight mt-40 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text 
@@ -101,7 +101,7 @@ export default function Home() {
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
             dark:drop-shadow-lg
             bg-gradient-to-br from-slate-600 from-10% 
-            via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg
+            via-indigo-600 via-40% to-sky-400 to-90% drop-shadow-lg
             transition animate-slice-appear'
           >
             Welcome to shop !
@@ -168,38 +168,18 @@ export default function Home() {
 
         <div className='flex w-full'>
 
-          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
+          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
 
+            <SectionImgOne />
 
-            <div className='flex md:w-[300px] xl:w-[400px] h-auto
-              m-auto rounded-lg'
-            >
-              <Image
-                src={cpuI9}
-                width={5475}
-                height={3705}
-                alt="forest img"
-                className='object-cover shadow-out
-                  transition duration-0 hover:duration-300 hover:ease-in-out rounded-lg
-                  hover:filter hover:hue-rotate-90'
-              />
-            </div>
-
-            <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
-              transform transition ease-in-out rounded-lg
-              hover:scale-105 hover:text-blue-200 hover:shadow-2xl'
-            >
-
-              <SectionTextColorBlock titleBox={titlebox_1} textBox={textbox_1} />
-
-            </div>
+            <SectionTextColorBlock titleBox={titlebox_1} textBox={textbox_1} />
 
           </div>
 
-          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>
@@ -214,36 +194,18 @@ export default function Home() {
 
         <div className='flex w-full'>
 
-          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-full m-auto shadow-in py-10'>
+          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
 
-            <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
-              transform transition ease-in-out rounded-lg
-              hover:scale-105 hover:text-blue-200 hover:shadow-2xl'
-            >
+            <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
 
-              <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
-
-            </div>
-
-            <div className='flex md:w-[300px] xl:w-[400px] h-auto m-auto rounded-lg'>
-              <Image
-                src={cpuI7}
-                width={2500}
-                height={2500}
-                alt="forest img"
-                className='object-cover shadow-out
-                  transition ease-in-out duration-0 
-                  hover:duration-300 hover:ease-in-out hover:skew-y-12 rounded-lg
-                  hover:filter hover:grayscale hover:contrast-200'
-              />
-            </div>
+            <SectionImgTwo />
 
           </div>
 
-          <div className='w-[60px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>

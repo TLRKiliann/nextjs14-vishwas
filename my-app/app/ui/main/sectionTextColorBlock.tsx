@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import { BsCpu } from "react-icons/bs";
 
@@ -8,24 +10,34 @@ type PropsTitleText = {
 
 export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleText) {
     return (
-        <>
+        <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
+            transform transition ease-in-out rounded-lg
+            hover:scale-105 hover:text-blue-200 hover:shadow-2xl'
+        >
             <span className='h-10 border-none
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
+                dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
+                dark:to-emerald-500 dark:to-90% 
+                bg-gradient-to-r from-indigo-500 from-10% via-slate-200 via-50% to-violet-400 to-90% 
                 rounded-tl-lg rounded-tr-lg'>
             </span >
 
             <section className='w-full flex'>
 
-                <article className='h-auto dark:bg-slate-900 bg-slate-100'>
+                <article className='h-auto dark:bg-slate-900 bg-violet-50'>
 
-                    <h2 className='flex align-center text-2xl font-bold text-transparent bg-clip-text 
-                        bg-gradient-to-br from-indigo-500 from-10% 
-                    via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
+                    <h2 className='flex align-center text-2xl font-bold 
+                        text-transparent bg-clip-text 
+                        dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
+                        dark:to-emerald-500 dark:to-90%
+
+                        bg-gradient-to-br from-purple-900 from-10% 
+                        via-violet-600 via-50% to-slate-400 to-90%
+                        py-4 pl-10'
                     >
-                        {titleBox}<BsCpu className="dark:text-blue-400 text-blue-600 mt-1 ml-4" />
+                        {titleBox}<BsCpu className="dark:text-blue-400 text-violet-500 mt-1 ml-4" />
                     </h2>
 
-                    <p className='text-justify dark:text-blue-300 text-slate-900 px-10 pb-5'>
+                    <p className='text-justify dark:text-blue-300 text-violet-800 px-10 pb-5'>
                         {textBox}
                     </p>
 
@@ -34,9 +46,11 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
             </section>
 
             <span className='h-10 border-none
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
+                dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
+                dark:to-emerald-500 dark:to-90% 
+                bg-gradient-to-r from-indigo-500 from-10% via-slate-200 via-50% to-violet-400 to-90% 
                 rounded-bl-lg rounded-br-lg'>
             </span >
-        </>
+        </div>
     )
 }
