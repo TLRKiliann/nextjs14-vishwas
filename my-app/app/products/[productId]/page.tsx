@@ -44,7 +44,7 @@ const DetailsProduct = async ({params}: Props) => {
                         px-10 py-4 rounded-lg shadow-lg'
                     >
                         <p className='pb-2'>Name: {prod.name}</p>
-                        <p className='pb-2'>Price: {prod.price}.- CHF</p>
+                        <p className='pb-2'>Price: {prod.price.toFixed(2)}.- CHF</p>
                         <div className='flex w-[200px] h-auto shadow-lg rounded-lg'>
                             <Image src={prod.img} width={1920} height={1080} alt="img product" 
                                 className='flex object-cover rounded-lg'/>
@@ -78,5 +78,3 @@ const DetailsProduct = async ({params}: Props) => {
     )
 }
 export default DetailsProduct;
-
-// params take the value of product.id

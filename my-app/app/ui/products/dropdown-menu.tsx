@@ -5,7 +5,7 @@ import React from 'react'
 import { ProductsProps } from "@/app/lib/definitions";
 import DropDownComp from "./dropdown";
 
-export default function DropDownMenu(products: ProductsProps) {
+export default function DropDownMenu({products}: {products: ProductsProps[]}) {
 
     const dropDownMenu = DropDownComp(products);
 

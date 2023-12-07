@@ -6,25 +6,13 @@ import { ProductsProps } from "@/app/lib/definitions";
 import DisplayProducts from "./display-products";
 import LoadMore from './loadmore';
 
-export default function LessMoreProducts(products: ProductsProps) {
+export default function LessMoreProducts({products}: {products: ProductsProps[]}) {
 
-    const [newState, setNewState] = useState<ProductsProps[]>([]);
     const [load, setLoad] = useState<boolean>(false);
 
     const handleClick = () => {
         setLoad((load) => !load);
     };
-
-    useEffect(() => {
-        const fn = () => {
-            setNewState(Array(products))
-        }
-        fn();
-        return () => console.log("clear useEffect")
-    }, [])
-    //console.log(newProducts, "newProd (1)")
-    //console.log(newProducts, "newProducts (2)")
-    console.log(typeof products, "products final")
 
     return (
         <div>
@@ -33,7 +21,7 @@ export default function LessMoreProducts(products: ProductsProps) {
                 dark:border-slate-900 dark:bg-cyan-50 rounded-2xl shadow-in py-10`}>
 
                 {load === false ? (
-                    newState.slice(0, 3).map((prod: ProductsProps) => (
+                    products.slice(0, 3).map((prod: ProductsProps) => (
                         <DisplayProducts
                             key={prod.id}
                             id={prod.id}
@@ -43,16 +31,17 @@ export default function LessMoreProducts(products: ProductsProps) {
                             stock={prod.stock}
                         />
                     ))) : (
-                        newState.slice(0, 6).map((prod: ProductsProps) => (
-                        <DisplayProducts
-                            key={prod.id}
-                            id={prod.id}
-                            name={prod.name}
-                            img={prod.img}
-                            price={prod.price}
-                            stock={prod.stock}
-                        />
-                    ))
+                        products.slice(0, 6).map((prod: ProductsProps) => (
+                            <DisplayProducts
+                                key={prod.id}
+                                id={prod.id}
+                                name={prod.name}
+                                img={prod.img}
+                                price={prod.price}
+                                stock={prod.stock}
+                            />
+                        )
+                    )
                 )}
             </div>
                 <LoadMore load={load} handleClick={handleClick}/>

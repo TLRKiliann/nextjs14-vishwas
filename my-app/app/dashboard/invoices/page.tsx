@@ -1,8 +1,7 @@
+import { Suspense } from 'react';
+import { fetchInvoicesPages } from '@/app/lib/datas';
 import Search from '@/app/ui/search';
 import { CreateInvoice } from '@/app/ui/invoices/buttons';
-import { fetchInvoicesPages } from '@/app/lib/datas';
-import { Suspense } from 'react';
-
 import Pagination from '@/app/ui/invoices/pagination';
 import Table from '@/app/ui/invoices/table';
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons';

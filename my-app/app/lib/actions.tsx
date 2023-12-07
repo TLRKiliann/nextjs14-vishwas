@@ -1,21 +1,9 @@
 "use server";
-//import {z} from 'zod';
+
 import mysql from 'mysql2/promise';
 import { ProductsProps } from './definitions';
 
-/*
-// Pour les form actions !
-const DatabaseSchema = z.object({
-  username: z.string(),
-  email: z.string(),
-  password: z.string(),
-  ...
-});
-*/
- 
-//const CallProducts = DatabaseSchema.omit({ id: true, date: true });
-
-export async function callProducts(query: string) {
+export async function callProducts(query: string, data: ProductsProps[]) {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -24,7 +12,7 @@ export async function callProducts(query: string) {
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD
     })
-    const [result] = await db.execute(query);
+    const [result] = await db.execute(query, data);
     await db.end();
     return result;
   } catch (error) {

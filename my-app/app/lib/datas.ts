@@ -1,4 +1,4 @@
-import { ProductsProps } from "./definitions";
+// import { ProductsProps } from "./definitions";
 import { ReviewsProps } from "./definitions";
 import { CustomersProps } from "./definitions";
 import { AllTitlesProps, AllTextProps } from "./definitions";
@@ -7,7 +7,7 @@ import { callProducts } from '@/app/lib/actions';
 
 export async function fetchProducts() {
     try {
-        const response = await callProducts("SELECT * FROM products");
+        const response = await callProducts("SELECT * FROM products", []);
         const data = JSON.stringify(response);
         return data;
     }
@@ -210,4 +210,4 @@ export function fetchFilteredInvoices(query: string, currentPage: number) {
       console.error('Database Error:', error);
       throw new Error('Failed to fetch invoices.');
     }
-  }
+}

@@ -40,7 +40,7 @@ export default async function ReviewById({ params }: Props) {
                 prod.id === parseInt(params.productId) ? (
                     <div key={prod.id} className='p-4'>
                         <p>{prod.name}</p>
-                        <p>{prod.price}.- CHF</p>
+                        <p>{prod.price.toFixed(2)}.- CHF</p>
                     </div>
                 ) : null
             ))}
