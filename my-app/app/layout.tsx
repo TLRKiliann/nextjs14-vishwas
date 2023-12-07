@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-//import { ThemeProvider } from "next-themes"
 import { ThemeProvider } from '@/app/providers'
 import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';

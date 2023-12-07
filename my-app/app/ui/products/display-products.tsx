@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ProductsProps } from '@/app/lib/definitions';
-import Buttons from './Buttons'
+import Buttons from './buttons'
 
 export default function DisplayProducts({ id, name, price, img, stock }: ProductsProps) {
 
@@ -12,6 +14,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
 
     let newCount: number = count;
 
+    // useAuth - useContext
     const handleSub = (id: number) => {
         console.log(id)
         if (count === 0) {
@@ -26,10 +29,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
         console.log(id)
         setCount((count) => count + 1);
     }
-
-    const signPlus: string = "+";
-    const signMinus: string = "-";
-
+    
     return (
 
         <div className='flex flex-col m-auto h-auto
@@ -49,7 +49,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
                         src={img}
                         width={1920}
                         height={1080}
-                        alt="img cpui9"
+                        alt="img cpui"
                         className="object-fill rounded-lg shadow-in"
                     />
 
@@ -64,7 +64,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
                         {name}
                     </h3>
                     <p className='text-md mx-auto my-1'>
-                        {count === 0 ? price : totalPrice * newCount}.- CHF
+                        {count === 0 ? price.toFixed(2) : (totalPrice * newCount).toFixed(2)}.- CHF
                     </p>
                     <p className='text-sm mx-auto mb-1'>
                         {stock >= count 
@@ -95,8 +95,8 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
                 <div className='flex justify-around bg-slate-600 
                         m-auto rounded-lg shadow-in'
                 >
-                    <Buttons id={id} handleFusion={() => handleSub(id)} sign={signMinus} />
-                    <Buttons id={id} handleFusion={() => handleAdd(id)} sign={signPlus} />
+                    <Buttons id={id} handleFusion={() => handleSub(id)}>-</Buttons>
+                    <Buttons id={id} handleFusion={() => handleAdd(id)}>+</Buttons>
                 </div>
             </div>
         </div>

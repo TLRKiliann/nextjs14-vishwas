@@ -1,14 +1,46 @@
+"use server";
+
+import mysql from 'mysql2/promise';
+import { ProductsProps } from './definitions';
+
+export async function callProducts(query: string, data: ProductsProps[]) {
+  try {
+    const db = await mysql.createConnection({
+      host: process.env.MYSQL_HOST,
+      port: 3306,
+      database: process.env.MYSQL_DATABASE,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD
+    })
+    const [result] = await db.execute(query, data);
+    await db.end();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
 /*
-export async function deleteInvoice(id: string) {
+export async function createInvoice(formData: FormData) {
+    const { customerId, amount, status } = CreateInvoice.parse({
+            customerId: formData.get('customerId'),
+            amount: formData.get('amount'),
+            status: formData.get('status'),
+        });
+    const amountInCents = amount * 100;// Test it out:
+    const date = new Date().toISOString().split('T')[0];
     try {
-      //throw new Error('Failed to Delete Invoice');
-     
-      // Unreachable code block
-      await sql`DELETE FROM invoices WHERE id = ${id}`;
-      revalidatePath('/dashboard/invoices');
-      return { message: 'Deleted Invoice' };
+        await sql`
+        INSERT INTO invoices (customer_id, amount, status, date)
+        VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+        `;
     } catch (error) {
-      return { message: 'Database Error: Failed to Delete Invoice' };
+        return {
+            message: 'Database Error: Failed to Create Invoice.',
+        };
     }
+    revalidatePath('/dashboard/invoices');
+    redirect('/dashboard/invoices');
 }
 */

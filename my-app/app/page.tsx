@@ -1,21 +1,15 @@
-"use client";
-
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
+import { allTitle, allText } from '@/app/lib/datas';
 import ScrollIndicator from '@/app/ui/scroll-indicator';
+import Links from '@/app/ui/main/links';
 import Carousel from '@/app/ui/carousel';
-import { BsCpu } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa6";
-import { FaSquareTwitter } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa6";
-import { FaTiktok } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
+import SocialIcons from '@/app/ui/main/social-icons';
+import TextBlocks from '@/app/ui/main/text-blocs';
+import SectionTextColorBlock from '@/app/ui/main/sectionTextColorBlock';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import cpuI9 from "@/public/img_cpu/i9_cpu.jpg";
-import cpuI7 from "@/public/img_cpu/cpu_i7.jpg";
+import cpuI7 from "@/public/img_cpu/cpu-i7.png";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
 import boxCpui9 from "@/public/img_carousel/box-corei9.png";
 import dualBox from "@/public/img_carousel/dual-box.png";
@@ -24,8 +18,6 @@ import wallPerf from '@/public/img_bg/wall-i9.jpg';
 
 export default function Home() {
   
-  const pathname = usePathname();
-
   const images = [
     dualBox,
     boxCpui7,
@@ -33,8 +25,20 @@ export default function Home() {
     multiBox
   ];
 
+  const titleOne: string = allTitle.titleOne;
+  const titleTwo: string = allTitle.titleTwo;
+  const titleThree: string = allTitle.titleThree;
+  const titlebox_1: string = allTitle.titlebox_1;
+  const titlebox_2: string = allTitle.titlebox_2;
+
+  const textOne: string = allText.textOne;
+  const textTwo: string = allText.textTwo;
+  const textThree: string = allText.textThree;
+  const textbox_1: string = allText.textbox_1;
+  const textbox_2: string = allText.textbox_2;
+
   return (
-    <div className='relative flex text-blue-300 bg-black z-0'>
+    <div className='relative flex text-slate-900 bg-black z-0'>
       <ScrollIndicator />
 
 
@@ -80,41 +84,7 @@ export default function Home() {
             </p>
           </div>
 
-
-          <div className='flex justify-around w-full text-lg text-blue-800 m-auto mb-1'>
-            <Link href="/" className={`${pathname === '/' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Home
-            </Link>
-            
-            <Link href="/products" className={`${pathname === '/products' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Products
-            </Link>
-
-            <Link href="/about" className={`${pathname === '/about' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              About
-            </Link>
-            <Link href="/contact" className={`${pathname === '/contact' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Contact
-            </Link>
-            <Link href="/login" className={`${pathname === '/products' 
-              ? "text-cyan-600" 
-              : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >
-              Login
-            </Link>
-          </div>
+          <Links />
 
         </div>
 
@@ -138,7 +108,6 @@ export default function Home() {
           </h2>
         </div>
         
-
         <div className='w-full h-[360px] bg-slate-200/80 dark:bg-blue-100/80'>
 
           <Carousel loop>
@@ -166,10 +135,8 @@ export default function Home() {
         
         </div>
 
-
         <div className='w-full h-20 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
         <div className='flex w-full'>
 
@@ -191,46 +158,13 @@ export default function Home() {
 
         </div>
 
-
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
-
-        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
-          
-          <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
-
-          <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
-
-            <h2 className='text-3xl font-extrabold
-              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
-              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-              dark:to-emerald-500 dark:to-90% 
-              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
-              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
-            >
-              High performance for demanding customers
-            </h2>
-
-            <p className='text-justify dark:text-blue-300 text-blue-600'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-          </div>
-
-          <hr className='w-3/5 m-auto mt-10 border border-blue-600/40'/>
-
-        </div>
-
+        <TextBlocks title={titleOne} text={textOne} />
 
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
         <div className='flex w-full'>
 
@@ -256,41 +190,10 @@ export default function Home() {
 
             <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
               transform transition ease-in-out rounded-lg
-              hover:scale-105 hover:text-blue-200 hover:shadow-2xl'>
+              hover:scale-105 hover:text-blue-200 hover:shadow-2xl'
+            >
 
-              <span className='h-10 border-none
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-                rounded-tl-lg rounded-tr-lg'>
-              </span >
-
-              <section className='w-full flex'>
-
-                <article className='h-auto dark:bg-slate-900 bg-slate-100'>
-
-                  <h2 className='flex align-center text-2xl font-bold text-transparent bg-clip-text 
-                    bg-gradient-to-br from-indigo-500 from-10% 
-                  via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
-                  >
-                    Core CPU i9<BsCpu className="dark:text-blue-400 text-blue-600 mt-1 ml-4" />
-                  </h2>
-
-                  <p className='text-justify dark:text-blue-300 text-blue-600 px-10 pb-5'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-
-                </article>
-
-              </section>
-
-              <span className='h-10 border-none
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-                rounded-bl-lg rounded-br-lg'>
-              </span >
+              <SectionTextColorBlock titleBox={titlebox_1} textBox={textbox_1} />
 
             </div>
 
@@ -301,46 +204,13 @@ export default function Home() {
 
         </div>
 
-
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
-
-        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
-          
-          <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
-
-          <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
-
-            <h2 className='text-3xl font-extrabold
-              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
-              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-              dark:to-emerald-500 dark:to-90% 
-              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
-              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
-            >
-              We can help you make the right choice
-            </h2>
-
-            <p className='text-justify dark:text-blue-300 text-blue-600'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-          </div>
-
-          <hr className='w-3/5 m-auto mt-10 border border-blue-600/40'/>
-
-        </div>
-
+        <TextBlocks title={titleTwo} text={textTwo} />
 
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
         <div className='flex w-full'>
 
@@ -351,41 +221,10 @@ export default function Home() {
 
             <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
               transform transition ease-in-out rounded-lg
-              hover:scale-105 hover:text-blue-200 hover:shadow-2xl'>
+              hover:scale-105 hover:text-blue-200 hover:shadow-2xl'
+            >
 
-              <span className='h-10 border-none
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-                rounded-tl-lg rounded-tr-lg'>
-              </span >
-
-              <section className='w-full flex'>
-
-                <article className='h-auto dark:bg-slate-900 bg-slate-100'>
-
-                  <h2 className='flex align-center text-2xl font-bold text-transparent bg-clip-text 
-                    bg-gradient-to-br from-indigo-500 from-10% 
-                  via-sky-500 via-50% to-emerald-500 to-90% py-4 pl-10'
-                  >
-                    Core CPU i7<BsCpu className="dark:text-blue-400 text-blue-600 mt-1 ml-4" />
-                  </h2>
-
-                  <p className='text-justify dark:text-blue-300 text-blue-600 px-10 pb-5'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </p>
-
-                </article>
-
-              </section>
-
-              <span className='h-10 border-none
-                bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-                rounded-bl-lg rounded-br-lg'>
-              </span >
+              <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
 
             </div>
 
@@ -409,55 +248,15 @@ export default function Home() {
 
         </div>
 
-
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
 
-
-        <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
-          
-          <hr className='w-3/5 m-auto mb-10 border border-blue-600/40'/>
-
-          <div className='flex flex-col align-center justify-center w-3/5 m-auto'>
-
-            <h2 className='text-3xl font-extrabold
-              dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-br 
-              dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-              dark:to-emerald-500 dark:to-90% 
-              text-transparent bg-clip-text bg-gradient-to-br from-blue-600 from-10% 
-              via-sky-400 via-50% to-cyan-200 to-90% mb-4'
-            >
-              We're present on every network
-            </h2>
-
-            <p className='text-justify dark:text-blue-300 text-blue-600'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-              fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-              culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-
-            <div className='flex align-center justify-end mt-4'>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaGithub size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaSquareTwitter size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaYoutube size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaInstagram size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaTiktok size={28} /></span>
-              <span className='dark:text-blue-300 text-blue-500 ml-4'><FaLinkedin size={28} /></span>
-            </div>
-
-          </div>
-
-          <hr className='w-3/5 m-auto mt-10 border border-blue-600/40'/>
-
-        </div>
-
+        <TextBlocks title={titleThree} text={textThree}>
+          <SocialIcons />
+        </TextBlocks>
 
         <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
         </div>
-
 
       </main>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { products } from "@/app/lib/datas";
+import { fetchProducts } from '@/app/lib/datas';
+import { ProductsProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 
 type Props = {
@@ -13,18 +14,22 @@ type Props = {
 export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     const title = await new Promise((resolve) => {
         setTimeout(() => {
-            resolve(`iPhone ${params.productId} extra: ${params.reviewId}`)
+            resolve(`CPU: ${params.productId} Art: ${params.reviewId}`)
         }, 300)
     })
     return {
-        title: `Product ${title}`
+        title: `Prod-${title}-`
     }
 }
 
-export default function ReviewById({ params }: Props) {
+export default async function ReviewById({ params }: Props) {
     if (parseInt(params.reviewId) > 100 || parseInt(params.reviewId) !== Number(params.reviewId)) {
         notFound();
     }
+
+    const data = await fetchProducts();
+    const products: ProductsProps[] = JSON.parse(data);
+
     //console.log(params.reviewId, "reviewid")
     return (
         <div className='flex flex-col min-h-screen'>
@@ -35,7 +40,7 @@ export default function ReviewById({ params }: Props) {
                 prod.id === parseInt(params.productId) ? (
                     <div key={prod.id} className='p-4'>
                         <p>{prod.name}</p>
-                        <p>{prod.price}.- CHF</p>
+                        <p>{prod.price.toFixed(2)}.- CHF</p>
                     </div>
                 ) : null
             ))}

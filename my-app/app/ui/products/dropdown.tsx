@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+"use client";
+
+import React, { useState } from 'react';
 import { ProductsProps } from "@/app/lib/definitions";
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function DropDownComp(products: ProductsProps[]) {
 
@@ -12,8 +14,8 @@ export default function DropDownComp(products: ProductsProps[]) {
 
   const transClass = isOpen ? "flex" : "hidden";
 
-  return (
-    <>
+    return (
+      <>
         <div className='relative w-full m-auto'>
             <button
               className="font-bold bg-blue-600 px-4 py-2 
@@ -22,20 +24,20 @@ export default function DropDownComp(products: ProductsProps[]) {
             >
               Menu
             </button>
-
             <div className={`absolute top-12 z-20 w-[140px]] h-[auto] 
               flex flex-col bg-blue-400 mr-2 ${transClass}`}>
-                
-                {products.map(product =>
-                  <Link
-                    key={product.id}
-                    className="hover:bg-blue-600 hover:text-blue-200 px-4 py-1"
-                    href={`/products/${product.id}`}
-                    onClick={toggle}
+            
+              {products.map((prod: ProductsProps) => (
+                <Link
+                  key={prod.id}
+                  className="hover:bg-blue-600 hover:text-blue-200 px-4 py-1"
+                  href={`/products/${prod.id}`}
+                  onClick={toggle}
                   >
-                    {product.name}
-                  </Link>
-                )}
+                  {prod.name}
+                </Link>
+
+              ))}   
 
             </div>
         </div>
@@ -46,6 +48,6 @@ export default function DropDownComp(products: ProductsProps[]) {
           </div>
         ) : null
         }
-    </>
-  )
+      </>
+    )
 }

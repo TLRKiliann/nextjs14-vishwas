@@ -9,7 +9,7 @@ export default function DetailsProduct({children}: {children: React.ReactNode}) 
             via-sky-500 via-50% to-emerald-500 to-90%
             p-4'
         >
-            Products
+          Products
         </h1>
           {children}
         <h2>Display from the bottom of layout (DetailsProduct)!</h2>
