@@ -16,21 +16,23 @@ export default function AuthLayout({children}: {children: React.ReactNode}) {
     const pathname = usePathname();
 
     return (
-        <div className='min-h-screen'> 
+        <div className='min-h-screen bg-slate-100 dark:bg-slate-900 '> 
 
-            {navLinks.map((link) => {
-                
-                const isActive = pathname.startsWith(link.href)
+            <div className='flex align-center justify-end p-2'>
 
-                return <Link
-                        key={link.name} 
-                        href={link.href} 
-                        className={isActive ? 'font-bold mr-4' : 'text-blue-400 mr-4'}
-                    >
-                        {link.name}
-                    </Link>
-                })
-            }
+                {navLinks.map((link) => {
+                    const isActive = pathname.startsWith(link.href)
+                    return <Link
+                            key={link.name} 
+                            href={link.href} 
+                            className={`text-lg ${isActive ? 'font-bold mr-4' : 'text-blue-400 mr-4'}`}
+                        >
+                            {link.name}
+                        </Link>
+                    })
+                }
+
+            </div>
 
             <SideNav />
             
