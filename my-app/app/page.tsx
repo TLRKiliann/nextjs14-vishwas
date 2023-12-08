@@ -8,6 +8,7 @@ import TextBlocks from '@/app/ui/main/text-blocs';
 import SectionTextColorBlock from '@/app/ui/main/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/main/sectionImgOne';
 import SectionImgTwo from '@/app/ui/main/sectionImgTwo';
+import Separator from '@/app/ui/main/separator';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
@@ -158,13 +159,11 @@ export default function Home() {
 
         </div>
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
+        <Separator />
 
         <TextBlocks title={titleOne} text={textOne} />
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
+        <Separator />
 
         <div className='flex w-full'>
 
@@ -184,13 +183,11 @@ export default function Home() {
 
         </div>
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
+        <Separator />
 
         <TextBlocks title={titleTwo} text={textTwo} />
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
+        <Separator />
 
         <div className='flex w-full'>
 
@@ -210,15 +207,13 @@ export default function Home() {
 
         </div>
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
+        <Separator />
 
         <TextBlocks title={titleThree} text={textThree}>
           <SocialIcons />
         </TextBlocks>
 
-        <div className='w-full h-10 dark:bg-slate-900 bg-slate-100'>
-        </div>
+        <Separator />
 
       </main>
 
