@@ -14,6 +14,7 @@ export default async function ListProducts() {
 
     return (
         <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
+            
             <h2>Call test of products from MySQL db</h2>
                 
             <div>

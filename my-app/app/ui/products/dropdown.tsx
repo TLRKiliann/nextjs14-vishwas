@@ -27,7 +27,7 @@ export default function DropDownComp(products: ProductsProps[]) {
             <div className={`absolute top-12 z-20 w-[140px]] h-[auto] 
               flex flex-col bg-blue-400 mr-2 ${transClass}`}>
             
-              {products.map((prod: ProductsProps) => (
+              {products?.map((prod: ProductsProps) => (
                 <Link
                   key={prod.id}
                   className="hover:bg-blue-600 hover:text-blue-200 px-4 py-1"
