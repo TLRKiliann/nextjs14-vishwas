@@ -4,6 +4,7 @@ import { CustomersProps } from "./definitions";
 import { AllTitlesProps, AllTextProps } from "./definitions";
 // import { unstable_noStore as noStore } from 'next/cache';
 import { callProducts } from '@/app/lib/db';
+import { requestAuth } from '@/app/lib/db';
 
 export async function fetchProducts() {
     try {
@@ -14,6 +15,16 @@ export async function fetchProducts() {
     catch (error) {
         console.log(error);
         throw new Error('Failed to fetch revenue data.');
+    }
+}
+
+export async function getUser(email: string) {
+    try {
+      const user = await requestAuth("SELECT * FROM USERS where email= ?", email);
+      return user;
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      throw new Error('Failed to fetch user.');
     }
 }
 
