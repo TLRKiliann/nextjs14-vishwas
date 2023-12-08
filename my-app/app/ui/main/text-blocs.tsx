@@ -18,13 +18,13 @@ export default function TextBlocks({title, text, children}: PropsText) {
                     text-transparent bg-clip-text 
                     dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
                     dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
-                    bg-gradient-to-br from-purple-900 from-10% 
-                    via-violet-600 via-50% to-slate-400 to-90% mb-4'
+                    bg-gradient-to-br from-violet-500 from-10% 
+                    via-purple-500 via-50% to-violet-200 to-90% mb-4'
                 >
                     {title}
                 </h2>
 
-                <p className='text-justify dark:text-blue-300'>
+                <p className='text-justify text-slate-600 dark:text-blue-300'>
                     {text}
                 </p>
 

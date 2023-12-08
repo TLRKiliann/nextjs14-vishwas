@@ -45,22 +45,22 @@ export default function Header() {
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
-                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Home</Link>
                         
                         <Link href="/products" className={`${pathname === '/products'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Products</Link>
 
                         <Link href="/docs" className={`${pathname === '/docs'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-blue-300 text-blue-400"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
                         >Login</Link>
 

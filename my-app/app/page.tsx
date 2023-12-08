@@ -39,7 +39,7 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-900 bg-black z-0'>
+    <div className='relative flex text-slate-600 bg-black z-0'>
       <ScrollIndicator />
 
 
@@ -101,8 +101,8 @@ export default function Home() {
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
             dark:drop-shadow-lg
-            bg-gradient-to-br from-slate-600 from-10% 
-            via-indigo-600 via-40% to-sky-400 to-90% drop-shadow-lg
+            bg-gradient-to-br from-purple-500 from-10% 
+            via-violet-500 via-50% to-purple-500 to-90% drop-shadow-lg
             transition animate-slice-appear'
           >
             Welcome to shop !
