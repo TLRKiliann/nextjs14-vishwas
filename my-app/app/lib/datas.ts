@@ -54,6 +54,21 @@ export const reviews: ReviewsProps[] = [
         id: 3,
         categories: "Last article about cpu i5",
         review: "little text to display something (cpu-i5)"
+    },
+    {
+        id: 4,
+        categories: "Last article about cpu i3",
+        review: "little text to display something (cpu-i3)"
+    },
+    {
+        id: 5,
+        categories: "Last article about cpu pentium",
+        review: "little text to display something (pentium)"
+    },
+    {
+        id: 6,
+        categories: "Last article about cpu athalon",
+        review: "little text to display something (athalon)"
     }
 ];
 
