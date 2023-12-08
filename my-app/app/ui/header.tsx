@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
+import { BiLogInCircle } from "react-icons/bi";
 import CartComponent from './cart-component';
 import logoImg from '@/public/img_logo/processor.png';
 
@@ -60,9 +61,9 @@ export default function Header() {
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
-                        >Login</Link>
+                            ? "flex align-center justify-center text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
+                            : "flex align-center justify-center text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
+                        ><span><BiLogInCircle size={24} /></span>Login</Link>
 
                         <CartComponent />
 

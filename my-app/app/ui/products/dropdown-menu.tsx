@@ -14,8 +14,10 @@ export default function DropDownMenu({products}: {products: ProductsProps[]}) {
 
             <h1 className='text-4xl font-bold 
                 text-transparent bg-clip-text 
-                bg-gradient-to-br from-indigo-500 from-10% 
-                via-sky-500 via-50% to-emerald-500 to-90%
+                dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
+                dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
+                bg-gradient-to-br from-violet-500 from-10% 
+                via-purple-500 via-50% to-violet-200 to-90%
                 mx-0 my-auto'
             >
                 Products
