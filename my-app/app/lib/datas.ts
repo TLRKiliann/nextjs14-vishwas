@@ -6,6 +6,7 @@ import { AllTitlesProps, AllTextProps } from "./definitions";
 import { callProducts } from '@/app/lib/db';
 import { requestAuth } from '@/app/lib/db';
 
+// fetch all products
 export async function fetchProducts() {
     try {
         const response = await callProducts("SELECT * FROM products", []);
@@ -18,6 +19,7 @@ export async function fetchProducts() {
     }
 }
 
+// authentication
 export async function getUser(email: string) {
     try {
       const user = await requestAuth("SELECT * FROM USERS where email= ?", email);
