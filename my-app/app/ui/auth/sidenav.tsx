@@ -1,6 +1,6 @@
 import Link from 'next/link'
-
 import LogOut from './logout'
+
 export default function SideNav() {
     return (
         <div className='flex flex-col w-1/5 text-gray-700 bg-slate-50 border rounded-br-lg p-4'>

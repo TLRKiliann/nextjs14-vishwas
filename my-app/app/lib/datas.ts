@@ -1,5 +1,5 @@
 // import { ProductsProps } from "./definitions";
-import { ReviewsProps } from "./definitions";
+import { ReviewsProps, User } from "./definitions";
 import { CustomersProps } from "./definitions";
 import { AllTitlesProps, AllTextProps } from "./definitions";
 // import { unstable_noStore as noStore } from 'next/cache';
@@ -22,8 +22,10 @@ export async function fetchProducts() {
 // authentication
 export async function getUser(email: string) {
     try {
-      const user = await requestAuth("SELECT * FROM USERS where email= ?", email);
-      return user;
+      const user = await requestAuth("SELECT * FROM users WHERE email= ? ", email);
+      //const user = await requestAuth(`SELECT * FROM users WHERE email=${email}`);
+      return user as User;
+      //return user.rows[0];
     } catch (error) {
       console.error('Failed to fetch user:', error);
       throw new Error('Failed to fetch user.');

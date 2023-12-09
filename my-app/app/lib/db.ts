@@ -20,14 +20,15 @@ export async function callProducts(query: string, data: ProductsProps[]) {
   }
 }
 
-export async function requestAuth(query: string, data: User["email"]) {
+export async function requestAuth(query: string, data: any) {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
       port: 3306,
       database: process.env.MYSQL_DATABASE,
       user: process.env.MYSQL_USER,
-      password: process.env.MYSQL_PASSWORD
+      password: process.env.MYSQL_PASSWORD,
+      namedPlaceholders: true,
     })
     const [result] = await db.execute(query, data);
     await db.end();

@@ -1,8 +1,7 @@
-//"use client";
-
 import React from 'react'
 import type { Metadata } from 'next'
 import LoginForm from '@/app/ui/auth/login-form';
+import bcrypt from 'bcrypt';
 
 export const metadata: Metadata = {
   title: "login",
@@ -10,6 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default function Login() {
+
   return (
     <div className='min-h-screen'>
       
@@ -24,8 +24,9 @@ export default function Login() {
         Login
       </h1>
 
-      <LoginForm />
-
+      <div className='flex justify-center'>
+        <LoginForm />
+      </div>
     </div>
   )
 }

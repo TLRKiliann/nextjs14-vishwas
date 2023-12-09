@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: "dashboard",
-  description: "access restricted"
+    title: "dashboard",
+    description: "access restricted"
 }
 
 export default function Dashboard() {
