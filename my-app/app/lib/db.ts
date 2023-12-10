@@ -1,6 +1,7 @@
 import mysql from 'mysql2/promise';
-import { ProductsProps } from './definitions';
-import { User } from './definitions';
+import type { ProductsProps } from './definitions';
+import type { User } from './definitions';
+//import { FormatDetection } from 'next/dist/lib/metadata/types/extra-types';
 
 // fetch all products by server action (no api needed !)
 const executeQuery = async (query: string, data: ProductsProps[]) => {
@@ -12,6 +13,7 @@ const executeQuery = async (query: string, data: ProductsProps[]) => {
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD
     })
+    console.log(query, typeof data, "query data")
     const [result] = await db.execute(query, data);
     await db.end();
     return result;
@@ -22,7 +24,7 @@ const executeQuery = async (query: string, data: ProductsProps[]) => {
 }
 
 // authentication
-const authQuery = async (query: string, data: User) => { // User
+const authQuery = async (query: string, data: string[]) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -32,6 +34,7 @@ const authQuery = async (query: string, data: User) => { // User
       password: process.env.MYSQL_PASSWORD,
       namedPlaceholders: true,
     })
+    //console.log(query, data, "query data")
     const [result] = await db.execute(query, data);
     await db.end();
     return result;

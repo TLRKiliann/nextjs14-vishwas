@@ -8,11 +8,13 @@ import { GrValidate } from "react-icons/gr";
 import { BtnValidate } from './BtnValidate';
 
 export default function LoginForm() {
-    const [code, dispatch] = useFormState(authenticate, undefined);
+
+    //const [code, dispatch] = useFormState(authenticate, undefined);
+    const [code, formAction] = useFormState(authenticate, undefined)
 
     return (
         <form 
-            action={dispatch} 
+            action={formAction}
             className='flex flex-col w-2/6 text-md font-bold 
                 dark:bg-gradient-to-tr dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
@@ -28,6 +30,7 @@ export default function LoginForm() {
             >
                 Email
             </label>
+
             <input
                 type="text"
                 id="email"
@@ -54,7 +57,7 @@ export default function LoginForm() {
                 id="password"
                 name="password"
                 required
-                minLength={12}
+                minLength={6}
                 placeholder="Enter password of 12 caracters"  
                 className='text-md mb-5 px-[7px] py-[3px] text-fuchsia-300/90 dark:text-cyan-400
                 bg-slate-100 hover:bg-white active:bg-white dark:bg-slate-800 dark:hover:bg-slate-900 
@@ -63,9 +66,9 @@ export default function LoginForm() {
             />
             <LoginButton />
             <div
-            className="flex h-8 items-end space-x-1"
-            aria-live="polite"
-            aria-atomic="true"
+                className="flex h-8 items-end space-x-1"
+                aria-live="polite"
+                aria-atomic="true"
             >
                 {code === 'CredentialSignin' && (
                     <>
@@ -81,7 +84,9 @@ export default function LoginForm() {
 }
 
 function LoginButton() {
+    
     const { pending } = useFormStatus();
+
     return (
         <BtnValidate 
             className='text-md font-bold m-auto text-violet-600 dark:text-slate-50

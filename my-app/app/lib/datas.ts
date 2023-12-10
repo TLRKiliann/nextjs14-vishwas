@@ -1,6 +1,20 @@
-import { ReviewsProps } from "./definitions";
-import { CustomersProps } from "./definitions";
-import { AllTitlesProps, AllTextProps } from "./definitions";
+import { authQuery } from "./db";
+import type { ReviewsProps, User } from "./definitions";
+import type { CustomersProps } from "./definitions";
+import type { AllTitlesProps, AllTextProps } from "./definitions";
+
+/*
+export async function getUser(email: string) {
+    try {
+      const user = await authQuery(`SELECT * from USERS where email = ?`, email);
+      return user as User;
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      throw new Error('Failed to fetch user.');
+    }
+}
+*/
+  
 
 export const reviews: ReviewsProps[] = [
     {
