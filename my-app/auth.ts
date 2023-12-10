@@ -32,6 +32,7 @@ export const { auth, signIn, signOut } = NextAuth({
           const data = JSON.parse(parseUser);
           const findEmail = data.map((d:User) => d.email === email);
           const findPassword = data.map((d:User) => d.password === password);
+          //console.log(findPassword, "findEmail - password(3)");
           if (findEmail && findPassword) {
             console.log("Log in ok !")
             return data;

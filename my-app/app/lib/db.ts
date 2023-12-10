@@ -34,7 +34,6 @@ const authQuery = async (query: string, data: string[]) => {
       password: process.env.MYSQL_PASSWORD,
       namedPlaceholders: true,
     })
-    //console.log(query, data, "query data")
     const [result] = await db.execute(query, data);
     await db.end();
     return result;
