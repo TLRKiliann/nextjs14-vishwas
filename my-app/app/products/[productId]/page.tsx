@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { fetchProducts } from '@/app/lib/datas';
+import { executeQuery } from '@/app/lib/db';
 import { ProductsProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 
@@ -27,10 +27,12 @@ const DetailsProduct = async ({params}: Props) => {
     if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
-    const data = await fetchProducts();
-    const products: ProductsProps[] = JSON.parse(data);
+
+    const data: unknown = await executeQuery("SELECT * FROM products", []);
+    const products: string = JSON.stringify(data);
+    
     // To display name & color of product
-    const productName = products.map((prod) => {
+    const productName = JSON.parse(products).map((prod: ProductsProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <div key={prod.id} className='flex justify-center w-full h-auto text-md'>

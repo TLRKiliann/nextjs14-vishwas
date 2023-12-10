@@ -2,7 +2,8 @@ import mysql from 'mysql2/promise';
 import { ProductsProps } from './definitions';
 import { User } from './definitions';
 
-export async function callProducts(query: string, data: ProductsProps[]) {
+// fetch all products by server action (no api needed !)
+const executeQuery = async (query: string, data: ProductsProps[]) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -20,7 +21,8 @@ export async function callProducts(query: string, data: ProductsProps[]) {
   }
 }
 
-export async function requestAuth(query: string, data: any) {
+// authentication
+const authQuery = async (query: string, data: User) => { // User
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -38,3 +40,8 @@ export async function requestAuth(query: string, data: any) {
     return error;
   }
 }
+
+export { 
+  executeQuery,
+  authQuery 
+};
