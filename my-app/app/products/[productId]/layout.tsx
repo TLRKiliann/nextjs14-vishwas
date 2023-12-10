@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
-export default function DetailsProduct({children}: {children: React.ReactNode}) {
+type Props = {
+  productId: string;
+}
+
+export default async function DetailsProduct({children, params}: 
+  {children: React.ReactNode, params: Props}
+  ) {
   return (
     <div className='min-h-screen bg-slate-100 text-slate-900 dark:text-slate-50 dark:bg-slate-900'>
         <h1 className='text-4xl font-bold 
@@ -14,7 +21,12 @@ export default function DetailsProduct({children}: {children: React.ReactNode}) 
           Products
         </h1>
           {children}
-        <h2>Display from the bottom of layout (DetailsProduct)!</h2>
+        <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
+          <Link href="/cart">Display Cart</Link>
+        </li>
+        <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
+          <Link href={`/products/${params.productId}/reviews`}>All articles</Link>
+        </li>
     </div>
   )
 }
