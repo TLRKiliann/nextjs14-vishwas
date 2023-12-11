@@ -40,6 +40,7 @@ const config: Config = {
         'btn': '0px 0px 7px rgba(40, 40, 40, 0.8)',
         'out': '0px 0px 10px rgba(0, 0, 0, 0.8)',
         'in': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
+        'inviolet': 'inset 0px 0px 10px rgba(147, 112, 219, 0.8)',
         'inlight': 'inset 0px 0px 10px rgba(0, 0, 0, 0.5)',
         'xl': '0px 0px 10px rgba(0, 0, 0, 1)',
         'xllight': '0px 0px 10px rgba(0, 0, 0, 0.5)',

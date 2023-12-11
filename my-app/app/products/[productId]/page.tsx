@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { fetchProducts } from '@/app/lib/datas';
+import { executeQuery } from '@/app/lib/db';
 import { ProductsProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 
@@ -27,20 +27,21 @@ const DetailsProduct = async ({params}: Props) => {
     if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
         notFound();
     }
-    const data = await fetchProducts();
-    const products: ProductsProps[] = JSON.parse(data);
+
+    const data: unknown = await executeQuery("SELECT * FROM products", []);
+    const products: string = JSON.stringify(data);
+    
     // To display name & color of product
-    const productName = products.map((prod) => {
+    const productName = JSON.parse(products).map((prod: ProductsProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <div key={prod.id} className='flex justify-center w-full h-auto text-md'>
                     <div className='flex flex-col
                         dark:bg-gradient-to-tr dark:from-slate-900 dark:from-10% 
                         dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
-                        bg-gradient-to-tr from-blue-400 from-10% 
-                        via-slate-50 via-50% to-blue-400 to-90%
+                        bg-gradient-to-tr from-violet-400 from-10% 
+                        via-slate-50 via-50% to-violet-400 to-90%
                         transform transition translate-y-0 animate-up-start
-
                         px-10 py-4 rounded-lg shadow-lg'
                     >
                         <p className='pb-2'>Name: {prod.name}</p>
@@ -59,6 +60,17 @@ const DetailsProduct = async ({params}: Props) => {
         <div className='min-h-screen'>
             <p className="p-4">Details by product id: {params.productId}</p>
 
+                <div className="flex align-center justify-start">
+                    <Link 
+                        href={`/products/${params.productId}/reviews`}
+                        className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
+                        text-violet-500 hover:text-violet-400
+                        p-4'
+                    >
+                        All articles about all CPU
+                    </Link>
+                </div>
+
             {productName}
 
             {reviews.map((rev) => (
@@ -66,14 +78,16 @@ const DetailsProduct = async ({params}: Props) => {
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 
                             href={`/products/${params.productId}/reviews/${rev.id}`}
-                            className=' text-sky-500 text-lg font-bold hover:text-sky-400 p-4'
+                            className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
+                            text-violet-500 hover:text-violet-400
+                            p-4'
                         >
                             {rev.categories}
                         </Link>
+
                     </div>
                 ) : null
             ))}
-
         </div>
     )
 }

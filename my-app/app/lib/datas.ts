@@ -1,43 +1,20 @@
-// import { ProductsProps } from "./definitions";
-import { ReviewsProps } from "./definitions";
-import { CustomersProps } from "./definitions";
-import { AllTitlesProps, AllTextProps } from "./definitions";
-// import { unstable_noStore as noStore } from 'next/cache';
-import { callProducts } from '@/app/lib/actions';
-
-export async function fetchProducts() {
-    try {
-        const response = await callProducts("SELECT * FROM products", []);
-        const data = JSON.stringify(response);
-        return data;
-    }
-    catch (error) {
-        console.log(error);
-        throw new Error('Failed to fetch revenue data.');
-    }
-}
+import { authQuery } from "./db";
+import type { ReviewsProps, User } from "./definitions";
+import type { CustomersProps } from "./definitions";
+import type { AllTitlesProps, AllTextProps } from "./definitions";
 
 /*
-export async function fetchAllProducts() {
-    // Add noStore() here prevent the response from being cached.
-    // This is equivalent to in fetch(..., {cache: 'no-store'}).
-    noStore();
+export async function getUser(email: string) {
     try {
-      // Artificially delay a reponse for demo purposes.
-      // Don't do this in real life :)
-      console.log('Fetching revenue data...');
-      //await new Promise((resolve) => setTimeout(resolve, 3000));
-  
-      const data: ProductsProps[] = await products;
-      console.log('Data fetch complete!');
-  
-      return data;
+      const user = await authQuery(`SELECT * from USERS where email = ?`, email);
+      return user as User;
     } catch (error) {
-      console.error('Database Error:', error);
-      throw new Error('Failed to fetch revenue data.');
+      console.error('Failed to fetch user:', error);
+      throw new Error('Failed to fetch user.');
     }
 }
 */
+  
 
 export const reviews: ReviewsProps[] = [
     {
@@ -54,6 +31,21 @@ export const reviews: ReviewsProps[] = [
         id: 3,
         categories: "Last article about cpu i5",
         review: "little text to display something (cpu-i5)"
+    },
+    {
+        id: 4,
+        categories: "Last article about cpu i3",
+        review: "little text to display something (cpu-i3)"
+    },
+    {
+        id: 5,
+        categories: "Last article about cpu pentium",
+        review: "little text to display something (pentium)"
+    },
+    {
+        id: 6,
+        categories: "Last article about cpu athalon",
+        review: "little text to display something (athalon)"
     }
 ];
 

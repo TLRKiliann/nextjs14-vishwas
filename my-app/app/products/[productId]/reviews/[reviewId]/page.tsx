@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { fetchProducts } from '@/app/lib/datas';
+import { executeQuery } from '@/app/lib/db';
 import { ProductsProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 
@@ -27,16 +27,15 @@ export default async function ReviewById({ params }: Props) {
         notFound();
     }
 
-    const data = await fetchProducts();
-    const products: ProductsProps[] = JSON.parse(data);
+    const data: unknown = await executeQuery("SELECT * FROM products", []);
+    const products: string = JSON.stringify(data);
 
-    //console.log(params.reviewId, "reviewid")
     return (
         <div className='flex flex-col min-h-screen'>
             <div className='p-4'>
                 <p>Product id: {params.productId} and article id: {params.reviewId}</p>
             </div>
-            {products.map((prod) => (
+            {JSON.parse(products).map((prod: ProductsProps) => (
                 prod.id === parseInt(params.productId) ? (
                     <div key={prod.id} className='p-4'>
                         <p>{prod.name}</p>

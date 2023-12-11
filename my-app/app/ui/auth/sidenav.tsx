@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import LogOut from './logout'
 
 export default function SideNav() {
     return (
@@ -49,6 +50,8 @@ export default function SideNav() {
                     </Link>
                 </li>
                 <hr />
+
+                <LogOut />
 
             </ul>
         </div>

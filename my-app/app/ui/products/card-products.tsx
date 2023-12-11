@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { ProductsProps } from '@/app/lib/definitions';
 import Buttons from './buttons'
 
-export default function DisplayProducts({ id, name, price, img, stock }: ProductsProps) {
+export default function CardProducts({ id, name, price, img, stock }: ProductsProps) {
 
     const [count, setCount] = useState<number>(0);
 
@@ -36,8 +36,8 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
             font-bold text-slate-100
             dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
             dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
-            bg-gradient-to-r from-blue-400 from-10% 
-            via-slate-50 via-50% to-indigo-400 to-90%
+            bg-gradient-to-r from-violet-400 from-10% 
+            via-slate-50 via-50% to-violet-400 to-90%
             transform transition hover:scale-[1.025] hover:shadow-2xl
             translate-y-0 animate-up-start rounded-lg'
         >
@@ -92,9 +92,7 @@ export default function DisplayProducts({ id, name, price, img, stock }: Product
             </div>
 
             <div className='px-3 py-2 pb-3'>
-                <div className='flex justify-around bg-slate-600 
-                        m-auto rounded-lg shadow-in'
-                >
+                <div className='flex justify-around bg-slate-600 m-auto rounded-lg shadow-in'>
                     <Buttons id={id} handleFusion={() => handleSub(id)}>-</Buttons>
                     <Buttons id={id} handleFusion={() => handleAdd(id)}>+</Buttons>
                 </div>

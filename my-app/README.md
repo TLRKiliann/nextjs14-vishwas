@@ -76,6 +76,63 @@ $ pnpm add mysql2
 
 ---
 
+## Don't need to duplicate functions with datas.ts:
+
+```
+import { unstable_noStore as noStore } from 'next/cache';
+//import { callProducts } from '@/app/lib/db';
+//import { authQuery } from '@/app/lib/db';
+
+// fetch all products
+export async function fetchProducts() {
+    try {
+        const response = await callProducts("SELECT * FROM products", []);
+        const data = JSON.stringify(response);
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+        throw new Error('Failed to fetch revenue data.');
+    }
+}
+
+
+// authentication
+export async function getUser(email: string) {
+    try {
+      const user = await authQuery("SELECT * FROM users WHERE email= ? ", email);
+      //const user = await requestAuth(`SELECT * FROM users WHERE email=${email}`);
+      return user as User;
+      //return user.rows[0];
+    } catch (error) {
+      console.error('Failed to fetch user:', error);
+      throw new Error('Failed to fetch user.');
+    }
+}
+
+export async function fetchAllProducts() {
+    // Add noStore() here prevent the response from being cached.
+    // This is equivalent to in fetch(..., {cache: 'no-store'}).
+    noStore();
+    try {
+      // Artificially delay a reponse for demo purposes.
+      // Don't do this in real life :)
+      console.log('Fetching revenue data...');
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+  
+      const data: ProductsProps[] = await callProducts("SELECT * FROM products", []);
+      const data = JSON.stringify(response);
+      console.log('Data fetch complete!');
+      return data;
+    } catch (error) {
+      console.error('Database Error:', error);
+      throw new Error('Failed to fetch revenue data.');
+    }
+}
+
+```
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
