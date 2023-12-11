@@ -17,17 +17,17 @@ export default function Links() {
             <Link href="/products" className={`${pathname === '/products' 
             ? "text-cyan-600" 
             : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Products</Link>
+            >Shop</Link>
 
             <Link href="/about" className={`${pathname === '/about' 
             ? "text-cyan-600" 
             : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >About</Link>
+            >Our story</Link>
 
             <Link href="/contact" className={`${pathname === '/contact' 
             ? "text-cyan-600" 
             : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Contact</Link>
+            >Contact us</Link>
 
             <Link href="/login" className={`${pathname === '/login' 
             ? "text-cyan-600" 

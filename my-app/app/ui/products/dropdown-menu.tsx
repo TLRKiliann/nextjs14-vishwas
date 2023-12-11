@@ -20,7 +20,7 @@ export default function DropDownMenu({products}: {products: ProductsProps[]}) {
                 via-purple-500 via-50% to-violet-200 to-90%
                 mx-0 my-auto'
             >
-                Products
+                Shop
             </h1>
 
             <div className='my-auto mr-2'>{dropDownMenu}</div>

@@ -53,7 +53,7 @@ export default function Header() {
                         <Link href="/products" className={`${pathname === '/products'
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
-                        >Products</Link>
+                        >Shop</Link>
 
                         <Link href="/docs" className={`${pathname === '/docs'
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-sky-600"
