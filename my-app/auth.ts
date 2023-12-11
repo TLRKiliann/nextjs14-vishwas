@@ -30,10 +30,10 @@ export const { auth, signIn, signOut } = NextAuth({
           const user = await getUser(email);
           const parseUser = JSON.stringify(user);
           const data = JSON.parse(parseUser);
-          const findEmail = data.map((d:User) => d.email === email);
-          const findPassword = data.map((d:User) => d.password === password);
+          const findEmail = data.find((d:User) => d.email === email);
+          const findPassword = data.find((d:User) => d.password === password);
           //console.log(findPassword, "findEmail - password(3)");
-          if (findEmail && findPassword) {
+          if ((findEmail.email === email) && (findPassword.password === password)) {
             console.log("Log in ok !")
             return data;
           }
@@ -49,7 +49,7 @@ export const { auth, signIn, signOut } = NextAuth({
   // bcrypt
   // if (!data) return null;
   // else return data;
-  const passwordsMatch = await bcrypt.compare(findPassword, data.password);
+  const passwordsMatch = await bcrypt.compare(findPassword.password, password);
   if (passwordsMatch) return data;
   else return null;
 */
