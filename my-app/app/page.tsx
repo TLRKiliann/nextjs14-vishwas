@@ -101,8 +101,8 @@ export default function Home() {
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
             dark:drop-shadow-lg
-            bg-gradient-to-br from-purple-500 from-10% 
-            via-violet-500 via-50% to-purple-500 to-90% drop-shadow-lg
+            bg-gradient-to-br from-purple-600 from-10% 
+            via-purple-400 via-50% to-purple-600 to-90% drop-shadow-lg
             transition animate-slice-appear'
           >
             Welcome to shop !

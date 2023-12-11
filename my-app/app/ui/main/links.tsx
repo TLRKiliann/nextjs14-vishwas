@@ -29,10 +29,10 @@ export default function Links() {
             : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
             >Contact us</Link>
 
-            <Link href="/login" className={`${pathname === '/login' 
+            <Link href="/notfound" className={`${pathname === '/notfound' 
             ? "text-cyan-600" 
             : "hover:text-blue-500 hover:scale-105 hover:drop-shadow-lg"}`}
-            >Login</Link>
+            >Notfound</Link>
 
         </div>
     )

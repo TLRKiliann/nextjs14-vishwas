@@ -162,30 +162,39 @@ export default function About() {
           </p>
         </article>
 
-        <div className='bg-violet-500
-          dark:bg-slate-900/90 '>
+        <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
+
+        <div className="text-lg text-slate-600">
           
-          <h2 className='text-2xl text-center py-4'>
+          <h2 className='text-2xl font-normal text-center
+            text-transparent bg-clip-text 
+            dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
+            dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%
+            bg-gradient-to-br from-violet-500 from-10% 
+            via-purple-500 via-50% to-violet-200 to-90% py-4'
+          >
             Our partners
           </h2>
           
           <div className="flex flex-col">
 
-            <div className='flex align-center justify-evenly mt-10 mb-20'>
+            <div className='flex align-center justify-evenly mt-10 mb-10'>
 
               <div className='text-center w-auto h-auto m-auto'>
                 <Image src={nextJs} width={100} height={100} alt="img nextjs logo" className='object-cover' />
-                <legend>NextJS</legend>
+                <legend className="mt-2">NextJS</legend>
               </div>
 
-              <div className='text-center w-[60px] h-auto m-auto'>
-                <Image src={nextAuth} width={100} height={100} alt="img nextAuth logo" className='object-cover' />
-                <legend>NextAuth</legend>
+              <div className='text-center w-[100px] h-auto m-auto'>
+                <Image src={nextAuth} width={60} height={80} alt="img nextAuth logo" 
+                  className='object-cover m-auto' />
+                <legend className="mt-2">NextAuth</legend>
               </div>
 
               <div className='text-center w-[70px] h-auto m-auto'>
-                <Image src={reactLogo} width={100} height={100} alt="img react logo" className='object-cover' />
-                <legend>React</legend>
+                <Image src={reactLogo} width={100} height={100} alt="img react logo" 
+                  className='object-cover bg-slate-900 rounded-full' />
+                <legend className="mt-2">React</legend>
               </div>
 
             </div>
@@ -193,13 +202,15 @@ export default function About() {
             <div className='flex justify-evenly mb-10'>
               
               <div className='text-center w-[100px] h-auto my-auto'>
-                <Image src={mySql} width={100} height={100} alt="img mysql logo" className='object-cover' />
-                <legend>MySQL</legend>
+                <Image src={mySql} width={100} height={100} alt="img mysql logo" 
+                  className='object-cover bg-slate-100/50 -mt-4 rounded-full' />
+                <legend className="mt-2">MySQL</legend>
               </div>
 
               <div className='text-center w-[80px] h-auto my-auto'>
-                <Image src={tailWind} width={100} height={100} alt="img tailwind logo" className='object-cover' />
-                <legend>Tailwind</legend>
+                <Image src={tailWind} width={100} height={100} alt="img tailwind logo" 
+                  className='object-cover' />
+                <legend className="mt-4">Tailwind</legend>
               </div>
               
             </div>
