@@ -17,7 +17,7 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
             <span className='h-10 border-none
                 dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
                 dark:to-emerald-500 dark:to-90% 
-                bg-gradient-to-r from-indigo-500 from-10% via-slate-200 via-50% to-violet-400 to-90% 
+                bg-gradient-to-r from-violet-400 from-10% via-slate-200 via-50% to-violet-400 to-90% 
                 rounded-tl-lg rounded-tr-lg'>
             </span >
 
@@ -48,7 +48,7 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
             <span className='h-10 border-none
                 dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
                 dark:to-emerald-500 dark:to-90% 
-                bg-gradient-to-r from-indigo-500 from-10% via-slate-200 via-50% to-violet-400 to-90% 
+                bg-gradient-to-r from-violet-400 from-10% via-slate-200 via-50% to-violet-400 to-90% 
                 rounded-bl-lg rounded-br-lg'>
             </span >
         </div>

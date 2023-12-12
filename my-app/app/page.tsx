@@ -55,28 +55,37 @@ export default function Home() {
   
         <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
           dark:bg-cyan-50 bg-slate-50
-          border border-b-blue-200 shadow-xllight z-10"
+          border border-purple-200 dark:border-b-blue-200 shadow-xllight z-10"
         >
           
           <div className='flex flex-col h-40'>
             <p className='text-xl text-blue-800 font-bold 
-              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto mb-0'
+              text-transparent bg-clip-text
+              bg-gradient-to-br from-purple-600 from-10% 
+              via-violet-400 via-40% to-purple-600 to-90% 
+              dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
+              dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90% 
+              drop-shadow-lg m-auto mb-0'
             >
               The
             </p>
             <h1 className='text-4xl font-bold 
-              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto my-0'
+              text-transparent bg-clip-text
+              bg-gradient-to-br from-purple-600 from-10% 
+              via-violet-400 via-40% to-purple-600 to-90% 
+              dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
+              dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90% 
+              drop-shadow-lg m-auto my-0'
             >
               NextJS Tutorial
             </h1>
             <p className='text-lg text-blue-800 font-bold 
-              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto mt-0'
+              text-transparent bg-clip-text
+              bg-gradient-to-br from-purple-600 from-10% 
+              via-violet-400 via-40% to-purple-600 to-90% 
+              dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
+              dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90%
+              drop-shadow-lg m-auto mt-0'
             >
               All features includes
             </p>
