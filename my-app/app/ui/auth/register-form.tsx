@@ -3,14 +3,10 @@
 import React from 'react'
 import type { Metadata } from 'next'
 import { useFormState, useFormStatus } from 'react-dom'
-import mysqlServerAction from '@/app/lib/actions'
-
-type PropsinitialState = {
-    message?: string;
-}
+import { mysqlServerAction } from '@/app/lib/actions'
 
 const initialState = {
-  message: undefined,
+  message: null,
 }
 
 export const metadata: Metadata = {
@@ -22,7 +18,7 @@ export default function RegisterForm() {
 
     const {pending} = useFormStatus()
 
-    const [state, formAction] = useFormState<PropsinitialState>(mysqlServerAction, initialState)
+    const [state, formAction] = useFormState(mysqlServerAction, initialState)
 
     return (
         <form action={formAction} className='flex flex-col w-2/5 m-auto bg-blue-600 p-10'>
@@ -46,9 +42,9 @@ export default function RegisterForm() {
             {pending ? "Pending..." : "Submit"}
             </button>
             {state?.message ? (
-                <p className='text-md text-center text-orange-500 mt-4'>{state.message}</p> 
+                <p className='text-md text-center text-green-500 mt-4'>{state.message}</p> 
                 ) : (
-                <p className='text-md text-center text-green-400 mt-4'>Insert data into fields</p>
+                <p className='text-md text-center text-green-400 mt-4'>Enter data !</p>
                 )}
         </form>
     )

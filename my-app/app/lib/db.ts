@@ -1,19 +1,17 @@
-import mysql from 'mysql2/promise';
+import mysql, { RowDataPacket } from 'mysql2/promise';
 import type { ProductsProps } from './definitions';
-import type { User } from './definitions';
-//import { FormatDetection } from 'next/dist/lib/metadata/types/extra-types';
 
 // fetch all products by server action (no api needed !)
 const executeQuery = async (query: string, data: ProductsProps[]) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
-      port: 3306,
+      port: Number(process.env.MYSQL_PORT),
       database: process.env.MYSQL_DATABASE,
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD
     })
-    console.log(query, typeof data, "query data")
+    console.log("products called with data: ", data)
     const [result] = await db.execute(query, data);
     await db.end();
     return result;
@@ -28,12 +26,12 @@ const newMemberQuery = async (query: string, data: any) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
-      port: 3306,
+      port: Number(process.env.MYSQL_PORT),
       database: process.env.MYSQL_DATABASE,
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD
     })
-    console.log(query, typeof data, "query data")
+    console.log("registered with data: ", data)
     const [result] = await db.execute(query, data);
     await db.end();
     return result;
@@ -48,7 +46,7 @@ const authQuery = async (query: string, data: string[]) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
-      port: 3306,
+      port: Number(process.env.MYSQL_PORT),
       database: process.env.MYSQL_DATABASE,
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
