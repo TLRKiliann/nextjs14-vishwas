@@ -5,7 +5,7 @@ import story from '@/public/img_bg/wallpaper-about.jpg';
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen py-[70px]">
 
       <div className='fixed -z-10'>
         <Image
@@ -19,23 +19,13 @@ export default function About() {
 
       <section className='md:w-4/5 xl:w-3/5 m-auto bg-slate-100/80'>
         <article>
-          <h1 className='text-3xl 
-            text-transparent bg-clip-text 
-            dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
-            dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%
-            bg-gradient-to-br from-violet-500 from-10% 
-            via-purple-500 via-50% to-violet-200 to-90%
+          <h1 className='text-3xl text-transparent bg-clip-text dark-bg-gradient-story light-bg-gradient-story 
             text-center pt-10'
           >
             Our story
           </h1>
-          <h2 className='text-lg font-bold italic
-            text-transparent bg-clip-text 
-            dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
-            dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%
-            bg-gradient-to-br from-violet-500 from-10% 
-            via-purple-500 via-50% to-violet-200 to-90%
-            text-center my-4'
+          <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
+            light-bg-gradient-story text-center my-4'
           >
             A Luxurious Experience
           </h2>
@@ -61,13 +51,8 @@ export default function About() {
         <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
 
         <article>
-          <h2 className='text-lg font-bold italic
-            text-transparent bg-clip-text 
-            dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
-            dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%
-            bg-gradient-to-br from-violet-500 from-10% 
-            via-purple-500 via-50% to-violet-200 to-90%
-            text-center my-4'
+          <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story
+            light-bg-gradient-story text-center my-4'
           >
             Great products for high performances !
           </h2>
@@ -93,13 +78,8 @@ export default function About() {
         <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
 
         <article>
-          <h2 className='text-lg font-bold italic
-            text-transparent bg-clip-text 
-            dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
-            dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%
-            bg-gradient-to-br from-violet-500 from-10% 
-            via-purple-500 via-50% to-violet-200 to-90%
-            text-center my-4'
+          <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
+            light-bg-gradient-story text-center my-4'
           >
             Discovery our shop as an adventure
           </h2>
@@ -134,13 +114,8 @@ export default function About() {
         <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
 
         <article>
-          <h2 className='text-lg font-bold italic
-            text-transparent bg-clip-text 
-            dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
-            dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%
-            bg-gradient-to-br from-violet-500 from-10% 
-            via-purple-500 via-50% to-violet-200 to-90%
-            text-center my-4'
+          <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
+            light-bg-gradient-story text-center my-4'
           >
             All our partners put their trust in us
           </h2>

@@ -7,8 +7,12 @@ export default async function ListProducts() {
     const data: unknown = await executeQuery("SELECT * FROM products", []);
     const products: string = JSON.stringify(data);
 
+    if (!products) {
+        throw new Error("Error: myabe connection failed");
+    }
+
     return (
-        <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
+        <div className="min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]">
              
             <div>
                 <DropDownMenu products={JSON.parse(products)} />

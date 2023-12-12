@@ -38,7 +38,7 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-600 bg-black z-0'>
+    <div className='relative flex text-slate-600 bg-black z-0 py-[70px]'>
 
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
@@ -59,33 +59,18 @@ export default function Home() {
         >
           
           <div className='flex flex-col h-40'>
-            <p className='text-xl text-blue-800 font-bold 
-              text-transparent bg-clip-text
-              bg-gradient-to-br from-purple-600 from-10% 
-              via-violet-400 via-40% to-purple-600 to-90% 
-              dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
-              dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90% 
-              drop-shadow-lg m-auto mb-0'
+            <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mb-0'
             >
               The
             </p>
-            <h1 className='text-4xl font-bold 
-              text-transparent bg-clip-text
-              bg-gradient-to-br from-purple-600 from-10% 
-              via-violet-400 via-40% to-purple-600 to-90% 
-              dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
-              dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90% 
-              drop-shadow-lg m-auto my-0'
+            <h1 className='text-4xl font-bold text-transparent bg-clip-text 
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto my-0'
             >
               NextJS Tutorial
             </h1>
-            <p className='text-lg text-blue-800 font-bold 
-              text-transparent bg-clip-text
-              bg-gradient-to-br from-purple-600 from-10% 
-              via-violet-400 via-40% to-purple-600 to-90% 
-              dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
-              dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90%
-              drop-shadow-lg m-auto mt-0'
+            <p className='text-lg text-blue-800 font-bold text-transparent bg-clip-text 
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mt-0'
             >
               All features includes
             </p>

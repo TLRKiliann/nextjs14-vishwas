@@ -30,8 +30,12 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
 
 export default async function ReviewById({ params }: Props) {
     
-    if (parseInt(params.reviewId) > 100 || parseInt(params.reviewId) !== Number(params.reviewId)) {
+    if (parseInt(params.reviewId) > 100) {
         notFound();
+    }
+
+    if (parseInt(params.reviewId) !== Number(params.reviewId)) {
+        throw new Error("Error review id is a number");
     }
 
     const data: unknown = await executeQuery("SELECT * FROM products", []);
@@ -45,7 +49,7 @@ export default async function ReviewById({ params }: Props) {
     ];
 
     return (
-        <div className='flex flex-col min-h-screen'>
+        <div className='flex flex-col min-h-screen py-[75px]'>
             <div className='p-4'>
                 <p>Product id: {params.productId} and article id: {params.reviewId}</p>
             </div>

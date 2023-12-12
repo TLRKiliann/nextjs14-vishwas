@@ -23,7 +23,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="sticky flex top-0 left-0 w-full
+            <header className="fixed flex top-0 left-0 w-full h-[80px]
                 dark:text-slate-50
                 dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-30% dark:to-slate-900 dark:to-90%
