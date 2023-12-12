@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { allTitle, allText } from '@/app/lib/datas';
-import Links from '@/app/ui/main/links';
+import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
-import SocialIcons from '@/app/ui/main/social-icons';
-import TextBlocks from '@/app/ui/main/text-blocs';
-import SectionTextColorBlock from '@/app/ui/main/sectionTextColorBlock';
-import SectionImgOne from '@/app/ui/main/sectionImgOne';
-import SectionImgTwo from '@/app/ui/main/sectionImgTwo';
-import Separator from '@/app/ui/main/separator';
+import SocialIcons from '@/app/ui/home/social-icons';
+import TextBlocks from '@/app/ui/home/text-blocs';
+import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
+import SectionImgOne from '@/app/ui/home/sectionImgOne';
+import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
+import Separator from '@/app/ui/home/separator';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";

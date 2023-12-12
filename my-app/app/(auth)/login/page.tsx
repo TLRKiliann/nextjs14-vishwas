@@ -1,7 +1,7 @@
-import React from 'react'
-import type { Metadata } from 'next'
+import React from 'react';
+import type { Metadata } from 'next';
 import LoginForm from '@/app/ui/auth/login-form';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 
 export const metadata: Metadata = {
   title: "login",

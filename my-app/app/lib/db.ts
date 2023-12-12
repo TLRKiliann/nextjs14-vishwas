@@ -23,6 +23,26 @@ const executeQuery = async (query: string, data: ProductsProps[]) => {
   }
 }
 
+// create new member
+const newMemberQuery = async (query: string, data: any) => {
+  try {
+    const db = await mysql.createConnection({
+      host: process.env.MYSQL_HOST,
+      port: 3306,
+      database: process.env.MYSQL_DATABASE,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD
+    })
+    console.log(query, typeof data, "query data")
+    const [result] = await db.execute(query, data);
+    await db.end();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
 // authentication
 const authQuery = async (query: string, data: string[]) => {
   try {
@@ -45,5 +65,6 @@ const authQuery = async (query: string, data: string[]) => {
 
 export { 
   executeQuery,
+  newMemberQuery,
   authQuery 
 };
