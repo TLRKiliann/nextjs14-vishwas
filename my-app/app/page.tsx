@@ -1,14 +1,13 @@
 import Image from 'next/image';
 import { allTitle, allText } from '@/app/lib/datas';
-import ScrollIndicator from '@/app/ui/scroll-indicator';
-import Links from '@/app/ui/main/links';
+import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
-import SocialIcons from '@/app/ui/main/social-icons';
-import TextBlocks from '@/app/ui/main/text-blocs';
-import SectionTextColorBlock from '@/app/ui/main/sectionTextColorBlock';
-import SectionImgOne from '@/app/ui/main/sectionImgOne';
-import SectionImgTwo from '@/app/ui/main/sectionImgTwo';
-import Separator from '@/app/ui/main/separator';
+import SocialIcons from '@/app/ui/home/social-icons';
+import TextBlocks from '@/app/ui/home/text-blocs';
+import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
+import SectionImgOne from '@/app/ui/home/sectionImgOne';
+import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
+import Separator from '@/app/ui/home/separator';
 
 import boxCpu from "@/public/img_cpu/box_cpu.jpg";
 import boxCpui7 from "@/public/img_carousel/box-corei7.png";
@@ -39,9 +38,7 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-600 bg-black z-0'>
-      <ScrollIndicator />
-
+    <div className='relative flex text-slate-600 bg-black z-0 py-[70px]'>
 
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
@@ -58,28 +55,22 @@ export default function Home() {
   
         <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
           dark:bg-cyan-50 bg-slate-50
-          border border-b-blue-200 shadow-xllight z-10"
+          border border-purple-200 dark:border-b-blue-200 shadow-xllight z-10"
         >
           
           <div className='flex flex-col h-40'>
-            <p className='text-xl text-blue-800 font-bold 
-              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto mb-0'
+            <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mb-0'
             >
               The
             </p>
-            <h1 className='text-4xl font-bold 
-              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto my-0'
+            <h1 className='text-4xl font-bold text-transparent bg-clip-text 
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto my-0'
             >
               NextJS Tutorial
             </h1>
-            <p className='text-lg text-blue-800 font-bold 
-              text-transparent bg-clip-text bg-gradient-to-br from-slate-600 from-10% 
-              via-sky-600 via-40% to-indigo-800 to-90% drop-shadow-lg 
-              m-auto mt-0'
+            <p className='text-lg text-blue-800 font-bold text-transparent bg-clip-text 
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mt-0'
             >
               All features includes
             </p>

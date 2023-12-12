@@ -14,7 +14,6 @@ export default function CardProducts({ id, name, price, img, stock }: ProductsPr
 
     let newCount: number = count;
 
-    // useAuth - useContext
     const handleSub = (id: number) => {
         console.log(id)
         if (count === 0) {

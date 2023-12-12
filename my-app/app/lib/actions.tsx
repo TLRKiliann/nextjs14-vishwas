@@ -1,6 +1,33 @@
 "use server";
 
 import { signIn } from '@/auth';
+import { newMemberQuery } from './db';
+import { revalidatePath } from 'next/cache';
+
+export async function mysqlServerAction(prevState: string | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const name = formData.get("name");
+    const password = formData.get("password");
+    const email = formData.get("email");
+    const btnName = formData.get("submit");
+    if (btnName === "insert") {
+      if (id !== "" && name !== "" && email !== "" && password !== "") {
+        const result = await newMemberQuery("INSERT INTO users VALUES (?, ?, ?, ?)", 
+          [id, name, email, password]
+        );
+        if (result) {
+          revalidatePath("/register");
+          return {message: "You are registered"}
+        }
+      }
+    }
+  }
+  catch (error) {
+    console.log("Error", error)
+    throw error;
+  }
+}
 
 export async function authenticate(prevState: string | undefined, formData: FormData) {
   try {

@@ -9,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function ForgotPassword() {
   return (
-    <div className='flex flex-col min-h-screen'>
-      <h1 className='text-2xl p-2'>Forgot Password</h1>
+    <div className='min-h-screen'>
+      <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
+        Forgot Password
+      </h1>
     </div>
   )
 }

@@ -24,8 +24,12 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
 }
 
 const DetailsProduct = async ({params}: Props) => {
-    if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
+    if (parseInt(params.productId) > 100) {
         notFound();
+    }
+
+    if (parseInt(params.productId) !== Number(params.productId)) {
+        throw new Error("Error: product id is a number")
     }
 
     const data: unknown = await executeQuery("SELECT * FROM products", []);

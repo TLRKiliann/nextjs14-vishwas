@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { ThemeProvider } from '@/app/providers'
 import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';
+import ScrollIndicator from '@/app/ui/scroll-indicator';
 //import { Inter } from 'next/font/google'
 import '@/app/globals.css';
 //const inter = Inter({ subsets: ['latin'] })
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className='bg-background'>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
+            <ScrollIndicator />
             {children}
           <Footer />
         </ThemeProvider>

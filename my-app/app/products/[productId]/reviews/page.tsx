@@ -13,12 +13,17 @@ export const metadata: Metadata = {
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
+    // if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
+    if (parseInt(params.productId) > 100) {
         notFound();
     }
 
+    if (parseInt(params.productId) !== Number(params.productId)) {
+        throw new Error("Error product id is a number");
+    }
+
     return (
-        <div className='h-screen'>
+        <>
             <h2 className='text-xl font-bold text-violet-500 dark:text-sky-500 m-4'>
                 All articles about all CPU
             </h2>
@@ -35,7 +40,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                     </li>
                 </ul>
             ))}  
-        </div>
+        </>
     )
 }
 

@@ -23,7 +23,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="sticky flex top-0 left-0 w-full
+            <header className="fixed flex top-0 left-0 w-full h-[80px]
                 dark:text-slate-50
                 dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-30% dark:to-slate-900 dark:to-90%
@@ -46,23 +46,23 @@ export default function Header() {
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-purple-500"
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         >Home</Link>
                         
                         <Link href="/products" className={`${pathname === '/products'
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         >Shop</Link>
 
                         <Link href="/docs" className={`${pathname === '/docs'
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "flex align-center justify-center text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                            : "flex align-center justify-center text-lg m-auto ml-10 p-2 hover:text-slate-100 hover:scale-105"}`}
+                            : "flex align-center justify-center text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         ><span><BiLogInCircle size={24} /></span>Login</Link>
 
                         <CartComponent />
@@ -72,7 +72,7 @@ export default function Header() {
                                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                                 className='flex flex-col align-center justify-center text-lg 
                                     dark:bg-slate-900 bg-violet-400
-                                    hover:scale-105 hover:text-slate-100 dark:text-slate-50 
+                                    hover:scale-105 hover:text-slate-50 dark:text-slate-50 
                                     mr-8 ml-12 rounded-lg'
                             >
                                 {theme === 'light' 

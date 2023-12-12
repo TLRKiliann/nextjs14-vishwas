@@ -9,7 +9,7 @@ export default async function DetailsProduct({children, params}:
   {children: React.ReactNode, params: Props}
   ) {
   return (
-    <div className='min-h-screen bg-slate-100 text-slate-900 dark:text-slate-50 dark:bg-slate-900'>
+    <div className='min-h-screen bg-slate-100 text-slate-900 dark:text-slate-50 dark:bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold 
             text-transparent bg-clip-text
             dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
