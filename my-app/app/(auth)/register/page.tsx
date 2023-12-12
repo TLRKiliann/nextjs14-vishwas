@@ -1,5 +1,6 @@
 import React from 'react'
 import type { Metadata } from 'next'
+import RegisterForm from '@/app/ui/auth/register-form';
 
 export const metadata: Metadata = {
   title: "register",
@@ -7,9 +8,14 @@ export const metadata: Metadata = {
 }
 
 export default function Register() {
+
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='min-h-screen'>
+
       <h1 className='text-2xl p-2'>Register</h1>
+
+      <RegisterForm />
+
     </div>
   )
 }
