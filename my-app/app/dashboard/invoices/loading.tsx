@@ -1,12 +1,12 @@
 import Image from "next/image"
-import loader from "@/public/img_logo/loader.png";
+import spinLoader from "@/public/img_logo/loader.png";
 
 export default function Loading() {
     return (
         <>
             <h2 className="text-2xl font-bold">
                 <Image
-                    src={loader}
+                    src={spinLoader}
                     width={800}
                     height={800}
                     alt="img loader"

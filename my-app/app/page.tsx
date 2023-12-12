@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { allTitle, allText } from '@/app/lib/datas';
-import ScrollIndicator from '@/app/ui/scroll-indicator';
 import Links from '@/app/ui/main/links';
 import Carousel from '@/app/ui/carousel';
 import SocialIcons from '@/app/ui/main/social-icons';
@@ -40,8 +39,6 @@ export default function Home() {
 
   return (
     <div className='relative flex text-slate-600 bg-black z-0'>
-      <ScrollIndicator />
-
 
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
