@@ -1,22 +1,18 @@
 import React from 'react'
-import type { Metadata } from 'next'
 import RegisterForm from '@/app/ui/auth/register-form';
+import { newMemberQuery } from '@/app/lib/db';
 
-export const metadata: Metadata = {
-  title: "register",
-  description: "registered"
-}
+export default async function Register() {
 
-export default function Register() {
+  const data: unknown = await newMemberQuery("SELECT * FROM users", []);
+  const users: string = JSON.stringify(data);
 
   return (
     <div className='min-h-screen'>
-
-      <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
-        Register
-      </h1>
-
-      <RegisterForm />
+      
+      <div className='flex justify-center'>
+        <RegisterForm users={JSON.parse(users)} />
+      </div>
 
     </div>
   )

@@ -2,7 +2,7 @@ import mysql, { RowDataPacket } from 'mysql2/promise';
 import type { ProductsProps } from './definitions';
 
 // fetch all products by server action (no api needed !)
-const executeQuery = async (query: string, data: ProductsProps[]) => {
+const executeQuery = async (query: string, data: any) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -11,7 +11,6 @@ const executeQuery = async (query: string, data: ProductsProps[]) => {
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD
     })
-    console.log("products called with data: ", data)
     const [result] = await db.execute(query, data);
     await db.end();
     return result;
@@ -21,7 +20,7 @@ const executeQuery = async (query: string, data: ProductsProps[]) => {
   }
 }
 
-// create new member
+// query member (create, all-members)
 const newMemberQuery = async (query: string, data: any) => {
   try {
     const db = await mysql.createConnection({

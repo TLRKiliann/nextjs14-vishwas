@@ -43,3 +43,10 @@ export type AllTextProps = {
     textbox_1: string;
     textbox_2: string;
 }
+
+export type PropsProdReview = {
+    params: {
+        productId: string;
+        reviewId: string;
+    }
+}

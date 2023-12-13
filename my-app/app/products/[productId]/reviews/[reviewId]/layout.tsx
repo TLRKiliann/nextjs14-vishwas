@@ -1,5 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { PropsProdReview } from '@/app/lib/definitions';
+
+export const generateMetadata = async ({params}: PropsProdReview): Promise<Metadata> => {
+  const title = await new Promise((resolve) => {
+      setTimeout(() => {
+          resolve(`CPU: ${params.productId} Art: ${params.reviewId}`)
+      }, 300)
+  })
+  return {
+      title: `Prod-${title}-`
+  }
+}
 
 export default function ReviewById({children}: {children: React.ReactNode}) {
   return (

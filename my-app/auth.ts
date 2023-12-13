@@ -3,7 +3,7 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import type { User } from '@/app/lib/definitions';
-import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 import { authQuery } from './app/lib/db';
 
 async function getUser(email: string): Promise<User | undefined> {
@@ -30,14 +30,21 @@ export const { auth, signIn, signOut } = NextAuth({
           const user = await getUser(email);
           const parseUser = JSON.stringify(user);
           const data = JSON.parse(parseUser);
-          const findEmail = data.find((d:User) => d.email === email);
+          //const findEmail = data.find((d:User) => d.email === email);
           const findPassword = data.find((d:User) => d.password === password);
-          if ((findEmail.email === email) && (findPassword.password === password)) {
-            console.log(findEmail.email, findPassword.password, "email + passwd")
-            console.log("Log in ok !")
+
+          const salt = crypto.randomBytes(16).toString("hex");
+          const hash = crypto
+            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
+            .toString("hex");
+
+          const inputHash = crypto
+            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
+            .toString("hex");
+          const passwordsMatch = hash === inputHash;
+          if (passwordsMatch) {
             return data;
           }
-          else return null;
         }
         console.log('Invalid credentials');
         return null;
@@ -47,6 +54,12 @@ export const { auth, signIn, signOut } = NextAuth({
 });
 
 /*
+          if ((findEmail.email === email) && (findPassword.password === password)) {
+            console.log(findEmail.email, findPassword.password, "email + passwd")
+            console.log("Log in ok !")
+            return data;
+          }
+          else return null;
   // bcrypt
   // if (!data) return null;
   // else return data;
