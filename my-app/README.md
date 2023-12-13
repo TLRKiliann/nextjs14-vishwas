@@ -109,8 +109,28 @@ if (password !== null || password !== undefined) {
 
 ## Don't need to duplicate functions with datas.ts:
 
+## NextAuth
+
+import { NextAuthProvider } from '@/session-provider';
+<NextAuthProvider></NextAuthProvider>
+
+// credentials by default
+"use client";
+
+import { SessionProvider } from "next-auth/react";
+
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const NextAuthProvider = ({ children }: Props) => {
+  return <SessionProvider>{children}</SessionProvider>;
+};
+
+---
 
 
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
