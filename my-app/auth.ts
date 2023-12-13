@@ -3,13 +3,11 @@ import Credentials from 'next-auth/providers/credentials';
 import { authConfig } from './auth.config';
 import { z } from 'zod';
 import type { User } from '@/app/lib/definitions';
-import bcrypt from 'bcrypt';
 import { authQuery } from './app/lib/db';
 
 async function getUser(email: string): Promise<User | undefined> {
   try {
     const user = await authQuery(`SELECT * FROM users WHERE email = ?`, [email]);
-    console.log(user, "------ user (2)------")
     return user as User;
   } catch (error) {
     console.error('Failed to fetch user:', error);
@@ -33,7 +31,6 @@ export const { auth, signIn, signOut } = NextAuth({
           const findEmail = data.find((d:User) => d.email === email);
           const findPassword = data.find((d:User) => d.password === password);
           if ((findEmail.email === email) && (findPassword.password === password)) {
-            console.log(findEmail.email, findPassword.password, "email + passwd")
             console.log("Log in ok !")
             return data;
           }
@@ -45,15 +42,3 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
   ],
 });
-
-/*
-  // bcrypt
-  // if (!data) return null;
-  // else return data;
-          if ((findEmail.email === email) && (findPassword.password === password)) {
-            const passwordsMatch = await bcrypt.compare(findPassword.password, password);
-            console.log("Log in ok !")
-            if (passwordsMatch) return data;
-            else return null;
-          }
-*/

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { allTitle, allText } from '@/app/lib/datas';
 import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
+import ScrollIndicator from '@/app//ui/scroll-indicator';
 import SocialIcons from '@/app/ui/home/social-icons';
 import TextBlocks from '@/app/ui/home/text-blocs';
 import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
@@ -39,7 +40,9 @@ export default function Home() {
 
   return (
     <div className='relative flex text-slate-600 bg-black z-0 py-[70px]'>
-
+      
+      <ScrollIndicator />
+      
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
         <Image

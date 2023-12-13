@@ -5,6 +5,36 @@ Codeevolution:
 
 NextJS => file-system based routing mechanism
 
+## Index
+
+1) Intro
+2) Install
+3) Config
+4) Components with nextjs
+5) Routing
+6) Nested routes
+7) Dynamic Routes
+8) Nested Dynamic Routes
+9) catch all segments (with nested routes)
+10) Page not found
+11) Collocation
+12) Private folder
+13) url path structure with auth
+14) layout
+15) Nested layout
+16) AuthLayout
+17) Metadata from head & Dynamic metadata to improve SEO
+18) Metadata with title
+19) Link
+20) Dynamic Link
+21) useRouter()
+22) template
+23) loading
+24) error
+25) error & reset
+
+---
+
 1) Intro
 
 - Routing 
@@ -470,7 +500,7 @@ export default function Info() {
 
 ---
 
-22) Template
+22) template
 
 For example in (auth) layout.tsx, it's possible to navigate between page and preserve state for better performance.
 Because layout don't remount the part representing content of newly change page with keep no change element on touch.
@@ -486,5 +516,63 @@ const [input, setInput] = useState<string>("")
 ```
 
 Template.tsx can collocate with layout.tsx in same folder.
+
+---
+
+23) loading
+
+When `loading.tsx` is create `page.tsx` need to load a component, `loading.tsx` will be automaticaly called.
+It will works, if `loading.tsx` & `page.tsx` have to be placed in same directory.
+
+---
+
+24) error
+
+To handle error, we need to call `error.tsx` from `page.tsx` (in same directory):
+
+```
+(page.tsx)
+
+if (parseInt(params.productId) !=== Number(params.productId)) {
+	throw new Error("Error: productId is not a number");
+}
+```
+
+`error.tsx` is a client component. So we need `"use client";`.
+
+```
+(error.tsx)
+
+"use client";
+
+export default function ErrorBoundary({error}: {error: Error}) {
+	return (
+		<p>{error.message}</p>
+	)
+}
+```
+
+---
+
+25) error & reset
+
+Add a button to permit interactivity with user by clicking if an error appear.
+
+```
+(error.tsx)
+
+"use client";
+
+export default function ErrorBoundary({error, reset}: {error: Error, reset: () => void}) {
+	return (
+		<>
+			<p>{error.message}</p>
+			<button type="button" onClick={reset}>Try again</button>
+		</>
+	)
+}
+```
+
+In the page.tsx of same directory, add `"use client";` at the top.
 
 ---

@@ -2,10 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 import Partners from '@/app/ui/about/partners-bloc';
 import story from '@/public/img_bg/wallpaper-about.jpg';
+import ScrollIndicator from '@/app//ui/scroll-indicator';
 
 export default function About() {
   return (
     <div className="min-h-screen py-[70px]">
+
+      <ScrollIndicator />
 
       <div className='fixed -z-10'>
         <Image

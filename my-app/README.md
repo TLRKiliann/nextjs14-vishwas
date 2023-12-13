@@ -76,62 +76,61 @@ $ pnpm add mysql2
 
 ---
 
+## encrypt - decrypt
+
+mariadb => bcrypt doesn't work & crypto doesn't work to compare data...
+
+```
+          // to compare (not ok)
+          const salt = crypto.randomBytes(16).toString("hex");
+          const hash = crypto
+            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
+            .toString("hex");
+
+          const inputHash = crypto
+            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
+            .toString("hex");
+          const passwordsMatch = hash;
+          if (passwordsMatch === inputHash) {
+            console.log("password ok")
+            return data.json();
+          }
+```
+
+```
+// to hash (ok)
+if (password !== null || password !== undefined) {
+  const salt = crypto.randomBytes(16).toString("hex");
+  const hash = crypto
+    .pbkdf2Sync(password, salt, 1000, 64, "sha512")
+    .toString("hex");       
+```
+
+
 ## Don't need to duplicate functions with datas.ts:
 
-```
-import { unstable_noStore as noStore } from 'next/cache';
-//import { callProducts } from '@/app/lib/db';
-//import { authQuery } from '@/app/lib/db';
+## NextAuth
 
-// fetch all products
-export async function fetchProducts() {
-    try {
-        const response = await callProducts("SELECT * FROM products", []);
-        const data = JSON.stringify(response);
-        return data;
-    }
-    catch (error) {
-        console.log(error);
-        throw new Error('Failed to fetch revenue data.');
-    }
-}
+import { NextAuthProvider } from '@/session-provider';
+<NextAuthProvider></NextAuthProvider>
+
+// credentials by default
+"use client";
+
+import { SessionProvider } from "next-auth/react";
+
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const NextAuthProvider = ({ children }: Props) => {
+  return <SessionProvider>{children}</SessionProvider>;
+};
+
+---
 
 
-// authentication
-export async function getUser(email: string) {
-    try {
-      const user = await authQuery("SELECT * FROM users WHERE email= ? ", email);
-      //const user = await requestAuth(`SELECT * FROM users WHERE email=${email}`);
-      return user as User;
-      //return user.rows[0];
-    } catch (error) {
-      console.error('Failed to fetch user:', error);
-      throw new Error('Failed to fetch user.');
-    }
-}
-
-export async function fetchAllProducts() {
-    // Add noStore() here prevent the response from being cached.
-    // This is equivalent to in fetch(..., {cache: 'no-store'}).
-    noStore();
-    try {
-      // Artificially delay a reponse for demo purposes.
-      // Don't do this in real life :)
-      console.log('Fetching revenue data...');
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-  
-      const data: ProductsProps[] = await callProducts("SELECT * FROM products", []);
-      const data = JSON.stringify(response);
-      console.log('Data fetch complete!');
-      return data;
-    } catch (error) {
-      console.error('Database Error:', error);
-      throw new Error('Failed to fetch revenue data.');
-    }
-}
-
-```
-
+---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

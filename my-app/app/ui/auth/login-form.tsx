@@ -10,7 +10,6 @@ import { BtnValidate } from './BtnValidate';
 
 export default function LoginForm() {
 
-    //const [code, dispatch] = useFormState(authenticate, undefined);
     const [code, formAction] = useFormState(authenticate, undefined)
 
     return (
