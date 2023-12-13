@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 
-export default function NotFound() {
+export default function NotFount() {
   return (
-    <>
-      <h1>Error 404: page not found !</h1>
-    </>
+    <div className='w-full min-h-screen flex flex-col align-center justify-center'>
+      <div className='m-auto'>
+        <h2 className='text-3xl font-bold mb-2'>
+          Page not found...
+        </h2>
+        <Link 
+          href="/docs" 
+          className='dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400
+            text-purple-500 hover:text-purple-600 active:text-purple-400'>
+          Back to docs
+        </Link>
+      </div>
+    </div>
   )
-};
+}

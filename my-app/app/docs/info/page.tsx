@@ -15,15 +15,20 @@ export default function Info() {
         //router.forward()
     }
   return (
-    <div className='min-h-screen'>
-        <h2 className='flex flex-row align-center text-xl font-bold m-4'>Info &nbsp;<BsInfoCircle /></h2>
+    <div className='min-h-screen py-[75px]'>
+
+        <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
+          Info &nbsp;<BsInfoCircle />
+        </h1>
+        
         <button
           type="button"
           onClick={handleClick}
           className='text-cyan-300 font-bold bg-slate-800 border border-blue-400 rounded-lg m-4 px-3 py-2'
         >
-          Go home
+          Back to home
         </button>
+
     </div>
   )
 }
