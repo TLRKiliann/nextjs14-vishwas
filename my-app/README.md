@@ -76,6 +76,37 @@ $ pnpm add mysql2
 
 ---
 
+## encrypt - decrypt
+
+mariadb => bcrypt doesn't work & crypto doesn't work to compare data...
+
+```
+          // to compare (not ok)
+          const salt = crypto.randomBytes(16).toString("hex");
+          const hash = crypto
+            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
+            .toString("hex");
+
+          const inputHash = crypto
+            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
+            .toString("hex");
+          const passwordsMatch = hash;
+          if (passwordsMatch === inputHash) {
+            console.log("password ok")
+            return data.json();
+          }
+```
+
+```
+// to hash (ok)
+if (password !== null || password !== undefined) {
+  const salt = crypto.randomBytes(16).toString("hex");
+  const hash = crypto
+    .pbkdf2Sync(password, salt, 1000, 64, "sha512")
+    .toString("hex");       
+```
+
+
 ## Don't need to duplicate functions with datas.ts:
 
 

@@ -26,22 +26,15 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
     }
     if (btnName === "update") {      
       if (id !== "" && name !== "" && email !== "" && password !== "") {
-        if (password !== null || password !== undefined) {
-          const salt = crypto.randomBytes(16).toString("hex");
-          const hash = crypto
-            .pbkdf2Sync(password, salt, 1000, 64, "sha512")
-            .toString("hex");
-          
-          const result = await newMemberQuery("UPDATE users SET id=?, name=?, email=?, password=? WHERE id=?", 
-            [id, name, email, hash, id]
-          );
-          if (result) {
-            revalidatePath("/register");
-            return {message: "Data updated"}
-          }
-        } else {
-          return {message: "No password to update"}
+        const result = await newMemberQuery("UPDATE users SET id=?, name=?, email=?, password=? WHERE id=?", 
+          [id, name, email, password, id]
+        );
+        if (result) {
+          revalidatePath("/register");
+          return {message: "Data updated"}
         }
+      } else {
+        return {message: "No password to update"}
       }
     }
     if (btnName === "delete") {

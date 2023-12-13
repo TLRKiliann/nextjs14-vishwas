@@ -30,21 +30,14 @@ export const { auth, signIn, signOut } = NextAuth({
           const user = await getUser(email);
           const parseUser = JSON.stringify(user);
           const data = JSON.parse(parseUser);
-          //const findEmail = data.find((d:User) => d.email === email);
+          const findEmail = data.find((d:User) => d.email === email);
           const findPassword = data.find((d:User) => d.password === password);
-
-          const salt = crypto.randomBytes(16).toString("hex");
-          const hash = crypto
-            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
-            .toString("hex");
-
-          const inputHash = crypto
-            .pbkdf2Sync(findPassword.password, salt, 1000, 64, "sha512")
-            .toString("hex");
-          const passwordsMatch = hash === inputHash;
-          if (passwordsMatch) {
+          if ((findEmail.email === email) && (findPassword.password === password)) {
+            console.log(findEmail.email, findPassword.password, "email + passwd")
+            console.log("Log in ok !")
             return data;
           }
+          else return null;
         }
         console.log('Invalid credentials');
         return null;
@@ -52,21 +45,3 @@ export const { auth, signIn, signOut } = NextAuth({
     }),
   ],
 });
-
-/*
-          if ((findEmail.email === email) && (findPassword.password === password)) {
-            console.log(findEmail.email, findPassword.password, "email + passwd")
-            console.log("Log in ok !")
-            return data;
-          }
-          else return null;
-  // bcrypt
-  // if (!data) return null;
-  // else return data;
-          if ((findEmail.email === email) && (findPassword.password === password)) {
-            const passwordsMatch = await bcrypt.compare(findPassword.password, password);
-            console.log("Log in ok !")
-            if (passwordsMatch) return data;
-            else return null;
-          }
-*/
