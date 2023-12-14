@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { executeQuery } from '@/app/lib/db';
+import { genericQuery } from '@/app/lib/db';
 import { ProductsProps, PropsProdReview } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 import Carousel from '@/app/ui/carousel';
@@ -19,7 +19,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
         throw new Error("Error review id is a number");
     }
 
-    const data: unknown = await executeQuery("SELECT * FROM products", []);
+    const data: unknown = await genericQuery("SELECT * FROM products", []);
     const products: string = JSON.stringify(data);
 
     const images = [
