@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -42,7 +44,6 @@ const config: Config = {
         'in': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
         'inviolet': 'inset 0px 0px 10px rgba(147, 112, 219, 0.8)',
         'inlight': '0px 0px 7px rgba(2, 132, 199, 0.8)',
-        'ingray': 'inset 0px 0px 7px rgba(100, 100, 100, 0.8)',
         'xl': '0px 0px 10px rgba(0, 0, 0, 1)',
         'xllight': '0px 0px 10px rgba(0, 0, 0, 0.5)',
         'lg': '0px 0px 7px rgba(0, 0, 0, 0.5)',
@@ -52,7 +53,7 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
   darkMode: 'class',
 }
 export default config;
