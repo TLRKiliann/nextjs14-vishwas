@@ -2,16 +2,16 @@
 
 import React from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
-//import { serverAction } from '@/app/lib/actions';
+import { forgotPasswordServerAction } from '@/app/lib/actions';
 
 export default function ForgetForm() {
 
     const { pending } = useFormStatus();
-    //const [state, formData] = useFormState(serverAction, undefined)
+    const [state, formData] = useFormState(forgotPasswordServerAction, undefined);
 
     return (
         <form
-            action={""}
+            action={formData}
             className='flex flex-col w-2/5 text-md bg-slate-50 px-8 py-7 rounded-lg shadow-lg'
         >
             <label
@@ -35,6 +35,9 @@ export default function ForgetForm() {
             />
             <button
                 type="submit"
+                id="submit"
+                name="submit"
+                value="btnForgotPassword"
                 className='text-sm font-bold text-slate-600 bg-slate-100
                     hover:bg-slate-200
                     hover:text-slate-500
@@ -46,9 +49,9 @@ export default function ForgetForm() {
             >
                 {pending ? "Pending..." : "Submit"}
             </button>
-            {/* state?.message ? (
+            {state?.message ? (
                 <p>{state.message}</p>
-            ): null */}
+            ): null}
         </form>
     )
 }
