@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { executeQuery } from '@/app/lib/db';
+import { genericQuery } from '@/app/lib/db';
 import { ProductsProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 
@@ -32,7 +32,7 @@ const DetailsProduct = async ({params}: Props) => {
         throw new Error("Error: product id is a number")
     }
 
-    const data: unknown = await executeQuery("SELECT * FROM products", []);
+    const data: unknown = await genericQuery("SELECT * FROM products", []);
     const products: string = JSON.stringify(data);
     
     // To display name & color of product

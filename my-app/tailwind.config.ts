@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
@@ -51,7 +53,7 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
   darkMode: 'class',
 }
 export default config;

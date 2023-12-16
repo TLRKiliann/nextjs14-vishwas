@@ -1,8 +1,7 @@
-//import Link from 'next/link';
 import { signOut } from '@/auth';
 import { BiLogOutCircle } from "react-icons/bi";
 
-export default function LogOut() {
+export default function LogOutComp() {
   return (
 
     <form

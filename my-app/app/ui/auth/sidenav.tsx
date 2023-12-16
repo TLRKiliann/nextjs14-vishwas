@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import LogOut from './logout'
+import LogOutComp from './logout'
 
 export default function SideNav() {
     return (
@@ -51,7 +51,7 @@ export default function SideNav() {
                 </li>
                 <hr />
 
-                <LogOut />
+                <LogOutComp />
 
             </ul>
         </div>

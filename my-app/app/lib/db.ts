@@ -1,8 +1,8 @@
 import mysql, { RowDataPacket } from 'mysql2/promise';
-import type { ProductsProps } from './definitions';
+// import type { ProductsProps } from './definitions';
 
 // fetch all products by server action (no api needed !)
-const executeQuery = async (query: string, data: any) => {
+const genericQuery = async (query: string, data: any) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -20,7 +20,7 @@ const executeQuery = async (query: string, data: any) => {
   }
 }
 
-// query member (create, all-members)
+// create member (register)
 const newMemberQuery = async (query: string, data: any) => {
   try {
     const db = await mysql.createConnection({
@@ -30,7 +30,6 @@ const newMemberQuery = async (query: string, data: any) => {
       user: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD
     })
-    console.log("registered with data: ", data)
     const [result] = await db.execute(query, data);
     await db.end();
     return result;
@@ -61,7 +60,7 @@ const authQuery = async (query: string, data: string[]) => {
 }
 
 export { 
-  executeQuery,
+  genericQuery,
   newMemberQuery,
   authQuery 
 };

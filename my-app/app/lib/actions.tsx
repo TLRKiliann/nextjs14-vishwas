@@ -1,9 +1,8 @@
 "use server";
 
 import { signIn } from '@/auth';
-import { newMemberQuery } from './db';
+import { genericQuery, newMemberQuery } from './db';
 import { revalidatePath } from 'next/cache';
-import crypto from 'crypto';
 
 // CRUD mariadb
 export async function mysqlServerAction(prevState: {message: string} | undefined, formData: FormData) {
@@ -51,6 +50,25 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
   }
   catch (error) {
     console.log("Error", error)
+    throw error;
+  }
+}
+
+export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const email = formData.get("email");
+    const btnForgotPassword = formData.get("submit");
+    if (btnForgotPassword === "btnForgotPassword") {
+      if (email !== "") {
+        const result = await genericQuery("INSERT INTO forgotpassword VALUES (?)", [email]);
+        if (result) {
+          revalidatePath("/register");
+          return {message: "You are registered"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log("Error", error);
     throw error;
   }
 }

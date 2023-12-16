@@ -1,10 +1,10 @@
-import { executeQuery } from '@/app/lib/db';
+import { genericQuery } from '@/app/lib/db';
 import DropDownMenu from '@/app/ui/products/dropdown-menu';
 import DisplayerProducts from "@/app/ui/products/displayer-products";
 
 export default async function ListProducts() {
 
-    const data: unknown = await executeQuery("SELECT * FROM products", []);
+    const data: unknown = await genericQuery("SELECT * FROM products", []);
     const products: string = JSON.stringify(data);
 
     if (!products) {
