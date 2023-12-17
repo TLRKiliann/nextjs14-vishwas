@@ -5,6 +5,7 @@ export type User = {
     password: string;
 };
 
+/* external data*/
 export type ProductsProps = {
     id: number;
     name: string;
@@ -49,4 +50,13 @@ export type PropsProdReview = {
         productId: string;
         reviewId: string;
     }
+}
+
+/* external data */
+export type DecksProps = {
+    id: number;
+    deckname: string;
+    img: string;
+    price: string;
+    stock: number;
 }

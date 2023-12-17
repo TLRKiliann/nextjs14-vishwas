@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
+import { DecksProps } from "@/app/lib/definitions";
 import CardBaker from './card-baker';
 import LoadMore from '../loadmore';
 
-export default function BakerDecksCards() {
+
+export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}) {
     const [load, setLoad] = useState<boolean>(false);
 
     const handleClick = () => {
@@ -20,7 +22,29 @@ export default function BakerDecksCards() {
                 rounded-2xl shadow-inviolet dark:shadow-in p-10`}
             >
 
-                <CardBaker />
+                {load === false ? (
+                    bakerdecks.slice(0, 3).map((bakerdeck: DecksProps) => (
+                        <CardBaker
+                            key={bakerdeck.id}
+                            id={bakerdeck.id}
+                            deckname={bakerdeck.deckname}
+                            img={bakerdeck.img}
+                            price={bakerdeck.price}
+                            stock={bakerdeck.stock}
+                        />
+                    ))) : (
+                        bakerdecks.slice(0, 9).map((bakerdeck: DecksProps) => (
+                            <CardBaker
+                                key={bakerdeck.id}
+                                id={bakerdeck.id}
+                                deckname={bakerdeck.deckname}
+                                img={bakerdeck.img}
+                                price={bakerdeck.price}
+                                stock={bakerdeck.stock}
+                            />
+                        )
+                    )
+                )}
 
             </div>
 

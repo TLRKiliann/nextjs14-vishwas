@@ -68,6 +68,25 @@ MariaDB [mytable]> SELECT * FROM `products`;
 +----+---------+----------------------+--------+-------+
 6 rows in set (0.001 sec)
 
+---
+
+MariaDB [mytable]> SELECT * FROM `bakerdecks`;
++----+-------------+----------------------------------+--------+-------+
+| id | deckname    | img                              | price  | stock |
++----+-------------+----------------------------------+--------+-------+
+|  1 | baker one   | /img_decks/baker/deck_baker1.jpg | 108.50 |    12 |
+|  2 | baker two   | /img_decks/baker/deck_baker2.jpg | 105.20 |    18 |
+|  3 | baker three | /img_decks/baker/deck_baker3.jpg | 115.40 |     7 |
+|  4 | baker four  | /img_decks/baker/deck_baker4.jpg | 113.80 |    22 |
+|  5 | baker five  | /img_decks/baker/deck_baker5.jpg | 112.80 |     3 |
+|  6 | baker six   | /img_decks/baker/deck_baker6.jpg | 114.30 |    15 |
+|  7 | baker seven | /img_decks/baker/deck_baker7.jpg | 114.60 |    11 |
+|  8 | baker eight | /img_decks/baker/deck_baker8.jpg | 111.20 |     5 |
+|  9 | baker nine  | /img_decks/baker/deck_baker9.jpg | 119.50 |    25 |
++----+-------------+----------------------------------+--------+-------+
+9 rows in set (0.001 sec)
+
+
 - Install mysql
 
 $ pnpm add mysql2
