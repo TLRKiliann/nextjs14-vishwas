@@ -16,12 +16,12 @@ export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}
         <div className='w-full h-auto border p-10'>
 
             {/* grid with loader */}
-            <div className={`grid grid-cols-3 ${load === false ? "grid-rows-1" : "grid-row-2"} 
+            <div className={`grid md:grid-cols-3 ${load === false ? "grid-rows-1" : "grid-row-2"} 
                 justify-items-center gap-y-10 border-none
                 dark:border-slate-900 bg-slate-50 dark:bg-slate-50
                 rounded-2xl shadow-inviolet dark:shadow-in p-10`}
             >
-
+                {/* lg:grid-cols-4 xl:grid-cols-5 */}
                 {load === false ? (
                     bakerdecks.slice(0, 3).map((bakerdeck: DecksProps) => (
                         <CardBaker
