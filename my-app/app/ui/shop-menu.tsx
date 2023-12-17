@@ -41,7 +41,8 @@ export default function ShopMenu() {
                     href={`/products`}
                     onClick={toggle}
                 >
-                    <span><FaProductHunt className="mt-[3px] mr-2" size={18} /></span><p>Products</p>
+                    <span><FaProductHunt className="mt-[3px] mr-2" size={18} /></span>
+                    <p>Products</p>
                 </Link>
 
                 <hr className='border-t-sky-800 border-b-sky-800 px-14 m-auto' />
@@ -49,10 +50,11 @@ export default function ShopMenu() {
                 <Link
                     className="flex align-center justify-left hover:bg-sky-700 hover:text-slate-200 
                         px-3 pt-2 pb-1"
-                    href={`/products/boards`}
+                    href={`/products/decks`}
                     onClick={toggle}
                 >
-                    <span><MdSkateboarding className="mt-[3px] mr-2" size={18} /></span><p>Boards</p>
+                    <span><MdSkateboarding className="mt-[3px] mr-2" size={18} /></span>
+                    <p>Decks</p>
                 </Link>
                 
                 <hr className='border-t-sky-800 border-b-sky-800 px-14 m-auto' />
@@ -60,10 +62,11 @@ export default function ShopMenu() {
                 <Link
                     className="flex align-center justify-left hover:bg-sky-700 hover:text-slate-200 
                         px-3 pt-2 pb-1"
-                    href={`/products/axis`}
+                    href={`/products/trucks`}
                     onClick={toggle}
                 >
-                    <span><CgMaximizeAlt className="mt-[3px] mr-2" size={18} /></span><p>Axis</p>
+                    <span><CgMaximizeAlt className="mt-[3px] mr-2" size={18} /></span>
+                    <p>Trucks</p>
                 </Link>
 
                 <hr className='border-t-sky-800 border-b-sky-800 px-14 m-auto' />
@@ -74,7 +77,8 @@ export default function ShopMenu() {
                     href={`/products/wheels`}
                     onClick={toggle}
                 >
-                    <span><GiBoomerangSun className="mt-[3px] mr-2" size={18} /></span><p>Wheels</p>
+                    <span><GiBoomerangSun className="mt-[3px] mr-2" size={18} /></span>
+                    <p>Wheels</p>
                 </Link>
 
             </div>
