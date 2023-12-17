@@ -19,6 +19,14 @@ const config: Config = {
             opacity: "1"
           }
         },
+        rotationcustom: {
+          '0%': { 
+            transform: 'rotate3d(-3,-1,3, 180deg)',
+          },
+          '100%': { 
+            transform: 'rotate3d(3,-1,-3, 360deg)',
+          }
+        },
         upstart: {
           '0%': { 
             transform: 'translateY(200px)',
@@ -33,6 +41,7 @@ const config: Config = {
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
         "up-start": "upstart 0.4s ease-in-out 1",
+        "rotation-custom": "rotationcustom 0s ease-in-out 1",
       },
       dropShadow: {
         'lg': '2px 2px 1px rgba(0, 0, 0, 0.4)',
@@ -53,7 +62,10 @@ const config: Config = {
       }
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require("tailwindcss-3d")
+  ],
   darkMode: 'class',
 }
 export default config;
