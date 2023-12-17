@@ -14,7 +14,7 @@ const Dots = ({ itemsLength, selectedIndex }: Props) => {
         return (
           <div
             className={classNames({
-              "h-2 w-2 rounded-full transition-all duration-300 bg-indigo-400":
+              "h-2 w-2 rounded-full transition-all duration-300 bg-indigo-400 mt-3":
                 true,
               // tune down the opacity if slide is not selected
               "opacity-50": !selected,
