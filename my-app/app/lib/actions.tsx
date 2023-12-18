@@ -1,7 +1,7 @@
 "use server";
 
 import { signIn } from '@/auth';
-import { genericQuery, newMemberQuery } from './db';
+import { cartOrderQuery, genericQuery, newMemberQuery } from './db';
 import { revalidatePath } from 'next/cache';
 
 // CRUD mariadb
@@ -54,30 +54,23 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
   }
 }
 
-// Cart order for decks
+// order for decks
 export async function queryDecksCart(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
     const deckname = formData.get("deckname");
-    const price = formData.get("price");
+    const totalprice = formData.get("total");
     const count = formData.get("count");
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
-      if (id !== "" && deckname !== "" && price !== "" && count !== "") {
+      if (id !== "" && deckname !== "" && totalprice !== "" && count !== "") {
         const result = await cartOrderQuery("INSERT INTO cartorder VALUES (?, ?, ?, ?)", 
-          [id, deckname, price, count]);
-        if ([result]) {
+          [id, deckname, totalprice, count]);
+        if (result) {
           revalidatePath("/products/decks");
           return {message: "Data updated"}
-        } else {
-          return {message: "No password to update"}
         }
       }
-      else {
-        return {message: "data undefined"};
-      }
-    } else {
-      return {message: "Cannot find btn 'order'"};
     }
   }
   catch (error) {
@@ -86,6 +79,7 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
   }
 }
 
+// email to retrieve password
 export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const email = formData.get("email");
@@ -118,6 +112,3 @@ export async function authenticate(prevState: string | undefined, formData: Form
   }
 }
 
-function cartOrderQuery(arg0: string, arg1: (FormDataEntryValue | null)[]) {
-  throw new Error('Function not implemented.');
-}

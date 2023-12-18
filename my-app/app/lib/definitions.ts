@@ -60,3 +60,10 @@ export type DecksProps = {
     price: number;
     stock: number;
 }
+
+export type CartProps = {
+    id: number;
+    deckname: string;
+    totalprice: number;
+    count: number;
+}

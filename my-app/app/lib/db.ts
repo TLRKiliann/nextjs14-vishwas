@@ -40,7 +40,7 @@ const newMemberQuery = async (query: string, data: any) => {
 }
 
 // cart order query
-const cartOrderQuery = async (query: string, data: DecksProps[]) => {
+const cartOrderQuery = async (query: string, data: any) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
