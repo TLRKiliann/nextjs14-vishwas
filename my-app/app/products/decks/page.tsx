@@ -37,7 +37,7 @@ export default function BoardShop() {
                 All Baker&apos;s Decks
               </Link>
             </li>
-            <div className='w-[50px] h-auto'>
+            <div className=''>
               <Image src={bakerLogo} width={50} height={50} alt="baker logo"
                 className='object-cover rounded-full'
               />
