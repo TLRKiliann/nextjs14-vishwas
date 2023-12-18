@@ -109,14 +109,14 @@ export default function Home() {
             {images.map((src, i) => {
               return (
                 <div 
-                  className="relative w-[300px] sm:w-3/6 lg:w-[300px] xl:w-[300px] h-[300px]
-                    flex shrink-0 grow-0
-                    sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px]
-                    sm:my-6 md:my-3 border border-fuchsia-400"
-                  key={i}>
+                  key={i}
+                  className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
+                    xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
+                    sm:my-6 md:my-3"
+                >
                   <Image src={src} 
                     width={300} height={300} fill={false} 
-                    className="object-cover border border-orange-500" 
+                    className="object-cover" 
                     alt="img carousel"
                   />
                 </div>

@@ -18,7 +18,7 @@ export default async function DetailsProduct({children, params}:
             via-purple-500 via-50% to-violet-200 to-90%
             p-4'
         >
-          Baker's Decks
+          Baker&apos;s Decks
         </h1>
           {children}
         <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>

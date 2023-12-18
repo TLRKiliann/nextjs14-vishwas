@@ -11,7 +11,7 @@ export default function BlindDecks() {
         via-purple-500 via-50% to-violet-200 to-90%
         p-4'
       >
-        Blind's Decks
+        Blind&apos;s Decks
       </h1>
     </div>
   )

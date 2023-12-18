@@ -34,7 +34,7 @@ export default function BoardShop() {
 
             <li className='ml-4 text-blue-500 hover:text-blue-600'>
               <Link href="/products/decks/baker">
-                All Baker's Decks
+                All Baker&apos;s Decks
               </Link>
             </li>
             <div className='w-[50px] h-auto'>
@@ -57,7 +57,7 @@ export default function BoardShop() {
           <div className='flex items-center justify-between px-4'>
             <li className='ml-4 text-blue-600 hover:text-blue-800'>
               <Link href="/products/decks/blind">
-                All Blind's Decks
+                All Blind&apos;s Decks
               </Link>
             </li>
             <div className='w-[50px] h-auto'>
@@ -79,7 +79,7 @@ export default function BoardShop() {
           <div className='flex items-center justify-between px-4'>
             <li className='ml-4 text-blue-600 hover:text-blue-800'>
               <Link href="/products/decks/girl">
-                All Girl's Decks
+                All Girl&apos;s Decks
               </Link>
             </li>
             <div className='w-[50px] h-auto border-2 border-lime-600 rounded-full'>
@@ -101,7 +101,7 @@ export default function BoardShop() {
           <div className='flex items-center justify-between px-4'>
             <li className='ml-4 text-blue-600 hover:text-blue-800'>
               <Link href="/products/decks/element">
-                All Element's Decks
+                All Element&apos;s Decks
               </Link>
             </li>
             <div className='w-[50px] h-auto rounded-full'>

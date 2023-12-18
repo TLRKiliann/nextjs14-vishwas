@@ -29,14 +29,14 @@ const DetailsProduct = async ({params}: Props) => {
     }
 
     if (parseInt(params.productId) !== Number(params.productId)) {
-        throw new Error("Error: product id is a number")
+        throw new Error("Error: product id is a number");
     }
 
     const data: unknown = await genericQuery("SELECT * FROM bakerdecks", []);
-    const products: string = JSON.stringify(data);
+    const bakerdecks: string = JSON.stringify(data);
     
     // To display name
-    const productName = JSON.parse(products).map((prod: DecksProps) => {
+    const productName = JSON.parse(bakerdecks).map((prod: DecksProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <div key={prod.id} className='flex justify-center w-full h-auto text-md'>

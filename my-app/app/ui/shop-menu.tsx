@@ -8,7 +8,7 @@ import { MdSkateboarding } from "react-icons/md";
 import { CgMaximizeAlt } from "react-icons/cg";
 import { GiBoomerangSun } from "react-icons/gi";
 
-export default function ShopMenu() {
+export default function ShopMenu({children}: {children: React.ReactNode}) {
 
     const pathname = usePathname();
 
@@ -29,7 +29,7 @@ export default function ShopMenu() {
                 : "text-lg ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                 onClick={toggle}
             >
-                Shop
+                {children}
             </span>
 
             <div className={`absolute text-md font-normal top-12 z-20 w-[140px]] h-[auto] 
