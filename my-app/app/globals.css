@@ -7,6 +7,10 @@
     @apply dark:bg-gradient-to-br dark:from-slate-600 dark:from-10% 
     dark:via-sky-600 dark:via-40% dark:to-indigo-800 dark:to-90%;
   }
+  .secondary-dark-bg-gradient {
+    @apply dark:bg-gradient-to-tr dark:from-slate-900 dark:from-10% 
+    dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%;
+  }
   .dark-bg-gradient-story {
     @apply dark:bg-gradient-to-br dark:from-indigo-800 dark:from-10% 
     dark:via-blue-500 dark:via-50% dark:to-indigo-800 dark:to-90%;
@@ -18,6 +22,10 @@
   .light-bg-gradient {
     @apply bg-gradient-to-br from-purple-600 from-10% 
     via-violet-400 via-40% to-purple-600 to-90%;
+  }
+  .secondary-light-bg-gradient {
+    @apply bg-gradient-to-tr from-violet-400 from-10% 
+    via-slate-50 via-50% to-violet-400 to-90%;
   }
   .light-title-h1 {
     @apply bg-gradient-to-br from-violet-500 from-10% 

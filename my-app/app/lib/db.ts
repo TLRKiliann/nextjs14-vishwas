@@ -1,5 +1,5 @@
-import mysql, { RowDataPacket } from 'mysql2/promise';
-// import type { ProductsProps } from './definitions';
+import mysql from 'mysql2/promise';
+import type { DecksProps } from './definitions';
 
 // fetch all products by server action (no api needed !)
 const genericQuery = async (query: string, data: any) => {
@@ -22,6 +22,25 @@ const genericQuery = async (query: string, data: any) => {
 
 // create member (register)
 const newMemberQuery = async (query: string, data: any) => {
+  try {
+    const db = await mysql.createConnection({
+      host: process.env.MYSQL_HOST,
+      port: Number(process.env.MYSQL_PORT),
+      database: process.env.MYSQL_DATABASE,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD
+    })
+    const [result] = await db.execute(query, data);
+    await db.end();
+    return result;
+  } catch (error) {
+    console.log(error);
+    return error;
+  }
+}
+
+// cart order query
+const cartOrderQuery = async (query: string, data: DecksProps[]) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -62,5 +81,6 @@ const authQuery = async (query: string, data: string[]) => {
 export { 
   genericQuery,
   newMemberQuery,
+  cartOrderQuery,
   authQuery 
 };

@@ -116,7 +116,7 @@ export default function Home() {
                 >
                   <Image src={src} 
                     width={300} height={300} fill={false} 
-                    className="object-cover" 
+                    className="m-auto" 
                     alt="img carousel"
                   />
                 </div>

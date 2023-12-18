@@ -38,22 +38,16 @@ export default function CardProducts({ id, name, price, img, stock }: ProductsPr
             bg-gradient-to-r from-violet-400 from-10% 
             via-slate-50 via-50% to-violet-400 to-90%
             transform transition hover:scale-[1.025] hover:shadow-2xl
-            translate-y-0 animate-up-start rounded-lg'
+            translate-y-0 animate-up-start rounded-lg p-2'
         >
 
-            <div className='px-3 py-2 pt-3'>
-                <div className='md:w-[200px] xl:w-[300px] h-auto rounded-lg shadow-in'
-                >
-                    <Image
-                        src={img}
-                        width={1920}
-                        height={1080}
-                        alt="img cpui"
-                        className="object-fill rounded-lg shadow-in"
-                    />
-
-                </div>
-            </div>
+            <Image
+                src={img}
+                width={200}
+                height={200}
+                alt="img cpui"
+                className="m-auto rounded-lg shadow-in"
+            />
 
             <div className='px-3 py-1 pt-2'>
                 <div className='flex flex-col align-center justify-center 

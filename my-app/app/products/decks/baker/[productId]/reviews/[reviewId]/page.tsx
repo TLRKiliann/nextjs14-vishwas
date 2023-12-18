@@ -66,7 +66,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                     >
                     <Image src={src} 
                         width={300} height={300} fill={false} 
-                        className="object-cover" 
+                        className="m-auto" 
                         alt="img carousel"
                     />
                     </div>

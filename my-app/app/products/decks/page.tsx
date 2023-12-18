@@ -37,11 +37,8 @@ export default function BoardShop() {
                 All Baker&apos;s Decks
               </Link>
             </li>
-            <div className=''>
-              <Image src={bakerLogo} width={50} height={50} alt="baker logo"
-                className='object-cover rounded-full'
-              />
-            </div>
+            
+            <Image src={bakerLogo} width={50} height={20} alt="baker logo" className='rounded-full' />
 
           </div>
 
@@ -60,11 +57,9 @@ export default function BoardShop() {
                 All Blind&apos;s Decks
               </Link>
             </li>
-            <div className='w-[50px] h-auto'>
-              <Image src={blindLogo} width={50} height={50} alt="baker logo"
-                className='object-cover rounded-full'
-              />
-            </div>
+
+            <Image src={blindLogo} width={50} height={50} alt="baker logo" className='rounded-full' />
+
           </div>
 
         </div>
@@ -82,11 +77,9 @@ export default function BoardShop() {
                 All Girl&apos;s Decks
               </Link>
             </li>
-            <div className='w-[50px] h-auto border-2 border-lime-600 rounded-full'>
-              <Image src={girlLogo} width={50} height={50} alt="baker logo"
-                className='object-cover rounded-full'
-              />
-            </div>
+
+            <Image src={girlLogo} width={50} height={50} alt="baker logo" className='rounded-full' />
+
           </div>
 
         </div>
@@ -104,11 +97,9 @@ export default function BoardShop() {
                 All Element&apos;s Decks
               </Link>
             </li>
-            <div className='w-[50px] h-auto rounded-full'>
-              <Image src={elementLogo} width={50} height={50} alt="baker logo"
-                className='object-cover rounded-full'
-              />
-            </div>
+
+            <Image src={elementLogo} width={50} height={50} alt="baker logo" className='rounded-full' />
+
           </div>
 
         </div>

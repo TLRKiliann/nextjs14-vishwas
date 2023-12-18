@@ -54,6 +54,38 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
   }
 }
 
+// Cart order for decks
+export async function queryDecksCart(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const deckname = formData.get("deckname");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const btnSubmit = formData.get("submit");
+    if (btnSubmit === "order") {
+      if (id !== "" && deckname !== "" && price !== "" && count !== "") {
+        const result = await cartOrderQuery("INSERT INTO cartorder VALUES (?, ?, ?, ?)", 
+          [id, deckname, price, count]);
+        if ([result]) {
+          revalidatePath("/products/decks");
+          return {message: "Data updated"}
+        } else {
+          return {message: "No password to update"}
+        }
+      }
+      else {
+        return {message: "data undefined"};
+      }
+    } else {
+      return {message: "Cannot find btn 'order'"};
+    }
+  }
+  catch (error) {
+    console.log("Error", error)
+    throw error;
+  }
+}
+
 export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const email = formData.get("email");
@@ -84,4 +116,8 @@ export async function authenticate(prevState: string | undefined, formData: Form
     }
     throw error;
   }
+}
+
+function cartOrderQuery(arg0: string, arg1: (FormDataEntryValue | null)[]) {
+  throw new Error('Function not implemented.');
 }

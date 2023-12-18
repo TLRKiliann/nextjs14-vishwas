@@ -14,13 +14,11 @@ export default function CardBaker({ id, deckname, price, img, stock }: DecksProp
             translate-y-0 animate-up-start
             rounded-xl border mb-auto'>
 
-            <div className='w-[200px] h-auto m-auto flex align-center justify-center rounded-tr-lg 
-                rounded-tl-lg'>
-                <Image src={img} width={200} height={200} alt="img deck" 
-                    className='object-cover transform ease-in-out hover:opacity-70 
-                        hover:cursor-pointer hover:scale-90 active:rotate-y-[180deg] active:duration-300'
-                />
-            </div>
+            <Image src={img} width={200} height={200} alt="img deck" 
+                className='m-auto transform ease-in-out hover:opacity-70 hover:cursor-pointer 
+                hover:scale-90 active:rotate-y-[180deg] active:duration-300'
+            />
+
             {/* animate-rotation-custom  */}
             <div className='flex flex-col font-bold bg-slate-100/80 border'>
                 <div className='flex align-center justify-between 
