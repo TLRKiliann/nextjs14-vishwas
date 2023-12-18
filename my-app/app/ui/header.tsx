@@ -53,7 +53,7 @@ export default function Header() {
                         >Home</Link>
                         
 
-                        <ShopMenu>Shop</ShopMenu>
+                        <ShopMenu />
 
 
                         <Link href="/docs" className={`${pathname === '/docs'
