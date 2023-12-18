@@ -86,6 +86,19 @@ MariaDB [mytable]> SELECT * FROM `bakerdecks`;
 +----+-------------+----------------------------------+--------+-------+
 9 rows in set (0.001 sec)
 
+---
+
+MariaDB [mytable]> SHOW COLUMNS FROM `cartorder`;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int(11)      | NO   | PRI | NULL    |       |
+| deckname   | varchar(255) | NO   |     | NULL    |       |
+| totalprice | float(10,2)  | NO   |     | NULL    |       |
+| count      | tinyint(4)   | NO   |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0.005 sec)
+
 
 - Install mysql
 
