@@ -1,60 +1,115 @@
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import type { Metadata } from 'next';
+import bakerLogo from '@/public/img_logo/baker-logo.jpg';
+import blindLogo from '@/public/img_logo/blind-logo.png';
+import girlLogo from '@/public/img_logo/girl-logo.jpg';
+import elementLogo from '@/public/img_logo/element-logo.jpg';
+
+export const metadata: Metadata = {
+  title: "decks",
+  description: "access accepted"
+}
 
 export default function BoardShop() {
   return (
     <div className='min-h-screen py-[75px]'>
 
-      <h1 className='text-4xl font-bold 
-        text-transparent bg-clip-text
-        dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
-        dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
-        bg-gradient-to-br from-violet-500 from-10% 
-        via-purple-500 via-50% to-violet-200 to-90%
-        p-4'
-      >
+      <h1 className='text-4xl font-bold text-transparent bg-clip-text
+        dark-title-h1 light-title-h1 p-4'>
         Decks
       </h1>
 
-      <div className='border'>
+      <div className='p-4'>
 
-        <div className='border'>
+        <div className='bg-slate-100 dark:bg-gray-800 p-4 mb-2 rounded-lg'>
 
-          <h2>Baker</h2>
+          <h2 className='text-2xl font-bold text-transparent bg-clip-text
+            dark-title-h1 light-title-h1'>
+            Baker
+          </h2>
 
-          <Link href="/products/decks/baker">
-            All decks of Baker
-          </Link>
+          <div className='flex items-center justify-between px-4'>
 
-        </div>
+            <li className='ml-4 text-blue-500 hover:text-blue-600'>
+              <Link href="/products/decks/baker">
+                All Baker's Decks
+              </Link>
+            </li>
+            <div className='w-[50px] h-auto'>
+              <Image src={bakerLogo} width={50} height={50} alt="baker logo"
+                className='object-cover rounded-full'
+              />
+            </div>
 
-        <div className='border'>
-          
-          <h2>Blind</h2>
-
-          <Link href="/products/decks/blind">
-            All decks of Blind
-          </Link>
-
-        </div>
-
-        <div className='border'>
-          
-          <h2>Girl</h2>
-
-          <Link href="/products/decks/girl">
-            All decks of Girl
-          </Link>
+          </div>
 
         </div>
 
-        <div className='border'>
+        <div className='bg-slate-100 dark:bg-gray-800 p-4 mb-2 rounded-lg'>
           
-          <h2>Element</h2>
+          <h2 className='text-2xl font-bold text-transparent bg-clip-text
+            dark-title-h1 light-title-h1'>
+            Blind
+          </h2>
 
-          <Link href="/products/decks/element">
-            All decks of Element
-          </Link>
+          <div className='flex items-center justify-between px-4'>
+            <li className='ml-4 text-blue-600 hover:text-blue-800'>
+              <Link href="/products/decks/blind">
+                All Blind's Decks
+              </Link>
+            </li>
+            <div className='w-[50px] h-auto'>
+              <Image src={blindLogo} width={50} height={50} alt="baker logo"
+                className='object-cover rounded-full'
+              />
+            </div>
+          </div>
+
+        </div>
+
+        <div className='bg-slate-100 dark:bg-gray-800 p-4 mb-2 rounded-lg'>
+          
+          <h2 className='text-2xl font-bold text-transparent bg-clip-text
+            dark-title-h1 light-title-h1'>
+            Girl
+          </h2>
+
+          <div className='flex items-center justify-between px-4'>
+            <li className='ml-4 text-blue-600 hover:text-blue-800'>
+              <Link href="/products/decks/girl">
+                All Girl's Decks
+              </Link>
+            </li>
+            <div className='w-[50px] h-auto border-2 border-lime-600 rounded-full'>
+              <Image src={girlLogo} width={50} height={50} alt="baker logo"
+                className='object-cover rounded-full'
+              />
+            </div>
+          </div>
+
+        </div>
+
+        <div className='bg-slate-100 dark:bg-gray-800 p-4 rounded-lg'>
+          
+          <h2 className='text-2xl font-bold text-transparent bg-clip-text
+            dark-title-h1 light-title-h1'>
+            Element
+          </h2>
+
+          <div className='flex items-center justify-between px-4'>
+            <li className='ml-4 text-blue-600 hover:text-blue-800'>
+              <Link href="/products/decks/element">
+                All Element's Decks
+              </Link>
+            </li>
+            <div className='w-[50px] h-auto rounded-full'>
+              <Image src={elementLogo} width={50} height={50} alt="baker logo"
+                className='object-cover rounded-full'
+              />
+            </div>
+          </div>
 
         </div>
 

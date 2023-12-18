@@ -30,7 +30,7 @@ export default function CardBaker({ id, deckname, price, img, stock }: DecksProp
                 <div className='flex align-center justify-between 
                     text-sm text-slate-500/80 mx-4 border'>
                     <p>Price</p>
-                    <p>{price}</p>
+                    <p>{price.toFixed(2)}.- CHF</p>
                 </div>
                 <div className='flex justify-between text-sm text-slate-500/80 mx-4 mb-2 border'>
                     <p>Stock</p>

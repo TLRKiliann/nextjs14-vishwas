@@ -57,6 +57,6 @@ export type DecksProps = {
     id: number;
     deckname: string;
     img: string;
-    price: string;
+    price: number;
     stock: number;
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { allTitle, allText } from '@/app/lib/datas';
 import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
@@ -9,14 +10,12 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
 import elementDeck from "@/public/img_carousel/deck_element1.jpg";
 import girlDeck from "@/public/img_carousel/deck_girl2.jpg";
 import bakerDeck from "@/public/img_carousel/deck_baker2.jpg";
 import blindDeck from "@/public/img_carousel/deck_blind6.jpg";
 import skaterFly from '@/public/img_bg/skater_fly.jpg';
-import Link from 'next/link';
 
 export default function Home() {
   

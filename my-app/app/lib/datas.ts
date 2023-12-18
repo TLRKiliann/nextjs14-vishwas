@@ -5,33 +5,48 @@ import type { AllTitlesProps, AllTextProps } from "./definitions";
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        categories: "Last article about cpu i9",
-        review: "little text to display something (cpu-i9)"
+        categories: "Last article about baker one",
+        review: "little text to display something about (baker 1)"
     },
     {
         id: 2,
-        categories: "Last article about cpu i7",
-        review: "little text to display something (cpu-i7)"
+        categories: "Last article about baker two",
+        review: "little text to display something about (baker 2)"
     },
     {
         id: 3,
-        categories: "Last article about cpu i5",
-        review: "little text to display something (cpu-i5)"
+        categories: "Last article about baker three",
+        review: "little text to display something about (baker 3)"
     },
     {
         id: 4,
-        categories: "Last article about cpu i3",
-        review: "little text to display something (cpu-i3)"
+        categories: "Last article about baker four",
+        review: "little text to display something about (baker 4)"
     },
     {
         id: 5,
-        categories: "Last article about cpu pentium",
-        review: "little text to display something (pentium)"
+        categories: "Last article about baker five",
+        review: "little text to display something about (baker 5)"
     },
     {
         id: 6,
-        categories: "Last article about cpu athalon",
-        review: "little text to display something (athalon)"
+        categories: "Last article about baker six",
+        review: "little text to display something about (baker 6)"
+    },
+    {
+        id: 7,
+        categories: "Last article about baker seven",
+        review: "little text to display something (baker 7)"
+    },
+    {
+        id: 8,
+        categories: "Last article about baker eight",
+        review: "little text to display something (baker 8)"
+    },
+    {
+        id: 9,
+        categories: "Last article about baker nine",
+        review: "little text to display something (baker 9)"
     }
 ];
 
@@ -117,7 +132,6 @@ const customers: CustomersProps[] = [
         status: "pending"
     }
 ];
-
 
 export const allTitle: AllTitlesProps = {
     titleOne: "High performance for demanding customers",

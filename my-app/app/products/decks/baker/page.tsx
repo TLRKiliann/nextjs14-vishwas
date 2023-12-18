@@ -19,7 +19,7 @@ export default async function BakerDecks() {
         via-purple-500 via-50% to-violet-200 to-90%
         p-4'
       >
-        Baker Decks
+        Baker's Decks
       </h1>
 
       <div>
