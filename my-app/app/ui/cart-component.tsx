@@ -4,12 +4,11 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { BsCart3 } from "react-icons/bs";
+//import CartDisplay from './cart-display';
 
 export default function CartComponent() {
     
     const pathname = usePathname();
-
-    const num: number = 0;
 
     return (
         <div className='flex w-full ml-10'>
@@ -24,9 +23,9 @@ export default function CartComponent() {
                         ? "border-fuchsia-600 dark:border-cyan-300" 
                         : "hover:border-slate-100 dark:border-slate-100"}
                             absolute flex align-center justify-center px-1 w-6 min-w-6 py-1 mt-2 text-xs 
-                            rounded-xl`}
+                            rounded-xl`} 
                     >
-                        {num}
+                        {/* <CartDisplay /> */}
                     </p>
                 </span>
             </Link>
@@ -34,3 +33,6 @@ export default function CartComponent() {
         </div>
     )
 }
+/*
+
+*/
