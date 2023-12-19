@@ -8,6 +8,9 @@ export default async function Cart() {
   const request = await genericQuery("Select * FROM cartorder", []);
   const order = JSON.stringify(request);
 
+  const total = JSON.parse(order).reduce((a: any, b: { totalprice: number; }) => (a + b.totalprice))
+  console.log(total, "total price from cart (server)");
+
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
