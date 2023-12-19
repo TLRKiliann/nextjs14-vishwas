@@ -22,13 +22,13 @@ export default function About() {
 
       <section className='md:w-4/5 xl:w-3/5 m-auto bg-slate-100/80'>
         <article>
-          <h1 className='text-3xl text-transparent bg-clip-text dark-bg-gradient-story light-bg-gradient-story 
+          <h1 className='text-3xl text-transparent bg-clip-text dark-bg-gradient-story light-title-h1 
             text-center pt-10'
           >
             Our story
           </h1>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
-            light-bg-gradient-story text-center my-4'
+            light-title-h1 text-center my-4'
           >
             A Luxurious Experience
           </h2>
@@ -55,7 +55,7 @@ export default function About() {
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story
-            light-bg-gradient-story text-center my-4'
+            light-title-h1 text-center my-4'
           >
             Great products for high performances !
           </h2>
@@ -82,7 +82,7 @@ export default function About() {
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
-            light-bg-gradient-story text-center my-4'
+            light-title-h1 text-center my-4'
           >
             Discovery our shop as an adventure
           </h2>
@@ -118,7 +118,7 @@ export default function About() {
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
-            light-bg-gradient-story text-center my-4'
+            light-title-h1 text-center my-4'
           >
             All our partners put their trust in us
           </h2>

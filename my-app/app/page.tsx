@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { allTitle, allText } from '@/app/lib/datas';
 import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
@@ -9,21 +10,20 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-
-import boxCpu from "@/public/img_cpu/box_cpu.jpg";
-import boxCpui7 from "@/public/img_carousel/box-corei7.png";
-import boxCpui9 from "@/public/img_carousel/box-corei9.png";
-import dualBox from "@/public/img_carousel/dual-box.png";
-import multiBox from "@/public/img_carousel/multi-box.png";
-import wallPerf from '@/public/img_bg/wall-i9.jpg';
+import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
+import elementDeck from "@/public/img_carousel/deck_element1.jpg";
+import girlDeck from "@/public/img_carousel/deck_girl2.jpg";
+import bakerDeck from "@/public/img_carousel/deck_baker2.jpg";
+import blindDeck from "@/public/img_carousel/deck_blind6.jpg";
+import skaterFly from '@/public/img_bg/skater_fly.jpg';
 
 export default function Home() {
   
   const images = [
-    dualBox,
-    boxCpui7,
-    boxCpui9,
-    multiBox
+    bakerDeck,
+    elementDeck,
+    girlDeck,
+    blindDeck
   ];
 
   const titleOne: string = allTitle.titleOne;
@@ -46,9 +46,9 @@ export default function Home() {
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
         <Image
-          src={boxCpu}
-          width={1192}
-          height={671}
+          src={allanFranca}
+          width={1920}
+          height={1280}
           alt="cpu img" 
           className='flex w-full h-auto m-auto object-cover'
         />
@@ -70,12 +70,12 @@ export default function Home() {
             <h1 className='text-4xl font-bold text-transparent bg-clip-text 
               light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto my-0'
             >
-              NextJS Tutorial
+              Skateboard-Shop
             </h1>
             <p className='text-lg text-blue-800 font-bold text-transparent bg-clip-text 
               light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mt-0'
             >
-              All features includes
+              Decks - Trucks - Wheels
             </p>
           </div>
 
@@ -99,34 +99,35 @@ export default function Home() {
             via-purple-400 via-50% to-purple-600 to-90% drop-shadow-lg
             transition animate-slice-appear'
           >
-            Welcome to shop !
+            Latest Decks
           </h2>
         </div>
         
-        <div className='w-full h-[360px] bg-slate-200/80 dark:bg-blue-100/80'>
+        <div className='w-full h-[440px] bg-slate-200/80 dark:bg-blue-100/80 border border-green-400'>
 
           <Carousel loop>
             {images.map((src, i) => {
               return (
                 <div 
-                  className="relative w-2/6 sm:w-3/6 lg:w-2/6 xl:w-[400px] h-64 
-                    flex shrink-0 grow-0
-                    sm:mx-[350px] lg:mx-[350px] 2xl:mx-[850px]
-                    sm:pt-4 md:pt-3"
-                  key={i}>
+                  key={i}
+                  className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
+                    xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
+                    sm:my-6 md:my-3"
+                >
                   <Image src={src} 
-                    width={1920} height={1080} fill={false} 
-                    className="absolute m-auto object-cover" 
-                    alt="alt"
+                    width={300} height={300} fill={false} 
+                    className="m-auto" 
+                    alt="img carousel"
                   />
                 </div>
               );
             })}
           </Carousel>
 
-          <legend className='text-sm text-blue-800 text-center my-4'>
-            Core i9 X-SERIES & Core i9 EXTREME
-          </legend>
+          <Link href="/products" className='flex justify-center text-sm 
+            text-blue-600 hover:text-blue-800 my-4'>
+            Watch more in our shop !
+          </Link>
         
         </div>
 
@@ -139,12 +140,28 @@ export default function Home() {
           </div>
 
           <div className='flex w-full h-auto bg-transparent dark:bg-slate-900'>
+
+            <div className='absolute flex flex-col justify-center sm:w-[600px] lg:w-[900px] xl:w-[1200px] 
+              sm:h-[400px] lg:h-[500px] xl:h-[600px] mt-0 ml-0 border border-orange-500 z-20'>
+
+              <h2 className='text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold rotate-12 text-slate-50'>
+                Ride to be live
+              </h2>
+              <p className='text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold rotate-12 text-slate-50'>
+                &
+              </p>
+              <h2 className='text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold rotate-12 text-slate-50'>
+                Live to be ride !
+              </h2>
+              
+            </div>
+
             <Image
-              src={wallPerf}
-              width={1485}
-              height={823}
-              alt="wall perf" 
-              className='object-cover opacity-80 dark:opacity-90'
+              src={skaterFly}
+              width={1920}
+              height={1260}
+              alt="skater fly" 
+              className='object-cover opacity-90 dark:opacity-90 z-10'
             />
           </div>
 

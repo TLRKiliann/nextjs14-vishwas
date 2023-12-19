@@ -4,10 +4,11 @@ import { genericQuery } from '@/app/lib/db';
 import { ProductsProps, PropsProdReview } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 import Carousel from '@/app/ui/carousel';
-import boxCpui7 from "@/public/img_carousel/box-corei7.png";
-import boxCpui9 from "@/public/img_carousel/box-corei9.png";
-import dualBox from "@/public/img_carousel/dual-box.png";
-import multiBox from "@/public/img_carousel/multi-box.png";
+import elementDeck from "@/public/img_carousel/deck_element1.jpg";
+import girlDeck from "@/public/img_carousel/deck_girl2.jpg";
+import bakerDeck from "@/public/img_carousel/deck_baker2.jpg";
+import blindDeck from "@/public/img_carousel/deck_blind6.jpg";
+
 
 export default async function ReviewById({ params }: PropsProdReview) {
     
@@ -23,10 +24,10 @@ export default async function ReviewById({ params }: PropsProdReview) {
     const products: string = JSON.stringify(data);
 
     const images = [
-        dualBox,
-        boxCpui7,
-        boxCpui9,
-        multiBox
+        bakerDeck,
+        elementDeck,
+        girlDeck,
+        blindDeck
     ];
 
     return (
@@ -55,18 +56,18 @@ export default async function ReviewById({ params }: PropsProdReview) {
             </h2>
             <Carousel loop>
                 {images.map((src, i) => {
-                    return (
-                        <div 
-                        className="relative w-2/6 sm:w-3/6 lg:w-2/6 xl:w-[400px] h-64 
-                            flex shrink-0 grow-0
-                            sm:mx-[350px] lg:mx-[350px] 2xl:mx-[850px]
-                            sm:pt-4 md:pt-3"
-                        key={i}>
-                        <Image src={src} 
-                            width={1920} height={1080} fill={false} 
-                            className="absolute m-auto object-cover" 
-                            alt="alt"
-                        />
+                return (
+                    <div 
+                    key={i}
+                    className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
+                        xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
+                        sm:my-6 md:my-3"
+                    >
+                    <Image src={src} 
+                        width={300} height={300} fill={false} 
+                        className="object-cover" 
+                        alt="img carousel"
+                    />
                     </div>
                 );
                 })}

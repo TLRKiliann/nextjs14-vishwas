@@ -9,7 +9,7 @@ import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
 import { BiLogInCircle } from "react-icons/bi";
 import CartComponent from './cart-component';
-import logoImg from '@/public/img_logo/processor.png';
+import skateLogo from '@/public/img_logo/main-logo.png';
 import ShopMenu from './shop-menu';
 
 export default function Header() {
@@ -33,11 +33,12 @@ export default function Header() {
                 py-2 z-10"
             >
 
-                <div className="relative flex align-center justify-center w-20 h-auto ml-4">
+                <div className="relative flex align-center justify-center w-[70px] 
+                    transform rotate-45 h-auto ml-4">
                     <Image
-                        src={logoImg}
-                        width={500}
-                        height={500}
+                        src={skateLogo}
+                        width={70}
+                        height={70}
                         alt="img logo"
                         className="flex w-auto h-auto m-auto object-cover"
                     />

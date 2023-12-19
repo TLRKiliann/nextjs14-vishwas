@@ -44,16 +44,19 @@ const config: Config = {
         'in': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
         'inviolet': 'inset 0px 0px 10px rgba(147, 112, 219, 0.8)',
         'inlight': '0px 0px 7px rgba(2, 132, 199, 0.8)',
-        'xl': '0px 0px 10px rgba(0, 0, 0, 1)',
         'xllight': '0px 0px 10px rgba(0, 0, 0, 0.5)',
         'lg': '0px 0px 7px rgba(0, 0, 0, 0.5)',
         'md': '0px 0px 10px rgba(0, 0, 0, 0.5)',
+        'xl': '0px 0px 20px rgba(0, 0, 0, 0.5)',
         '2xl': '0px 0px 20px rgba(0, 0, 0, 1)',
         '3xl': '0px 0px 30px rgba(0, 0, 0, 1)',
       }
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require("tailwindcss-3d")
+  ],
   darkMode: 'class',
 }
 export default config;

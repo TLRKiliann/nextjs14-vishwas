@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { reviews } from '../../../lib/datas'
+import { reviews } from '@/app/lib/datas'
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function BoardShop() {
+export default function GirlDecks() {
   return (
     <div className='min-h-screen py-[75px]'>
       <h1 className='text-4xl font-bold 
@@ -11,7 +11,7 @@ export default function BoardShop() {
         via-purple-500 via-50% to-violet-200 to-90%
         p-4'
       >
-        Board-Shop
+        Girl&apos;s Decks
       </h1>
     </div>
   )
