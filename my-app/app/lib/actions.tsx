@@ -84,9 +84,9 @@ export async function deleteCartItem(prevState: {message: string} | undefined, f
   try {
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "delete") {
+    if (btnDelete === "deleteorder") {
       if (id !== "") {
-        const result = await queryCartDelete("DELETE from cartorder WHERE id=?", [id])
+        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
           revalidatePath("/cart");
           return {message: "Item deleted"}

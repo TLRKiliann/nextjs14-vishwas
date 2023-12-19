@@ -8,8 +8,11 @@ export default async function Cart() {
   const request = await genericQuery("Select * FROM cartorder", []);
   const order = JSON.stringify(request);
 
-  const total = JSON.parse(order).reduce((a: any, b: { totalprice: number; }) => (a + b.totalprice))
-  console.log(total, "total price from cart (server)");
+  let total: number = 0;
+
+  if (order) {
+    total = JSON.parse(order).reduce((a: number, b: {totalprice: number}) => a += b.totalprice, 0)
+  }
 
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
@@ -36,6 +39,12 @@ export default async function Cart() {
               }
               </tbody>
             </table>
+            <div className="flex justify-end w-3/5 m-auto text-xl font-bold bg-slate-600 py-2">
+              <div className='flex justify-between w-3/6'>
+                <h2 className='ml-14'>Total:</h2>
+                <p className='mr-2'>{total.toFixed(2)}.- CHF</p>
+              </div>
+            </div>
 
             <DeleteForm order={JSON.parse(order)} />
 
