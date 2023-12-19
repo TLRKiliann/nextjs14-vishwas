@@ -48,6 +48,8 @@ NextJS => file-system based routing mechanism
 - Rendering
 - ES6 but not with functions Components
 
+[Go back to the index](#Index)
+
 ---
 
 ## Install
@@ -66,6 +68,8 @@ Options:
 dropdown:
 - pnpm add @nextui-org/react
 
+[Go back to the index](#Index)
+
 ---
 
 ## Config
@@ -77,6 +81,8 @@ dropdown:
 
 Control flow:
 - pnpm run dev => execute layout.tsx (RootLayout) and the children after who's comming from page.tsx
+
+[Go back to the index](#Index)
 
 ---
 
@@ -95,6 +101,8 @@ for example: useRouter, useParams, useSearchParams, usePathname, ...
 For example: by fetching data, non-interactive UI.
 
 - [use-client-directive:](https://stackoverflow.com/questions/76369521/how-does-the-use-client-directive-work-in-next-js-13)
+
+[Go back to the index](#Index)
 
 ---
 
@@ -132,6 +140,8 @@ const router = useRouter()
 router.push("/product")
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## Nested routes
@@ -140,6 +150,8 @@ router.push("/product")
 - ex with blog folder => blog/first/page.tsx & blog/second/page.tsx
 - when calling path with first (blog/first) page.tsx is called.
 - same thing with second folder for the second page.tsx
+
+[Go back to the index](#Index)
 
 ---
 
@@ -177,6 +189,8 @@ export default function ProductDetails({ params }: {params: {productId: string}}
 }
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## Nested Dynamic Routes
@@ -188,6 +202,8 @@ export default function Page({params}: {params: {productId: string, reviewId: st
 	return <p>Some page display {params.productId} {params.reviewId}</p>
 }
 ```
+
+[Go back to the index](#Index)
 
 ---
 
@@ -218,6 +234,8 @@ test it with : ".../docs/feature1/concept1"
 we can also use `[[...slug]]` to access to "docs folder", otherwise, nextjs return a 404 not found.
 
 test it with : `".../docs"`
+
+[Go back to the index](#Index)
 
 ---
 
@@ -263,6 +281,8 @@ export default function NotFound() {
 
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## Collocation
@@ -280,6 +300,8 @@ reviews:
 	> not-found.tsx
 	> page.tsx
 ```
+
+[Go back to the index](#Index)
 
 ---
 
@@ -309,6 +331,8 @@ Route groups
 - () = auth will not appears in url
 - url = localhost:3000/login
 
+[Go back to the index](#Index)
+
 ---
 
 ## layout
@@ -317,6 +341,8 @@ A page is UI that is unique to a route.
 A layout is UI that is shared between multiple pages in the app.
 
 example with : Header & Footer
+
+[Go back to the index](#Index)
 
 ---
 
@@ -338,6 +364,8 @@ export default function ProductDetailsLayout({children}: {children: React.ReactN
     )
 }
 ```
+
+[Go back to the index](#Index)
 
 ---
 
@@ -363,6 +391,8 @@ export default function authLayout() {
 }
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## Metadata from head & Dynamic metadata to improve SEO
@@ -375,6 +405,8 @@ export default function authLayout() {
 Example of standard metadata into `layout.tsx` of root.
 
 Example of dynamic segment into `page.tsx` of dynamic segment [productId].
+
+[Go back to the index](#Index)
 
 ---
 
@@ -412,6 +444,8 @@ export const metadata: Metadata = {
 }
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## Link
@@ -427,6 +461,8 @@ export default function LinkExample() {
 	)
 }
 ```
+
+[Go back to the index](#Index)
 
 ---
 
@@ -472,6 +508,8 @@ export default function AuthLayout({children}: {children: React.ReactNode}) {
 }
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## useRouter()
@@ -501,6 +539,8 @@ export default function Info() {
 }
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## template
@@ -520,12 +560,16 @@ const [input, setInput] = useState<string>("")
 
 Template.tsx can collocate with layout.tsx in same folder.
 
+[Go back to the index](#Index)
+
 ---
 
 ## loading
 
 When `loading.tsx` is create `page.tsx` need to load a component, `loading.tsx` will be automaticaly called.
 It will works, if `loading.tsx` & `page.tsx` have to be placed in same directory.
+
+[Go back to the index](#Index)
 
 ---
 
@@ -555,6 +599,8 @@ export default function ErrorBoundary({error}: {error: Error}) {
 }
 ```
 
+[Go back to the index](#Index)
+
 ---
 
 ## error & reset
@@ -578,9 +624,13 @@ export default function ErrorBoundary({error, reset}: {error: Error, reset: () =
 
 In the page.tsx of same directory, add `"use client";` at the top.
 
+[Go back to the index](#Index)
+
 ---
 
 ## error with layout
+
+[Go back to the index](#Index)
 
 ---
 
@@ -611,5 +661,7 @@ This route will not be reachable by url but only by the main layout of this fold
 page.tsx
 
 default.tsx
+
+[Go back to the index](#Index)
 
 ---
