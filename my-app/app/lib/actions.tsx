@@ -1,7 +1,7 @@
 "use server";
 
 import { signIn } from '@/auth';
-import { cartOrderQuery, genericQuery, newMemberQuery } from './db';
+import { cartOrderQuery, genericQuery, newMemberQuery, queryCartDelete } from './db';
 import { revalidatePath } from 'next/cache';
 
 // CRUD mariadb
@@ -79,6 +79,26 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
   }
 }
 
+// delete cart item
+export async function deleteCartItem(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const btnDelete = formData.get("submit");
+    if (btnDelete === "delete") {
+      if (id !== "") {
+        const result = await queryCartDelete("DELETE from cartorder WHERE id=?", [id])
+        if (result) {
+          revalidatePath("/cart");
+          return {message: "Item deleted"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    throw error;
+  }
+}
+
 // email to retrieve password
 export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -111,4 +131,5 @@ export async function authenticate(prevState: string | undefined, formData: Form
     throw error;
   }
 }
+
 

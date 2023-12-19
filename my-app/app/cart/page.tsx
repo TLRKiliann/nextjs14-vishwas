@@ -1,6 +1,7 @@
 import React from 'react'
 import { genericQuery } from '@/app/lib/db';
 import { CartProps } from '@/app/lib/definitions';
+import DeleteForm from '@/app/ui/cart/delete-form';
 
 export default async function Cart() {
   
@@ -32,6 +33,9 @@ export default async function Cart() {
               }
               </tbody>
             </table>
+
+            <DeleteForm order={JSON.parse(order)} />
+
         </div>
     </div>
   )
