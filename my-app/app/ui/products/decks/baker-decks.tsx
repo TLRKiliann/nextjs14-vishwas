@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { DecksProps } from "@/app/lib/definitions";
 import CardBaker from './card-baker';
 import LoadMore from '../loadmore';
 
-
 export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}) {
+
     const [load, setLoad] = useState<boolean>(false);
 
     const handleClick = () => {
@@ -32,9 +32,11 @@ export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}
                             price={bakerdeck.price}
                             stock={bakerdeck.stock}
                         />
+
+
                     ))) : (
                         bakerdecks.slice(0, 9).map((bakerdeck: DecksProps) => (
-                            <CardBaker
+                            <CardBaker 
                                 key={bakerdeck.id}
                                 id={bakerdeck.id}
                                 deckname={bakerdeck.deckname}

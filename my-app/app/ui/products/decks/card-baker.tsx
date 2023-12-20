@@ -1,12 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
+import { CartContext } from '@/app/context/cart-context';
 import { DecksProps } from "@/app/lib/definitions";
 import { IoShareSocial } from "react-icons/io5";
 import { SlSocialTwitter } from "react-icons/sl";
 import { FaGithub } from "react-icons/fa6";
 
 export default function CardBaker({ id, deckname, price, img, stock }: DecksProps) {
+
+    const {items, addToCart, removeFromCart} = useContext(CartContext)
+
+    const [exists, setExists] = useState(false);
+
+    useEffect(() => {
+      const inCart = items?.find((item: {id: number}) => item.id === id);
+    
+      if (inCart) {
+          setExists(true);
+      } else {
+          setExists(false);
+      } 
+    }, [items, id]);
 
     return (
         <div key={id} className='text-slate-600 bg-white shadow-lg 
@@ -58,6 +73,13 @@ export default function CardBaker({ id, deckname, price, img, stock }: DecksProp
                     View
                 </Link>
         
+            </div>
+
+            <div>
+                {exists
+                    ? <button type='button' onClick={() => removeFromCart(id)}>Remove</button>
+                    : <button type='button' onClick={() => addToCart(id, deckname, price)}>Add</button>
+                }
             </div>
 
             <div className='bg-slate-100/80'>

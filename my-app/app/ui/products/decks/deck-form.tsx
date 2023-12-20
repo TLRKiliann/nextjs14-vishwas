@@ -88,7 +88,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
 
                 {(count !== 0) || (stockItem >= 0) ? (
                     <div className='w-full flex justify-end pr-2 pb-2'>
-                        <button type="submit" id="submit" name="submit" 
+                        <button type="submit" id="submit" name="submit"
                             className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded' 
                             value="order"
                         >
