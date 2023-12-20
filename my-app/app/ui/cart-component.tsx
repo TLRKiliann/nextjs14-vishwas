@@ -10,9 +10,7 @@ import { useCart } from '../context/cart-context';
 export default function CartComponent() {
 
     const pathname = usePathname();
-
-    const itemElement = useCart();
-    const { state } = itemElement;
+    const {state} = useCart();
 
     return (
         <div className='flex w-full ml-10'>
