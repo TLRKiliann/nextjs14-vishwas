@@ -97,7 +97,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
                     </div>
                 ) : null}
                 {state?.message ? (
-                    <p>{state.message}</p>
+                    <p className='text-center text-orange-500'>{state.message}</p>
                 ) : null}
             </form>
         </div>

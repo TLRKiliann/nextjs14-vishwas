@@ -68,7 +68,17 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
           [id, deckname, totalprice, count]);
         if (result) {
           revalidatePath("/products/decks");
-          return {message: "Data updated"}
+          return {message: "Product added to cart"}
+        }
+      }
+    }
+    if (btnSubmit === "reset") {
+      if (id !== "" && deckname !== "" && totalprice !== "" && count !== "") {
+        const result = await cartOrderQuery("DELETE FROM cartorder WHERE id=?", 
+          [id]);
+        if (result) {
+          revalidatePath("/products/decks");
+          return {message: "Product deleted from cart"}
         }
       }
     }

@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoShareSocial } from 'react-icons/io5';
@@ -8,35 +6,21 @@ import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
 import { ADD_TO_CART, REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
 import { DecksProps } from '@/app/lib/definitions';
-import { useFormState, useFormStatus } from 'react-dom';
-import { queryDecksCart } from '@/app/lib/actions';
 
 const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
-
-    const { dispatch } = useCart();
-
-    const { pending } = useFormStatus();
-    const [ code, formAction ] = useFormState(queryDecksCart, undefined)
-
-    const [count, setCount] = useState<number>(0);
-
-    // const { state, dispatch } = useCart();
-    // const mapping = state.items.reduce((a, b) => a + b.price, 0)
-    // console.log(mapping, "mapping")
+    
+    const { state, dispatch } = useCart();
+    
+    const mapping = state.items.reduce((a,b) => a + b.price, 0)
+    console.log(mapping, "mapping")
 
     const handleAddToCart = () => {
       dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
-      setCount((count) => count + 1);
     };
   
     const handleRemoveFromCart = () => {
       dispatch({ type: REMOVE_FROM_CART, payload: { id } });
-      setCount((count) => count - 1);
     };
-
-    const [totalPrice] = useState<number>(price);
-    let newCount: number = count;
-    const total: string = (totalPrice * newCount).toFixed(2);
 
     return (
         <div
@@ -45,7 +29,6 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
                 rounded-xl border mb-auto"
         >
-            
             <Image
                 src={img}
                 width={200}
@@ -61,7 +44,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </div>
                 <div className="flex align-center justify-between text-sm text-slate-500/80 mx-4 border">
                     <p>Price</p>
-                    <p>{price.toFixed(2)}.- CHF</p>
+                    <p>{mapping === 0 ? price.toFixed(2) : mapping.toFixed(2)}.- CHF</p>
                 </div>
                 <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2 border">
                     <p>Stock</p>
@@ -75,37 +58,22 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </p>
             </div>
 
-            <form action={formAction} className='flex justify-between px-4 py-2 bg-slate-100/80'>
-                
-                <input type="number" id="id" name="id" value={id} hidden readOnly />
-                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total" value={total} hidden readOnly />
-                <input type="number" id="count" name="count" value={count} hidden readOnly />
-
-
-                <button type="submit" id="submit" name="submit" value="reset" onClick={handleRemoveFromCart}
+            <div className='flex justify-between px-4 py-2 bg-slate-100/80'>
+                <button type="button" onClick={handleRemoveFromCart}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
                 >
-                    {pending ? "pending..." : "Reset"}
+                    Reset
                 </button>
-
-                <button type="submit" id="submit" name="submit" value="order" onClick={handleAddToCart}
+                <button type="button" onClick={handleAddToCart}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
                 >
-                    {pending ? "pending..." : "Add"}
+                    Add
                 </button>
-
-            </form>
-            {code?.message ? (
-                <div>
-                    <p className='text-center text-orange-500'>{code.message}</p>
-                </div>
-                ) : null
-            }
+            </div>
 
             <div className="flex align-center justify-between text-sm bg-slate-100/80 border px-4 py-2">
                 <details className="my-auto">
