@@ -4,8 +4,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useCart } from '@/app/context/cart-context';
 import { BsCart3 } from "react-icons/bs";
-import { useCart } from '../context/cart-context';
+
 
 export default function CartComponent() {
 

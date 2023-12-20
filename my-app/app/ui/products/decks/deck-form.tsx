@@ -36,7 +36,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
     };
 
     const total: string = (totalPrice * newCount).toFixed(2);
-    console.log(typeof total, "total");
+    //console.log(typeof total, "total");
 
     return (
         <div key={id} className='flex justify-center w-full h-auto text-md'>
@@ -67,35 +67,28 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
                 </p>
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
-                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total"
-                    value={total} hidden readOnly />
-                <input type="number" id="count" name="count" 
-                    value={count} hidden readOnly />
+                {/* <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly /> */}
+                <input type="string" id="total" name="total" value={total} hidden readOnly />
+                <input type="number" id="count" name="count" value={count} hidden readOnly />
 
                 <p className='text-sm text-slate-600 px-2'>Count: {count}</p>
 
                 <div className='flex items-center justify-between my-2 border px-2'>
-                    <button type="button" onClick={handleSub} className='text-sm text-slate-100 
-                        bg-slate-500 px-3 py-1 rounded'>
-                        Sub
+                    
+                    <button type="submit" id="submit" name="submit" value="remove"
+                        onClick={handleSub}
+                        className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded'>
+                            { pending ? "pending..." : "Sub" }
                     </button>
-                    <button type="button" onClick={handleAdd} className='text-sm text-slate-100 
-                        bg-slate-500 px-3 py-1 rounded'>
-                        Add
-                    </button>
-                </div>
-
-                {(count !== 0) || (stockItem >= 0) ? (
-                    <div className='w-full flex justify-end pr-2 pb-2'>
-                        <button type="submit" id="submit" name="submit"
-                            className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded' 
-                            value="order"
-                        >
-                            {pending ? "pending..." : "Add to Cart" }
+                    {(count !== 0) || (stockItem >= 0) ? (
+                        <button type="submit" id="submit" name="submit" value="order"
+                            onClick={handleAdd}
+                            className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded'>
+                            { pending ? "pending..." : "Add" }
                         </button>
-                    </div>
-                ) : null}
+                        ) : null
+                    }
+                </div>
                 {state?.message ? (
                     <p className='text-center text-orange-500'>{state.message}</p>
                 ) : null}

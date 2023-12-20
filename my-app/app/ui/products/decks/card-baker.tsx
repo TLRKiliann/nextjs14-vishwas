@@ -30,13 +30,17 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     };
   
     const handleRemoveFromCart = () => {
-      dispatch({ type: REMOVE_FROM_CART, payload: { id } });
-      setCount((count) => count - 1);
+        if (count === 0) {
+            console.log("Nothing has changed");
+        } else {
+            dispatch({ type: REMOVE_FROM_CART, payload: { id } });
+            setCount((count) => count - 1);
+        }
     };
 
     const [totalPrice] = useState<number>(price);
     let newCount: number = count;
-    const total: string = (totalPrice * newCount).toFixed(2);
+    const total: string = (totalPrice * newCount).toFixed(2); 
 
     return (
         <div
@@ -78,17 +82,17 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
             <form action={formAction} className='flex justify-between px-4 py-2 bg-slate-100/80'>
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
-                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
+                {/* <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly /> */}
                 <input type="string" id="total" name="total" value={total} hidden readOnly />
                 <input type="number" id="count" name="count" value={count} hidden readOnly />
 
 
-                <button type="submit" id="submit" name="submit" value="reset" onClick={handleRemoveFromCart}
+                <button type="submit" id="submit" name="submit" value="remove" onClick={handleRemoveFromCart}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
                 >
-                    {pending ? "pending..." : "Reset"}
+                    {pending ? "pending..." : "Remove"}
                 </button>
 
                 <button type="submit" id="submit" name="submit" value="order" onClick={handleAddToCart}
