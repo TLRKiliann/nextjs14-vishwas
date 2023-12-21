@@ -139,30 +139,35 @@ export default function Home() {
           <div className='w-[160px] h-auto bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='flex w-full h-auto bg-transparent dark:bg-slate-900'>
+          <div className='flex w-full h-auto bg-transparent'>
 
-            <div className='absolute flex flex-col justify-center sm:w-[600px] lg:w-[900px] xl:w-[1200px] 
-              sm:h-[400px] lg:h-[500px] xl:h-[600px] mt-0 ml-0 border border-orange-500 z-20'>
+            <div className='relative flex flex-col items-center justify-center z-20'>
 
-              <h2 className='text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold rotate-12 text-slate-50'>
-                Ride to be live
-              </h2>
-              <p className='text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold rotate-12 text-slate-50'>
-                &
-              </p>
-              <h2 className='text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold rotate-12 text-slate-50'>
-                Live to be ride !
-              </h2>
+              <div className='absolute top-0 left-0 flex flex-col align-items justify-center 
+                w-full h-full text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold
+                text-slate-50 bg-sky-800/20 z-20'>
+
+                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
+                  Ride to be live
+                </p>
+                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
+                  &
+                </p>
+                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
+                  Live to be ride !
+                </p>
+
+              </div>
               
-            </div>
+              <Image
+                src={skaterFly}
+                width={1920}
+                height={1260}
+                alt="skater fly" 
+                className='object-cover opacity-90 rounded-t-full shadow-lg z-10'
+              />
 
-            <Image
-              src={skaterFly}
-              width={1920}
-              height={1260}
-              alt="skater fly" 
-              className='object-cover opacity-90 dark:opacity-90 z-10'
-            />
+            </div>
           </div>
 
           <div className='w-[160px] bg-slate-100 dark:bg-slate-900'>

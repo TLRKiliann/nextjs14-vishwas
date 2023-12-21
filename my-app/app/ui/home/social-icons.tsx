@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Link from 'next/link';
 import { FaGithub } from "react-icons/fa6";
 import { FaSquareTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa6";
@@ -8,13 +9,42 @@ import { FaLinkedin } from "react-icons/fa6";
 
 export default function SocialIcons() {
     return (
-        <div className='flex align-center justify-end mt-4'>
-            <span className='dark:text-blue-300 text-purple-500 ml-4'><FaGithub size={28} /></span>
-            <span className='dark:text-blue-300 text-purple-500 ml-4'><FaSquareTwitter size={28} /></span>
-            <span className='dark:text-blue-300 text-purple-500 ml-4'><FaYoutube size={28} /></span>
-            <span className='dark:text-blue-300 text-purple-500 ml-4'><FaInstagram size={28} /></span>
-            <span className='dark:text-blue-300 text-purple-500 ml-4'><FaTiktok size={28} /></span>
-            <span className='dark:text-blue-300 text-purple-500 ml-4'><FaLinkedin size={28} /></span>
+        <div className='flex align-center justify-end dark:text-blue-400/80 text-purple-500 mt-8'>
+            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span>
+                    <FaGithub size={28} />
+                </span>                    
+            </Link>
+
+            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span className=''>
+                    <FaSquareTwitter size={28} />
+                </span>
+            </Link>
+
+            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span>
+                    <FaYoutube size={28} />
+                </span>
+            </Link>
+
+            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span>
+                    <FaInstagram size={28} />
+                </span>
+            </Link>
+
+            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span>
+                    <FaTiktok size={28} />
+                </span>
+            </Link>
+
+            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span>
+                    <FaLinkedin size={28} />
+                </span>
+            </Link>
         </div>
     )
 }

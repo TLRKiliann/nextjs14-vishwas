@@ -3,26 +3,25 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { DecksProps } from '@/app/lib/definitions';
+import { ADD_TO_CART, REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
+import { useFormState, useFormStatus } from 'react-dom';
+import { queryDecksCart } from '@/app/lib/actions';
 import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
-import { ADD_TO_CART, REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
-import { DecksProps } from '@/app/lib/definitions';
-import { useFormState, useFormStatus } from 'react-dom';
-import { queryDecksCart } from '@/app/lib/actions';
 
 const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
-
-    const { state, dispatch } = useCart();
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
+    const { state, dispatch } = useCart();
     const [count, setCount] = useState<number>(state.items.length);
 
-    // const { state, dispatch } = useCart();
-    // const mapping = state.items.reduce((a, b) => a + b.price, 0)
-    // console.log(mapping, "mapping")
+    const [totalPrice] = useState<number>(price);
+    let newCount: number = count;
+    const total: string = (totalPrice * newCount).toFixed(2);
 
     const handleAddToCart = () => {
         dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
@@ -38,13 +37,8 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
         }
     };
 
-    const [totalPrice] = useState<number>(price);
-    let newCount: number = count;
-    const total: string = (totalPrice * newCount).toFixed(2);
-
     return (
-        <div
-            key={id}
+        <div key={id}
             className="text-slate-600 bg-white shadow-lg transform transition 
                 hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
                 rounded-xl border mb-auto"
@@ -144,6 +138,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </span>
                 </div>
             </div>
+
         </div>
     );
 };

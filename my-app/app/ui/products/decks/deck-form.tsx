@@ -41,8 +41,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
     };
 
     const total: string = (totalPrice * newCount).toFixed(2);
-    //console.log(typeof total, "total");
-
+    
     return (
         <div key={id} className='flex justify-center w-full h-auto text-md'>
 

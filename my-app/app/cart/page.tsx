@@ -11,12 +11,11 @@ export default async function Cart() {
   let total: number = 0;
 
   const exZeroCount = JSON.parse(order).filter((m: CartProps) => m.count !== 0);
-  //console.log(exZeroCount, "excludeZeroCount");
 
   if (order) {
     total = exZeroCount.reduce((a: number, b: {totalprice: number}) => a += b.totalprice, 0);
   }
-  //console.log(total, "total")
+
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
