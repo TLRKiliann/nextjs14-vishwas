@@ -13,20 +13,20 @@ import { queryDecksCart } from '@/app/lib/actions';
 
 const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
-    const { dispatch } = useCart();
+    const { state, dispatch } = useCart();
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
-    const [count, setCount] = useState<number>(0);
+    const [count, setCount] = useState<number>(state.items.length);
 
     // const { state, dispatch } = useCart();
     // const mapping = state.items.reduce((a, b) => a + b.price, 0)
     // console.log(mapping, "mapping")
 
     const handleAddToCart = () => {
-      dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
-      setCount((count) => count + 1);
+        dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
+        setCount((count) => count + 1);
     };
   
     const handleRemoveFromCart = () => {
@@ -40,7 +40,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const [totalPrice] = useState<number>(price);
     let newCount: number = count;
-    const total: string = (totalPrice * newCount).toFixed(2); 
+    const total: string = (totalPrice * newCount).toFixed(2);
 
     return (
         <div
@@ -82,7 +82,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
             <form action={formAction} className='flex justify-between px-4 py-2 bg-slate-100/80'>
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
-                {/* <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly /> */}
+                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
                 <input type="string" id="total" name="total" value={total} hidden readOnly />
                 <input type="number" id="count" name="count" value={count} hidden readOnly />
 
@@ -92,7 +92,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
                 >
-                    {pending ? "pending..." : "Remove"}
+                    {pending ? "pending..." : "Delete"}
                 </button>
 
                 <button type="submit" id="submit" name="submit" value="order" onClick={handleAddToCart}

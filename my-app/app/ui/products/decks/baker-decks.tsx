@@ -55,29 +55,3 @@ export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}
         </div>
     )
 }
-
-/*
-                {load === false ? (
-                    decks.slice(0, 3).map((prod: DecksProps) => (
-                        <CardBaker
-                            key={prod.id}
-                            id={prod.id}
-                            name={prod.name}
-                            img={prod.img}
-                            price={prod.price}
-                            stock={prod.stock}
-                        />
-                    ))) : (
-                        decks.slice(0, 6).map((prod: DecksProps) => (
-                            <CardBaker
-                                key={prod.id}
-                                id={prod.id}
-                                name={prod.name}
-                                img={prod.img}
-                                price={prod.price}
-                                stock={prod.stock}
-                            />
-                        )
-                    )
-                )}
-*/
