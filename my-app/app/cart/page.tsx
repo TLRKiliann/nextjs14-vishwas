@@ -11,12 +11,12 @@ export default async function Cart() {
   let total: number = 0;
 
   const exZeroCount = JSON.parse(order).filter((m: CartProps) => m.count !== 0);
-  console.log(exZeroCount, "excludeZeroCount");
+  //console.log(exZeroCount, "excludeZeroCount");
 
   if (order) {
     total = exZeroCount.reduce((a: number, b: {totalprice: number}) => a += b.totalprice, 0);
   }
-  console.log(total, "total")
+  //console.log(total, "total")
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
@@ -28,8 +28,8 @@ export default async function Cart() {
               <tr className='bg-slate-800'>
                 <th className='py-1'>Id</th>
                 <th className='py-1'>Product</th>
-                <th className='py-1'>Totalprice</th>
                 <th className='py-1'>Count</th>
+                <th className='py-1'>Totalprice</th>
               </tr>
               {JSON.parse(order).map((ord: CartProps) => {
                 if (ord.count !== 0) {
@@ -37,8 +37,8 @@ export default async function Cart() {
                 <tr key={ord.id} className='bg-slate-700'>
                   <td className='text-center py-2'>{ord.id}</td>
                   <td className='text-center py-2'>{ord.deckname}</td>
-                  <td className='text-center py-2'>{ord.totalprice.toFixed(2)}</td>
                   <td className='text-center py-2'>{ord.count}</td>
+                  <td className='text-center py-2'>{ord.totalprice.toFixed(2)}.-</td>
                 </tr>
                 )}})
               }
@@ -48,7 +48,9 @@ export default async function Cart() {
               py-2 rounded-bl-md rounded-br-md">
               <div className='w-full flex justify-between'>
                 <h2 className='ml-2'>Total:</h2>
-                <p className='mr-2'>{total.toFixed(2)}.- CHF</p>
+                <div className='sm:w-[260px] md:w-[200px] xl:w-[340px]'>
+                  <p className='text-center'>{total.toFixed(2)}.- CHF</p>
+                </div>
               </div>
             </div>
 
