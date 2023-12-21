@@ -4,10 +4,10 @@ import { genericQuery } from '@/app/lib/db';
 import { ProductsProps, PropsProdReview } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 import Carousel from '@/app/ui/carousel';
-import elementDeck from "@/public/img_carousel/deck_element1.jpg";
-import girlDeck from "@/public/img_carousel/deck_girl2.jpg";
-import bakerDeck from "@/public/img_carousel/deck_baker2.jpg";
-import blindDeck from "@/public/img_carousel/deck_blind6.jpg";
+import elementDeck from "@/public/img_carousel/deck_element9.png";
+import girlDeck from "@/public/img_carousel/deck_girl2.png";
+import bakerDeck from "@/public/img_carousel/deck_baker5.png";
+import blindDeck from "@/public/img_carousel/deck_blind6.png";
 
 
 export default async function ReviewById({ params }: PropsProdReview) {

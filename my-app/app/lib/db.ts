@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import type { DecksProps } from './definitions';
+//import type { DecksProps } from './definitions';
 
 // fetch all products by server action (no api needed !)
 const genericQuery = async (query: string, data: any) => {

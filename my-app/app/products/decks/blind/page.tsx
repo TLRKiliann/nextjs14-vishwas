@@ -1,6 +1,18 @@
-import React from 'react'
+import React from 'react';
+import BakerDecksCards from '@/app/ui/products/decks/baker-decks';
+import {genericQuery} from '@/app/lib/db';
+import BlindDecksCards from '@/app/ui/products/decks/blind-decks';
 
-export default function BlindDecks() {
+export default async function BakerDecks() {
+
+  const request = await genericQuery("SELECT * FROM bakerdecks", []);
+  const data = JSON.stringify(request);
+  
+  if (!data) {
+    throw new Error("Error: data not loaded for baker's decks");
+  }
+  // console.log(data, "data to verify decks")
+
   return (
     <div className='min-h-screen py-[75px]'>
       <h1 className='text-4xl font-bold 
@@ -13,6 +25,11 @@ export default function BlindDecks() {
       >
         Blind&apos;s Decks
       </h1>
+
+      <div>
+        <BlindDecksCards blinddecks={JSON.parse(data)} />
+      </div>
+
     </div>
   )
 }

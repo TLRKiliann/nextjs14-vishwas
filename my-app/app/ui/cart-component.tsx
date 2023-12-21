@@ -1,15 +1,17 @@
 "use client";
 
+// import React, { useState } from 'react';
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useCart } from '@/app/context/cart-context';
 import { BsCart3 } from "react-icons/bs";
 
-export default function CartComponent() {
-    
-    const pathname = usePathname();
 
-    const num: number = 0;
+export default function CartComponent() {
+
+    const pathname = usePathname();
+    const {state} = useCart();
 
     return (
         <div className='flex w-full ml-10'>
@@ -24,9 +26,9 @@ export default function CartComponent() {
                         ? "border-fuchsia-600 dark:border-cyan-300" 
                         : "hover:border-slate-100 dark:border-slate-100"}
                             absolute flex align-center justify-center px-1 w-6 min-w-6 py-1 mt-2 text-xs 
-                            rounded-xl`}
+                            rounded-xl`} 
                     >
-                        {num}
+                        {state.items.length}
                     </p>
                 </span>
             </Link>
@@ -34,3 +36,6 @@ export default function CartComponent() {
         </div>
     )
 }
+/*
+
+*/

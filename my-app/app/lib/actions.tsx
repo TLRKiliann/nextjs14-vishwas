@@ -64,11 +64,21 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
       if (id !== "" && deckname !== "" && totalprice !== "" && count !== "") {
-        const result = await cartOrderQuery("INSERT INTO cartorder VALUES (?, ?, ?, ?)", 
-          [id, deckname, totalprice, count]);
+        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, totalprice=?, \
+          count=? WHERE id=?", [id, deckname, totalprice, count, id]);
         if (result) {
           revalidatePath("/products/decks");
-          return {message: "Data updated"}
+          return {message: "Added to cart"}
+        }
+      }
+    }
+    if (btnSubmit === "remove") {
+      if (id !== "" && deckname !== "" && totalprice !== "" && count !== "") {
+        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, totalprice=?, \
+          count=? WHERE id=?", [id, deckname, totalprice, count, id]);
+        if (result) {
+          revalidatePath("/products/decks");
+          return {message: "Deleted from cart"}
         }
       }
     }
@@ -79,17 +89,21 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
   }
 }
 
-// delete cart item
+// delete cart item by initialize count to 0
 export async function deleteCartItem(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
+    const deckname = formData.get("deckname");
+    const totalprice = formData.get("totalprice");
+    const count = formData.get("count");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "delete") {
-      if (id !== "") {
-        const result = await queryCartDelete("DELETE from cartorder WHERE id=?", [id])
+    if (btnDelete === "deleteorder") {
+      if (id !== "" && deckname !=="" && totalprice !=="" && count !== "") {
+        const result = await queryCartDelete("UPDATE cartorder SET id=?, deckname=?, \
+          totalprice=?, count=? WHERE id=?", [id, deckname, totalprice, count, id])
         if (result) {
           revalidatePath("/cart");
-          return {message: "Item deleted"}
+          return {message: "Product deleted"}
         }
       }
     }

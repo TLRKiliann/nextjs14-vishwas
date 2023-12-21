@@ -5,7 +5,7 @@ import Footer from '@/app/ui/footer';
 //import { Inter } from 'next/font/google'
 import '@/app/globals.css';
 //const inter = Inter({ subsets: ['latin'] })
-
+import { CartProvider } from '@/app/context/cart-context'; 
 
 export const metadata: Metadata = {
   title: {
@@ -21,9 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className='bg-background'>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-            {children}
-          <Footer />
+          <CartProvider>
+            <Header />
+              {children}
+            <Footer />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>

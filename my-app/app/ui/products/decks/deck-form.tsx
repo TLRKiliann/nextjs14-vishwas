@@ -5,17 +5,20 @@ import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { DecksProps } from '@/app/lib/definitions';
+import { ADD_TO_CART, REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
 
 export default function DeckForm({id, deckname, img, price, stock}: DecksProps) {
 
-    const [count, setCount] = useState<number>(0);
+    const { state, dispatch } = useCart();
+
+    const [count, setCount] = useState<number>(state.items.length);
     const [totalPrice] = useState<number>(price);
     let newCount: number = count;
 
     const [stockItem] = useState(stock);
 
     const {pending} = useFormStatus();
-    const [state, formAction] = useFormState(queryDecksCart, undefined);
+    const [code, formAction] = useFormState(queryDecksCart, undefined);
 
     const handleSub = () => {
         console.log(id)
@@ -23,6 +26,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
             console.log("Nothing has changed");
         }
         else {
+            dispatch({ type: REMOVE_FROM_CART, payload: { id } });
             setCount((count) => count - 1);
         }
     };
@@ -31,13 +35,13 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
         if (stock < count) {
             "Error: No more in stock";
         } else {
+            dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
             setCount(count => count + 1)
         }
     };
 
     const total: string = (totalPrice * newCount).toFixed(2);
-    console.log(typeof total, "total");
-
+    
     return (
         <div key={id} className='flex justify-center w-full h-auto text-md'>
 
@@ -66,38 +70,41 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
                     }    
                 </p>
 
-                <input type="number" id="id" name="id" value={id} readOnly />
-                <input type="text" id="deckname" name="deckname" value={deckname} readOnly />
-                <input type="string" id="total" name="total"
-                    value={total} readOnly />
-                <input type="number" id="count" name="count" 
-                    value={count} readOnly />
+                <input type="number" id="id" name="id" value={id} hidden readOnly />
+                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
+                <input type="string" id="total" name="total" value={total} hidden readOnly />
+                <input type="number" id="count" name="count" value={count} hidden readOnly />
 
                 <p className='text-sm text-slate-600 px-2'>Count: {count}</p>
 
                 <div className='flex items-center justify-between my-2 border px-2'>
-                    <button type="button" onClick={handleSub} className='text-sm text-slate-100 
-                        bg-slate-500 px-3 py-1 rounded'>
-                        Sub
+                    
+                    <button
+                        type="submit"
+                        id="submit"
+                        name="submit"
+                        value="remove"
+                        onClick={handleSub}
+                        className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded'>
+                            { pending ? "pending..." : "Delete" }
                     </button>
-                    <button type="button" onClick={handleAdd} className='text-sm text-slate-100 
-                        bg-slate-500 px-3 py-1 rounded'>
-                        Add
-                    </button>
-                </div>
 
-                {(count !== 0) || (stockItem >= 0) ? (
-                    <div className='w-full flex justify-end pr-2 pb-2'>
-                        <button type="submit" id="submit" name="submit" 
-                            className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded' 
+                    {(count !== 0) || (stockItem >= 0) ? (
+                        <button 
+                            type="submit"
+                            id="submit"
+                            name="submit"
                             value="order"
-                        >
-                            {pending ? "pending..." : "Add to Cart" }
+                            onClick={handleAdd}
+                            className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded'>
+                            { pending ? "pending..." : "Add" }
                         </button>
-                    </div>
-                ) : null}
-                {state?.message ? (
-                    <p>{state.message}</p>
+                        ) : null
+                    }
+
+                </div>
+                {code?.message ? (
+                    <p className='text-center text-orange-500'>{code.message}</p>
                 ) : null}
             </form>
         </div>
