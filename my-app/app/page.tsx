@@ -11,10 +11,10 @@ import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
-import elementDeck from "@/public/img_carousel/deck_element1.jpg";
-import girlDeck from "@/public/img_carousel/deck_girl2.jpg";
-import bakerDeck from "@/public/img_carousel/deck_baker2.jpg";
-import blindDeck from "@/public/img_carousel/deck_blind6.jpg";
+import elementDeck from "@/public/img_carousel/deck_element9.png";
+import girlDeck from "@/public/img_carousel/deck_girl2.png";
+import bakerDeck from "@/public/img_carousel/deck_baker5.png";
+import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly.jpg';
 
 export default function Home() {
@@ -139,9 +139,9 @@ export default function Home() {
           <div className='w-[160px] h-auto bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='flex w-full h-auto bg-transparent'>
+          <div className='flex w-full h-auto bg-transparent rounded-xl'>
 
-            <div className='relative flex flex-col items-center justify-center z-20'>
+            <div className='relative flex flex-col items-center justify-center z-10'>
 
               <div className='absolute top-0 left-0 flex flex-col align-items justify-center 
                 w-full h-full text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold

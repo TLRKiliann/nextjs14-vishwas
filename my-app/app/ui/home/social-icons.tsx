@@ -16,31 +16,31 @@ export default function SocialIcons() {
                 </span>                    
             </Link>
 
-            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link href="https://twitter.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span className=''>
                     <FaSquareTwitter size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link href="https://www.youtube.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaYoutube size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link href="https://instagram.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaInstagram size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link href="https://www.tiktok.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaTiktok size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link href="https://www.linkedin.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaLinkedin size={28} />
                 </span>

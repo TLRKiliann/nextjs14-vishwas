@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
-import cpuI7 from "@/public/img_cpu/cpu-i7.png";
+import zachDebottis from "@/public/img_bg/zachary-debottis.jpg";
 
 export default function sectionImgTwo() {
     return (
-        <div className='flex md:w-[300px] xl:w-[400px] h-auto m-auto rounded-lg'>
+        <div className='flex md:w-[350px] xl:w-[450px] h-auto m-auto rounded-lg'>
             <Image
-                src={cpuI7}
-                width={2500}
-                height={2500}
+                src={zachDebottis}
+                width={1920}
+                height={1280}
                 alt="forest img"
                 className='object-cover shadow-out
                     transition ease-in-out duration-0 
