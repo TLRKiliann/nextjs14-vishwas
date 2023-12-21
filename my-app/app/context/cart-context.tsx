@@ -2,7 +2,6 @@
 
 import React, { createContext, useReducer, useContext, ReactNode, Dispatch } from 'react';
 
-// Définition des types
 interface CartItem {
   id: number;
   deckname: string;
@@ -34,19 +33,15 @@ type CartAction = AddToCartAction | RemoveFromCartAction;
 
 export type CartDispatch = Dispatch<CartAction>;
 
-// Initial state du panier
 const initialState: CartState = {
   items: [],
 };
 
-// Création du contexte
 export const CartContext = createContext<{ state: CartState; dispatch: CartDispatch } | undefined>(undefined);
 
-// Action types pour les opérations du panier
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
-// Reducer pour gérer les actions du panier
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case "ADD_TO_CART":
@@ -58,7 +53,6 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
   }
 };
 
-// Fournisseur de contexte pour envelopper votre application
 const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer<React.Reducer<CartState, CartAction>>(
     cartReducer,
@@ -72,7 +66,6 @@ const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   );
 };
 
-// Utilitaire de crochet pour accéder au contexte
 const useCart = (): { state: CartState; dispatch: CartDispatch } => {
   const context = useContext(CartContext);
   if (!context) {
