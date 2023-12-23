@@ -109,35 +109,42 @@ export default function Home() {
 
         <Separator />
 
+        <div className='flex'>
 
-        <div className='w-full h-[440px] bg-slate-200/80 dark:bg-blue-100/80'>
+          <div className='flex-1 bg-slate-900'>
+          </div>
 
-          <Carousel loop>
-            {images.map((src, i) => {
-              return (
-                <div 
-                  key={i}
-                  className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
-                    xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
-                    sm:my-6 md:my-3"
-                >
-                  <Image src={src} 
-                    width={300} height={300} fill={false} 
-                    className="m-auto" 
-                    alt="img carousel"
-                  />
-                </div>
-              );
-            })}
-          </Carousel>
+          <div className='w-4/5 h-[440px] bg-slate-200/80 dark:bg-blue-100/80'>
 
-          <Link href="/products" className='flex justify-center text-sm 
-            text-blue-600 hover:text-blue-800 my-4'>
-            Watch more in our shop !
-          </Link>
-        
+            <Carousel loop>
+              {images.map((src, i) => {
+                return (
+                  <div 
+                    key={i}
+                    className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
+                      xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
+                      sm:my-6 md:my-3"
+                  >
+                    <Image src={src} 
+                      width={300} height={300} fill={false} 
+                      className="m-auto" 
+                      alt="img carousel"
+                    />
+                  </div>
+                );
+              })}
+            </Carousel>
+
+            <Link href="/products" className='flex justify-center text-sm 
+              text-blue-600 hover:text-blue-800 my-4'>
+              Watch more in our shop !
+            </Link>
+
+            </div>
+
+          <div className='flex-1 bg-slate-900'>
+          </div>
         </div>
-
 
         <Separator />
 
@@ -145,16 +152,15 @@ export default function Home() {
 
         <Separator />
 
-
         <div className="flex justify-center">
 
           <div className='flex-1 bg-slate-900'>
             {/* <Image /> */}
           </div>
 
-          <div className=''>
+          <div className='w-4/5'>
             {/* autoPlay muted loop */}
-            <video className='md:w-[600px] lg:w-[800px] h-auto'>
+            <video autoPlay muted loop className='w-full h-auto'>
               <source src="/video/skate-trick1.mp4" type="video/mp4" />
             </video>
           </div>
@@ -165,16 +171,11 @@ export default function Home() {
 
         </div>
 
-
-
-
         <Separator />
 
           <TextBlocks title={titleOne} text={textOne} />
 
         <Separator />
-
-
 
         <div className='flex w-full'>
 
@@ -202,10 +203,10 @@ export default function Home() {
 
         <div className='flex w-full'>
 
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
+          <div className='flex align-center justify-around w-4/5 m-auto shadow-inviolet dark:shadow-in py-10'>
 
             <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
 
@@ -213,7 +214,7 @@ export default function Home() {
 
           </div>
 
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>
@@ -226,12 +227,12 @@ export default function Home() {
 
         <Separator />
 
-        <div className='flex w-full'>
+        <div className='flex'>
 
-          <div className='w-[160px] h-auto bg-slate-100 dark:bg-slate-900'>
+          <div className='flex-1 h-auto bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='flex w-full h-auto bg-transparent rounded-xl'>
+          <div className='flex w-4/5 h-auto bg-transparent rounded-xl'>
 
             <div className='relative flex flex-col items-center justify-center z-10'>
 
@@ -262,7 +263,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='w-[160px] bg-slate-100 dark:bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
         </div>

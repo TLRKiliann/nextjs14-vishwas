@@ -30,16 +30,16 @@ const Carousel = ({ children, ...options }: Props) => {
 
     return (
         <>
-        <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">{children}</div>
-        </div>
-        <Dots itemsLength={length} selectedIndex={selectedIndex} />
-            <CarouselControls
-                canScrollNext={canScrollNext}
-                canScrollPrev={canScrollPrev}
-                onNext={() => emblaApi?.scrollNext()}
-                onPrev={() => emblaApi?.scrollPrev()}
-            />
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">{children}</div>
+            </div>
+            <Dots itemsLength={length} selectedIndex={selectedIndex} />
+                <CarouselControls
+                    canScrollNext={canScrollNext}
+                    canScrollPrev={canScrollPrev}
+                    onNext={() => emblaApi?.scrollNext()}
+                    onPrev={() => emblaApi?.scrollPrev()}
+                />
         </>
     );
 };
