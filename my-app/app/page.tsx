@@ -103,7 +103,14 @@ export default function Home() {
           </h2>
         </div>
         
-        <div className='w-full h-[440px] bg-slate-200/80 dark:bg-blue-100/80 border border-green-400'>
+        <Separator />
+
+          <TextBlocks title={titleOne} text={textOne} />
+
+        <Separator />
+
+
+        <div className='w-full h-[440px] bg-slate-200/80 dark:bg-blue-100/80'>
 
           <Carousel loop>
             {images.map((src, i) => {
@@ -131,8 +138,93 @@ export default function Home() {
         
         </div>
 
-        <div className='w-full h-20 dark:bg-slate-900 bg-slate-100'>
+
+        <Separator />
+
+          <TextBlocks title={titleOne} text={textOne} />
+
+        <Separator />
+
+
+        <div className="flex justify-center">
+
+          <div className='flex-1 bg-slate-900'>
+            {/* <Image /> */}
+          </div>
+
+          <div className=''>
+            {/* autoPlay muted loop */}
+            <video className='md:w-[600px] lg:w-[800px] h-auto'>
+              <source src="/video/skate-trick1.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+          <div className='flex-1 bg-slate-900'>
+            {/* <Image /> */}
+          </div>
+
         </div>
+
+
+
+
+        <Separator />
+
+          <TextBlocks title={titleOne} text={textOne} />
+
+        <Separator />
+
+
+
+        <div className='flex w-full'>
+
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          </div>
+
+          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
+
+            <SectionImgOne />
+
+            <SectionTextColorBlock titleBox={titlebox_1} textBox={textbox_1} />
+
+          </div>
+
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          </div>
+
+        </div>
+
+        <Separator />
+
+          <TextBlocks title={titleTwo} text={textTwo} />
+
+        <Separator />
+
+        <div className='flex w-full'>
+
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          </div>
+
+          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
+
+            <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
+
+            <SectionImgTwo />
+
+          </div>
+
+          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          </div>
+
+        </div>
+
+        <Separator />
+
+          <TextBlocks title={titleThree} text={textThree}>
+            <SocialIcons />
+          </TextBlocks>
+
+        <Separator />
 
         <div className='flex w-full'>
 
@@ -174,62 +266,6 @@ export default function Home() {
           </div>
 
         </div>
-
-        <Separator />
-
-        <TextBlocks title={titleOne} text={textOne} />
-
-        <Separator />
-
-        <div className='flex w-full'>
-
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
-          </div>
-
-          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
-
-            <SectionImgOne />
-
-            <SectionTextColorBlock titleBox={titlebox_1} textBox={textbox_1} />
-
-          </div>
-
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
-          </div>
-
-        </div>
-
-        <Separator />
-
-        <TextBlocks title={titleTwo} text={textTwo} />
-
-        <Separator />
-
-        <div className='flex w-full'>
-
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
-          </div>
-
-          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
-
-            <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
-
-            <SectionImgTwo />
-
-          </div>
-
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
-          </div>
-
-        </div>
-
-        <Separator />
-
-        <TextBlocks title={titleThree} text={textThree}>
-          <SocialIcons />
-        </TextBlocks>
-
-        <Separator />
 
       </main>
 
