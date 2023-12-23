@@ -99,7 +99,7 @@ export default function Home() {
             via-purple-400 via-50% to-purple-600 to-90% drop-shadow-lg
             transition animate-slice-appear'
           >
-            Latest Decks
+            Take a look !
           </h2>
         </div>
         
