@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'
-import { BsCpu } from "react-icons/bs";
+import { MdSkateboarding } from "react-icons/md";
 
 type PropsTitleText = {
     titleBox: string;
@@ -27,14 +27,14 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
 
                     <h2 className='flex align-center text-2xl font-bold 
                         text-transparent bg-clip-text 
-                        dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
-                        dark:to-emerald-500 dark:to-90%
-
+                        dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% dark:via-sky-500 
+                        dark:via-50% dark:to-emerald-500 dark:to-90%
                         bg-gradient-to-br from-violet-500 from-10% 
                         via-purple-500 via-50% to-violet-200 to-90%
                         py-4 pl-10'
                     >
-                        {titleBox}<BsCpu className="dark:text-blue-400 text-violet-500 mt-1 ml-4" />
+                        {titleBox}
+                        <MdSkateboarding className="dark:text-blue-400 text-violet-500 mt-1 ml-4" />
                     </h2>
 
                     <p className='text-justify dark:text-blue-300 text-slate-600 px-10 pb-5'>

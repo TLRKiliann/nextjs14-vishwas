@@ -57,8 +57,8 @@ export default function Home() {
       <main className="flex flex-col w-full min-h-screen">
   
         <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
-          dark:bg-cyan-50 bg-slate-50
-          border border-purple-200 dark:border-b-blue-200 shadow-xllight z-10"
+          dark:bg-cyan-50 bg-slate-50 border border-purple-200 dark:border-b-blue-200
+          shadow-xllight z-10"
         >
           
           <div className='flex flex-col h-40'>
@@ -123,7 +123,7 @@ export default function Home() {
                     key={i}
                     className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
                       xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
-                      sm:my-6 md:my-3"
+                      mt-9 mb-0"
                   >
                     <Image src={src} 
                       width={300} height={300} fill={false} 
@@ -134,11 +134,6 @@ export default function Home() {
                 );
               })}
             </Carousel>
-
-            <Link href="/products" className='flex justify-center text-sm 
-              text-blue-600 hover:text-blue-800 my-4'>
-              Watch more in our shop !
-            </Link>
 
             </div>
 
@@ -161,7 +156,7 @@ export default function Home() {
           <div className='w-4/5'>
             {/* autoPlay muted loop */}
             <video autoPlay muted loop className='w-full h-auto'>
-              <source src="/video/skate-trick1.mp4" type="video/mp4" />
+              <source src="/video/skate-trick2.mp4" type="video/mp4" />
             </video>
           </div>
 
@@ -179,10 +174,10 @@ export default function Home() {
 
         <div className='flex w-full'>
 
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-full m-auto shadow-inviolet dark:shadow-in py-10'>
+          <div className='flex align-center justify-around w-4/5 m-auto shadow-inviolet dark:shadow-in py-10'>
 
             <SectionImgOne />
 
@@ -190,7 +185,7 @@ export default function Home() {
 
           </div>
 
-          <div className='w-[160px] h-auto dark:bg-slate-900 bg-slate-100'>
+          <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>

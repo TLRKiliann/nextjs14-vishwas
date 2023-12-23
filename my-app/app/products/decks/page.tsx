@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import wall from "@/public/img_bg/pexels-allan-mas.jpg"
 import bakerLogo from '@/public/img_logo/baker-logo.jpg';
 import blindLogo from '@/public/img_logo/blind-logo.png';
 import girlLogo from '@/public/img_logo/girl-logo.jpg';
@@ -15,6 +16,16 @@ export const metadata: Metadata = {
 export default function BoardShop() {
   return (
     <div className='min-h-screen py-[75px]'>
+
+      <div className='-z-10'>
+        <Image
+          src={wall}
+          width={1920}
+          height={1080}
+          alt="img bg"
+          className='fixed opacity-10 object-cover'
+        />
+      </div>
 
       <h1 className='text-4xl font-bold text-transparent bg-clip-text
         dark-title-h1 light-title-h1 p-4'>

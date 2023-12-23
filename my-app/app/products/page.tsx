@@ -50,7 +50,7 @@ export default function ListProducts() {
                     width={1920}
                     height={1080}
                     alt="img sunset"
-                    className="fixed opacity-40 object-cover"
+                    className="fixed opacity-20 object-cover"
                 />
             </div>
 
@@ -85,3 +85,4 @@ export default function ListProducts() {
 
 // Cannot invoke client function from server component
 // const callingCompLessMore = DisplayerProducts(JSON.parse(data));
+// <div>{callingCompLessMore}</div>

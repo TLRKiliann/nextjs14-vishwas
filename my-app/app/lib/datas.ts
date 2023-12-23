@@ -137,8 +137,8 @@ export const allTitle: AllTitlesProps = {
     titleOne: "High performance for demanding customers",
     titleTwo: "We can help you make the right choice",
     titleThree: "We're present on every network",
-    titlebox_1: "Core CPU i9",
-    titlebox_2: "Core CPU i7"
+    titlebox_1: "Win a free training session",
+    titlebox_2: "Offer on skate-park passes"
 }
 
 export const allText: AllTextProps = {
