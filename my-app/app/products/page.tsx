@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import bgProducts from '@/public/img_bg/sunset-board.jpg';
 import MainShop from '@/app/ui/products/main-shop';
 
 type TitleProps = {
@@ -41,6 +43,16 @@ export default function ListProducts() {
 
     return (
         <div className="min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]">
+
+            <div className='-z-10'>
+                <Image
+                    src={bgProducts}
+                    width={1920}
+                    height={1080}
+                    alt="img sunset"
+                    className="fixed opacity-40 object-cover"
+                />
+            </div>
 
             <div>
                 <h1 className='text-4xl font-bold 
