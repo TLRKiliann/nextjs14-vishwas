@@ -28,11 +28,44 @@ const config: Config = {
             transform: 'translateY(0px)',
             opacity: "1"
           }
-        }
+        },
+        scaledecks: {
+          from: {
+            transform: "scale3d(1, 1, 1)",
+          },
+          "30%": {
+            transform: "scale3d(1.25, 0.75, 1)",     
+          },
+          "40%": {
+            transform: "scale3d(0.75, 1.25, 1)",     
+          },
+          "50%": {
+            transform: "scale3d(1.15, 0.85, 1)",     
+          },
+          "65%": {
+            transform: "scale3d(0.95, 1.05, 1)",     
+          },
+          "75%": {
+            transform: "scale3d(1.05, 0.95, 1)",     
+          },
+          to: {
+            transform: "scale3d(1, 1, 1)",
+          }
+        },
+        decksrotation: {
+          "0%": {
+            transform: "rotate3d(0,0,0, 0deg)",
+          },
+          "100%": {
+            transform: "rotate3d(-3, 0, 3, 540deg)",
+          },
+        },
       },
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
         "up-start": "upstart 0.4s ease-in-out 1",
+        "scale-decks": "scaledecks 1s infinite",
+        "decks-rotation": "decksrotation 1s ease 1",
       },
       dropShadow: {
         'lg': '2px 2px 1px rgba(0, 0, 0, 0.4)',
