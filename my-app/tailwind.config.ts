@@ -60,12 +60,30 @@ const config: Config = {
             transform: "rotate3d(-3, 0, 3, 540deg)",
           },
         },
+        horizontalrotation: {
+          "0%": {
+            transform: "rotateY(0deg)",
+          },
+          "100%": {
+            transform: "rotateY(360deg)",
+          },
+        },
+        verticalrotation: {
+          "0%": {
+            transform: "rotateX(0deg)",
+          },
+          "100%": {
+            transform: "rotateX(360deg)",
+          },
+        },
       },
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
         "up-start": "upstart 0.4s ease-in-out 1",
         "scale-decks": "scaledecks 1s infinite",
         "decks-rotation": "decksrotation 1s ease 1",
+        "horizontal-rotation": "horizontalrotation 1s ease 1",
+        "vertical-rotation": "verticalrotation 1s ease 1",
       },
       dropShadow: {
         'lg': '2px 2px 1px rgba(0, 0, 0, 0.4)',

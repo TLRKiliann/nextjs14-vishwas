@@ -155,7 +155,7 @@ export default function Home() {
 
           <div className='w-4/5'>
             {/* autoPlay muted loop */}
-            <video autoPlay muted loop className='w-full h-auto'>
+            <video className='w-full h-auto'>
               <source src="/video/skate-trick2.mp4" type="video/mp4" />
             </video>
           </div>
