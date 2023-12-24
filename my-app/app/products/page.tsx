@@ -82,7 +82,3 @@ export default function ListProducts() {
         </div>
     )
 }
-
-// Cannot invoke client function from server component
-// const callingCompLessMore = DisplayerProducts(JSON.parse(data));
-// <div>{callingCompLessMore}</div>

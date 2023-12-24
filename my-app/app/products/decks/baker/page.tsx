@@ -1,16 +1,15 @@
 import React from 'react';
 import BakerDecksCards from '@/app/ui/products/decks/baker-decks';
-import {genericQuery} from '@/app/lib/db';
+import { genericQuery } from '@/app/lib/db';
 
 export default async function BakerDecks() {
 
   const request = await genericQuery("SELECT * FROM bakerdecks", []);
   const data = JSON.stringify(request);
   
-  if (!JSON.parse(data)) {
+  if (!data) {
     throw new Error("Error: data not loaded for baker's decks");
   }
-  // console.log(data, "data to verify decks")
 
   return (
     <div className='min-h-screen py-[75px]'>
@@ -25,9 +24,7 @@ export default async function BakerDecks() {
         Baker&apos;s Decks
       </h1>
 
-      <div>
-        <BakerDecksCards bakerdecks={JSON.parse(data)} />
-      </div>
+      <BakerDecksCards bakerdecks={JSON.parse(data)} />
 
     </div>
   )

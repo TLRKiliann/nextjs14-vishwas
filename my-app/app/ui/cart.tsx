@@ -52,7 +52,7 @@ export default function Cart() {
                         onClick={toggle} 
                         className='w-7 h-7 bg-slate-200 border-none
                             hover:text-slate-500 hover:bg-slate-300/60 hover:border-slate-200
-                             active:text-slate-50 active:bg-slate-200
+                            active:text-slate-50 active:bg-slate-200
                             pb-2 rounded-full'>
                         x
                     </button>

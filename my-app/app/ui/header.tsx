@@ -8,7 +8,6 @@ import { useTheme } from 'next-themes';
 import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
 import { BiLogInCircle } from "react-icons/bi";
-//import CartComponent from './cart-component';
 import Cart from "./cart";
 import skateLogo from '@/public/img_logo/main-logo.png';
 import ShopMenu from './shop-menu';
@@ -52,10 +51,8 @@ export default function Header() {
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-purple-500"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         >Home</Link>
-                        
 
                         <ShopMenu />
-
 
                         <Link href="/docs" className={`${pathname === '/docs'
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
@@ -71,7 +68,6 @@ export default function Header() {
                             <span><BiLogInCircle size={24} /></span><p>Login</p>
                         </Link>
 
-                        {/* <CartComponent /> */}
                         <Cart />
 
                         {mounted === true ? (

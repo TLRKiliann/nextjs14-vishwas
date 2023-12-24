@@ -76,6 +76,14 @@ const config: Config = {
             transform: "rotateX(360deg)",
           },
         },
+        deckflip: {
+          "0%": {
+            transform: "rotate3d(0,0,0, 0deg)",
+          },
+          "100%": {
+            transform: "rotate3d(3,-1,-1, 360deg)",
+          },
+        },
       },
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
@@ -84,6 +92,7 @@ const config: Config = {
         "decks-rotation": "decksrotation 1s ease 1",
         "horizontal-rotation": "horizontalrotation 1s ease 1",
         "vertical-rotation": "verticalrotation 1s ease 1",
+        "deck-flip": "deckflip 2s infinite alternate",
       },
       dropShadow: {
         'lg': '2px 2px 1px rgba(0, 0, 0, 0.4)',

@@ -14,7 +14,7 @@ export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}
     };
 
     if (!bakerdecks) {
-        throw new Error("Baker's decks not found !")
+        throw new Error("Error: server failed !")
     }
 
     return (
