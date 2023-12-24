@@ -1,25 +1,19 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { reviews } from '@/app/lib/datas'
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-    title: {
-        absolute: "Reviews"
-    },
-    description: "list of reviews"
-}
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    // if (parseInt(params.productId) > 100 || parseInt(params.productId) !== Number(params.productId)) {
     if (parseInt(params.productId) > 100) {
         notFound();
     }
 
     if (parseInt(params.productId) !== Number(params.productId)) {
-        throw new Error("Error product id is a number");
+        throw new Error("Error product id is not a number");
     }
 
     return (

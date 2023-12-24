@@ -12,6 +12,11 @@ export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}
     const handleClick = () => {
         setLoad((load) => !load);
     };
+
+    if (!bakerdecks) {
+        throw new Error("Error: server failed !")
+    }
+
     return (
         <div className='w-full h-auto px-20 py-10'>
 

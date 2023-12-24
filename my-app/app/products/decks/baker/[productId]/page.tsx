@@ -17,7 +17,7 @@ const DetailsProduct = async ({params}: Props) => {
     }
 
     if (parseInt(params.productId) !== Number(params.productId)) {
-        throw new Error("Error: product id is a number");
+        throw new Error("Error: product id is not a number");
     }
 
     const data: unknown = await genericQuery("SELECT * FROM bakerdecks", []);

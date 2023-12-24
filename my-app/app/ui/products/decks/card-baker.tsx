@@ -50,7 +50,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 height={200}
                 alt="img deck"
                 className="m-auto transform ease-in-out hover:opacity-70 hover:cursor-pointer 
-                    hover:scale-90 active:rotate-y-[180deg] active:duration-300"
+                    hover:scale-90 active:animate-decks-rotation active:duration-300"
             />
 
             <div className="flex flex-col font-bold bg-slate-100/80 border">

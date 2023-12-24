@@ -23,8 +23,7 @@ const CarouselControls = (props: Props) => {
           "px-4 py-2 text-white rounded-md": true,
           "bg-blue-200": !props.canScrollPrev,
           "bg-violet-500 shadow-lg hover:bg-violet-600 hover:shadow-none active:bg-violet-700 \
-           dark:bg-sky-900 hover:dark:bg-sky-800 active:dark:bg-sky-700": 
-            props.canScrollPrev,
+           dark:bg-sky-800 hover:dark:bg-sky-800 active:dark:bg-sky-700": props.canScrollPrev,
         })}
       >
         Prev
@@ -40,8 +39,7 @@ const CarouselControls = (props: Props) => {
           "px-4 py-2 text-white rounded-md": true,
           "bg-blue-200": !props.canScrollNext,
           "bg-violet-500 shadow-lg hover:bg-violet-600 hover:shadow-none active:bg-violet-700 \
-           dark:bg-sky-900 hover:dark:bg-sky-800 active:dark:bg-sky-700": 
-            props.canScrollNext,
+           dark:bg-sky-800 hover:dark:bg-sky-800 active:dark:bg-sky-700": props.canScrollNext,
         })}
       >
         Next

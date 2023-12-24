@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export default function NotFount() {
+export default function NotFound() {
   return (
     <div className='w-full py-[150px] flex flex-col align-center justify-center'>
       <div className='m-auto'>

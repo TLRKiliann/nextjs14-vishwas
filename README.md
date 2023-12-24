@@ -605,7 +605,7 @@ export default function ErrorBoundary({error}: {error: Error}) {
 
 ## error & reset
 
-Add a button to permit interactivity with user by clicking if an error appear.
+Add a button to permit interactivity with user by clicking if an error occured. Reset redirect user to the page.tsx of the same folder.
 
 ```
 (error.tsx)
@@ -630,37 +630,46 @@ In the page.tsx of same directory, add `"use client";` at the top.
 
 ## error with layout
 
+If we create an error.tsx before folder that contains layout.tsx, the error will appear as well.
+
 [Go back to the index](#Index)
 
 ---
 
 ## slot with parallel routes
 
-Put symbol @ before name folder => @graph & create a page.tsx onto.
+Put symbol @ before name folder => ex : @graph & create a page.tsx onto and a default.tsx.
 
 ```
 dashboard
 	|
-	---------- @table
-	|			|
-	|			--- page.tsx
-	|			|
-	|			--- default.tsx
+	--- @notifications
+	|	|
+	|	--- page.tsx
+	|	|
+	|	--- archived (folder)
+	|		|
+	|		--- page.tsx
+	--- @users
+	|	|
+	|	--- page.tsx
+	|	|
+	|	--- default.tsx
 	|
-	---------- @graph
-	|			|
-	|			--- page.tsx
-	|			|
-	|			--- default.tsx
+	--- layout.tsx // contains all ReactNodes
 	|
-	---------- layout.tsx
+	--- page-tsx
+	|
+	--- default.tsx
 ```
 
 This route will not be reachable by url but only by the main layout of this folder.
 
-page.tsx
+dashboard/@notifications/archived/`page.tsx` contains href="/dashbord" that will be accessible by the dashboard/`default.tsx``.
 
-default.tsx
+dashboard/`layout.tsx` permit to access to others files with React.ReactNode.
+
+dashboard/`default.tsx` permit to access to dashboard/`page.tsx`.
 
 [Go back to the index](#Index)
 

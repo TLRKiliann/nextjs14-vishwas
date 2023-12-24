@@ -10,11 +10,14 @@ export default function sectionImgTwo() {
                 width={1920}
                 height={1280}
                 alt="forest img"
-                className='object-cover shadow-out
-                    transition ease-in-out duration-0 
-                    hover:duration-300 hover:ease-in-out hover:skew-y-12 rounded-lg
-                    hover:filter hover:grayscale hover:contrast-200'
+                className='object-cover shadow-out hover:animate-horizontal-rotation
+                    hover:filter hover:grayscale hover:contrast-200 hover:shadow-none rounded-lg'
             />
         </div>
     )
 }
+
+/*
+hover:duration-300 hover:ease-in-out hover:skew-y-12
+hover:filter hover:grayscale hover:contrast-200 rounded-lg hover:shadow-none'
+*/
