@@ -50,9 +50,9 @@ export default function Cart() {
                     <button
                         type="button"
                         onClick={toggle} 
-                        className='w-7 h-7 bg-slate-100 border border-slate-900 
-                            hover:text-slate-600 hover:bg-slate-200 hover:border-slate-200
-                             active:text-slate-50 active:bg-slate-400
+                        className='w-7 h-7 bg-slate-200 border-none
+                            hover:text-slate-500 hover:bg-slate-300/60 hover:border-slate-200
+                             active:text-slate-50 active:bg-slate-200
                             pb-2 rounded-full'>
                         x
                     </button>
@@ -60,7 +60,7 @@ export default function Cart() {
 
                 <div className='my-auto border border-slate-900'>
 
-                    {state.items.map((item) => (
+                    {state.items.length === null ? state.items.map((item) => (
                         <div key={item.id} className='flex items-center justify-around my-2'>
 
                             <div className='border border-slate-900 m-auto ml-4'>
@@ -98,16 +98,20 @@ export default function Cart() {
                             </div>
 
                         </div>
-                    ))}
+                    )) : (
+                        <p className='text-md text-center'>Nothing saved in cart</p>
+                    )
+                    }
 
                 </div>
 
                 <div className='flex items-center justify-center py-4 border border-slate-900'>
-                    <Link href="/cart" 
-                        onClick={toggle} 
-                        className='text-slate-50 bg-sky-700/80 hover:bg-sky-700/60
-                        hover:shadow-none active:text-slate-50 active:bg-sky-700/40 
-                        active:scale-95 active:shadow-none border-none px-4 py-1 rounded-lg shadow-md'>
+                    <Link href="/cart"
+                        onClick={toggle}
+                        className='w-full font-bold text-center text-slate-50 bg-sky-700/80
+                        hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
+                        active:text-green-300 active:bg-sky-700/70 active:scale-95 active:shadow-none
+                        border-none mx-4 py-2 rounded-lg shadow-md'>
                         Go to cart
                     </Link>
                 </div>
