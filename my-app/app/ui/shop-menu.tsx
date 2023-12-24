@@ -38,8 +38,8 @@ export default function ShopMenu() {
                 <Link 
                     href="/products"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 hover:text-slate-200 
-                        px-3 pt-2 pb-1"
+                    className="flex align-center justify-left hover:bg-sky-700 
+                        hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><FaProductHunt className="mt-[3px] mr-2" size={18} /></span>
                     <p>Products</p>
@@ -49,8 +49,8 @@ export default function ShopMenu() {
                 
                 <Link href="/products/decks"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 hover:text-slate-200 
-                        px-3 pt-2 pb-1"
+                    className="flex align-center justify-left hover:bg-sky-700 
+                        hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><MdSkateboarding className="mt-[3px] mr-2" size={18} /></span>
                     <p>Decks</p>
@@ -60,8 +60,8 @@ export default function ShopMenu() {
                 
                 <Link href="/products/trucks"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 hover:text-slate-200 
-                        px-3 pt-2 pb-1"
+                    className="flex align-center justify-left hover:bg-sky-700 
+                        hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><CgMaximizeAlt className="mt-[3px] mr-2" size={18} /></span>
                     <p>Trucks</p>
@@ -71,8 +71,8 @@ export default function ShopMenu() {
 
                 <Link href="/products/wheels"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 hover:text-slate-200 
-                        px-3 pt-2 pb-2"
+                    className="flex align-center justify-left hover:bg-sky-700 
+                        hover:text-slate-200 px-3 pt-2 pb-2"
                 >
                     <span><GiBoomerangSun className="mt-[3px] mr-2" size={18} /></span>
                     <p>Wheels</p>

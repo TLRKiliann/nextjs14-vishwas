@@ -8,7 +8,8 @@ import { useTheme } from 'next-themes';
 import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
 import { BiLogInCircle } from "react-icons/bi";
-import CartComponent from './cart-component';
+//import CartComponent from './cart-component';
+import Cart from "./cart";
 import skateLogo from '@/public/img_logo/main-logo.png';
 import ShopMenu from './shop-menu';
 
@@ -70,7 +71,8 @@ export default function Header() {
                             <span><BiLogInCircle size={24} /></span><p>Login</p>
                         </Link>
 
-                        <CartComponent />
+                        {/* <CartComponent /> */}
+                        <Cart />
 
                         {mounted === true ? (
                             <span 
