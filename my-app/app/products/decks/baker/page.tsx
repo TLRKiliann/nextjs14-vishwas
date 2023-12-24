@@ -7,7 +7,7 @@ export default async function BakerDecks() {
   const request = await genericQuery("SELECT * FROM bakerdecks", []);
   const data = JSON.stringify(request);
   
-  if (!data) {
+  if (!JSON.parse(data)) {
     throw new Error("Error: data not loaded for baker's decks");
   }
   // console.log(data, "data to verify decks")
