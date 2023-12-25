@@ -13,7 +13,7 @@ type ItemsProps = {
     img: string;
     price: number;
     stock: number;
-    newCount: number;
+    quantity: number;
 }
 
 export default function Cart() {
@@ -22,10 +22,9 @@ export default function Cart() {
     
     const {state} = useCart();
 
-    if (state.items.length === null) {
-        return "<h2>No connection with server</h2>";
-    } 
-    console.log(state.items, "+ state.items")
+    const items = state.items[state.items.length - 1];
+
+    console.log(items, "+ state.items")
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -34,6 +33,10 @@ export default function Cart() {
     }
 
     const transClass: string = isOpen ? "flex" : "hidden";
+
+    // last element of an array
+    // arr.slice(-1)[0];
+    // array[array.length - 1];
 
     return (
         <div className='flex items-center m-auto'>
@@ -72,7 +75,7 @@ export default function Cart() {
 
                 <div className='my-auto border border-slate-900'>
 
-                    {state.items.map((item: ItemsProps) => (
+                    {state.items.length !== 0 ? state.items.map((item: ItemsProps) => (
                         <div key={item.id} className='flex items-center justify-around my-2'>
 
                             <div className='border border-slate-900 m-auto ml-4'>
@@ -90,7 +93,7 @@ export default function Cart() {
                                 </p>
 
                                 <p className='text-lg text-slate-600 border border-slate-900 mb-2'>
-                                    Count: {item.newCount}
+                                    Count: {item.quantity}
                                 </p>
 
                                 <div className='flex items-center justify-between'>
@@ -123,7 +126,9 @@ export default function Cart() {
                             </div>
 
                         </div>
-                    ))}
+                    )) : (
+                        <p className='text-center text-slate-600'>Add product to cart</p>
+                    )}
 
                 </div>
 

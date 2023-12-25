@@ -2,16 +2,16 @@
 
 import React, { createContext, useReducer, useContext, ReactNode, Dispatch } from 'react';
 
-interface CartItem {
+type CartItem = {
   id: number;
   deckname: string;
   price: number;
   img: string;
   stock: number;
-  newCount: number;
+  quantity: number;
 }
 
-interface CartState {
+type CartState = {
   items: CartItem[];
 }
 
@@ -20,14 +20,14 @@ enum CartActionTypes {
   REMOVE_FROM_CART = 'REMOVE_FROM_CART',
 }
 
-interface AddToCartAction {
+type AddToCartAction = {
   type: 'ADD_TO_CART';
   payload: CartItem;
 }
 
-interface RemoveFromCartAction {
+type RemoveFromCartAction = {
   type: 'REMOVE_FROM_CART';
-  payload: { id: number };
+  payload: { id: number, quantity: number };
 }
 
 type CartAction = AddToCartAction | RemoveFromCartAction;
@@ -43,20 +43,15 @@ export const CartContext = createContext<{ state: CartState; dispatch: CartDispa
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
-function increaseCartItemQty( items: CartItem[], id: number, byCount = 1 ) {
-  return items.map((item: { id: any; newCount: number; }) => {
-      return item.id === id
-          ? { ...item, newCount: item.newCount + byCount }
-          : item;
-  });
-}
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case "ADD_TO_CART":
       return {...state, items: [...state.items, action.payload] };
     case "REMOVE_FROM_CART":
-      return { ...state, items: state.items.filter(item => item.id !== action.payload.id) };
+      return { ...state, items: state.items.filter(item => item.id === action.payload.id 
+        ? {...item, id: action.payload.id, quantity: action.payload.quantity} : item) };
+      //return { ...state, items: state.items.filter(item => item.id !== action.payload.id) };
     default:
       return state;
   }

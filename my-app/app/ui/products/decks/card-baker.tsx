@@ -25,21 +25,22 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     const total: string = (totalPrice * newCount).toFixed(2);
     */
 
-    const handleDispatch = () => {
-        const newCount: number = count + 1;
-        dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock, newCount }});       
+    const handleDispatch = (id: number) => {
+        const quantity: number = count + 1;
+        dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock, quantity }});       
     }
 
     const handleAddToCart = (id: number) => {
         setCount((count) => count + 1);
-        handleDispatch();
+        handleDispatch(id);
     };
   
-    const handleRemoveFromCart = () => {
+    const handleRemoveFromCart = (id: number) => {
+        const quantity: number = count - 1;
         if (count === 0) {
             console.log("Nothing has changed");
         } else {
-            dispatch({ type: REMOVE_FROM_CART, payload: { id } });
+            dispatch({ type: REMOVE_FROM_CART, payload: { id, quantity } });
             setCount((count) => count - 1);
         }
     };
@@ -88,7 +89,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 <input type="number" id="count" name="count" value={count} hidden readOnly />
 
 
-                <button type="submit" id="submit" name="submit" value="remove" onClick={handleRemoveFromCart}
+                <button type="submit" id="submit" name="submit" value="remove" onClick={() => handleRemoveFromCart(id)}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
