@@ -8,7 +8,7 @@ import { useTheme } from 'next-themes';
 import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
 import { BiLogInCircle } from "react-icons/bi";
-import Cart from "./cart";
+import Cart from "./cartItem";
 import skateLogo from '@/public/img_logo/main-logo.png';
 import ShopMenu from './shop-menu';
 

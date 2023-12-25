@@ -72,7 +72,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total" value={total} hidden readOnly />
+                <input type="string" id="total" name="total" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={count} hidden readOnly />
 
                 <p className='text-sm text-slate-600 px-2'>Count: {count}</p>

@@ -10,8 +10,8 @@ export default function NotFound() {
         </h2>
         <Link 
           href="/" 
-          className='dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400
-            text-purple-500 hover:text-purple-600 active:text-purple-400'>
+          className='text-purple-500 hover:text-purple-600 active:text-purple-400
+            dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'>
           Back to home
         </Link>
       </div>

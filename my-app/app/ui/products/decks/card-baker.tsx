@@ -21,7 +21,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const [totalPrice] = useState<number>(price);
     let newCount: number = count;
-    const total: string = (totalPrice * newCount).toFixed(2);
+    //const total: string = (totalPrice * newCount).toFixed(2);
 
     const handleAddToCart = () => {
         dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
@@ -77,7 +77,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total" value={total} hidden readOnly />
+                <input type="string" id="total" name="total" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={count} hidden readOnly />
 
 

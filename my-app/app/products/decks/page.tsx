@@ -25,6 +25,7 @@ export default function BoardShop() {
       </div>
 
       <MenuDecks />
+      
       <div className='absolute w-full h-[600px] overflow-hidden -z-10 border'>
         <div className='flex items-center justify-center w-full h-full border'>
           {/* animate-deck-flip */}

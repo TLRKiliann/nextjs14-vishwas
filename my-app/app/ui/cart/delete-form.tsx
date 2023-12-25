@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react'
+import Link from "next/link";
 import { CartProps } from '@/app/lib/definitions';
 import { useFormState, useFormStatus } from 'react-dom';
 import { deleteCartItem } from '@/app/lib/actions';
@@ -44,10 +45,11 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
                             <p className='text-center m-auto'>{ord.count}</p>
 
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
-                            <input type="string" id="deckname" name="deckname" value={ord.deckname} hidden readOnly />
-                            <input type="number" id="totalprice" name="totalprice" 
-                                value={ord.totalprice.toFixed(2)} hidden readOnly />
+
+                            <input type="number" id="totalprice" name="totalprice" value={initialCount} hidden readOnly />
                             <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
+
+
 
                             <button type="submit" id="submit" name="submit" value="deleteorder"
                                 onClick={() => handleDeleteCount(ord.id)}
@@ -61,7 +63,14 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
                 }
             })}
             {code?.message ? (
-                <p className='text-orange-400'>{code.message}</p>
+                <div>
+                    <p className='text-orange-400'>{code.message}</p>
+                    <Link href="/products"
+                        className='text-purple-500 hover:text-purple-600 active:text-purple-400
+                        dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'>
+                        Go back to products
+                    </Link>
+                </div>
             ) : null}
         </div>
     )

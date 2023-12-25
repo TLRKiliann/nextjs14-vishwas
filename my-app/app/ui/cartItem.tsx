@@ -7,12 +7,23 @@ import { usePathname } from 'next/navigation';
 import { useCart } from '@/app/context/cart-context';
 import { BsCart3 } from "react-icons/bs";
 
+type ItemsProps = {
+    id: number;
+    deckname: string;
+    img: string;
+    price: number;
+    stock: number;
+}
+
 export default function Cart() {
 
     const pathname = usePathname();
     
     const {state} = useCart();
 
+    if (state.items.length === null) {
+        return "<h2>No connection with server</h2>";
+    } 
     console.log(state.items, "+ state.items")
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -60,7 +71,7 @@ export default function Cart() {
 
                 <div className='my-auto border border-slate-900'>
 
-                    {state.items.length === null ? state.items.map((item) => (
+                    {state.items.map((item: ItemsProps) => (
                         <div key={item.id} className='flex items-center justify-around my-2'>
 
                             <div className='border border-slate-900 m-auto ml-4'>
@@ -98,21 +109,18 @@ export default function Cart() {
                             </div>
 
                         </div>
-                    )) : (
-                        <p className='text-md text-center'>Nothing saved in cart</p>
-                    )
-                    }
+                    ))}
 
                 </div>
 
                 <div className='flex items-center justify-center py-4 border border-slate-900'>
-                    <Link href="/cart"
+                    <Link href="/order"
                         onClick={toggle}
                         className='w-full font-bold text-center text-slate-50 bg-sky-700/80
                         hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
                         active:text-green-300 active:bg-sky-700/70 active:scale-95 active:shadow-none
                         border-none mx-4 py-2 rounded-lg shadow-md'>
-                        Go to cart
+                        Order
                     </Link>
                 </div>
 

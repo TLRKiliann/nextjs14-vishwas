@@ -3,7 +3,7 @@ import { genericQuery } from '@/app/lib/db';
 import { CartProps } from '@/app/lib/definitions';
 import DeleteForm from '@/app/ui/cart/delete-form';
 
-export default async function Cart() {
+export default async function OrderPage() {
   
   const request = await genericQuery("Select * FROM cartorder", []);
   const order = JSON.stringify(request);
@@ -13,13 +13,14 @@ export default async function Cart() {
   const exZeroCount = JSON.parse(order).filter((m: CartProps) => m.count !== 0);
 
   if (order) {
-    total = exZeroCount.reduce((a: number, b: {totalprice: number}) => a += b.totalprice, 0);
+    total = exZeroCount.map((m: CartProps) => {
+      return m.count * m.totalprice});
   }
 
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
-          Cart
+          Order
         </h1>
         <div className='flex flex-col h-[600px] xl:h-[800px]'>
           <table className='w-3/5 m-auto rounded-tl-md rounded-tr-md mb-0'>
@@ -28,7 +29,7 @@ export default async function Cart() {
                 <th className='py-1'>Id</th>
                 <th className='py-1'>Product</th>
                 <th className='py-1'>Count</th>
-                <th className='py-1'>Totalprice</th>
+                <th className='py-1'>Price</th>
               </tr>
               {JSON.parse(order).map((ord: CartProps) => {
                 if (ord.count !== 0) {
@@ -48,7 +49,7 @@ export default async function Cart() {
               <div className='text-slate-300 w-full flex justify-between'>
                 <h2 className='ml-2'>Total:</h2>
                 <div className='sm:w-[260px] md:w-[200px] xl:w-[340px]'>
-                  <p className='text-center'>{total.toFixed(2)}.- CHF</p>
+                  <p className='text-center'>{Number(total).toFixed(2)}.- CHF</p>
                 </div>
               </div>
             </div>
