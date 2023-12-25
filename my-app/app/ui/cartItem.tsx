@@ -13,6 +13,7 @@ type ItemsProps = {
     img: string;
     price: number;
     stock: number;
+    newCount: number;
 }
 
 export default function Cart() {
@@ -87,23 +88,36 @@ export default function Cart() {
                                 <p className='text-lg text-slate-600 border border-slate-900 mb-2'>
                                     Price: {item.price.toFixed(2)}.- CHF
                                 </p>
+
+                                <p className='text-lg text-slate-600 border border-slate-900 mb-2'>
+                                    Count: {item.newCount}
+                                </p>
+
                                 <div className='flex items-center justify-between'>
                                     <p className='text-md text-slate-600 border border-slate-900'>
                                         stock: {item.stock}
                                     </p>
                                     <span className='flex items-center justify-between
                                         border border-slate-900'>
-                                        <button className='w-8 h-8 mx-4 text-slate-200 font-bold 
-                                            bg-red-500 border-none hover:text-slate-300 
-                                                hover:bg-red-600 active:text-slate-50 active:bg-red-400 rounded-full'>
+
+
+                                        <button
+                                            className='w-8 h-8 mx-4 text-slate-200 font-bold 
+                                                bg-red-500 border-none hover:text-slate-300 
+                                                hover:bg-red-600 active:text-slate-50 
+                                                active:bg-red-400 rounded-full'>
                                                 -
                                         </button>
 
-                                        <button className='w-8 h-8 mx-4 text-slate-200 font-bold 
-                                            bg-red-500 border-none hover:text-slate-300 
-                                                hover:bg-red-600 active:text-slate-50 active:bg-red-400 rounded-full'>
+                                        <button 
+                                            className='w-8 h-8 mx-4 text-slate-200 font-bold 
+                                                bg-red-500 border-none hover:text-slate-300 
+                                                hover:bg-red-600 active:text-slate-50 
+                                                active:bg-red-400 rounded-full'>
                                                 +
                                         </button>
+
+
                                     </span>
                                 </div>
                             </div>

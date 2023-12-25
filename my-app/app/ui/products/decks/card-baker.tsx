@@ -18,14 +18,21 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const { state, dispatch } = useCart();
     const [count, setCount] = useState<number>(state.items.length);
-
+    
+    /*
     const [totalPrice] = useState<number>(price);
     let newCount: number = count;
-    //const total: string = (totalPrice * newCount).toFixed(2);
+    const total: string = (totalPrice * newCount).toFixed(2);
+    */
 
-    const handleAddToCart = () => {
-        dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
+    const handleDispatch = () => {
+        const newCount: number = count + 1;
+        dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock, newCount }});       
+    }
+
+    const handleAddToCart = (id: number) => {
         setCount((count) => count + 1);
+        handleDispatch();
     };
   
     const handleRemoveFromCart = () => {
@@ -89,7 +96,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                     {pending ? "pending..." : "Delete"}
                 </button>
 
-                <button type="submit" id="submit" name="submit" value="order" onClick={handleAddToCart}
+                <button type="submit" id="submit" name="submit" value="order" onClick={() => handleAddToCart(id)}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
@@ -127,15 +134,15 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
             <div className="bg-slate-100/80">
                 <div className="flex align-center justify-end px-4 py-2">
-                <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
-                    <IoShareSocial size={24} />
-                </span>
-                <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
-                    <SlSocialTwitter size={24} />
-                </span>
-                <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
-                    <FaGithub size={24} />
-                </span>
+                    <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
+                        <IoShareSocial size={24} />
+                    </span>
+                    <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
+                        <SlSocialTwitter size={24} />
+                    </span>
+                    <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
+                        <FaGithub size={24} />
+                    </span>
                 </div>
             </div>
 

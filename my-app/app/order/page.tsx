@@ -12,11 +12,12 @@ export default async function OrderPage() {
 
   const exZeroCount = JSON.parse(order).filter((m: CartProps) => m.count !== 0);
 
-  if (order) {
-    total = exZeroCount.map((m: CartProps) => {
-      return m.count * m.totalprice});
-  }
+  // totalprice et price à revoir après ajout dans la base de donnée.
 
+  if (order) {
+    total = exZeroCount.reduce((a: number, c: {totalprice: number}) => a + c.totalprice, 0)
+  }
+  console.log(total)
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
@@ -30,6 +31,7 @@ export default async function OrderPage() {
                 <th className='py-1'>Product</th>
                 <th className='py-1'>Count</th>
                 <th className='py-1'>Price</th>
+                {/* <th className='py-1'>Total </th> */}
               </tr>
               {JSON.parse(order).map((ord: CartProps) => {
                 if (ord.count !== 0) {
@@ -38,6 +40,7 @@ export default async function OrderPage() {
                   <td className='border-b border-slate-600 py-2'>{ord.id}</td>
                   <td className='border-b border-slate-600 py-2'>{ord.deckname}</td>
                   <td className='border-b border-slate-600 py-2'>{ord.count}</td>
+                  {/* <td className='border-b border-slate-600 py-2'>{ord.price.toFixed(2)}.-</td> */}
                   <td className='border-b border-slate-600 py-2'>{ord.totalprice.toFixed(2)}.-</td>
                 </tr>
                 )}})
@@ -49,7 +52,7 @@ export default async function OrderPage() {
               <div className='text-slate-300 w-full flex justify-between'>
                 <h2 className='ml-2'>Total:</h2>
                 <div className='sm:w-[260px] md:w-[200px] xl:w-[340px]'>
-                  <p className='text-center'>{Number(total).toFixed(2)}.- CHF</p>
+                  <p className='text-center'>{total.toFixed(2)}.- CHF</p>
                 </div>
               </div>
             </div>
