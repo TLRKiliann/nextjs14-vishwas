@@ -18,7 +18,6 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
     const {
-        //cartItems,
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
@@ -29,16 +28,10 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const handleAddToCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
         increaseCartQuantity(id, deckname, price, img, stock);
-        //setCount((count) => count + 1);
     };
   
     const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
-        /*const quantity: number = count - 1;
-        if (count === 0) {
-            console.log("Nothing has changed");
-        } else {*/
-        decreaseCartQuantity(id, deckname, price, img, stock)
-        //setCount((count) => count - 1);  
+        decreaseCartQuantity(id, deckname, price, img, stock);
     };
     console.log(quantity, "** quantity **")
     return (
