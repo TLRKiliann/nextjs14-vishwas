@@ -2,19 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-//import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useShoppingCart } from '@/app/context/cart-context';
 import CartItem from './cartitem';
 import { BsCart3 } from "react-icons/bs";
-import { formatCurrency } from '@/app/lib/utils';
-
-/*
-type ItemsProps = {
-    id: number;
-    quantity: number;
-}
-*/
 
 export default function ShoppingCart() {
 
@@ -26,10 +17,9 @@ export default function ShoppingCart() {
 
     const toggle = () => {
         setIsOpen((old) => !old);
-    }
+    };
 
     const transClass: string = isOpen ? "flex" : "hidden";
-
 
     return (
         <div className='flex items-center m-auto'>
