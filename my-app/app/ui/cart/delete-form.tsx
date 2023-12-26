@@ -5,24 +5,19 @@ import Link from "next/link";
 import { CartProps } from '@/app/lib/definitions';
 import { useFormState, useFormStatus } from 'react-dom';
 import { deleteCartItem } from '@/app/lib/actions';
-import { REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
+import { useShoppingCart } from '@/app/context/cart-context';
 
 export default function DeleteForm({order}: {order: CartProps[]}) {
 
-    const { state, dispatch } = useCart();
+    const { removeFromCart } = useShoppingCart();
 
     const {pending} = useFormStatus();
     const [code, formAction] = useFormState(deleteCartItem, undefined);
     const initialCount: number = 0;
-    const [count, setCount] = useState<number>(state.items.length);
+    //const [count, setCount] = useState<number>(state.items.length);
 
     const handleDeleteCount = (id: number) => {
-        if (count === 0) {
-            console.log("Nothing has changed");
-        } else {
-            dispatch({ type: REMOVE_FROM_CART, payload: { id } });
-            setCount((count) => count - 1);
-        }
+        removeFromCart(id);
     }
 
     return (

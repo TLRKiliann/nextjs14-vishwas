@@ -1,81 +1,112 @@
 "use client";
 
-import React, { createContext, useReducer, useContext, ReactNode, Dispatch } from 'react';
+import { createContext, ReactNode, useContext } from "react";
+//import ShoppingCart  from '@/app/ui/shoppingcart';
+import { useLocalStorage } from "@/app/hooks/localstorage";
+
+type ShoppingCartProviderProps = {
+  children: ReactNode;
+}
 
 type CartItem = {
   id: number;
   deckname: string;
-  price: number;
   img: string;
+  price: number;
   stock: number;
   quantity: number;
 }
 
-type CartState = {
-  items: CartItem[];
+type ShoppingCartContextProps = {
+  //openCart: () => void;
+  //closeCart: () => void;
+  getItemQuantity: (id: number) => number;
+  increaseCartQuantity: (id: number, deckname: string, price: number, img: string, stock: number) => void;
+  decreaseCartQuantity: (id: number, deckname: string, price: number, img: string, stock: number) => void;
+  removeFromCart: (id: number) => void;
+
+  cartQuantity: number;
+  cartItems: CartItem[];
 }
 
-enum CartActionTypes {
-  ADD_TO_CART = 'ADD_TO_CART',
-  REMOVE_FROM_CART = 'REMOVE_FROM_CART',
+const ShoppingCartContext = createContext({} as ShoppingCartContextProps);
+
+export function useShoppingCart() {
+  return useContext(ShoppingCartContext);
 }
 
-type AddToCartAction = {
-  type: 'ADD_TO_CART';
-  payload: CartItem;
-}
+export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
+  
+  //const [isOpen, setIsOpen] = useState(false);
 
-type RemoveFromCartAction = {
-  type: 'REMOVE_FROM_CART';
-  payload: { id: number, quantity: number };
-}
+  const [cartItems, setCartItems] = useLocalStorage<Array<CartItem>>(
+    "Shopping-Cart", []);
 
-type CartAction = AddToCartAction | RemoveFromCartAction;
+  const cartQuantity = cartItems.reduce(
+    (quantity: number, item: CartItem) => item.quantity + quantity, 0);
 
-export type CartDispatch = Dispatch<CartAction>;
+  //const openCart = () => setIsOpen(true);
+  //const closeCart = () => setIsOpen(false);
 
-const initialState: CartState = {
-  items: [],
-};
+  const getItemQuantity = (id: number) => {
+    return cartItems.find((item: CartItem) => item.id === id)?.quantity || 0;
+  };
 
-export const CartContext = createContext<{ state: CartState; dispatch: CartDispatch } | undefined>(undefined);
+  const increaseCartQuantity = (id: number, deckname: string, price: number, img: string, stock: number) => {
+    setCartItems((currentItems: CartItem[]) => {
+      if (currentItems.find((item: CartItem) => item.id === id) == null) {
+        return [...currentItems, { id, deckname, price, img, stock,quantity: 1 }];
+      } else {
+        return currentItems.map((item: CartItem) => {
+          if (item.id === id) {
+            return {...item, quantity: item.quantity + 1};
+          } else {
+            return item;
+          }
+        })
+      }
+    });
+  };
 
-export const ADD_TO_CART = 'ADD_TO_CART';
-export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+  const decreaseCartQuantity = (id: number) => {
+    setCartItems((currentItems) => {
+      if (currentItems.find((item: CartItem) => item.id === id)?.quantity === 1) {
+        return currentItems.filter((item: CartItem) => item.id !== id);
+      } else {
+        return currentItems.map((item: CartItem) => {
+          if (item.id === id) {
+            return {...item, quantity: item.quantity -1};
+          } else {
+            return item;
+          }
+        })
+      }
+    });
+  };
 
-
-const cartReducer = (state: CartState, action: CartAction): CartState => {
-  switch (action.type) {
-    case "ADD_TO_CART":
-      return {...state, items: [...state.items, action.payload] };
-    case "REMOVE_FROM_CART":
-      return { ...state, items: state.items.filter(item => item.id === action.payload.id 
-        ? {...item, id: action.payload.id, quantity: action.payload.quantity} : item) };
-      //return { ...state, items: state.items.filter(item => item.id !== action.payload.id) };
-    default:
-      return state;
-  }
-};
-
-const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [state, dispatch] = useReducer<React.Reducer<CartState, CartAction>>(
-    cartReducer,
-    initialState
-  );
+  const removeFromCart = (id: number) => {
+    setCartItems((currentItems: CartItem[]) => {
+      return currentItems.filter((item: CartItem) => item.id !== id)
+    })
+  };
 
   return (
-    <CartContext.Provider value={{ state, dispatch }}>
-      {children}
-    </CartContext.Provider>
+    <ShoppingCartContext.Provider
+      value={{
+        getItemQuantity,
+        increaseCartQuantity,
+        decreaseCartQuantity,
+        removeFromCart,
+        //openCart,
+        //closeCart,
+        cartItems,
+        cartQuantity
+      }}
+    >
+      { children }
+      {/* <ShoppingCart /> */}
+    </ShoppingCartContext.Provider>
   );
 };
 
-const useCart = (): { state: CartState; dispatch: CartDispatch } => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error('useCart doit être utilisé à l\'intérieur d\'un CartProvider');
-  }
-  return context;
-};
-
-export { CartProvider, useCart, CartActionTypes };
+//isOpen={isOpen}

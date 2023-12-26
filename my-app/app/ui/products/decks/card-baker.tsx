@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { DecksProps } from '@/app/lib/definitions';
-import { ADD_TO_CART, REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
+import { useShoppingCart } from '@/app/context/cart-context';
+import { formatCurrency } from "@/app/utils/formatCurrency";
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { IoShareSocial } from 'react-icons/io5';
@@ -16,35 +17,30 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
-    const { state, dispatch } = useCart();
-    const [count, setCount] = useState<number>(state.items.length);
-    
-    /*
-    const [totalPrice] = useState<number>(price);
-    let newCount: number = count;
-    const total: string = (totalPrice * newCount).toFixed(2);
-    */
+    const {
+        //cartItems,
+        getItemQuantity,
+        increaseCartQuantity,
+        decreaseCartQuantity,
+        //removeFromCart
+    } = useShoppingCart();
 
-    const handleDispatch = (id: number) => {
-        const quantity: number = count + 1;
-        dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock, quantity }});       
-    }
+    const quantity = getItemQuantity(id);
 
-    const handleAddToCart = (id: number) => {
-        setCount((count) => count + 1);
-        handleDispatch(id);
+    const handleAddToCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
+        increaseCartQuantity(id, deckname, price, img, stock);
+        //setCount((count) => count + 1);
     };
   
-    const handleRemoveFromCart = (id: number) => {
-        const quantity: number = count - 1;
+    const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
+        /*const quantity: number = count - 1;
         if (count === 0) {
             console.log("Nothing has changed");
-        } else {
-            dispatch({ type: REMOVE_FROM_CART, payload: { id, quantity } });
-            setCount((count) => count - 1);
-        }
+        } else {*/
+        decreaseCartQuantity(id, deckname, price, img, stock)
+        //setCount((count) => count - 1);  
     };
-
+    console.log(quantity, "** quantity **")
     return (
         <div key={id}
             className="text-slate-600 bg-white shadow-lg transform transition 
@@ -62,17 +58,23 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
             />
 
             <div className="flex flex-col font-bold bg-slate-100/80 border">
-                <div className="flex align-center justify-between text-md text-slate-600/80 mx-4 my-2 border">
+                <div className="flex align-center justify-between text-md text-slate-600/80 mx-4 
+                    my-2 border">
                     <p>{deckname.toUpperCase()}</p>
                 </div>
                 <div className="flex align-center justify-between text-sm text-slate-500/80 mx-4 border">
                     <p>Price</p>
-                    <p>{price.toFixed(2)}.- CHF</p>
+                    <p>{formatCurrency(price)}.- CHF</p>
                 </div>
                 <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2 border">
                     <p>Stock</p>
                     <p>{stock}</p>
                 </div>
+                
+                <div>
+                  <span>{quantity}</span> In cart
+                </div>
+            
             </div>
 
             <div className="bg-slate-100/80 px-4">
@@ -86,10 +88,11 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
                 <input type="string" id="total" name="total" value={price} hidden readOnly />
-                <input type="number" id="count" name="count" value={count} hidden readOnly />
+                <input type="number" id="count" name="count" value={quantity} hidden readOnly />
 
 
-                <button type="submit" id="submit" name="submit" value="remove" onClick={() => handleRemoveFromCart(id)}
+                <button type="submit" id="submit" name="submit" value="remove" 
+                    onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
@@ -97,7 +100,8 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                     {pending ? "pending..." : "Delete"}
                 </button>
 
-                <button type="submit" id="submit" name="submit" value="order" onClick={() => handleAddToCart(id)}
+                <button type="submit" id="submit" name="submit" value="order" 
+                    onClick={() => handleAddToCart(id, deckname, price, img, stock)}
                     className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
                         px-4 py-1 rounded'
