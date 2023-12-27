@@ -1,8 +1,8 @@
 import React from 'react'
+import Link from 'next/link';
 import { genericQuery } from '@/app/lib/db';
 import { CartProps } from '@/app/lib/definitions';
 import DeleteForm from '@/app/ui/cart/delete-form';
-import { formatCurrency } from '@/app/utils/formatCurrency';
 
 export default async function OrderPage() {
   
@@ -20,7 +20,7 @@ export default async function OrderPage() {
     }
   });
 
-  let filterTotal = totalPrice.filter((a: number) => a += a)
+  let filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0)
 
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
@@ -63,14 +63,25 @@ export default async function OrderPage() {
               <div className='text-slate-300 w-full flex justify-between'>
                 <h2 className='ml-2'>Total:</h2>
                 <div className='sm:w-[120px] md:w-[200px] xl:w-[240px]'>
+
                   <p className='text-center'>
-                    {formatCurrency(filterTotal)}.-
+                    {filterTotal.toFixed(2)}.-
                   </p>
+
                 </div>
               </div>
             </div>
 
             <DeleteForm order={JSON.parse(order)} />
+            
+            <div className='flex justify-center mt-4'>
+              <Link href="/products"
+                className='text-purple-500 hover:text-purple-600 active:text-purple-400
+                dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'
+              >
+                Go back to products
+              </Link>
+            </div>
 
         </div>
     </div>

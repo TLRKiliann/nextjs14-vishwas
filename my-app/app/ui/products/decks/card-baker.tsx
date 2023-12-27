@@ -58,21 +58,21 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 />
             </span>
 
-            <div className="flex flex-col font-bold bg-slate-100/80 border">
+            <div className="flex flex-col font-bold bg-slate-100/80">
                 <div className="flex align-center justify-between text-md text-slate-600/80 mx-4 
-                    my-2 border">
+                    my-2">
                     <p>{deckname.toUpperCase()}</p>
                 </div>
-                <div className="flex align-center justify-between text-sm text-slate-500/80 mx-4 border">
+                <div className="flex align-center justify-between text-sm text-slate-500/80 mx-4">
                     <p>Price</p>
                     <p>{formatCurrency(price)}.- CHF</p>
                 </div>
-                <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2 border">
+                <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2">
                     <p>Stock</p>
                     <p>{stock - quantity}</p>
                 </div>
                 
-                <div className='flex justify-center items-center border'>
+                <div className='flex justify-center items-center'>
                     <span className='text-md font-normal text-slate-500'>
                         {quantity}&nbsp;
                     </span>

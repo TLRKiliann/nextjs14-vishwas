@@ -18,7 +18,7 @@ export default function BakerDecksCards({bakerdecks}: {bakerdecks: DecksProps[]}
     }
 
     return (
-        <div className='w-full h-auto px-20 py-10'>
+        <div className='w-full h-auto px-4 pt-0 pb-4'>
 
             {/* grid with loader */}
             <div className={`grid md:grid-cols-4 ${load === false ? "grid-rows-1" : "grid-row-2"} 

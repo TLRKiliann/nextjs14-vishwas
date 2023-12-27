@@ -6,6 +6,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { DecksProps } from '@/app/lib/definitions';
 import { useShoppingCart } from '@/app/context/cart-context';
+import { formatCurrency } from '@/app/lib/utils';
 
 export default function DeckForm({id, deckname, img, price, stock}: DecksProps) {
 
@@ -45,7 +46,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
                 />
                 <p className='text-lg text-gray-500 font-bold pt-2 pl-2'>{deckname}</p>
                 <p className='text-sm text-slate-600 px-2'>
-                    {quantity === 0 ? price.toFixed(2) : quantity}.- CHF</p>
+                    {price.toFixed(2)}.- CHF</p>
                 <p className='text-sm text-slate-600 px-2'>
                     {stock >= quantity 
                         ? "Stock: " + (stock - quantity) + "pcs"

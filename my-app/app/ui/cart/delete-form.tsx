@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from 'react'
-import Link from "next/link";
+import React from 'react'
 import { CartProps } from '@/app/lib/definitions';
 import { useFormState, useFormStatus } from 'react-dom';
 import { deleteCartItem } from '@/app/lib/actions';
@@ -20,14 +19,15 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
     }
 
     return (
-        <div className='w-full flex flex-col items-center m-auto rounded'>
+        <div className='w-full flex flex-col items-center mx-auto rounded'>
             {order.map((ord: CartProps) => {
                 if (ord.count !== 0) {
                     return (
                         <form
                             key={ord.id}
                             action={formAction}
-                            className='flex items-center justify-evenly w-3/5 h-10 bg-slate-700 m-auto mb-2 rounded'>
+                            className='flex items-center justify-evenly w-3/5 h-10 bg-slate-700 
+                                m-auto mb-2 rounded'>
                             
                             <p className='text-center ml-2'>{ord.id}</p>
     
@@ -55,14 +55,7 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
                 }
             })}
             {code?.message ? (
-                <div>
-                    <p className='text-orange-400'>{code.message}</p>
-                    <Link href="/products"
-                        className='text-purple-500 hover:text-purple-600 active:text-purple-400
-                        dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'>
-                        Go back to products
-                    </Link>
-                </div>
+                <p className='text-orange-400'>{code.message}</p>
             ) : null}
         </div>
     )
