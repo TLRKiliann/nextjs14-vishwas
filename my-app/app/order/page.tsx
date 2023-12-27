@@ -23,11 +23,136 @@ export default async function OrderPage() {
   let filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0)
 
   return (
-    <div className='min-h-screen bg-slate-900 py-[75px]'>
-        <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
-          Order
-        </h1>
-        <div className='flex flex-col h-[600px] xl:h-[800px]'>
+    <div className='min-h-screen w-full py-[75px]'>
+      
+      <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
+        Order
+      </h1>
+
+      <div className="flex justify-between w-full">
+
+        <div className='w-full bg-slate-900'>
+
+          <div className='flex justify-around gap-2 p-4'>
+            
+            <button className='w-2/5 text-lg font-bold text-slate-50 bg-blue-500 py-2 rounded'>
+              PayPal
+            </button>
+
+            <button className='w-2/5 text-lg font-bold text-blue-600 bg-yellow-400 py-2 rounded'>
+              Stripe
+            </button>
+
+            <button className='w-2/5 text-lg font-bold text-blue-600 bg-slate-50 py-2 rounded'>
+              Google
+            </button>
+
+          </div>
+
+
+          <h2 className='text-xl font-bold px-4 py-2'>
+            Shipping
+          </h2>
+
+          <form className='flex flex-col p-4'>
+
+            <label htmlFor="email" className='text-lg pt-2 pb-1'>
+              Email
+            </label>
+            
+            <input type="email" id="email" name="email"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="user" className='text-lg pt-2 pb-1'>
+              Username
+            </label>
+            
+            <input type="text" id="user" name="user"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="address" className='text-lg pt-2 pb-1'>
+              Address
+            </label>
+            
+            <input type="text" id="address" name="address"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="phone" className='text-lg pt-2 pb-1'>
+              Phone
+            </label>
+            
+            <input type="number" id="phone" name="phone"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="passwd" className='text-lg pt-2 pb-1'>
+              Password
+            </label>
+            
+            <input type="password" id="passwd" name='passwd'
+              className='w-3/5 px-5 py-1'/>
+
+            <button type="submit" id="submit" name="submit" value="shipping"
+              className='w-3/5 text-xl font-bold bg-blue-600 my-6 py-2 rounded'
+            >
+              Order
+            </button>
+
+          </form>
+
+
+          <h2 className='text-xl font-bold px-4 py-2'>
+            Payment
+          </h2>
+
+          <form className='flex flex-col p-4'>
+
+            <label htmlFor="email" className='text-lg pt-2 pb-1'>
+              Email
+            </label>
+            
+            <input type="email" id="email" name="email"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="user" className='text-lg pt-2 pb-1'>
+              Username
+            </label>
+            
+            <input type="text" id="user" name="user"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="address" className='text-lg pt-2 pb-1'>
+              Address
+            </label>
+            
+            <input type="text" id="address" name="address"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="phone" className='text-lg pt-2 pb-1'>
+              Phone
+            </label>
+            
+            <input type="number" id="phone" name="phone"
+              className='w-3/5 px-5 py-1'/>
+            
+            <label htmlFor="passwd" className='text-lg pt-2 pb-1'>
+              Password
+            </label>
+            
+            <input type="password" id="passwd" name='passwd'
+              className='w-3/5 px-5 py-1'/>
+
+            <button type="submit" id="submit" name="submit" value="shipping"
+              className='w-3/5 text-xl font-bold bg-blue-600 my-6 py-2 rounded'
+            >
+              Payment
+            </button>
+
+          </form>
+
+        </div>
+
+
+        <div className='flex flex-col w-full h-[600px] xl:h-[800px] bg-slate-900'>
           <table className='w-3/5 m-auto rounded-tl-md rounded-tr-md mb-0'>
               <tbody>
               <tr className='text-lg text-slate-500 bg-slate-800'>
@@ -84,6 +209,8 @@ export default async function OrderPage() {
             </div>
 
         </div>
+      </div>
     </div>
+
   )
 }

@@ -19,7 +19,7 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
     }
 
     return (
-        <div className='w-full flex flex-col items-center mx-auto rounded'>
+        <div className='w-2/5 flex flex-col items-center mx-auto rounded'>
             {order.map((ord: CartProps) => {
                 if (ord.count !== 0) {
                     return (

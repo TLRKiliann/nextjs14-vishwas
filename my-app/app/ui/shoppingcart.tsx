@@ -78,7 +78,7 @@ export default function ShoppingCart() {
                         hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
                         active:text-green-300 active:bg-sky-700/70 active:scale-95 active:shadow-none
                         border-none mx-4 py-2 rounded-lg shadow-md'>
-                        Order
+                        CHECKOUT
                     </Link>
                 </div>
 

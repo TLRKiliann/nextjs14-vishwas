@@ -6,7 +6,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { DecksProps } from '@/app/lib/definitions';
 import { useShoppingCart } from '@/app/context/cart-context';
-import { formatCurrency } from '@/app/lib/utils';
+//import { formatCurrency } from '@/app/lib/utils';
 
 export default function DeckForm({id, deckname, img, price, stock}: DecksProps) {
 
