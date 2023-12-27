@@ -44,32 +44,34 @@ export default function ShoppingCart() {
                 </div>
             </span>
 
-            <div className={`absolute flex-col text-md font-normal top-0 right-0 w-[500px] h-[auto] 
+            <div className={`absolute flex-col text-md font-normal top-0 right-0 w-[400px] h-[auto] 
                 text-slate-900 bg-slate-100 rounded-br-lg rounded-bl-lg ${transClass} z-20`}
             >
-                <div className='text-right p-2'>
+                <div className='text-right pt-2 pr-2'>
                     <button
                         type="button"
                         onClick={toggle} 
-                        className='w-7 h-7 bg-slate-200 border-none
-                            hover:text-slate-500 hover:bg-slate-300/60 hover:border-slate-200
+                        className='w-7 h-7 bg-slate-200
+                            hover:text-slate-500 hover:bg-slate-300/60
                             active:text-slate-50 active:bg-slate-200
                             pb-2 rounded-full'>
                         x
                     </button>
                 </div>
 
-                <div className='my-auto border border-slate-900'>
+                <div className='my-auto'>
 
                     {cartItems.length !== 0 ? cartItems.map((item) => (
                         <CartItem key={item.id} {...item} />
                         )) : (
-                        <p className='text-center text-slate-600'>Add product to cart</p>
+                        <p className='text-center text-slate-600'>
+                            Add product to cart
+                        </p>
                     )}
 
                 </div>
 
-                <div className='flex items-center justify-center py-4 border border-slate-900'>
+                <div className='flex items-center justify-center pt-2 pb-4'>
                     <Link href="/order"
                         onClick={toggle}
                         className='w-full font-bold text-center text-slate-50 bg-sky-700/80
