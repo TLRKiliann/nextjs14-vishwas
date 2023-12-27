@@ -28,7 +28,6 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
     const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
         decreaseCartQuantity(id, deckname, price, img, stock);
     };
-    console.log(quantity, "** quantity (2 baker) **")
 
     return (
         <div key={id} className='flex justify-center w-full h-auto text-md'>
@@ -60,7 +59,7 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total" value={price} hidden readOnly />
+                <input type="number" id="price" name="price" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
 
                 <p className='text-sm text-slate-600 px-2'>Quantity: {quantity}</p>

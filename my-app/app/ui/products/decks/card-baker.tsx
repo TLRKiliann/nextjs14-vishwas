@@ -33,7 +33,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
         decreaseCartQuantity(id, deckname, price, img, stock);
     };
-    console.log(quantity, "** quantity **")
+
     return (
         <div key={id}
             className="text-slate-600 bg-white shadow-lg transform transition 
@@ -80,7 +80,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total" value={price} hidden readOnly />
+                <input type="number" id="price" name="price" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
 
 

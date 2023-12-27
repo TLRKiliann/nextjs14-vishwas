@@ -36,7 +36,7 @@ export default function ShoppingCart() {
                         text-slate-900 bg-slate-50 border-none 
                         hover:border-slate-50 dark:border-slate-50 rounded-full'
                     >
-                            {cartItems.reduce((total, cartItem) => {
+                            {cartItems.reduce((total: number, cartItem: {quantity: number}) => {
                                 const totalCart: number = total += cartItem.quantity
                                 return totalCart}, 0
                             )}

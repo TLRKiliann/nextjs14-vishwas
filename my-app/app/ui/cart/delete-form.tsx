@@ -35,15 +35,13 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
                                 <p className='text-center'>{ord.deckname}</p>
                             </div>
 
-                            <p className='text-center m-auto'>{ord.totalprice.toFixed(2)}.-</p>
+                            <p className='text-center m-auto'>{ord.price.toFixed(2)}.-</p>
                             <p className='text-center m-auto'>{ord.count}</p>
 
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
-
-                            <input type="number" id="totalprice" name="totalprice" value={initialCount} hidden readOnly />
+                            <input type="text" id="deckname" name="deckname" value={ord.deckname} hidden readOnly />
+                            <input type="number" id="price" name="price" value={initialCount} hidden readOnly />
                             <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
-
-
 
                             <button type="submit" id="submit" name="submit" value="deleteorder"
                                 onClick={() => handleDeleteCount(ord.id)}

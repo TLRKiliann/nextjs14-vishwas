@@ -2,22 +2,16 @@ import React from 'react'
 import { genericQuery } from '@/app/lib/db';
 import { CartProps } from '@/app/lib/definitions';
 import DeleteForm from '@/app/ui/cart/delete-form';
+//import { formatCurrency } from '@/app/utils/formatCurrency';
 
 export default async function OrderPage() {
   
   const request = await genericQuery("Select * FROM cartorder", []);
   const order = JSON.stringify(request);
 
-  let total: number = 0;
-
-  const exZeroCount = JSON.parse(order).filter((m: CartProps) => m.count !== 0);
-
-  // totalprice et price à revoir après ajout dans la base de donnée.
-
-  if (order) {
-    total = exZeroCount.reduce((a: number, c: {totalprice: number}) => a + c.totalprice, 0)
-  }
-  console.log(total)
+  //let totalPrice: number = 0;
+  //const reduce = JSON.parse(order).reduce((a: number, c: {price: number}) => a += c.price, 0);
+  
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
@@ -29,7 +23,7 @@ export default async function OrderPage() {
               <tr className='text-lg text-slate-500 bg-slate-800'>
                 <th className='py-1'>Id</th>
                 <th className='py-1'>Product</th>
-                <th className='py-1'>Count</th>
+                <th className='py-1'>Quantity</th>
                 <th className='py-1'>Price</th>
                 {/* <th className='py-1'>Total </th> */}
               </tr>
@@ -41,7 +35,12 @@ export default async function OrderPage() {
                   <td className='border-b border-slate-600 py-2'>{ord.deckname}</td>
                   <td className='border-b border-slate-600 py-2'>{ord.count}</td>
                   {/* <td className='border-b border-slate-600 py-2'>{ord.price.toFixed(2)}.-</td> */}
-                  <td className='border-b border-slate-600 py-2'>{ord.totalprice.toFixed(2)}.-</td>
+                  <td className='border-b border-slate-600 py-2'>
+                    {JSON.parse(order).reduce((total: number, cartItem: {quantity: number}) => {
+                      const totalCart: number = total += cartItem.quantity
+                      return totalCart}, 0
+                    )}  
+                  </td>
                 </tr>
                 )}})
               }
@@ -52,7 +51,9 @@ export default async function OrderPage() {
               <div className='text-slate-300 w-full flex justify-between'>
                 <h2 className='ml-2'>Total:</h2>
                 <div className='sm:w-[260px] md:w-[200px] xl:w-[340px]'>
-                  <p className='text-center'>{total.toFixed(2)}.- CHF</p>
+                  <p className='text-center'>
+                    {"total"}.- CHF
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,6 +1,10 @@
+"use client";
+
 import React from 'react';
 import Image from 'next/image';
 import { useShoppingCart } from '@/app/context/cart-context'; 
+import { useFormState, useFormStatus } from 'react-dom';
+import { deleteCartItem } from '@/app/lib/actions';
 
 type ItemProps = {
     id: number;
@@ -14,6 +18,11 @@ type ItemProps = {
 export default function CartItem({id, deckname, img, price, stock, quantity}: ItemProps) {
 
     const { removeFromCart } = useShoppingCart();
+
+    const initialCount: number = 0;
+
+    const {pending} = useFormStatus();
+    const [code, formAction] = useFormState(deleteCartItem, undefined);
 
     return (
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
@@ -36,21 +45,32 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                     Quantity: x{quantity}
                 </p>
 
-                <div className='flex items-center justify-between'>
+                <form action={formAction} className='flex items-center justify-between'>
 
                     <p className='text-md text-slate-600'>
                         stock: {stock}
                     </p>
 
+                    <input type="number" id="id" name="id" value={id} hidden readOnly />
+                    <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
+                    <input type="number" id="price" name="price" value={initialCount} hidden readOnly />
+                    <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
+
                     <button
+                        type="submit" id="submit" name="submit" value="deleteorder"
                         onClick={() => removeFromCart(id)}
                         className='text-slate-200 font-bold bg-red-500 hover:bg-red-500/80 hover:shadow-none
                             active:text-slate-50 active:bg-red-400 px-2 py-1 rounded shadow-md'
                     >
-                        Remove
+                        {pending ? "Pending..." : "Remove"}
                     </button>
 
-                </div>
+                    {code?.message ? (
+                        <p>{code.message}</p>
+                        ) : null
+                    }
+
+                </form>
 
             </div>
         </div>

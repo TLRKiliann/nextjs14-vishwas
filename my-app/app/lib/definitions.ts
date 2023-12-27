@@ -64,6 +64,6 @@ export type DecksProps = {
 export type CartProps = {
     id: number;
     deckname: string;
-    totalprice: number;
+    price: number;
     count: number;
 }
