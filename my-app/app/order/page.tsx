@@ -6,10 +6,12 @@ import DeleteForm from '@/app/ui/cart/delete-form';
 
 export default async function OrderPage() {
   
-  const request = await genericQuery("Select * FROM cartorder", []);
+  const request = await genericQuery("SELECT * FROM cartorder", []);
   const order = JSON.stringify(request);
 
   let totalPrice;
+
+  
 
   totalPrice = JSON.parse(order).map((p: CartProps) => {
     if (p.count === 0) {

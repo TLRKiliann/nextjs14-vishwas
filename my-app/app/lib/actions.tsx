@@ -93,6 +93,34 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
 // delete cart item by initialize count to 0
 export async function deleteCartItem(prevState: {message: string} | undefined, formData: FormData) {
   try {
+    console.log("test db begin")
+    const id = formData.get("id");
+    const deckname = formData.get("deckname");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const btnDelete = formData.get("submit");
+    if (btnDelete === "deletecartorder") {
+      if (id !== "" && price !== "" && count !== "") {
+        const result = await queryCartDelete("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?",
+          [id, deckname, price, count, id])
+        if (result) {
+          console.log("Ok no error with pathname")
+          revalidatePath("/products/decks/baker");
+          return {
+            message: "Product deleted"
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    throw error;
+  }
+}
+
+// delete item from order by initialize count to 0
+export async function deleteOrder(prevState: {message: string} | undefined, formData: FormData) {
+  try {
     const id = formData.get("id");
     const deckname = formData.get("deckname");
     const price = formData.get("price");

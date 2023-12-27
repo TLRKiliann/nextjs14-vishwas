@@ -3,7 +3,7 @@
 import React from 'react'
 import { CartProps } from '@/app/lib/definitions';
 import { useFormState, useFormStatus } from 'react-dom';
-import { deleteCartItem } from '@/app/lib/actions';
+import { deleteOrder } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
 export default function DeleteForm({order}: {order: CartProps[]}) {
@@ -11,7 +11,7 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
     const { removeFromCart } = useShoppingCart();
 
     const {pending} = useFormStatus();
-    const [code, formAction] = useFormState(deleteCartItem, undefined);
+    const [code, formAction] = useFormState(deleteOrder, undefined);
     const initialCount: number = 0;
 
     const handleDeleteCount = (id: number) => {

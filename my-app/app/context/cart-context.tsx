@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, ReactNode, useContext } from "react";
-//import ShoppingCart  from '@/app/ui/shoppingcart';
+import ShoppingCart  from '@/app/ui/shoppingcart';
 import { useLocalStorage } from "@/app/hooks/localstorage";
 
 type ShoppingCartProviderProps = {
@@ -104,7 +104,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
       }}
     >
       { children }
-      {/* <ShoppingCart /> */}
+      <ShoppingCart />
     </ShoppingCartContext.Provider>
   );
 };
