@@ -2,16 +2,26 @@ import React from 'react'
 import { genericQuery } from '@/app/lib/db';
 import { CartProps } from '@/app/lib/definitions';
 import DeleteForm from '@/app/ui/cart/delete-form';
-//import { formatCurrency } from '@/app/utils/formatCurrency';
+import { formatCurrency } from '@/app/utils/formatCurrency';
 
 export default async function OrderPage() {
   
   const request = await genericQuery("Select * FROM cartorder", []);
   const order = JSON.stringify(request);
 
-  //let totalPrice: number = 0;
-  //const reduce = JSON.parse(order).reduce((a: number, c: {price: number}) => a += c.price, 0);
-  
+  let totalPrice;
+
+  totalPrice = JSON.parse(order).map((p: CartProps) => {
+    if (p.count === 0) {
+      return 0;
+    } else {
+      const total: number = p.count *= p.price
+      return total;
+    }
+  });
+
+  let filterTotal = totalPrice.filter((a: number) => a += a)
+
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
@@ -30,18 +40,20 @@ export default async function OrderPage() {
               {JSON.parse(order).map((ord: CartProps) => {
                 if (ord.count !== 0) {
                   return (
-                <tr key={ord.id} className='text-slate-200 text-center bg-slate-700'>
-                  <td className='border-b border-slate-600 py-2'>{ord.id}</td>
-                  <td className='border-b border-slate-600 py-2'>{ord.deckname}</td>
-                  <td className='border-b border-slate-600 py-2'>{ord.count}</td>
-                  {/* <td className='border-b border-slate-600 py-2'>{ord.price.toFixed(2)}.-</td> */}
-                  <td className='border-b border-slate-600 py-2'>
-                    {JSON.parse(order).reduce((total: number, cartItem: {quantity: number}) => {
-                      const totalCart: number = total += cartItem.quantity
-                      return totalCart}, 0
-                    )}  
-                  </td>
-                </tr>
+                    <tr key={ord.id} className='text-slate-200 text-center bg-slate-700'>
+                      <td className='border-b border-slate-600 py-2'>
+                        {ord.id}
+                      </td>
+                      <td className='border-b border-slate-600 py-2'>
+                        {ord.deckname}
+                      </td>
+                      <td className='border-b border-slate-600 py-2'>
+                        {ord.count}
+                      </td>
+                      <td className='border-b border-slate-600 py-2'>
+                        {ord.price.toFixed(2)}.-  
+                      </td>
+                    </tr>
                 )}})
               }
               </tbody>
@@ -50,9 +62,9 @@ export default async function OrderPage() {
               py-2 rounded-bl-md rounded-br-md mt-0">
               <div className='text-slate-300 w-full flex justify-between'>
                 <h2 className='ml-2'>Total:</h2>
-                <div className='sm:w-[260px] md:w-[200px] xl:w-[340px]'>
+                <div className='sm:w-[120px] md:w-[200px] xl:w-[240px]'>
                   <p className='text-center'>
-                    {"total"}.- CHF
+                    {formatCurrency(filterTotal)}.-
                   </p>
                 </div>
               </div>

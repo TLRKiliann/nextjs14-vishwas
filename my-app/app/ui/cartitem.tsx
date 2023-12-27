@@ -48,7 +48,7 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                 <form action={formAction} className='flex items-center justify-between'>
 
                     <p className='text-md text-slate-600'>
-                        stock: {stock}
+                        stock: {stock - quantity}
                     </p>
 
                     <input type="number" id="id" name="id" value={id} hidden readOnly />

@@ -1,8 +1,9 @@
 "use client";
 
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { DecksProps } from '@/app/lib/definitions';
 import { useShoppingCart } from '@/app/context/cart-context';
 import { formatCurrency } from "@/app/utils/formatCurrency";
@@ -34,21 +35,28 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
         decreaseCartQuantity(id, deckname, price, img, stock);
     };
 
+    const router = useRouter();
+
+    const handleImg = (id: number) => {
+        router.push(`/products/decks/baker/${id}`);
+    }
+
     return (
         <div key={id}
             className="text-slate-600 bg-white shadow-lg transform transition 
                 hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
                 rounded-xl border mb-auto"
         >
-            
-            <Image
-                src={img}
-                width={200}
-                height={200}
-                alt="img deck"
-                className="m-auto transform ease-in-out hover:opacity-70 hover:cursor-pointer 
-                    hover:scale-90 active:animate-decks-rotation active:duration-300"
-            />
+            <span onClick={() => handleImg(id)}>
+                <Image
+                    src={img}
+                    width={200}
+                    height={200}
+                    alt="img deck"
+                    className="m-auto transform ease-in-out hover:opacity-70 hover:cursor-pointer 
+                        hover:scale-90 active:animate-decks-rotation active:duration-300"
+                />
+            </span>
 
             <div className="flex flex-col font-bold bg-slate-100/80 border">
                 <div className="flex align-center justify-between text-md text-slate-600/80 mx-4 
@@ -61,11 +69,16 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </div>
                 <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2 border">
                     <p>Stock</p>
-                    <p>{stock}</p>
+                    <p>{stock - quantity}</p>
                 </div>
                 
-                <div>
-                  <span>{quantity}</span> In cart
+                <div className='flex justify-center items-center border'>
+                    <span className='text-md font-normal text-slate-500'>
+                        {quantity}&nbsp;
+                    </span>
+                    <p className='text-md font-normal text-slate-500'>
+                        In cart
+                    </p>
                 </div>
             
             </div>

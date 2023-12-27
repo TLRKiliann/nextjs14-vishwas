@@ -54,10 +54,10 @@ const config: Config = {
         },
         decksrotation: {
           "0%": {
-            transform: "rotate3d(0,0,0, 0deg)",
+            transform: "rotate3d(0, -1, -2, 0deg)",
           },
           "100%": {
-            transform: "rotate3d(-3, 0, 3, 540deg)",
+            transform: "rotate3d(-2, 2, 2, 720deg)",
           },
         },
         horizontalrotation: {
