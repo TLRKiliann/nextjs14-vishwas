@@ -14,7 +14,6 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
     const {pending} = useFormStatus();
     const [code, formAction] = useFormState(deleteCartItem, undefined);
     const initialCount: number = 0;
-    //const [count, setCount] = useState<number>(state.items.length);
 
     const handleDeleteCount = (id: number) => {
         removeFromCart(id);
