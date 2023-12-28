@@ -25,11 +25,11 @@ export default function Header() {
     return (
         <>
             <header className="fixed flex top-0 left-0 w-full h-[80px]
-                dark:text-slate-50
-                dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
-                dark:via-sky-500 dark:via-30% dark:to-slate-900 dark:to-90%
-                bg-gradient-to-r from-violet-400 from-10% 
-                via-slate-50 via-30% to-violet-400 to-90%
+                text-cyan-800 dark:text-slate-50
+                dark:bg-gradient-to-br dark:from-slate-900 dark:from-10% 
+                dark:via-sky-500 dark:via-40% dark:to-slate-900 dark:to-90%
+                bg-gradient-to-br from-cyan-500 from-10% 
+                via-slate-50 via-40% to-cyan-500 to-90%
                 py-2 z-10"
             >
 
@@ -48,20 +48,20 @@ export default function Header() {
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-purple-500"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-cyan-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         >Home</Link>
 
                         <ShopMenu />
 
                         <Link href="/docs" className={`${pathname === '/docs'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-cyan-600"
                             : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                dark:text-cyan-300 text-fuchsia-600"
+                                dark:text-cyan-300 text-cyan-600"
                             : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
                                 hover:text-slate-50 hover:scale-105"}`}
                         >
@@ -73,10 +73,9 @@ export default function Header() {
                         {mounted === true ? (
                             <span 
                                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                                className='flex flex-col align-center justify-center text-lg 
-                                    dark:bg-slate-900 bg-violet-400
-                                    hover:scale-105 hover:text-slate-50 dark:text-slate-50 
-                                    mr-8 ml-14 rounded-lg'
+                                className='flex flex-col items-center justify-center text-lg 
+                                    bg-tansparent hover:scale-105 hover:text-slate-50 
+                                    dark:text-slate-50 mr-4 ml-14 rounded-lg'
                             >
                                 {theme === 'light' 
                                     ? <FiMoon size={24} />

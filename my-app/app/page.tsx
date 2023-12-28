@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { allTitle, allText } from '@/app/lib/datas';
 import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
@@ -57,7 +56,7 @@ export default function Home() {
       <main className="flex flex-col w-full min-h-screen">
   
         <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
-          dark:bg-cyan-50 bg-slate-50 border border-purple-200 dark:border-b-blue-200
+          dark:bg-cyan-50 bg-slate-50 border border-cyan-100 dark:border-b-blue-200
           shadow-xllight z-10"
         >
           
@@ -87,17 +86,21 @@ export default function Home() {
           dark:text-slate-50 text-cyan-600
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
-          bg-gradient-to-r from-violet-400 from-10% 
-          via-slate-50 via-30% to-violet-400 to-90%
+          bg-gradient-to-r from-cyan-500 from-10% 
+          via-slate-50 via-40% to-cyan-500 to-90%
           shadow-xllight mt-40 z-0'
         >
-          <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text 
+          <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
+
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
+            
             dark:drop-shadow-lg
-            bg-gradient-to-br from-purple-600 from-10% 
-            via-purple-400 via-50% to-purple-600 to-90% drop-shadow-lg
-            transition animate-slice-appear'
+            
+            bg-gradient-to-br from-cyan-800 from-10% 
+            via-cyan-300 via-50% to-cyan-800 to-90% 
+            
+            drop-shadow-lg transition animate-slice-appear'
           >
             Take a look !
           </h2>
@@ -150,7 +153,6 @@ export default function Home() {
         <div className="flex justify-center">
 
           <div className='flex-1 bg-slate-900'>
-            {/* <Image /> */}
           </div>
 
           <div className='w-4/5'>
@@ -161,7 +163,6 @@ export default function Home() {
           </div>
 
           <div className='flex-1 bg-slate-900'>
-            {/* <Image /> */}
           </div>
 
         </div>

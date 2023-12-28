@@ -9,38 +9,51 @@ import { FaLinkedin } from "react-icons/fa6";
 
 export default function SocialIcons() {
     return (
-        <div className='flex align-center justify-end dark:text-blue-400/80 text-purple-500 mt-8'>
-            <Link href="https://www.github.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+        <div className='flex align-center justify-end dark:text-blue-400/80 text-cyan-500 mt-8'>
+            <Link 
+                href="https://www.github.com"
+                className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaGithub size={28} />
                 </span>                    
             </Link>
 
-            <Link href="https://twitter.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
-                <span className=''>
+            <Link 
+                href="https://twitter.com"
+                className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+                <span
+                className=''>
                     <FaSquareTwitter size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.youtube.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link 
+                href="https://www.youtube.com"
+                className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaYoutube size={28} />
                 </span>
             </Link>
 
-            <Link href="https://instagram.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link 
+                href="https://instagram.com"
+                className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaInstagram size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.tiktok.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link 
+                href="https://www.tiktok.com"
+                className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaTiktok size={28} />
                 </span>
             </Link>
 
-            <Link href="https://www.linkedin.com" className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
+            <Link 
+                href="https://www.linkedin.com"
+                className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>
                 <span>
                     <FaLinkedin size={28} />
                 </span>
