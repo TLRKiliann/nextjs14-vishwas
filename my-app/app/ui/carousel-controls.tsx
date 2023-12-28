@@ -22,7 +22,7 @@ const CarouselControls = (props: Props) => {
         className={classNames({
           "px-4 py-2 text-white rounded-md": true,
           "bg-blue-200": !props.canScrollPrev,
-          "font-bold bg-cyan-500 shadow-lg hover:bg-cyan-600 hover:shadow-none active:bg-cyan-700 \
+          "font-bold bg-slate-500 shadow-lg hover:bg-slate-600 hover:shadow-none active:bg-slate-700 \
            dark:bg-sky-800 hover:dark:bg-sky-800 active:dark:bg-sky-700": props.canScrollPrev,
         })}
       >
@@ -38,7 +38,7 @@ const CarouselControls = (props: Props) => {
         className={classNames({
           "px-4 py-2 text-white rounded-md": true,
           "bg-blue-200": !props.canScrollNext,
-          "font-bold bg-cyan-500 shadow-lg hover:bg-cyan-600 hover:shadow-none active:bg-cyan-700 \
+          "font-bold bg-slate-500 shadow-lg hover:bg-slate-600 hover:shadow-none active:bg-slate-700 \
            dark:bg-sky-800 hover:dark:bg-sky-800 active:dark:bg-sky-700": props.canScrollNext,
         })}
       >

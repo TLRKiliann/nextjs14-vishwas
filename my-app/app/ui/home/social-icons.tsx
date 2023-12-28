@@ -9,7 +9,7 @@ import { FaLinkedin } from "react-icons/fa6";
 
 export default function SocialIcons() {
     return (
-        <div className='flex align-center justify-end dark:text-blue-400/80 text-cyan-500 mt-8'>
+        <div className='flex align-center justify-end dark:text-blue-400/80 text-blue-800 mt-8'>
             <Link 
                 href="https://www.github.com"
                 className='hover:dark:text-blue-400/90 hover:cursor-pointer ml-4'>

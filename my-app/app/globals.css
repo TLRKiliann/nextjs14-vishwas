@@ -20,8 +20,8 @@
     dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%;
   }
   .light-bg-gradient {
-    @apply bg-gradient-to-br from-cyan-600 from-10% 
-    via-cyan-500 via-40% to-cyan-600 to-90%;
+    @apply bg-gradient-to-br from-slate-600 from-10% 
+    via-slate-500 via-40% to-slate-600 to-90%;
   }
   .secondary-light-bg-gradient {
     @apply bg-gradient-to-tr from-cyan-400 from-10% 

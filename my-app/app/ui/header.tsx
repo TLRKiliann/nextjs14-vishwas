@@ -25,11 +25,10 @@ export default function Header() {
     return (
         <>
             <header className="fixed flex top-0 left-0 w-full h-[80px]
-                text-cyan-800 dark:text-slate-50
+                text-blue-800 dark:text-slate-50
                 dark:bg-gradient-to-br dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-40% dark:to-slate-900 dark:to-90%
-                bg-gradient-to-br from-cyan-500 from-10% 
-                via-slate-50 via-40% to-cyan-500 to-90%
+                bg-indigo-200
                 py-2 z-10"
             >
 

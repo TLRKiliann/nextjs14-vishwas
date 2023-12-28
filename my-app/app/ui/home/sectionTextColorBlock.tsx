@@ -17,8 +17,8 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
             <span className='h-10 border-none
                 dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% 
                 dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90% 
-                bg-gradient-to-r from-cyan-500 from-10% via-slate-100 via-50% 
-                to-cyan-500 to-90% rounded-tl-lg rounded-tr-lg'>
+                bg-gradient-to-r from-indigo-200 from-10% via-indigo-50 via-50% 
+                to-indigo-200 to-90% rounded-tl-lg rounded-tr-lg'>
             </span >
 
             <section className='w-full flex'>
@@ -29,8 +29,7 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
                         text-transparent bg-clip-text 
                         dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% dark:via-sky-500 
                         dark:via-50% dark:to-emerald-500 dark:to-90%
-                        bg-gradient-to-br from-cyan-600 from-10% 
-                        via-cyan-600 via-50% to-cyan-600 to-90%
+                        bg-blue-800
                         py-4 pl-10'
                     >
                         {titleBox}
@@ -48,7 +47,8 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
             <span className='h-10 border-none
                 dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% dark:via-sky-500 dark:via-50% 
                 dark:to-emerald-500 dark:to-90% 
-                bg-gradient-to-r from-cyan-500 from-10% via-slate-200 via-50% to-cyan-500 to-90% 
+                bg-gradient-to-r from-indigo-200 from-10% via-indigo-50 via-50% 
+                to-indigo-200 to-90%
                 rounded-bl-lg rounded-br-lg'>
             </span >
         </div>

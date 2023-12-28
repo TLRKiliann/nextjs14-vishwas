@@ -56,7 +56,7 @@ export default function Home() {
       <main className="flex flex-col w-full min-h-screen">
   
         <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
-          dark:bg-cyan-50 bg-slate-50 border border-cyan-100 dark:border-b-blue-200
+          dark:bg-cyan-50 bg-slate-50 border border-slate-100 dark:border-b-blue-200
           shadow-xllight z-10"
         >
           
@@ -86,20 +86,14 @@ export default function Home() {
           dark:text-slate-50 text-cyan-600
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
-          bg-gradient-to-r from-cyan-500 from-10% 
-          via-slate-50 via-40% to-cyan-500 to-90%
+          bg-slate-200
           shadow-xllight mt-40 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
 
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
-            
-            dark:drop-shadow-lg
-            
-            bg-gradient-to-br from-cyan-800 from-10% 
-            via-cyan-300 via-50% to-cyan-800 to-90% 
-            
+            dark:drop-shadow-lg bg-slate-500 
             drop-shadow-lg transition animate-slice-appear'
           >
             Take a look !
