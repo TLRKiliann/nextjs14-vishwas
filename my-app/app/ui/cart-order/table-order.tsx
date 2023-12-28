@@ -1,19 +1,21 @@
 "use client";
 
 import React from 'react'
-import { CartProps } from '@/app/lib/definitions';
+import { CartItem } from "@/app/lib/definitions";
 import Link from 'next/link';
 import DeleteForm from '@/app/ui/cart-order/delete-form';
+import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function TableOrder({order}: {order: CartProps[]}) {
+export default function TableOrder() {
     
-    let totalPrice;
+    const { cartItems } = useShoppingCart();
 
-    totalPrice = order.map((p: CartProps) => {
-      if (p.count === 0) {
+    let totalPrice;
+    totalPrice = cartItems.map((p: CartItem) => {
+      if (p.quantity === 0) {
         return 0;
       } else {
-        const total: number = p.count *= p.price
+        const total: number = p.quantity * p.price
         return total;
       }
     });
@@ -30,8 +32,8 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                     <th className='py-1'>Quantity</th>
                     <th className='py-1'>Price</th>
                 </tr>
-                {order.map((ord: CartProps) => {
-                    if (ord.count !== 0) {
+                {cartItems.map((ord: CartItem) => {
+                    if (ord.quantity !== 0) {
                     return (
                         <tr key={ord.id} className='flex justify-around text-slate-200 text-center 
                         bg-slate-700'>
@@ -42,7 +44,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                             {ord.deckname}
                         </td>
                         <td className='border-b border-slate-600 py-2'>
-                            {ord.count}
+                            {ord.quantity}
                         </td>
                         <td className='border-b border-slate-600 py-2'>
                             {ord.price.toFixed(2)}.-  
@@ -67,7 +69,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                 </div>
             </div>
 
-            <DeleteForm order={order} />
+            <DeleteForm cartItems={cartItems} />
             
             <div className='flex justify-center mt-4'>
               <Link href="/products"

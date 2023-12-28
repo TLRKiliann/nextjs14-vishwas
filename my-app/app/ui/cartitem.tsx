@@ -6,7 +6,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useShoppingCart } from '@/app/context/cart-context';
 import { deleteCartItem } from '@/app/lib/actions';
-import { revalidatePath } from 'next/cache';
 
 type ItemProps = {
     id: number;
@@ -35,8 +34,6 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
 
     const initialCount: number = 0;
     
-    revalidatePath(pathname);
-
     return (
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
 

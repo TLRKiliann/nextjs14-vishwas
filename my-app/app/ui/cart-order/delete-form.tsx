@@ -1,12 +1,13 @@
 "use client";
 
 import React from 'react'
-import { CartProps } from '@/app/lib/definitions';
+import { CartItem } from "@/app/lib/definitions";
+
 import { useFormState, useFormStatus } from 'react-dom';
 import { deleteOrder } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function DeleteForm({order}: {order: CartProps[]}) {
+export default function DeleteForm({cartItems}: {cartItems: CartItem[]}) {
 
     const { removeFromCart } = useShoppingCart();
 
@@ -20,8 +21,8 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
 
     return (
         <div className='w-full flex flex-col items-center rounded mt-20'>
-            {order.map((ord: CartProps) => {
-                if (ord.count !== 0) {
+            {cartItems.map((ord: CartItem) => {
+                if (ord.quantity !== 0) {
                     return (
                         <form
                             key={ord.id}
@@ -36,7 +37,7 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
                             </div>
 
                             <p className='text-center m-auto'>{ord.price.toFixed(2)}.-</p>
-                            <p className='text-center m-auto'>{ord.count}</p>
+                            <p className='text-center m-auto'>{ord.quantity}</p>
 
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
                             <input type="text" id="deckname" name="deckname" value={ord.deckname} hidden readOnly />
