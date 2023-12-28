@@ -21,7 +21,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
     let filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0)
 
     return (
-        <div className='flex flex-col w-full'>
+        <div className='flex flex-col w-full pr-4'>
             <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
                 <tbody className='flex flex-col'>
                 <tr className='flex justify-around w-full text-lg text-slate-500 bg-slate-800'>
@@ -29,7 +29,6 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                     <th className='py-1'>Product</th>
                     <th className='py-1'>Quantity</th>
                     <th className='py-1'>Price</th>
-                    {/* <th className='py-1'>Total </th> */}
                 </tr>
                 {order.map((ord: CartProps) => {
                     if (ord.count !== 0) {
