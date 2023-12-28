@@ -16,7 +16,7 @@ export default function ShopMenu() {
 
     const toggle = () => {
         setIsOpen((old) => !old);
-    }
+    };
 
     const transClass: string = isOpen ? "flex" : "hidden";
 
@@ -32,8 +32,8 @@ export default function ShopMenu() {
                 Shop
             </span>
 
-            <div className={`absolute text-md font-normal top-12 z-20 w-[140px]] h-[auto] 
-                bg-slate-700 mt-8 ml-2 rounded-br-lg rounded-bl-lg ${transClass} flex-col`}
+            <div className={`absolute text-md font-normal top-12 z-20 w-[140px] h-[auto] 
+                bg-slate-800 mt-8 ml-1 rounded-br-lg rounded-bl-lg ${transClass} flex-col`}
             >
                 <Link 
                     href="/products"
@@ -41,40 +41,40 @@ export default function ShopMenu() {
                     className="flex align-center justify-left hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
-                    <span><FaProductHunt className="mt-[3px] mr-2" size={18} /></span>
+                    <span><FaProductHunt className="mt-[3px] mr-4" size={18} /></span>
                     <p>Products</p>
                 </Link>
 
-                <hr className='border-t-sky-800 border-b-sky-800 px-14 m-auto' />
+                <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
                 
                 <Link href="/products/decks"
                     onClick={toggle}
                     className="flex align-center justify-left hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
-                    <span><MdSkateboarding className="mt-[3px] mr-2" size={18} /></span>
+                    <span><MdSkateboarding className="mt-[3px] mr-4" size={18} /></span>
                     <p>Decks</p>
                 </Link>
                 
-                <hr className='border-t-sky-800 border-b-sky-800 px-14 m-auto' />
+                <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
                 
                 <Link href="/products/trucks"
                     onClick={toggle}
                     className="flex align-center justify-left hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
-                    <span><CgMaximizeAlt className="mt-[3px] mr-2" size={18} /></span>
+                    <span><CgMaximizeAlt className="mt-[3px] mr-4" size={18} /></span>
                     <p>Trucks</p>
                 </Link>
 
-                <hr className='border-t-sky-800 border-b-sky-800 px-14 m-auto' />
+                <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
 
                 <Link href="/products/wheels"
                     onClick={toggle}
                     className="flex align-center justify-left hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-2"
                 >
-                    <span><GiBoomerangSun className="mt-[3px] mr-2" size={18} /></span>
+                    <span><GiBoomerangSun className="mt-[3px] mr-4" size={18} /></span>
                     <p>Wheels</p>
                 </Link>
 

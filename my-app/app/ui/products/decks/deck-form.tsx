@@ -1,47 +1,35 @@
 "use client";
 
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { DecksProps } from '@/app/lib/definitions';
-import { ADD_TO_CART, REMOVE_FROM_CART, useCart } from '@/app/context/cart-context';
+import { useShoppingCart } from '@/app/context/cart-context';
+//import { formatCurrency } from '@/app/lib/utils';
 
 export default function DeckForm({id, deckname, img, price, stock}: DecksProps) {
 
-    const { state, dispatch } = useCart();
+    const { pending } = useFormStatus();
+    const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
-    const [count, setCount] = useState<number>(state.items.length);
-    const [totalPrice] = useState<number>(price);
-    let newCount: number = count;
+    const {
+        getItemQuantity,
+        increaseCartQuantity,
+        decreaseCartQuantity,
+        //removeFromCart
+    } = useShoppingCart();
 
-    const [stockItem] = useState(stock);
+    const quantity = getItemQuantity(id);
 
-    const {pending} = useFormStatus();
-    const [code, formAction] = useFormState(queryDecksCart, undefined);
-
-    const handleSub = () => {
-        console.log(id)
-        if (count === 0) {
-            console.log("Nothing has changed");
-        }
-        else {
-            dispatch({ type: REMOVE_FROM_CART, payload: { id } });
-            setCount((count) => count - 1);
-        }
+    const handleAddToCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
+        increaseCartQuantity(id, deckname, price, img, stock);
+    };
+  
+    const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
+        decreaseCartQuantity(id, deckname, price, img, stock);
     };
 
-    const handleAdd = () => {
-        if (stock < count) {
-            "Error: No more in stock";
-        } else {
-            dispatch({ type: ADD_TO_CART, payload: { id, deckname, price, img, stock } });
-            setCount(count => count + 1)
-        }
-    };
-
-    const total: string = (totalPrice * newCount).toFixed(2);
-    
     return (
         <div key={id} className='flex justify-center w-full h-auto text-md'>
 
@@ -58,10 +46,10 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
                 />
                 <p className='text-lg text-gray-500 font-bold pt-2 pl-2'>{deckname}</p>
                 <p className='text-sm text-slate-600 px-2'>
-                    {count === 0 ? price.toFixed(2) : total}.- CHF</p>
+                    {price.toFixed(2)}.- CHF</p>
                 <p className='text-sm text-slate-600 px-2'>
-                    {stock >= count 
-                        ? "Stock: " + (stock - count) + "pcs"
+                    {stock >= quantity 
+                        ? "Stock: " + (stock - quantity) + "pcs"
                         : (
                             <span className='text-red-500'>
                                 No more in stock
@@ -72,10 +60,10 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                <input type="string" id="total" name="total" value={total} hidden readOnly />
-                <input type="number" id="count" name="count" value={count} hidden readOnly />
+                <input type="number" id="price" name="price" value={price} hidden readOnly />
+                <input type="number" id="count" name="count" value={quantity} hidden readOnly />
 
-                <p className='text-sm text-slate-600 px-2'>Count: {count}</p>
+                <p className='text-sm text-slate-600 px-2'>Quantity: {quantity}</p>
 
                 <div className='flex items-center justify-between my-2 border px-2'>
                     
@@ -84,18 +72,18 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
                         id="submit"
                         name="submit"
                         value="remove"
-                        onClick={handleSub}
+                        onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
                         className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded'>
                             { pending ? "pending..." : "Delete" }
                     </button>
 
-                    {(count !== 0) || (stockItem >= 0) ? (
+                    {(quantity !== 0) || (stock >= 0) ? (
                         <button 
                             type="submit"
                             id="submit"
                             name="submit"
                             value="order"
-                            onClick={handleAdd}
+                            onClick={() => handleAddToCart(id, deckname, price, img, stock)}
                             className='text-sm text-slate-100 bg-slate-500 px-3 py-1 rounded'>
                             { pending ? "pending..." : "Add" }
                         </button>

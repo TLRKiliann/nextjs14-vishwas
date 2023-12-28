@@ -1,6 +1,6 @@
 import React from 'react';
-import BakerDecksCards from '@/app/ui/products/decks/baker-decks';
 import { genericQuery } from '@/app/lib/db';
+import BakerDecksCards from '@/app/ui/products/decks/baker-decks';
 
 export default async function BakerDecks() {
 

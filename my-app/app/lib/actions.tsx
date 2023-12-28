@@ -59,13 +59,14 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
   try {
     const id = formData.get("id");
     const deckname = formData.get("deckname");
-    const totalprice = formData.get("total");
+    const price = formData.get("price");
     const count = formData.get("count");
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
-      if (id !== "" && deckname !== "" && totalprice !== "" && count !== "") {
-        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, totalprice=?, \
-          count=? WHERE id=?", [id, deckname, totalprice, count, id]);
+      if (id !== "" && deckname !== "" && price !== "" && count !== "") {
+        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?",
+          [id, deckname, price, count, id]);
+          // REPLACE INTO `tablename` (`id`, `name`, `age`) VALUES (1, "A", 19)
         if (result) {
           revalidatePath("/products/decks");
           return {message: "Added to cart"}
@@ -73,9 +74,9 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
       }
     }
     if (btnSubmit === "remove") {
-      if (id !== "" && deckname !== "" && totalprice !== "" && count !== "") {
-        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, totalprice=?, \
-          count=? WHERE id=?", [id, deckname, totalprice, count, id]);
+      if (id !== "" && deckname !== "" && price !== "" && count !== "") {
+        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?", 
+          [id, deckname, price, count, id]);
         if (result) {
           revalidatePath("/products/decks");
           return {message: "Deleted from cart"}
@@ -92,18 +93,48 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
 // delete cart item by initialize count to 0
 export async function deleteCartItem(prevState: {message: string} | undefined, formData: FormData) {
   try {
+    console.log("test db begin")
     const id = formData.get("id");
     const deckname = formData.get("deckname");
-    const totalprice = formData.get("totalprice");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const btnDelete = formData.get("submit");
+    if (btnDelete === "deletecartorder") {
+      if (id !== "" && price !== "" && count !== "") {
+        const result = await queryCartDelete("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?",
+          [id, deckname, price, count, id])
+        if (result) {
+          console.log("Ok no error with pathname")
+          revalidatePath("/products/decks/baker");
+          return {
+            message: "Product deleted"
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    throw error;
+  }
+}
+
+// delete item from order by initialize count to 0
+export async function deleteOrder(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const deckname = formData.get("deckname");
+    const price = formData.get("price");
     const count = formData.get("count");
     const btnDelete = formData.get("submit");
     if (btnDelete === "deleteorder") {
-      if (id !== "" && deckname !=="" && totalprice !=="" && count !== "") {
-        const result = await queryCartDelete("UPDATE cartorder SET id=?, deckname=?, \
-          totalprice=?, count=? WHERE id=?", [id, deckname, totalprice, count, id])
+      if (id !== "" && price !== "" && count !== "") {
+        const result = await queryCartDelete("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?",
+          [id, deckname, price, count, id])
         if (result) {
-          revalidatePath("/cart");
-          return {message: "Product deleted"}
+          revalidatePath("/order");
+          return {
+            message: "Product deleted"
+          }
         }
       }
     }
