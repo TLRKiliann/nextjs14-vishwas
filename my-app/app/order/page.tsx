@@ -1,5 +1,8 @@
 import React from 'react'
 import Link from 'next/link';
+import Image from 'next/image';
+import payPalLogo from '@/public/img_logo/paypal-logo.png';
+import googleLogo from '@/public/img_logo/google-icon.png';
 import { genericQuery } from '@/app/lib/db';
 import { CartProps } from '@/app/lib/definitions';
 import DeleteForm from '@/app/ui/cart/delete-form';
@@ -31,70 +34,80 @@ export default async function OrderPage() {
         Order
       </h1>
 
-      <div className="flex justify-between w-full">
+      <div className="flex w-full">
 
         <div className='w-full bg-slate-900'>
 
-          <div className='flex justify-around gap-2 p-4'>
+          <div className='flex justify-around gap-2 px-4'>
             
-            <button className='w-2/5 text-lg font-bold text-slate-50 bg-blue-500 py-2 rounded'>
-              PayPal
+            <button className='flex items-center justify-center w-2/5 text-lg font-bold text-slate-50 
+              bg-blue-600 py-2 rounded'>
+              <Image src={payPalLogo} width={20} height={20} alt="paypal logo" 
+                className='object-cover mr-2' />
+              <p>PayPal</p>
             </button>
 
-            <button className='w-2/5 text-lg font-bold text-blue-600 bg-yellow-400 py-2 rounded'>
+            <button className='w-2/5 text-lg font-bold text-slate-50 bg-indigo-500/90 py-2 rounded'>
               Stripe
             </button>
 
-            <button className='w-2/5 text-lg font-bold text-blue-600 bg-slate-50 py-2 rounded'>
-              Google
+            <button className='flex items-center justify-center w-2/5 text-lg font-bold text-blue-500 
+              bg-slate-50 py-1 rounded'>
+              <Image src={googleLogo} width={20} height={20} alt="paypal logo" />
+              <p>oogle</p>
             </button>
 
           </div>
 
 
-          <h2 className='text-xl font-bold px-4 py-2'>
+          <h2 className='text-2xl font-bold mt-3 px-4 py-2'>
             Shipping
           </h2>
 
-          <form className='flex flex-col p-4'>
+          <form className='flex flex-col px-8'>
 
             <label htmlFor="email" className='text-lg pt-2 pb-1'>
               Email
             </label>
             
-            <input type="email" id="email" name="email"
-              className='w-3/5 px-5 py-1'/>
+            <input type="email" id="email" name="email" placeholder="Email"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="user" className='text-lg pt-2 pb-1'>
               Username
             </label>
             
-            <input type="text" id="user" name="user"
-              className='w-3/5 px-5 py-1'/>
+            <input type="text" id="user" name="user" placeholder="Username"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="address" className='text-lg pt-2 pb-1'>
               Address
             </label>
             
-            <input type="text" id="address" name="address"
-              className='w-3/5 px-5 py-1'/>
+            <input type="text" id="address" name="address" placeholder="Address"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="phone" className='text-lg pt-2 pb-1'>
               Phone
             </label>
             
-            <input type="number" id="phone" name="phone"
-              className='w-3/5 px-5 py-1'/>
+            <input type="number" id="phone" name="phone" placeholder="Phone"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="passwd" className='text-lg pt-2 pb-1'>
               Password
             </label>
             
-            <input type="password" id="passwd" name='passwd'
-              className='w-3/5 px-5 py-1'/>
+            <input type="password" id="passwd" name='passwd' placeholder="Password"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
 
             <button type="submit" id="submit" name="submit" value="shipping"
-              className='w-3/5 text-xl font-bold bg-blue-600 my-6 py-2 rounded'
+              className='w-ful text-xl font-bold bg-blue-600 my-6 py-2 rounded'
             >
               Order
             </button>
@@ -102,49 +115,54 @@ export default async function OrderPage() {
           </form>
 
 
-          <h2 className='text-xl font-bold px-4 py-2'>
+          <h2 className='text-2xl font-bold mt-3 px-4 py-2'>
             Payment
           </h2>
 
-          <form className='flex flex-col p-4'>
+          <form className='flex flex-col px-8'>
 
             <label htmlFor="email" className='text-lg pt-2 pb-1'>
               Email
             </label>
             
-            <input type="email" id="email" name="email"
-              className='w-3/5 px-5 py-1'/>
+            <input type="email" id="email" name="email" placeholder="Email"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="user" className='text-lg pt-2 pb-1'>
               Username
             </label>
             
-            <input type="text" id="user" name="user"
-              className='w-3/5 px-5 py-1'/>
+            <input type="text" id="user" name="user" placeholder="Username"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="address" className='text-lg pt-2 pb-1'>
               Address
             </label>
             
-            <input type="text" id="address" name="address"
-              className='w-3/5 px-5 py-1'/>
+            <input type="text" id="address" name="address" placeholder="Address"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="phone" className='text-lg pt-2 pb-1'>
               Phone
             </label>
             
-            <input type="number" id="phone" name="phone"
-              className='w-3/5 px-5 py-1'/>
+            <input type="number" id="phone" name="phone" placeholder="Phone"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
             
             <label htmlFor="passwd" className='text-lg pt-2 pb-1'>
               Password
             </label>
             
-            <input type="password" id="passwd" name='passwd'
-              className='w-3/5 px-5 py-1'/>
+            <input type="password" id="passwd" name='passwd' placeholder="Password"
+              className='w-full bg-slate-700 px-2 py-1 rounded focus:outline 
+                focus:outline-blue-600 focus:border focus:border-blue-600' />
 
             <button type="submit" id="submit" name="submit" value="shipping"
-              className='w-3/5 text-xl font-bold bg-blue-600 my-6 py-2 rounded'
+              className='w-ful text-xl font-bold bg-blue-600 my-6 py-2 rounded'
             >
               Payment
             </button>
@@ -154,10 +172,10 @@ export default async function OrderPage() {
         </div>
 
 
-        <div className='flex flex-col w-full h-[600px] xl:h-[800px] bg-slate-900'>
-          <table className='w-3/5 m-auto rounded-tl-md rounded-tr-md mb-0'>
-              <tbody>
-              <tr className='text-lg text-slate-500 bg-slate-800'>
+        <div className='w-full min-h-screen bg-slate-900 pr-4'>
+          <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
+              <tbody className='flex flex-col'>
+              <tr className='flex justify-around w-full text-lg text-slate-500 bg-slate-800'>
                 <th className='py-1'>Id</th>
                 <th className='py-1'>Product</th>
                 <th className='py-1'>Quantity</th>
@@ -167,7 +185,8 @@ export default async function OrderPage() {
               {JSON.parse(order).map((ord: CartProps) => {
                 if (ord.count !== 0) {
                   return (
-                    <tr key={ord.id} className='text-slate-200 text-center bg-slate-700'>
+                    <tr key={ord.id} className='flex justify-around text-slate-200 text-center 
+                      bg-slate-700'>
                       <td className='border-b border-slate-600 py-2'>
                         {ord.id}
                       </td>
@@ -185,11 +204,11 @@ export default async function OrderPage() {
               }
               </tbody>
             </table>
-            <div className="flex justify-end w-3/5 m-auto text-lg font-bold bg-slate-700/80 
-              py-2 rounded-bl-md rounded-br-md mt-0">
-              <div className='text-slate-300 w-full flex justify-between'>
-                <h2 className='ml-2'>Total:</h2>
-                <div className='sm:w-[120px] md:w-[200px] xl:w-[240px]'>
+            <div className="w-full text-lg font-bold bg-slate-700/80 m-auto mt-0 py-2 
+              rounded-bl-md rounded-br-md">
+              <div className='flex justify-between text-slate-300 w-full'>
+                <h2 className='ml-8'>Total:</h2>
+                <div className='mr-8'>
 
                   <p className='text-center'>
                     {filterTotal.toFixed(2)}.-
@@ -204,7 +223,7 @@ export default async function OrderPage() {
             <div className='flex justify-center mt-4'>
               <Link href="/products"
                 className='text-purple-500 hover:text-purple-600 active:text-purple-400
-                dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'
+                  dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'
               >
                 Go back to products
               </Link>

@@ -19,19 +19,19 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
     }
 
     return (
-        <div className='w-2/5 flex flex-col items-center mx-auto rounded'>
+        <div className='w-full flex flex-col items-center rounded mt-20'>
             {order.map((ord: CartProps) => {
                 if (ord.count !== 0) {
                     return (
                         <form
                             key={ord.id}
                             action={formAction}
-                            className='flex items-center justify-evenly w-3/5 h-10 bg-slate-700 
-                                m-auto mb-2 rounded'>
+                            className='flex items-center justify-evenly w-full h-10 bg-slate-700 
+                                m-auto rounded'>
                             
                             <p className='text-center ml-2'>{ord.id}</p>
     
-                            <div className='w-[130px] m-auto'>
+                            <div className='m-auto'>
                                 <p className='text-center'>{ord.deckname}</p>
                             </div>
 
@@ -55,7 +55,7 @@ export default function DeleteForm({order}: {order: CartProps[]}) {
                 }
             })}
             {code?.message ? (
-                <p className='text-orange-400'>{code.message}</p>
+                <p className='text-orange-400 mt-2'>{code.message}</p>
             ) : null}
         </div>
     )
