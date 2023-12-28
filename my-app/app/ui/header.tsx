@@ -33,7 +33,7 @@ export default function Header() {
                 py-2 z-10"
             >
 
-                <div className="relative flex align-center justify-center w-[70px] 
+                <div className="relative flex items-center justify-center w-[70px] 
                     transform rotate-45 h-auto ml-4">
                     <Image
                         src={skateLogo}
@@ -44,7 +44,7 @@ export default function Header() {
                     />
                 </div>
                 
-                <nav className='w-full flex align-center justify-end mr-5'>
+                <nav className='w-full flex items-center justify-end mr-5'>
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
@@ -60,12 +60,12 @@ export default function Header() {
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
-                            ? "flex align-center justify-center text-lg m-auto ml-10 p-2 \
+                            ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
                                 dark:text-cyan-300 text-fuchsia-600"
-                            : "flex align-center justify-center text-lg m-auto ml-10 p-2 \
+                            : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
                                 hover:text-slate-50 hover:scale-105"}`}
                         >
-                            <span><BiLogInCircle size={24} /></span><p>Login</p>
+                            <span><BiLogInCircle size={20} /></span><p className='ml-1'>Login</p>
                         </Link>
 
                         <ShoppingCart />
@@ -76,7 +76,7 @@ export default function Header() {
                                 className='flex flex-col align-center justify-center text-lg 
                                     dark:bg-slate-900 bg-violet-400
                                     hover:scale-105 hover:text-slate-50 dark:text-slate-50 
-                                    mr-8 ml-12 rounded-lg'
+                                    mr-8 ml-14 rounded-lg'
                             >
                                 {theme === 'light' 
                                     ? <FiMoon size={24} />

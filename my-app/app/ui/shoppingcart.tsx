@@ -33,18 +33,18 @@ export default function ShoppingCart() {
                 <BsCart3 size={22} />
                 <div className='absolute text-sm m-auto pl-4 -mt-1'>
                     <p className='flex items-center justify-center w-6 h-6 
-                        text-slate-900 bg-slate-50 border-none 
+                        text-slate-900 bg-slate-50/80 border-none 
                         hover:border-slate-50 dark:border-slate-50 rounded-full'
                     >
-                            {cartItems.reduce((total: number, cartItem: {quantity: number}) => {
-                                const totalCart: number = total += cartItem.quantity
-                                return totalCart}, 0
-                            )}
+                        {cartItems.reduce((total: number, cartItem: {quantity: number}) => {
+                            const totalCart: number = total += cartItem.quantity
+                            return totalCart}, 0
+                        )}
                     </p>
                 </div>
             </span>
 
-            <div className={`absolute flex-col text-md font-normal top-0 right-0 w-[400px] h-[auto] 
+            <div className={`absolute flex-col text-md font-normal top-[80px] right-0 w-[400px] h-[auto] 
                 text-slate-900 bg-slate-100 rounded-br-lg rounded-bl-lg ${transClass} z-20`}
             >
                 <div className='text-right pt-2 pr-2'>
