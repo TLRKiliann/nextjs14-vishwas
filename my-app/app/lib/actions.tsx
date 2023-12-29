@@ -1,7 +1,7 @@
 "use server";
 
 import { signIn } from '@/auth';
-import { cartOrderQuery, genericQuery, newMemberQuery, queryCartDelete } from './db';
+import { cartOrderQuery, genericQuery, newMemberQuery, queryCartDelete, sendMessage } from './db';
 import { revalidatePath } from 'next/cache';
 
 // CRUD mariadb
@@ -66,7 +66,6 @@ export async function queryDecksCart(prevState: {message: string} | undefined, f
       if (id !== "" && deckname !== "" && price !== "" && count !== "") {
         const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?",
           [id, deckname, price, count, id]);
-          // REPLACE INTO `tablename` (`id`, `name`, `age`) VALUES (1, "A", 19)
         if (result) {
           revalidatePath("/products/decks");
           return {message: "Added to cart"}
@@ -140,6 +139,28 @@ export async function deleteOrder(prevState: {message: string} | undefined, form
     }
   } catch (error) {
     console.log(error)
+    throw error;
+  }
+}
+
+// message to send from contact
+export async function messageToSend(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const message = formData.get("message");
+    const btnEmail = formData.get("submit");
+    if (btnEmail === "sendmessage") {
+      if (username !== "" && email !== "" && message !== "") {
+        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?)", [username, email, message]);
+        if (result) {
+          revalidatePath("/contact");
+          return {message: "Message was sent successfully !"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
     throw error;
   }
 }
