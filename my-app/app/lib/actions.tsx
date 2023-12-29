@@ -152,7 +152,8 @@ export async function messageToSend(prevState: {message: string} | undefined, fo
     const btnEmail = formData.get("submit");
     if (btnEmail === "sendmessage") {
       if (username !== "" && email !== "" && message !== "") {
-        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?)", [username, email, message]);
+        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)",
+          [username, email, message]);
         if (result) {
           revalidatePath("/contact");
           return {message: "Message was sent successfully !"}
