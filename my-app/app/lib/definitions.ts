@@ -76,3 +76,9 @@ export type CartItem = {
     stock: number;
     quantity: number;
 }
+
+export type MessageProps = {
+    username: string;
+    email: string;
+    message: string;
+}

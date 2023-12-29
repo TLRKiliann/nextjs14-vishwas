@@ -1,31 +1,70 @@
 "use client";
 
-import React from 'react'
+import React, { useState } from 'react'
+import { useFormState, useFormStatus } from 'react-dom';
+import { messageToSend } from '@/app/lib/actions';
 
 export default function Message() {
+
+    const {pending} = useFormStatus();
+    const [code, formAction] = useFormState(messageToSend, undefined)
+
+    const [user, setUser] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [textArea, setTextArea] = useState<string>("");
+
+    const handleUser = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        let value_user = event.target.value;
+        console.log(value_user);
+        setUser(value_user);
+    }
+
+    const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        let value_email = event.target.value;
+        console.log(value_email);
+        setEmail(value_email);
+    }
+
+    const handleTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+        let textValue = event.target.value;
+        setTextArea(textValue);
+    }
+
     return (
-        <form className='flex flex-col w-2/5 h-auto text-lg font-bold text-indigo-500 dark:text-slate-600 
+        <form action={formAction}
+            className='flex flex-col w-2/5 h-auto text-lg font-bold text-indigo-500 dark:text-slate-600 
             bg-slate-50 mx-auto mt- p-10 rounded-xl shadow-inviolet dark:shadow-in border'>
 
             <h3>Email</h3>
             
             <label htmlFor="username">Username</label>
-            <input type="text" id="username" name="username" value="" 
-                className='bg-slate-200' />
+            <input type="text" id="username" name="username" value={user}
+                onChange={(event) => handleUser(event)}
+                placeholder='Username' required
+                className='text-slate-500 bg-slate-200 px-2 py-1' />
 
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" value="" 
-                className='bg-slate-200' />
+            <input type="email" id="email" name="email" value={email} 
+                onChange={(event) => handleEmail(event)}
+                placeholder="Email" required
+                className='text-slate-500 bg-slate-200 px-2 py-1' />
             
             <label htmlFor="message">Enter your text</label>
             <textarea name="message" id="message" cols={20} rows={5}
-                className='bg-slate-200'>
+                onChange={(event) => handleTextArea(event)}
+                value={textArea}
+                className='text-slate-500 bg-slate-200 p-2'>
             </textarea>
             
             <button type="submit" id="submit" name="submit" value="sendmessage"
-                className='text-slate-50 bg-blue-500 mt-4 py-2 rounded-lg border'>
-                Submit
+                disabled={pending} className='text-slate-50 bg-blue-500 mt-4 
+                py-2 rounded-lg border'
+            >
+                {pending ? "Pending..." : "Submit"}
             </button>
+            {code?.message ? (
+                <p className='text-center text-green-400'>{code.message}</p>
+            ) : null}
 
         </form>
     )
