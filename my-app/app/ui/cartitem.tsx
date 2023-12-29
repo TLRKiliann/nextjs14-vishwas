@@ -38,7 +38,7 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
 
             <div className='m-auto ml-4'>
-                <Image src={img} width={100} height={100} alt="no img" className='rounded-lg shadow-lg' />
+                <Image src={img} width={100} height={100} alt="no img" className='rounded-lg drop-shadow-lg' />
             </div>
 
             <div className='flex-1 items-center m-auto mr-4 ml-4 pl-4 pr-2'>
@@ -67,10 +67,10 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                     <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
 
                     <button type="submit" id="submit" name="submit" value="deletecartorder"
-                        onClick={() => handleDeleteItem(id)}
+                        onClick={() => handleDeleteItem(id)} disabled={pending}
                         className='text-slate-200 font-bold bg-red-500 hover:bg-red-500/80 
                             hover:shadow-none active:text-slate-50 active:bg-red-400 px-2 py-1 
-                            rounded shadow-md'
+                            rounded drop-shadow-lg'
                     >
                         {pending ? "Pending..." : "Remove"}
                     </button>
