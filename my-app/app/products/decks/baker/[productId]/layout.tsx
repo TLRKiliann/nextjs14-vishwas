@@ -15,11 +15,11 @@ type Props = {
 export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
   const title = await new Promise((resolve) => {
     setTimeout(() => {
-      resolve(`Baker ${params.productId}`)
+      resolve(`Deck ${params.productId}`)
     }, 300)
   })
   return {
-    title: `Decks ${title}`
+    title: `Baker's ${title}`
   }
 }
 
@@ -36,7 +36,7 @@ export default async function DetailsProduct({children, params}:
       </h1>
         {children}
       <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
-        <Link href="/cart">Display Cart</Link>
+        <Link href="/order">Go to checkout</Link>
       </li>
       <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
         <Link href={`/products/decks/baker/${params.productId}/reviews`}>All articles</Link>
