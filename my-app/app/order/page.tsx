@@ -11,8 +11,10 @@ export const metadata: Metadata = {
 
 export default async function OrderPage() {
   
+  /*
   const request = await genericQuery("SELECT * FROM cartorder", []);
   const order = JSON.stringify(request);
+  */
 
   return (
     <div className='min-h-screen w-full py-[75px] bg-slate-900'>
@@ -25,7 +27,7 @@ export default async function OrderPage() {
 
         <FormOrder />
 
-        <TableOrder order={JSON.parse(order)} />
+        <TableOrder />
 
       </div>
 

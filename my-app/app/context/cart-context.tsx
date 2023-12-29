@@ -2,18 +2,10 @@
 
 import { createContext, ReactNode, useContext } from "react";
 import { useLocalStorage } from "@/app/hooks/localstorage";
+import { CartItem } from "@/app/lib/definitions";
 
 type ShoppingCartProviderProps = {
   children: ReactNode;
-}
-
-type CartItem = {
-  id: number;
-  deckname: string;
-  img: string;
-  price: number;
-  stock: number;
-  quantity: number;
 }
 
 type ShoppingCartContextProps = {

@@ -51,7 +51,7 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
+        <hr className='mx-40 border border-indigo-500/40 dark:border-blue-800/30' />
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story
@@ -78,7 +78,7 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
+        <hr className='mx-40 border border-indigo-500/40 dark:border-blue-800/30' />
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
@@ -114,7 +114,7 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
+        <hr className='mx-40 border border-indigo-500/40 dark:border-blue-800/30' />
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
@@ -135,7 +135,7 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-violet-600/40 dark:border-blue-800/30' />
+        <hr className='mx-40 border border-indigo-600/40 dark:border-blue-800/30' />
 
         <Partners />
 

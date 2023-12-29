@@ -67,3 +67,18 @@ export type CartProps = {
     price: number;
     count: number;
 }
+
+export type CartItem = {
+    id: number;
+    deckname: string;
+    img: string;
+    price: number;
+    stock: number;
+    quantity: number;
+}
+
+export type MessageProps = {
+    username: string;
+    email: string;
+    message: string;
+}

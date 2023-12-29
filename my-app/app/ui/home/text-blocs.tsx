@@ -10,7 +10,7 @@ export default function TextBlocks({title, text, children}: PropsText) {
     return (
         <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
             
-            <hr className='w-4/5 m-auto mb-10 border border-violet-600/40 dark:border-blue-600/40'/>
+            <hr className='w-4/5 m-auto mb-10 border border-indigo-800/40 dark:border-blue-600/40'/>
 
             <div className='flex flex-col align-center justify-center w-4/5 m-auto'>
 
@@ -18,8 +18,7 @@ export default function TextBlocks({title, text, children}: PropsText) {
                     text-transparent bg-clip-text 
                     dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
                     dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
-                    bg-gradient-to-br from-violet-500 from-10% 
-                    via-purple-500 via-50% to-violet-200 to-90% mb-4'
+                    bg-indigo-500 mb-4'
                 >
                     {title}
                 </h2>
@@ -32,7 +31,7 @@ export default function TextBlocks({title, text, children}: PropsText) {
 
             </div>
 
-            <hr className='w-4/5 m-auto mt-10 border border-violet-600/40 dark:border-blue-600/40'/>
+            <hr className='w-4/5 m-auto mt-10 border border-indigo-800/40 dark:border-blue-600/40'/>
 
         </div>
     )

@@ -27,7 +27,7 @@ export default function ShoppingCart() {
             <span
                 className={`${pathname === "/cart"
                 ? "text-lg ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                : "text-lg ml-10 p-2 hover:text-slate-50 hover:scale-105 hover:cursor-pointer"}`}
+                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 hover:cursor-pointer"}`}
                 onClick={toggle}
             >
                 <BsCart3 size={22} />
@@ -45,7 +45,7 @@ export default function ShoppingCart() {
             </span>
 
             <div className={`absolute flex-col text-md font-normal top-[80px] right-0 w-[400px] h-[auto] 
-                text-slate-900 bg-slate-100 rounded-br-lg rounded-bl-lg ${transClass} z-20`}
+                text-slate-900 bg-white rounded-br-lg rounded-bl-lg ${transClass} z-20`}
             >
                 <div className='text-right pt-2 pr-2'>
                     <button

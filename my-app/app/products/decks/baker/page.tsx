@@ -1,6 +1,14 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { genericQuery } from '@/app/lib/db';
 import BakerDecksCards from '@/app/ui/products/decks/baker-decks';
+
+export const metadata: Metadata = {
+  title: {
+      absolute: "Baker's Decks"
+  },
+  description: "list of Baker's decks"
+}
 
 export default async function BakerDecks() {
 

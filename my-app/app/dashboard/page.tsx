@@ -2,6 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { auth } from "@/auth";
+import { MessageProps } from '@/app/lib/definitions';
+import { showAllMessageBox } from '@/app/lib/db';
 
 export const metadata: Metadata = {
     title: "dashboard",
@@ -13,16 +15,30 @@ export default async function Dashboard() {
 
     console.log(session, "session watch on server terminal !");
 
+    const request = showAllMessageBox("SELECT * FROM messagebox", []);
+    const messages = JSON.stringify(request);
+
     return (
-        <ul className='list-disc m-2 pl-4 hover:text-blue-400'>
-            <li>
-                <Link 
-                    href="/dashboard/invoices"
-                    className='font-bold'
-                >
-                    Invoices
-                </Link>
-            </li>
-        </ul>
+        <>
+            <ul className='list-disc m-2 pl-4 hover:text-blue-400'>
+                <li>
+                    <Link 
+                        href="/dashboard/invoices"
+                        className='font-bold'
+                    >
+                        Invoices
+                    </Link>
+                </li>
+            </ul>
+
+            {JSON.parse(messages).map((msg: MessageProps) => (
+                <div key={msg.username}>
+                    <p>{msg.username}</p>
+                    <p>{msg.email}</p>
+                    <p>{msg.message}</p>
+                </div>
+            ))}
+
+        </>
     )
 }

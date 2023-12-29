@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { genericQuery } from '@/app/lib/db';
 import { DecksProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
+import BoxImage from '@/app/ui/products/decks/box-image';
 import DeckForm from '@/app/ui/products/decks/deck-form';
 
 type Props = {
@@ -42,18 +43,24 @@ const DetailsProduct = async ({params}: Props) => {
         <div className='min-h-screen'>
             <p className="p-4">Details by product id: {params.productId}</p>
 
-                <div className="flex align-center justify-start">
-                    <Link 
-                        href={`/products/decks/baker/${params.productId}/reviews`}
-                        className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
-                        text-violet-500 hover:text-violet-400
-                        p-4'
-                    >
-                        All videos with baker
-                    </Link>
-                </div>
+            <div className="flex align-center justify-start">
+                <Link 
+                    href={`/products/decks/baker/${params.productId}/reviews`}
+                    className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
+                    text-violet-500 hover:text-violet-400
+                    p-4'
+                >
+                    All videos with baker
+                </Link>
+            </div>
 
-            {productName}
+            <div className='w-full flex border'>
+
+                <BoxImage paramsId={params.productId} />
+
+                {productName}
+            
+            </div>
 
             {reviews.map((rev) => (
                 rev.id === parseInt(params.productId) ? (
