@@ -86,14 +86,17 @@ export default function Home() {
           dark:text-slate-50 text-cyan-600
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
-          bg-slate-200
+          bg-indigo-100
           shadow-xllight mt-40 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
 
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
-            dark:drop-shadow-lg bg-slate-500 
+            dark:drop-shadow-lg 
+            bg-gradient-to-br from-indigo-500 from-10% 
+            via-indigo-400 via-40% to-indigo-500 to-90%
+     
             drop-shadow-lg transition animate-slice-appear'
           >
             Take a look !

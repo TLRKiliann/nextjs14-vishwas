@@ -27,7 +27,7 @@ export default function ShoppingCart() {
             <span
                 className={`${pathname === "/cart"
                 ? "text-lg ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                : "text-lg ml-10 p-2 hover:text-slate-50 hover:scale-105 hover:cursor-pointer"}`}
+                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 hover:cursor-pointer"}`}
                 onClick={toggle}
             >
                 <BsCart3 size={22} />

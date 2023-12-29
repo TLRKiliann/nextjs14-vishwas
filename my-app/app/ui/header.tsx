@@ -47,22 +47,22 @@ export default function Header() {
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-cyan-600"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
+                            : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105"}`}
                         >Home</Link>
 
                         <ShopMenu />
 
                         <Link href="/docs" className={`${pathname === '/docs'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-cyan-600"
-                            : "text-lg m-auto ml-10 p-2 hover:text-slate-50 hover:scale-105"}`}
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
+                            : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                dark:text-cyan-300 text-cyan-600"
+                                dark:text-cyan-300 text-indigo-500"
                             : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                hover:text-slate-50 hover:scale-105"}`}
+                                hover:text-indigo-500 hover:scale-105"}`}
                         >
                             <span><BiLogInCircle size={20} /></span><p className='ml-1'>Login</p>
                         </Link>
@@ -73,7 +73,7 @@ export default function Header() {
                             <span 
                                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                                 className='flex flex-col items-center justify-center text-lg 
-                                    bg-tansparent hover:scale-105 hover:text-slate-50 
+                                    bg-tansparent hover:scale-105 hover:text-indigo-500 
                                     dark:text-slate-50 mr-4 ml-14 rounded-lg'
                             >
                                 {theme === 'light' 
