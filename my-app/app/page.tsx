@@ -15,6 +15,7 @@ import girlDeck from "@/public/img_carousel/deck_girl2.png";
 import bakerDeck from "@/public/img_carousel/deck_baker5.png";
 import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly.jpg';
+import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
 
 export default function Home() {
   
@@ -225,13 +226,13 @@ export default function Home() {
           <div className='flex-1 h-auto bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='flex w-4/5 h-auto bg-transparent rounded-xl'>
+          <div className='flex xs:w-1/5 md:w-2/5 xl:w-3/5 h-auto bg-transparent rounded-xl'>
 
             <div className='relative flex flex-col items-center justify-center z-10'>
 
-              <div className='absolute top-0 left-0 flex flex-col align-items justify-center 
-                w-full h-full text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold
-                text-slate-50 bg-sky-800/20 z-20'>
+              <div className='absolute top-0 left-0 flex flex-col items-center justify-center 
+                w-full h-full text-center sm:text-2xl md:text-4xl xl:text-8xl font-bold
+                text-slate-50 bg-sky-800/10 z-40'>
 
                 <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
                   Ride to be live
@@ -253,7 +254,13 @@ export default function Home() {
                 className='object-cover opacity-90 rounded-t-full shadow-lg z-10'
               />
 
+              <div className="absolute bottom-0 right-0 z-30">
+                <Image src={funnyRabbit} width={666} height={375} alt="lapin cretin" 
+                  className="object-cover" />
+              </div>
+
             </div>
+
           </div>
 
           <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
