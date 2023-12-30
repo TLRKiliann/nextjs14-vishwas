@@ -31,10 +31,10 @@ export default function DeckForm({id, deckname, img, price, stock}: DecksProps) 
     };
 
     return (
-        <div key={id} className='flex justify-center w-2/5 h-auto text-md'>
+        <div key={id} className='flex justify-start w-2/5 h-auto text-md'>
 
             <form action={formAction} className='flex flex-col bg-slate-100
-                transform transition translate-y-0 animate-up-start rounded-lg shadow-md'
+                transform transition translate-y-0 animate-up-start'
             >
                 {/* secondary-dark-bg-gradient secondary-light-bg-gradient */}
                 <Image

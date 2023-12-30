@@ -14,34 +14,49 @@ type ColorPointProps = {
 
 export default function BoxImage({paramsId}: {paramsId: string}) {
 
-    const [imgState, setImageState] = useState<StaticImageData>(bakerOver)
+    const initialState: StaticImageData = bakerOver;
+    const [imgState, setImageState] = useState<StaticImageData>(initialState)
 
     const [colorPoint, setColorPoint] = useState<ColorPointProps>({
-        color1: false,
+        color1: true,
         color2: false,
         color3: false
     });
 
-    console.log(colorPoint.color1);
     const handlePointOne = () => {
         setImageState(bakerOver);
-        setColorPoint((prev) => ({...prev, colorPoint: !colorPoint.color1}));
-
-        console.log(colorPoint.color1, "result");
-    }
+        setColorPoint(prevState => ({
+            ...prevState,
+            color1: true,
+            color2: false,
+            color3: false
+        }));
+    };
+    
     const handlePointTwo = () => {
         setImageState(bakerUnder);
-        setColorPoint((prev) => ({...prev, colorPoint: !colorPoint.color2}));
-    }
+        setColorPoint(prevState => ({
+            ...prevState,
+            color1: false,
+            color2: true,
+            color3: false
+        }));
+    };
+
     const handlePointThree = () => {
         setImageState(bakerProfile);
-        setColorPoint((prev) => ({...prev, colorPoint: !colorPoint.color3}));
-    }
+        setColorPoint(prevState => ({
+            ...prevState,
+            color1: false,
+            color2: false,
+            color3: true
+        }));
+    };
 
     return (
-        <div className='w-full h-content border'>
+        <div className='flex justify-end w-full h-content border'>
                     
-            <div className='flex h-full bg-slate-100 border'>
+            <div className='flex w-4/5 h-full bg-slate-100 border'>
             
                 <div className='flex flex-col items-center justify-around w-1/5
                     my-0 ml-0 border'>
@@ -69,7 +84,8 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
                         bg-slate-100 m-auto p-4 border'>
                         
                         <Image src={imgState} width={435} height={580} alt="img bakerdeck" 
-                            className='object-cover rounded-lg'/>
+                            className='object-cover rounded-lg'
+                        />
 
                     </div>
 
@@ -78,20 +94,20 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
                         <span
                             onClick={handlePointOne}
                             
-                            className={`w-4 h-4 bg-slate-900 mx-1 rounded-full 
-                            ${colorPoint.color1 ? "bg-sky-500" : "bg-none"}`}>
+                            className={`w-4 h-4 mx-1 cursor-pointer rounded-full 
+                            ${colorPoint.color1 === true ? "bg-sky-500" : "bg-slate-700"}`}>
 
                         </span>
                         <span
                             onClick={handlePointTwo} 
-                            className={`w-4 h-4 bg-slate-900 mx-1 rounded-full
-                            ${colorPoint.color2 ? "bg-sky-500" : "bg-none"}`}>
+                            className={`w-4 h-4 mx-1 cursor-pointer rounded-full
+                            ${colorPoint.color2 === true ? "bg-sky-500" : "bg-slate-700"}`}>
 
                         </span>
                         <span
                             onClick={handlePointThree} 
-                            className={`w-4 h-4 bg-slate-900 mx-1 rounded-full
-                            ${colorPoint.color3 ? "bg-sky-500" : "bg-none"}`}>
+                            className={`w-4 h-4 mx-1 cursor-pointer rounded-full
+                            ${colorPoint.color3 === true ? "bg-sky-500" : "bg-slate-700"}`}>
 
                         </span>
                     </div>
