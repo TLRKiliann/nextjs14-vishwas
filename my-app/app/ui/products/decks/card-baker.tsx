@@ -100,18 +100,14 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
                 <button type="submit" id="submit" name="submit" value="remove" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
-                    className='text-sm text-slate-500 bg-slate-300 hover:text-slate-50 
-                        hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
-                        px-5 py-1 rounded'
+                    className='button-card'
                 >
                     {pending ? "pending..." : "Sub"}
                 </button>
 
                 <button type="submit" id="submit" name="submit" value="order" 
                     onClick={() => handleAddToCart(id, deckname, price, img, stock)}
-                    className='text-sm text-slate-500 bg-slate-300 hover:text-slate-50 
-                        hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
-                        px-5 py-1 rounded'
+                    className='button-card'
                 >
                     {pending ? "pending..." : "Add"}
                 </button>
