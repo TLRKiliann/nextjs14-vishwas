@@ -26,19 +26,20 @@ export default function ShopMenu() {
             <span
                 className={`${pathname === "/products"
                 ? "text-lg ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 hover:cursor-pointer"}`}
+                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 hover:cursor-pointer dark:hover:text-slate-50"}`}
                 onClick={toggle}
             >
                 Shop
             </span>
 
             <div className={`absolute text-md font-normal top-12 z-20 w-[140px] h-[auto] 
-                bg-slate-800 mt-8 ml-1 rounded-br-lg rounded-bl-lg ${transClass} flex-col`}
+                dark:text-slate-50 bg-indigo-200 dark:bg-slate-800 mt-8 ml-1 rounded-br-lg \
+                rounded-bl-lg ${transClass} flex-col`}
             >
                 <Link 
                     href="/products"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 
+                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><FaProductHunt className="mt-[3px] mr-4" size={18} /></span>
@@ -49,7 +50,7 @@ export default function ShopMenu() {
                 
                 <Link href="/products/decks"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 
+                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><MdSkateboarding className="mt-[3px] mr-4" size={18} /></span>
@@ -60,7 +61,7 @@ export default function ShopMenu() {
                 
                 <Link href="/products/trucks"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 
+                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><CgMaximizeAlt className="mt-[3px] mr-4" size={18} /></span>
@@ -71,7 +72,7 @@ export default function ShopMenu() {
 
                 <Link href="/products/wheels"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-sky-700 
+                    className="flex align-center justify-left hover:bg-indigo-300 hover:dark:bg-sky-700 
                         hover:text-slate-200 px-3 pt-2 pb-2"
                 >
                     <span><GiBoomerangSun className="mt-[3px] mr-4" size={18} /></span>

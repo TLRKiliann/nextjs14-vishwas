@@ -48,21 +48,21 @@ export default function Header() {
                       
                         <Link href="/" className={`${pathname === '/' 
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
-                            : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Home</Link>
 
                         <ShopMenu />
 
                         <Link href="/docs" className={`${pathname === '/docs'
                             ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
-                            : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105"}`}
+                            : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Docs</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
                                 dark:text-cyan-300 text-indigo-500"
                             : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                hover:text-indigo-500 hover:scale-105"}`}
+                                hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >
                             <span><BiLogInCircle size={20} /></span><p className='ml-1'>Login</p>
                         </Link>
