@@ -61,7 +61,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
             <div className="flex flex-col font-bold bg-slate-100/80">
                 <div className="flex align-center justify-between text-md text-slate-600/80 mx-4 
                     my-2">
-                    <p>{deckname.toUpperCase()}</p>
+                    <h3>{deckname.toUpperCase()}</h3>
                 </div>
                 <div className="flex align-center justify-between text-sm text-slate-500/80 mx-4">
                     <p>Price</p>
@@ -72,12 +72,13 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                     <p>{stock - quantity}</p>
                 </div>
                 
-                <div className='flex justify-center items-center'>
-                    <span className='text-md font-normal text-slate-500'>
+                <div className='flex justify-center items-center pb-2'>
+                    <span className={`text-md font-bold ${quantity === 0 ? "text-slate-500/80" 
+                    : "text-red-500/80" }`}>
                         {quantity}&nbsp;
                     </span>
-                    <p className='text-md font-normal text-slate-500'>
-                        In cart
+                    <p className='text-md font-normal text-slate-500/80'>
+                        in cart
                     </p>
                 </div>
             
@@ -89,7 +90,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </p>
             </div>
 
-            <form action={formAction} className='flex justify-between px-4 py-2 bg-slate-100/80'>
+            <form action={formAction} className='flex justify-between px-4 py-2 pt-4 bg-slate-100/80'>
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
@@ -99,18 +100,18 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
                 <button type="submit" id="submit" name="submit" value="remove" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
-                    className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
+                    className='text-sm text-slate-500 bg-slate-300 hover:text-slate-50 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
-                        px-4 py-1 rounded'
+                        px-5 py-1 rounded'
                 >
-                    {pending ? "pending..." : "Delete"}
+                    {pending ? "pending..." : "Sub"}
                 </button>
 
                 <button type="submit" id="submit" name="submit" value="order" 
                     onClick={() => handleAddToCart(id, deckname, price, img, stock)}
-                    className='text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
+                    className='text-sm text-slate-500 bg-slate-300 hover:text-slate-50 
                         hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
-                        px-4 py-1 rounded'
+                        px-5 py-1 rounded'
                 >
                     {pending ? "pending..." : "Add"}
                 </button>
@@ -123,21 +124,12 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
                 ) : null
             }
 
-            <div className="flex align-center justify-between text-sm bg-slate-100/80 border px-4 py-2">
-                <details className="my-auto">
-                    <summary className="text-slate-500 hover:cursor-pointer">
-                        Details
-                    </summary>
-                    <Link href="#" className="text-blue-500 hover:text-blue-600 px-4">
-                        https://www.baker.com
-                    </Link>
-                </details>
-
+            <div className="flex align-center justify-end text-sm bg-slate-100/80 px-4 py-2 pb-3">
                 <Link
                     href={`/products/decks/baker/${id}`}
                     className="text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                     hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80 
-                    hover:cursor-pointer px-3 py-1 rounded"
+                    hover:cursor-pointer px-4 py-1 rounded"
                 >
                     View
                 </Link>
