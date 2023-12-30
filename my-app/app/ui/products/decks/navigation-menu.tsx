@@ -14,11 +14,10 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div className='fixed top-[75px] right-0 w-[160px] text-lg text-slate-600 bg-slate-100 
-            border border-slate-500/60 rounded-bl-md'>
+        <div className='fixed top-[80px] right-0 w-[160px] text-lg text-slate-600 bg-none rounded-bl-md'>
 
-            <div onClick={handleCloseMenu} className='flex border'>
-                <h2 className='absolute w-full text-xl font-bold text-center mt-[46px] z-10'>
+            <div onClick={handleCloseMenu} className='flex cursor-pointer hover:opacity-80 active:opacity-60'>
+                <h2 className='absolute w-full text-xl font-bold text-center mt-3 z-10'>
                     Decks
                 </h2>
                 <div className='flex justify-center w-full'>
@@ -29,26 +28,26 @@ export default function NavigationMenu() {
             </div>
 
             {closeMenu ? (
-                <div className='transform transition ease-in-out'>
-                    <li className='my-2 ml-8 hover:text-sky-800'>
+                <div className='bg-slate-100 transform transition ease-in-out'>
+                    <li className='mt-2 ml-8 py-2 hover:text-sky-800'>
                         <Link href="/products/decks/baker">
                             Baker
                         </Link>
                     </li>
                     <hr className='border-t-slate-500/60' />
-                    <li className='my-2 ml-8 hover:text-sky-700'>
+                    <li className='ml-8 py-2 hover:text-sky-700'>
                         <Link href="/products/decks/blind">
                             Blind
                         </Link>
                     </li>
                     <hr className='border-t-slate-500/60' />
-                    <li className='my-2 ml-8 hover:text-sky-700'>
+                    <li className='ml-8 py-2 hover:text-sky-700'>
                         <Link href="/products/decks/element">
                             Element
                         </Link>
                     </li>
                     <hr className='border-t-slate-500/60' />
-                    <li className='my-2 ml-8 hover:text-sky-700'>
+                    <li className='ml-8 py-2 hover:text-sky-700'>
                         <Link href="/products/decks/girl">
                             Girl
                         </Link>
