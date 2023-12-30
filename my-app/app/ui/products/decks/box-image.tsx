@@ -108,14 +108,14 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
 
                     <div className='flex items-center justify-center w-full
                         bg-slate-200 py-2'>
+
                         <span
                             onClick={handlePointOne}
-                            
                             className={`w-3 h-3 mx-1 cursor-pointer hover:bg-slate-500/80 transform transition 
                             ease active:bg-slate-400 active:scale-90 rounded-full 
                             ${colorPoint.color1 === true ? "bg-slate-500" : "bg-slate-400"}`}>
-
                         </span>
+
                         <span
                             onClick={handlePointTwo} 
                             className={`w-3 h-3 mx-1 cursor-pointer hover:bg-slate-500/80 transform transition 
@@ -123,13 +123,14 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
                             ${colorPoint.color2 === true ? "bg-slate-500" : "bg-slate-400"}`}>
 
                         </span>
+
                         <span
                             onClick={handlePointThree} 
                             className={`w-3 h-3 mx-1 cursor-pointer hover:bg-slate-500/80 transform transition 
                             ease active:bg-slate-400 active:scale-90 rounded-full
                             ${colorPoint.color3 === true ? "bg-slate-500" : "bg-slate-400"}`}>
-
                         </span>
+
                     </div>
 
                 </div>
