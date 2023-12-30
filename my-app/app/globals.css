@@ -31,8 +31,12 @@
     @apply bg-gradient-to-br from-indigo-500 from-10% 
     via-indigo-400 via-50% to-indigo-500 to-90%;
   }
+  .button-card {
+    @apply text-sm text-slate-500 bg-slate-300 hover:text-slate-50 
+    hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
+    px-5 py-1 rounded;
+  }
 }
-
 
 :root {
   --foreground-rgb: 0, 0, 0;

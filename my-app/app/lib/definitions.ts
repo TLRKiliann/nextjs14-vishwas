@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 export type User = {
     id: number;
     name: string;
@@ -81,4 +83,9 @@ export type MessageProps = {
     username: string;
     email: string;
     message: string;
+}
+
+export type ImgSetProps = {
+    id: number;
+    images: StaticImageData[]
 }

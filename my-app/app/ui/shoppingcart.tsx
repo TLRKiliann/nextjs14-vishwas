@@ -45,7 +45,7 @@ export default function ShoppingCart() {
             </span>
 
             <div className={`absolute flex-col text-md font-normal top-[80px] right-0 w-[400px] h-[auto] 
-                text-slate-900 bg-white rounded-br-lg rounded-bl-lg ${transClass} z-20`}
+                text-slate-900 bg-slate-100 rounded-br-lg rounded-bl-lg ${transClass} z-20`}
             >
                 <div className='text-right pt-2 pr-2'>
                     <button

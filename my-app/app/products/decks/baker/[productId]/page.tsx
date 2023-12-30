@@ -4,7 +4,7 @@ import { genericQuery } from '@/app/lib/db';
 import { DecksProps } from '@/app/lib/definitions';
 import { reviews } from "@/app/lib/datas";
 import BoxImage from '@/app/ui/products/decks/box-image';
-import DeckForm from '@/app/ui/products/decks/deck-form';
+import DeckUnit from '@/app/ui/products/decks/deck-unit';
 
 type Props = {
     params: {
@@ -28,7 +28,7 @@ const DetailsProduct = async ({params}: Props) => {
     const productName = JSON.parse(bakerdecks).map((prod: DecksProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
-                <DeckForm
+                <DeckUnit
                     key={prod.id}
                     id={prod.id}
                     deckname={prod.deckname}
