@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image';
-import bakerOver from '@/public/img_decks/baker/baker-over.jpg';
-import bakerUnder from '@/public/img_decks/baker/baker-under.jpg';
-import bakerProfile from '@/public/img_decks/baker/baker-profile.jpg';
+import { imgSet } from '@/app/lib/datas';
 
 type ColorPointProps = {
     color1: boolean;
@@ -12,10 +10,16 @@ type ColorPointProps = {
     color3: boolean;
 }
 
+type ImgSetProps = {
+    id: number;
+    images: StaticImageData[]
+}
+
 export default function BoxImage({paramsId}: {paramsId: string}) {
 
-    const initialState: StaticImageData = bakerOver;
-    const [imgState, setImageState] = useState<StaticImageData>(initialState)
+    const searchId = imgSet.find((img: ImgSetProps) => img.id === parseInt(paramsId));
+    const initialState: string | undefined = searchId?.images[0].src;
+    const [imgState, setImageState] = useState<string | undefined>(initialState)
 
     const [colorPoint, setColorPoint] = useState<ColorPointProps>({
         color1: true,
@@ -24,7 +28,7 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
     });
 
     const handlePointOne = () => {
-        setImageState(bakerOver);
+        setImageState(searchId?.images[0].src);
         setColorPoint(prevState => ({
             ...prevState,
             color1: true,
@@ -34,7 +38,7 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
     };
     
     const handlePointTwo = () => {
-        setImageState(bakerUnder);
+        setImageState(searchId?.images[1].src);
         setColorPoint(prevState => ({
             ...prevState,
             color1: false,
@@ -44,7 +48,7 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
     };
 
     const handlePointThree = () => {
-        setImageState(bakerProfile);
+        setImageState(searchId?.images[2].src);
         setColorPoint(prevState => ({
             ...prevState,
             color1: false,
@@ -61,19 +65,31 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
                 <div className='flex flex-col items-center justify-around w-1/5
                     my-0 ml-0 rounded-tl-xl rounded-bl-xl'>
 
-                    <span onClick={handlePointOne} className="w-[100px] h-auto p-2 pb-0">
-                    <Image src={bakerOver} width={435} height={580} alt="img bakerdeck" 
-                        className='object-cover rounded-lg'/>
+                    <span onClick={handlePointOne} className="w-[100px] h-auto cursor-pointer p-2 pb-0">
+                        <Image src={String(searchId?.images[0].src)} 
+                            width={Number(searchId?.images[0].width)} 
+                            height={Number(searchId?.images[0].height)}
+                            alt="img bakerdeck" 
+                            className='object-cover rounded-lg'
+                        />
                     </span>
 
-                    <span onClick={handlePointTwo} className="w-[100px] h-auto p-2 pb-0">
-                    <Image src={bakerUnder} width={435} height={580} alt="img bakerdeck" 
-                        className='object-cover rounded-lg'/>
+                    <span onClick={handlePointTwo} className="w-[100px] h-auto cursor-pointer p-2 pb-0">
+                        <Image src={String(searchId?.images[1].src)} 
+                            width={Number(searchId?.images[1].width)} 
+                            height={Number(searchId?.images[1].height)}
+                            alt="img bakerdeck" 
+                            className='object-cover rounded-lg'
+                        />
                     </span>
 
-                    <span onClick={handlePointThree} className="w-[100px] h-auto p-2 pb-2">
-                    <Image src={bakerProfile} width={435} height={580} alt="img bakerdeck" 
-                        className='object-cover rounded-lg'/>
+                    <span onClick={handlePointThree} className="w-[100px] h-auto cursor-pointer p-2 pb-2">
+                        <Image src={String(searchId?.images[2].src)} 
+                            width={Number(searchId?.images[2].width)} 
+                            height={Number(searchId?.images[2].height)}
+                            alt="img bakerdeck" 
+                            className='object-cover rounded-lg'
+                        />
                     </span>
 
                 </div>
@@ -84,7 +100,7 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
                     <div className='flex items-center justify-center md:w-[200px] lg:w-[300px] h-auto 
                         bg-slate-100 m-auto p-4'>
                         
-                        <Image src={imgState} width={435} height={580} alt="img bakerdeck" 
+                        <Image src={String(imgState)} width={435} height={580} alt="img bakerdeck" 
                             className='object-cover rounded-lg'
                         />
 

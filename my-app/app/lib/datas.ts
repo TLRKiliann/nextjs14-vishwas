@@ -1,6 +1,22 @@
-import type { ReviewsProps, User } from "./definitions";
-import type { CustomersProps } from "./definitions";
+import type { ReviewsProps, CustomersProps, ImgSetProps } from "./definitions";
 import type { AllTitlesProps, AllTextProps } from "./definitions";  
+import bakerOver from '@/public/img_decks/baker/baker-over.jpg';
+import bakerUnder from '@/public/img_decks/baker/baker-under.jpg';
+import bakerProfile from '@/public/img_decks/baker/baker-profile.jpg';
+import bakerOver_2 from '@/public/img_decks/baker/baker2-over.jpg';
+import bakerUnder_2 from '@/public/img_decks/baker/baker2-under.jpg';
+import bakerProfile_3 from '@/public/img_decks/baker/baker2-profile.jpg';
+
+export const imgSet: ImgSetProps[] = [
+    {
+        id: 1,
+        images: [bakerOver, bakerUnder, bakerProfile]
+    },
+    {
+        id: 2,
+        images: [bakerOver_2, bakerUnder_2, bakerProfile_3]
+    }
+];
 
 export const reviews: ReviewsProps[] = [
     {
