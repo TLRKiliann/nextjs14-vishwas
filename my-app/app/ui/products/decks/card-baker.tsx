@@ -100,6 +100,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
                 <button type="submit" id="submit" name="submit" value="remove" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
+                    disabled={pending}
                     className='button-card'
                 >
                     {pending ? "pending..." : "Sub"}
@@ -107,6 +108,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
                 <button type="submit" id="submit" name="submit" value="order" 
                     onClick={() => handleAddToCart(id, deckname, price, img, stock)}
+                    disabled={pending}
                     className='button-card'
                 >
                     {pending ? "pending..." : "Add"}
