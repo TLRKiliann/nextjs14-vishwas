@@ -1,6 +1,6 @@
 //"use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
