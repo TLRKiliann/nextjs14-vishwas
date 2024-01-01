@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BoardShop() {
   return (
-    <div className='min-h-screen bg-transparent py-[75px]'>
+    <div className='min-h-screen bg-transparent py-[75px] mb-[80px]'>
     
       <div className='fixed -z-20'>
         <Image
@@ -24,17 +24,22 @@ export default function BoardShop() {
         />
       </div>
 
+      <h1 className='text-4xl font-bold text-transparent bg-clip-text
+        dark-title-h1 light-title-h1 pl-4 pt-4'>
+        Decks
+      </h1>
+
       <MenuDecks />
       
-      <div className='absolute w-full h-[600px] overflow-hidden -z-10'>
-        <div className='flex items-center justify-center w-full h-full
+      <div className='absolute right-0 w-2/5 h-[500px] overflow-hidden -z-10'>
+        <div className='flex items-center justify-center w-full h-full animate-deck-flip
           '>{/* animate-deck-flip */}
           <Image
             src={deckFlip}
-            width={200}
-            height={200}
+            width={150}
+            height={150}
             alt="alt"
-            className="object-cover opacity-30"
+            className="object-cover opacity-60"
           />
         </div>
       </div>

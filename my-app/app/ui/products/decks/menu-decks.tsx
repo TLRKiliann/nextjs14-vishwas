@@ -8,14 +8,10 @@ import elementLogo from '@/public/img_logo/element-logo.jpg';
 
 export default function MenuDecks() {
     return (
-        <div>
-  
-            <h1 className='text-4xl font-bold text-transparent bg-clip-text
-                dark-title-h1 light-title-h1 pl-4 pt-4'>
-                Decks
-            </h1>
+        <>
+
     
-            <div className='absolute w-[600px] p-4'>
+            <div className='absolute w-3/5 p-4'>
         
                 <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
         
@@ -97,6 +93,6 @@ export default function MenuDecks() {
     
                 </div>
             </div>
-        </div>
+        </>
     )
 }
