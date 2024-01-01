@@ -13,7 +13,7 @@ import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
 
-const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
+const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
@@ -27,6 +27,10 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const quantity = getItemQuantity(id);
 
+    const cutword = deckname.split(" ");
+    const deckPath = cutword[0];
+
+
     const handleAddToCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
         increaseCartQuantity(id, deckname, price, img, stock);
     };
@@ -38,7 +42,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     const router = useRouter();
 
     const handleImg = (id: number) => {
-        router.push(`/products/decks/baker/${id}`);
+        router.push(`/products/decks/${deckPath}/${id}`);
     }
 
     return (
@@ -100,6 +104,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
                 <button type="submit" id="submit" name="submit" value="remove" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
+                    disabled={pending}
                     className='button-card'
                 >
                     {pending ? "pending..." : "Sub"}
@@ -107,6 +112,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
                 <button type="submit" id="submit" name="submit" value="order" 
                     onClick={() => handleAddToCart(id, deckname, price, img, stock)}
+                    disabled={pending}
                     className='button-card'
                 >
                     {pending ? "pending..." : "Add"}
@@ -122,7 +128,7 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
 
             <div className="flex align-center justify-end text-sm bg-slate-100/80 px-4 py-2 pb-3">
                 <Link
-                    href={`/products/decks/baker/${id}`}
+                    href={`/products/decks/${deckPath}/${id}`}
                     className="text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                     hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80 
                     hover:cursor-pointer px-4 py-1 rounded"
@@ -149,4 +155,4 @@ const CardBaker = ({ id, deckname, price, img, stock }: DecksProps) => {
     );
 };
 
-export default CardBaker;
+export default Card;

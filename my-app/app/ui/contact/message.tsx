@@ -58,7 +58,7 @@ export default function Message() {
             
             <button type="submit" id="submit" name="submit" value="sendmessage"
                 disabled={pending} className='text-slate-50 bg-blue-500 mt-6 
-                py-2 rounded-lg drop-shadow-lg hover:bg-blue-600 active:hover:bg-blue-400'
+                hover:bg-blue-600 active:hover:bg-blue-400 py-2 rounded-lg drop-shadow-lg'
             >
                 {pending ? "Pending..." : "Submit"}
             </button>

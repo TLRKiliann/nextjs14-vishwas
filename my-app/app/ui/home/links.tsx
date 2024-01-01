@@ -10,28 +10,28 @@ export default function Links() {
         <div className='flex justify-around w-full text-lg text-indigo-500 dark:text-blue-800 m-auto mb-1'>
 
             <Link href="/" className={`${pathname === '/' 
-            ? "text-indigo-400 dark:text-slate-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-500 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            ? "text-indigo-400 dark:text-sky-600" 
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
             >Home</Link>
             
             <Link href="/products" className={`${pathname === '/products' 
-            ? "text-indigo-400 dark:text-slate-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-500 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            ? "text-indigo-400 dark:text-sky-600" 
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
             >Shop</Link>
 
             <Link href="/about" className={`${pathname === '/about' 
-            ? "text-indigo-400 dark:text-slate-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-500 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            ? "text-indigo-400 dark:text-sky-600" 
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
             >Our story</Link>
 
             <Link href="/contact" className={`${pathname === '/contact' 
-            ? "text-indigo-400 dark:text-slate-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-500 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            ? "text-indigo-400 dark:text-sky-600" 
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
             >Contact us</Link>
 
             <Link href="/notfound" className={`${pathname === '/notfound' 
-            ? "text-indigo-400 dark:text-slate-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-500 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            ? "text-indigo-400 dark:text-sky-600" 
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
             >Notfound</Link>
 
         </div>

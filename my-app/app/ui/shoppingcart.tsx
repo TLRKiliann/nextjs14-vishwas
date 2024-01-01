@@ -10,6 +10,7 @@ import { BsCart3 } from "react-icons/bs";
 export default function ShoppingCart() {
 
     const pathname = usePathname();
+    //console.log(pathname, "pathname of shoppingcart.tsx");
     
     const { cartItems } = useShoppingCart();
 
@@ -25,16 +26,14 @@ export default function ShoppingCart() {
         <div className='flex items-center m-auto'>
 
             <span
-                className={`${pathname === "/cart"
-                ? "text-lg ml-10 p-2 dark:text-cyan-300 text-fuchsia-600"
-                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 hover:cursor-pointer"}`}
+                className="text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 cursor-pointer 
+                dark:hover:text-slate-50"
                 onClick={toggle}
             >
                 <BsCart3 size={22} />
                 <div className='absolute text-sm m-auto pl-4 -mt-1'>
-                    <p className='flex items-center justify-center w-6 h-6 
-                        text-slate-900 bg-slate-50/80 border-none 
-                        hover:border-slate-50 dark:border-slate-50 rounded-full'
+                    <p className='flex items-center justify-center w-6 h-6 dark:text-slate-800 
+                        bg-slate-50/80 border-none hover:border-slate-50 dark:border-slate-50 rounded-full'
                     >
                         {cartItems.reduce((total: number, cartItem: {quantity: number}) => {
                             const totalCart: number = total += cartItem.quantity
@@ -51,10 +50,9 @@ export default function ShoppingCart() {
                     <button
                         type="button"
                         onClick={toggle} 
-                        className='w-7 h-7 bg-slate-200
-                            hover:text-slate-500 hover:bg-slate-300/60
-                            active:text-slate-50 active:bg-slate-200
-                            pb-2 rounded-full'>
+                        className='w-7 h-7 bg-slate-200 hover:text-slate-500 hover:bg-slate-300/60
+                            active:text-slate-50 active:bg-slate-200 pb-2 rounded-full'
+                    >
                         x
                     </button>
                 </div>
@@ -77,7 +75,8 @@ export default function ShoppingCart() {
                         className='w-full font-bold text-center text-slate-50 bg-sky-700/80
                         hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
                         active:text-green-300 active:bg-sky-700/70 active:scale-95 active:shadow-none
-                        border-none mx-4 py-2 rounded-lg shadow-md'>
+                        border-none mx-4 py-2 rounded-lg shadow-md'
+                    >
                         CHECKOUT
                     </Link>
                 </div>

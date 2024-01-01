@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import { useFormState, useFormStatus } from 'react-dom';
+import { usePathname } from 'next/navigation';
+//import { useFormState, useFormStatus } from 'react-dom';
 import { useShoppingCart } from '@/app/context/cart-context';
-import { deleteCartItem } from '@/app/lib/actions';
+//import { deleteCartItem } from '@/app/lib/actions';
 
 type ItemProps = {
     id: number;
@@ -18,18 +18,16 @@ type ItemProps = {
 
 export default function CartItem({id, deckname, img, price, stock, quantity}: ItemProps) {
     
-    const router = useRouter();
     const pathname = usePathname();
     console.log(pathname, "pathname")
     
     const { removeFromCart } = useShoppingCart();
 
-    const {pending} = useFormStatus();
-    const [code, formAction] = useFormState(deleteCartItem, undefined);
+    //const {pending} = useFormStatus();
+    //const [code, formAction] = useFormState(deleteCartItem, undefined);
 
     const handleDeleteItem = (id: number) => {
         removeFromCart(id);
-        router.refresh();
     }
 
     const initialCount: number = 0;
@@ -55,7 +53,7 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                     Quantity: x{quantity}
                 </p>
 
-                <form action={formAction} className='flex items-center justify-between'>
+                <form className='flex items-center justify-between'>
 
                     <p className='text-md text-slate-600'>
                         stock: {stock - quantity}
@@ -67,18 +65,13 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                     <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
 
                     <button type="submit" id="submit" name="submit" value="deletecartorder"
-                        onClick={() => handleDeleteItem(id)} disabled={pending}
+                        onClick={() => handleDeleteItem(id)}
                         className='text-slate-200 font-bold bg-red-500 hover:bg-red-500/80 
                             hover:shadow-none active:text-slate-50 active:bg-red-400 px-2 py-1 
                             rounded drop-shadow-lg'
                     >
-                        {pending ? "Pending..." : "Remove"}
+                        Remove
                     </button>
-
-                    {code?.message ? (
-                        <p>{code.message}</p>
-                        ) : null
-                    }
 
                 </form>
                 

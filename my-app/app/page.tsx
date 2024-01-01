@@ -9,12 +9,17 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
+import deck from "@/public/img_decks/deck.png";
+import mauricio from "@/public/img_bg/mauricio.jpg";
+import allan from "@/public/img_bg/pexels-allan-mas.jpg";
+import sunSet from "@/public/img_bg/sunset-board.jpg";
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
 import elementDeck from "@/public/img_carousel/deck_element9.png";
 import girlDeck from "@/public/img_carousel/deck_girl2.png";
 import bakerDeck from "@/public/img_carousel/deck_baker5.png";
 import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly.jpg';
+import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
 
 export default function Home() {
   
@@ -90,13 +95,11 @@ export default function Home() {
           shadow-xllight mt-40 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
-
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
             dark:drop-shadow-lg 
             bg-gradient-to-br from-indigo-500 from-10% 
             via-indigo-400 via-40% to-indigo-500 to-90%
-     
             drop-shadow-lg transition animate-slice-appear'
           >
             Take a look !
@@ -111,7 +114,7 @@ export default function Home() {
 
         <div className='flex'>
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
           <div className='w-4/5 h-[440px] bg-slate-200/80 dark:bg-blue-100/80'>
@@ -137,8 +140,9 @@ export default function Home() {
 
             </div>
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
+
         </div>
 
         <Separator />
@@ -149,7 +153,7 @@ export default function Home() {
 
         <div className="flex justify-center">
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
           <div className='w-4/5'>
@@ -159,16 +163,55 @@ export default function Home() {
             </video>
           </div>
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
         </div>
 
-        <Separator />
+        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
+        </div>
 
-          <TextBlocks title={titleOne} text={textOne} />
+        <div className='flex items-center justify-center w-full h-[400px]'>
 
-        <Separator />
+          <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
+            <div className='flex items-center justify-center w-[100px] h-[300px] 
+              '>{/* transform transition animate-horizontal-flip */}
+              <Image src={deck} width={200} height={550} alt="imd deck right"
+                className='object-cover' />
+            </div>
+          </div>
+
+          <div className='relative flex items-center justify-center w-full h-[400px] bg-sky-700/70'>
+
+            <div className='absolute sm:mr-[400px] xl:left-[200px] sm:w-[300px] sm:h-[200px] 
+              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-20'>
+              <Image src={mauricio} width={1920} height={1441} alt="img photo" className='object-cover' />
+            </div>
+  
+            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-[200px] 
+              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-10'>
+              <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover' />
+            </div>
+  
+            <div className='absolute sm:ml-[400px] xl:ml-[700px] sm:w-[300px] sm:h-[200px] 
+              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-0'>
+              <Image src={sunSet} width={1920} height={1281} alt="img photo" className='object-cover' />
+            </div>
+
+          </div>
+          
+          <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
+            <div className='flex items-center justify-center w-[100px] h-[300px] 
+              '>{/* transform transition animate-horizontal-flip */}
+              <Image src={deck} width={200} height={550} alt="imd deck right"
+                className='object-cover' />
+            </div>
+          </div>
+
+        </div>
+        
+        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
+        </div>
 
         <div className='flex w-full'>
 
@@ -225,13 +268,13 @@ export default function Home() {
           <div className='flex-1 h-auto bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='flex w-4/5 h-auto bg-transparent rounded-xl'>
+          <div className='flex xs:w-1/5 md:w-2/5 xl:w-3/5 h-auto bg-transparent rounded-xl'>
 
             <div className='relative flex flex-col items-center justify-center z-10'>
 
-              <div className='absolute top-0 left-0 flex flex-col align-items justify-center 
-                w-full h-full text-center sm:text-4xl lg:text-6xl xl:text-8xl font-bold
-                text-slate-50 bg-sky-800/20 z-20'>
+              <div className='absolute top-0 left-0 flex flex-col items-center justify-center 
+                w-full h-full text-center sm:text-2xl md:text-4xl xl:text-8xl font-bold
+                text-slate-50 bg-sky-800/10 z-40'>
 
                 <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
                   Ride to be live
@@ -253,7 +296,13 @@ export default function Home() {
                 className='object-cover opacity-90 rounded-t-full shadow-lg z-10'
               />
 
+              <div className="absolute bottom-0 right-0 z-30">
+                <Image src={funnyRabbit} width={666} height={375} alt="lapin cretin" 
+                  className="object-cover" />
+              </div>
+
             </div>
+
           </div>
 
           <div className='flex-1 bg-slate-100 dark:bg-slate-900'>

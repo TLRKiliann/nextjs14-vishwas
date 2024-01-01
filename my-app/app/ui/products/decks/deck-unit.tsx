@@ -72,10 +72,10 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                 
                 <details className="px-2 py-1 pt-6">
                     <summary className="text-xs text-slate-600/80 hover:cursor-pointer">
-                        Details
+                        Video
                     </summary>
                     <Link href="#" className="text-sm text-blue-500 hover:text-blue-600 px-3">
-                        https://www.baker.com
+                        https://www.{deckname}.link
                     </Link>
                 </details>
 
