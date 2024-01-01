@@ -1,6 +1,6 @@
 //"use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
@@ -12,23 +12,21 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
   }
 
   const [value, setValue] = useState<T>(() => {
+    if (typeof window !== 'undefined') {
+      const jsonValue = window.localStorage.getItem(key)
+      if (jsonValue != null) return JSON.parse(jsonValue)
+    }
 
-  if (typeof window !== 'undefined') {
-    const jsonValue = window.localStorage.getItem(key)
-    if (jsonValue != null) return JSON.parse(jsonValue)
-  }
-
-  if (typeof initialValue === "function") {
-    return (initialValue as () => T)()
+    if (typeof initialValue === "function") {
+      return (initialValue as () => T)()
     } else {
       return initialValue
     }
-  }
-)
+  })
 
-  useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(value))
-  }, [key, value, initialState])
+  useMemo(() => {
+    if (typeof window !== 'undefined') window.localStorage.setItem(key, JSON.stringify(value))
+  }, [key, value]);
 
   return [value, setValue] as const;
 }
