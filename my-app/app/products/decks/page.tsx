@@ -26,15 +26,15 @@ export default function BoardShop() {
 
       <MenuDecks />
       
-      <div className='absolute w-full h-[600px] overflow-hidden -z-10 border'>
-        <div className='flex items-center justify-center w-full h-full border'>
-          {/* animate-deck-flip */}
+      <div className='absolute w-full h-[600px] overflow-hidden -z-10'>
+        <div className='flex items-center justify-center w-full h-full
+          '>{/* animate-deck-flip */}
           <Image
             src={deckFlip}
-            width={300}
-            height={300}
+            width={200}
+            height={200}
             alt="alt"
-            className="object-cover opacity-1"
+            className="object-cover opacity-30"
           />
         </div>
       </div>
