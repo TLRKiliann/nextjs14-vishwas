@@ -9,6 +9,10 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
+import deck from "@/public/img_decks/deck.png";
+import mauricio from "@/public/img_bg/mauricio.jpg";
+import allan from "@/public/img_bg/pexels-allan-mas.jpg";
+import sunSet from "@/public/img_bg/sunset-board.jpg";
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
 import elementDeck from "@/public/img_carousel/deck_element9.png";
 import girlDeck from "@/public/img_carousel/deck_girl2.png";
@@ -91,13 +95,11 @@ export default function Home() {
           shadow-xllight mt-40 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
-
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
             dark:drop-shadow-lg 
             bg-gradient-to-br from-indigo-500 from-10% 
             via-indigo-400 via-40% to-indigo-500 to-90%
-     
             drop-shadow-lg transition animate-slice-appear'
           >
             Take a look !
@@ -112,7 +114,7 @@ export default function Home() {
 
         <div className='flex'>
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
           <div className='w-4/5 h-[440px] bg-slate-200/80 dark:bg-blue-100/80'>
@@ -138,8 +140,9 @@ export default function Home() {
 
             </div>
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
+
         </div>
 
         <Separator />
@@ -150,7 +153,7 @@ export default function Home() {
 
         <div className="flex justify-center">
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
           <div className='w-4/5'>
@@ -160,16 +163,55 @@ export default function Home() {
             </video>
           </div>
 
-          <div className='flex-1 bg-slate-900'>
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
         </div>
 
-        <Separator />
+        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
+        </div>
 
-          <TextBlocks title={titleOne} text={textOne} />
+        <div className='flex items-center justify-center w-full h-[400px]'>
 
-        <Separator />
+          <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
+            <div className='flex items-center justify-center w-[100px] h-[300px] 
+              '>{/* transform transition animate-horizontal-flip */}
+              <Image src={deck} width={200} height={550} alt="imd deck right"
+                className='object-cover' />
+            </div>
+          </div>
+
+          <div className='relative flex items-center justify-center w-full h-[400px] bg-sky-700/70'>
+
+            <div className='absolute sm:mr-[400px] xl:left-[200px] sm:w-[300px] sm:h-[200px] 
+              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-20'>
+              <Image src={mauricio} width={1920} height={1441} alt="img photo" className='object-cover' />
+            </div>
+  
+            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-[200px] 
+              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-10'>
+              <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover' />
+            </div>
+  
+            <div className='absolute sm:ml-[400px] xl:ml-[700px] sm:w-[300px] sm:h-[200px] 
+              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-0'>
+              <Image src={sunSet} width={1920} height={1281} alt="img photo" className='object-cover' />
+            </div>
+
+          </div>
+          
+          <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
+            <div className='flex items-center justify-center w-[100px] h-[300px] 
+              '>{/* transform transition animate-horizontal-flip */}
+              <Image src={deck} width={200} height={550} alt="imd deck right"
+                className='object-cover' />
+            </div>
+          </div>
+
+        </div>
+        
+        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
+        </div>
 
         <div className='flex w-full'>
 
