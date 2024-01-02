@@ -29,6 +29,26 @@ const config: Config = {
             opacity: "1"
           }
         },
+        downstart: {
+          '0%': { 
+            transform: 'translateY(-200px)',
+            opacity: "0"
+          },
+          '100%': { 
+            transform: 'translateY(0px)',
+            opacity: "1"
+          }
+        },
+        rightstart: {
+          '0%': { 
+            transform: 'translateX(-200px)',
+            opacity: "0"
+          },
+          '100%': { 
+            transform: 'translateX(0px)',
+            opacity: "1"
+          }
+        },
         scaledecks: {
           from: {
             transform: "scale3d(1, 1, 1)",
@@ -96,6 +116,8 @@ const config: Config = {
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
         "up-start": "upstart 0.4s ease-in-out 1",
+        "down-start": "downstart 0.4s ease-in-out 1",
+        "right-start": "rightstart 0.4s ease-in-out 1",
         "scale-decks": "scaledecks 1s infinite",
         "decks-rotation": "decksrotation 1s ease 1",
         "horizontal-rotation": "horizontalrotation 1s ease 1",
@@ -113,6 +135,8 @@ const config: Config = {
         'in': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
         'inlightmode': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
         'inlight': '0px 0px 7px rgba(2, 132, 199, 0.8)',
+        'inviolet': 'inset 0px 0px 7px rgba(147,112,219, 0.5)',
+        'outviolet': '0px 0px 7px rgba(147,112,219, 0.5)',
         'xllight': '0px 0px 10px rgba(0, 0, 0, 0.5)',
         'lg': '0px 0px 7px rgba(0, 0, 0, 0.5)',
         'lgblue': '0px 0px 7px rgba(30, 144, 255, 1)',
