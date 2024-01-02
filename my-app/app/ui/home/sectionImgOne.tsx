@@ -12,7 +12,7 @@ export default function sectionImgOne() {
                 width={1920}
                 height={1280}
                 alt="forest img"
-                className='object-cover shadow-out transform transition hover:rotate-[15deg] hover:shadow-none 
+                className='object-cover shadow-out transform transition hover:rotate-[-15deg] hover:shadow-none 
                     hover:filter hover:hue-rotate-90 rounded-lg'
             />
         </div>

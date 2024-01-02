@@ -115,6 +115,7 @@ const config: Config = {
         'inlight': '0px 0px 7px rgba(2, 132, 199, 0.8)',
         'xllight': '0px 0px 10px rgba(0, 0, 0, 0.5)',
         'lg': '0px 0px 7px rgba(0, 0, 0, 0.5)',
+        'lgblue': '0px 0px 7px rgba(30, 144, 255, 1)',
         'md': '0px 0px 4px rgba(0, 0, 0, 0.5)',
         'xl': '0px 0px 20px rgba(0, 0, 0, 0.5)',
         '2xl': '0px 0px 20px rgba(0, 0, 0, 1)',

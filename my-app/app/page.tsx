@@ -46,7 +46,7 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-600 bg-black z-0 py-[70px]'>
+    <div className='relative flex text-slate-600 bg-black z-0 pt-[75px] pb-[20px]'>
       
       <ScrollIndicator />
       
@@ -107,11 +107,8 @@ export default function Home() {
             Take a look !
           </h2>
         </div>
-        
-        <Separator />
 
-          <TextBlocks title={titleOne} text={textOne} />
-
+        <TextBlocks title={titleOne} text={textOne} />
         <Separator />
 
         <div className='flex'>
@@ -149,7 +146,7 @@ export default function Home() {
 
         <Separator />
 
-          <TextBlockDesign title={titleOne} text={textOne} />
+          <TextBlockDesign title={titleTwo} text={textTwo} />
 
         <Separator />
 
