@@ -30,7 +30,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
     ];
 
     return (
-        <div className='flex flex-col min-h-screen py-[75px]'>
+        <div className='w-full'>
             <div className='p-4'>
                 <p>Product id: {params.productId} and article id: {params.reviewId}</p>
             </div>
@@ -48,6 +48,13 @@ export default async function ReviewById({ params }: PropsProdReview) {
                     <div key={rev.id} className='p-4'>
                         <h3 className='text-2xl'>{rev.categories}</h3>
                         <p className='text-md mt-2'>{rev.review}</p>
+                        {/* <Video src={} /> */}
+                        <div className='w-2/5 py-4'>
+                            <video autoPlay muted controls className='w-full h-auto'>
+                                <source src={rev.video} type="video/mp4" />
+                            </video>
+                        </div>
+
                     </div>
                 ) : null
             ))}
@@ -58,8 +65,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
             <Carousel loop>
                 {images.map((src, i) => {
                 return (
-                    <div 
-                    key={i}
+                    <div key={i}
                     className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
                         xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
                         sm:my-6 md:my-3"

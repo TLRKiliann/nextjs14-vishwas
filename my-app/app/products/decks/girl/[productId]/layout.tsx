@@ -39,7 +39,7 @@ export default async function DetailsProduct({children, params}:
         <Link href="/order">Go to checkout</Link>
       </li>
       <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
-        <Link href={`/products/decks/girl/${params.productId}/reviews`}>All articles</Link>
+        <Link href={`/products/decks/girl/${params.productId}/reviews`}>All Videos</Link>
       </li>
     </div>
   )

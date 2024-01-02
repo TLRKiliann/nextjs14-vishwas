@@ -27,7 +27,7 @@ export default async function DetailsProduct({children, params}:
     ) {
     return (
         <div>
-            <p>{params.productId}</p>
+            <p className='pl-4'>Product ID : {params.productId}</p>
             {children}
         </div>
     )
