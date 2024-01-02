@@ -31,13 +31,13 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
     };
 
     return (
-        <div key={id} className='flex justify-start w-2/5 text-md'>
+        <div key={id} className='flex items-center justify-start w-[250px] h-content text-md'>
 
-            <form action={formAction} className='w-[200px] flex flex-col bg-slate-100
+            <form action={formAction} className='w-[250px] flex flex-col bg-slate-100
                 transform transition translate-y-0 animate-up-start rounded-tr-xl rounded-br-xl'
             >
                 {/* secondary-dark-bg-gradient secondary-light-bg-gradient */}
-                <div className='w-[200px] h-auto'>
+                <div className='w-full h-auto'>
                     <Image
                         src={img}
                         width={500}
@@ -70,7 +70,7 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                     Quantity: {quantity}
                 </p>
                 
-                <details className="px-2 py-1 pt-6">
+                <details className="px-2 py-1 pt-2">
                     <summary className="text-xs text-slate-600/80 hover:cursor-pointer">
                         Video
                     </summary>

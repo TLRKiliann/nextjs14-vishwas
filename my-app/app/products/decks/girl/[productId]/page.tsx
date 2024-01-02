@@ -24,7 +24,7 @@ const DetailsProduct = async ({params}: Props) => {
     const data: unknown = await genericQuery("SELECT * FROM girldecks", []);
     const girldecks: string = JSON.stringify(data);
     
-    // To display name
+    // Display card in side right
     const productName = JSON.parse(girldecks).map((prod: DecksProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
@@ -50,11 +50,11 @@ const DetailsProduct = async ({params}: Props) => {
                     text-violet-500 hover:text-violet-400
                     p-4'
                 >
-                    All videos with girl
+                    All videos of Girl
                 </Link>
             </div>
 
-            <div className='w-full flex border'>
+            <div className='flex justify-center w-full h-auto'>
 
                 <BoxImage paramsId={params.productId} />
 
@@ -68,8 +68,7 @@ const DetailsProduct = async ({params}: Props) => {
                         <Link 
                             href={`/products/decks/girl/${params.productId}/reviews/${rev.id}`}
                             className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
-                            text-violet-500 hover:text-violet-400
-                            p-4'
+                            text-violet-500 hover:text-violet-400 p-4'
                         >
                             {rev.categories}
                         </Link>

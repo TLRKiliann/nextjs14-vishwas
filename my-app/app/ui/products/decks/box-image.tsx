@@ -12,7 +12,7 @@ type ColorPointProps = {
 
 type ImgSetProps = {
     id: number;
-    images: StaticImageData[]
+    images: StaticImageData[];
 }
 
 export default function BoxImage({paramsId}: {paramsId: string}) {
@@ -58,12 +58,12 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
     };
 
     return (
-        <div className='flex justify-end w-full h-content'>
+        <div className='flex w-3/5 h-content'>
                     
-            <div className='flex w-4/5 h-full bg-slate-100 rounded-tl-xl rounded-bl-xl'>
+            <div className='flex w-full h-full rounded-tl-xl rounded-bl-xl'>
             
-                <div className='flex flex-col items-center justify-around w-1/5
-                    my-0 ml-0 rounded-tl-xl rounded-bl-xl'>
+                <div className='flex flex-col items-center justify-around w-2/5 bg-slate-100 my-0 rounded-tl-xl rounded-bl-xl
+                    transform transition translate-y-0 animate-right-start'>
 
                     <span onClick={handlePointOne} className="w-[100px] h-auto cursor-pointer p-2 pb-0">
                         <Image src={String(searchId?.images[0].src)} 
@@ -94,8 +94,8 @@ export default function BoxImage({paramsId}: {paramsId: string}) {
 
                 </div>
 
-                <div className='flex flex-col items-center justify-between w-full border-r border-l 
-                    border-slate-400'>
+                <div className='flex flex-col items-center justify-between w-full bg-slate-100 border-r border-l 
+                    border-slate-800/50 transform transition translate-y-0 animate-down-start'>
                     
                     <div className='flex items-center justify-center md:w-[200px] lg:w-[300px] h-auto 
                         bg-slate-100 m-auto p-4'>
