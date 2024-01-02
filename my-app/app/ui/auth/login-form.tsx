@@ -15,18 +15,13 @@ export default function LoginForm() {
     return (
         <form 
             action={formAction}
-            className='flex w-2/5 flex-col text-md font-bold 
-                dark:bg-gradient-to-tr dark:from-slate-900 dark:from-10% 
-                dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
-                bg-gradient-to-tr from-violet-400 from-10% 
-                via-slate-50 via-50% to-violet-400 to-90%
-                transform transition translate-y-0 animate-up-start
-                py-[20px] rounded-xl shadow-lg'
+            className='flex w-2/5 flex-col text-md font-bold bg-indigo-200 dark:bg-slate-200
+                transform transition translate-y-0 animate-up-start py-[20px] rounded-xl shadow-outviolet'
         >
 
             <label
                 htmlFor="email"
-                className='mx-20 my-2 text-violet-600 dark:text-slate-50'
+                className='text-2xl text-violet-600 dark:text-slate-50 mx-4 mt-2 mb-1'
             >
                 Email
             </label>
@@ -37,17 +32,15 @@ export default function LoginForm() {
                 name="email"
                 placeholder="Enter your email address"
                 required
-                className='text-lg px-[7px] py-[2px]
-                text-fuchsia-300/90 dark:text-cyan-400
-                bg-slate-100 hover:bg-white active:bg-white
-                dark:bg-slate-800 dark:hover:bg-slate-900 dark:active:bg-sky-800
+                className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 hover:bg-violet-200 
+                active:bg-white dark:bg-slate-800 dark:hover:bg-slate-900 dark:active:bg-sky-800
                 focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-                rounded-lg mx-20'
+                mx-4 px-[7px] py-[5px] rounded-lg'
             />
 
             <label
                 htmlFor="password"
-                className='mx-20 my-2 text-violet-600 dark:text-slate-50'
+                className='text-2xl text-violet-600 dark:text-slate-50 mx-4 mt-2 mb-1'
             >
                 Password
             </label>
@@ -59,14 +52,13 @@ export default function LoginForm() {
                 required
                 minLength={6}
                 placeholder="Enter password of 12 caracters"  
-                className='text-md mb-5 px-[7px] py-[3px] text-fuchsia-300/90 dark:text-cyan-400
-                bg-slate-100 hover:bg-white active:bg-white dark:bg-slate-800 dark:hover:bg-slate-900 
+                className='text-md text-violet-600 dark:text-cyan-400 bg-violet-100 
+                hover:bg-violet-200 active:bg-white dark:bg-slate-800 dark:hover:bg-slate-900 
                 dark:active:bg-sky-800 focus:outline-none focus:ring focus:ring-violet-400/70 
-                dark:focus:ring-sky-500 rounded-lg mx-20'
+                dark:focus:ring-sky-500 rounded-lg mx-4 mb-5 px-[7px] py-[5px]'
             />
             <LoginButton />
-            <div
-                className="flex h-8 items-end space-x-1"
+            <div className="flex h-8 items-center"
                 aria-live="polite"
                 aria-atomic="true"
             >
@@ -93,15 +85,15 @@ function LoginButton() {
 
     return (
         <BtnValidate 
-            className='text-md font-bold m-auto text-violet-600 dark:text-slate-50
-                dark:bg-transparent dark:hover:bg-transparent dark:hover:shadow-none dark:hover:scale-[0.98]
-                dark:active:bg-sky-700 dark:active:shadow-in
-                bg-transparent hover:bg-transparent hover:shadow-none hover:scale-[0.98]
-                active:bg-violet-200 active:shadow-inviolet
-                transition-all ease-in-out px-5 py-1 rounded-xl shadow-lg' 
-            aria-disabled={pending}
+            className='flex items-center justify-center bg-slate-100 hover:bg-transparent hover:shadow-none 
+                hover:scale-[0.98] active:bg-violet-200 active:shadow-inviolet dark:active:bg-sky-700 
+                dark:active:shadow-in transition-all ease-in-out mx-4 my-4 rounded-xl shadow-lg dark:shadow-lg'
+            disabled={pending}
         >
-            Log in <GrValidate className="ml-auto h-5 w-5 text-green-400" />
+            <p className='text-md text-violet-600 font-bold dark:text-slate-50'>
+                Log in
+            </p>
+            <GrValidate className="h-5 w-5 text-green-400" />
         </BtnValidate>
     );
 }

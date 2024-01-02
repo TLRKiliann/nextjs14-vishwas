@@ -4,13 +4,6 @@ import { useState, useMemo } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
-  const initialState = {
-    access: typeof window !== "undefined" ? window.localStorage.getItem('access') : false,
-    refresh: typeof window !== "undefined" ?  window.localStorage.getItem('refresh') : false,
-    isAuthenticated: null,
-    user: null
-  }
-
   const [value, setValue] = useState<T>(() => {
     if (typeof window !== 'undefined') {
       const jsonValue = window.localStorage.getItem(key)

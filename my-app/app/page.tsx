@@ -181,7 +181,8 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-sky-700/70'>
+          <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 shadow-inviolet
+            dark:bg-sky-700/70'>
 
             <div className='absolute sm:mr-[400px] xl:left-[160px] sm:w-[300px] sm:h-[200px] 
               xl:w-[400px] xl:h-[300px] rotate-[15deg] z-20'>
