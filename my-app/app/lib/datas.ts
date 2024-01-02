@@ -64,51 +64,61 @@ export const imgSet: ImgSetProps[] = [
     }
 ];
 
+// reviews & reviews id (need more video to display something)
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        categories: "Last article about baker one",
-        review: "little text to display something about (baker 1)"
+        categories: "Last video with baker one",
+        review: "little text to display something about (baker 1)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 2,
-        categories: "Last article about baker two",
-        review: "little text to display something about (baker 2)"
+        categories: "Last video with baker two",
+        review: "little text to display something about (baker 2)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 3,
-        categories: "Last article about baker three",
-        review: "little text to display something about (baker 3)"
+        categories: "Last video with baker three",
+        review: "little text to display something about (baker 3)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 4,
-        categories: "Last article about baker four",
-        review: "little text to display something about (baker 4)"
+        categories: "Last video with baker four",
+        review: "little text to display something about (baker 4)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 5,
-        categories: "Last article about baker five",
-        review: "little text to display something about (baker 5)"
+        categories: "Last video with baker five",
+        review: "little text to display something about (baker 5)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 6,
         categories: "Last article about baker six",
-        review: "little text to display something about (baker 6)"
+        review: "little text to display something about (baker 6)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 7,
         categories: "Last article about baker seven",
-        review: "little text to display something (baker 7)"
+        review: "little text to display something (baker 7)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 8,
         categories: "Last article about baker eight",
-        review: "little text to display something (baker 8)"
+        review: "little text to display something (baker 8)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 9,
         categories: "Last article about baker nine",
-        review: "little text to display something (baker 9)"
+        review: "little text to display something (baker 9)",
+        video: "/video/skate-trick2.mp4"
     }
 ];
 

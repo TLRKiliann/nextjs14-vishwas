@@ -20,6 +20,7 @@ export type ReviewsProps = {
     id: number;
     categories: string;
     review: string;
+    video: string;
 }
 
 export type CustomersProps = {
