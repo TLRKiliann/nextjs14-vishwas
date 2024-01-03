@@ -10,7 +10,7 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-import mauricio from "@/public/img_bg/mauricio.jpg";
+import skaterBg from "@/public/img_bg/skate-trick-park.jpg";
 import allan from "@/public/img_bg/pexels-allan-mas.jpg";
 import sunSet from "@/public/img_bg/sunset-board.jpg";
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
@@ -54,9 +54,9 @@ export default function Home() {
       <div className='fixed flex align-center justify-center w-full h-full 
         filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
         <Image
-          src={allanFranca}
+          src={skaterBg}
           width={1920}
-          height={1280}
+          height={1080}
           alt="cpu img" 
           className='flex w-full h-auto m-auto object-cover'
         />
@@ -64,9 +64,9 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className="mt-0 flex flex-col align-center justify-center w-full
-          dark:bg-cyan-50 bg-slate-50 border border-slate-100 dark:border-b-blue-200
-          shadow-xllight z-10"
+        <div className="flex flex-col align-center justify-center w-full
+          dark:bg-cyan-50 bg-slate-50 border border-b-indigo-200 dark:border-b-blue-200
+          shadow-xllight my-0 z-10"
         >
 
           <div className='flex flex-col py-[100px]'>
@@ -109,9 +109,8 @@ export default function Home() {
           </div>
 
           <div className="absolute top-0 left-0 w-full -z-30">
-            <div className="flex w-full h-[400px]">
-              <Image src={bgPark} width={2560} height={1709} alt="img lapin"
-                className="object-cover opacity-50" />
+            <div className="flex w-full h-[408px]">
+              <Image src={bgPark} width={2560} height={1709} alt="img lapin" className="object-cover opacity-50" />
             </div>
           </div>
 
