@@ -21,6 +21,7 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
 import deckTitle from '@/public/img_decks/deck-h.png';
+import bgPark from '@/public/img_bg/bg-park-title.jpg';
 
 export default function Home() {
   
@@ -104,6 +105,13 @@ export default function Home() {
             <div className="w-[400px] h-auto transform transition translate-y-0 animate-up-start">
               <Image src={skaterFly} width={1920} height={1260} alt="img lapin"
                 className="object-cover" />
+            </div>
+          </div>
+
+          <div className="absolute top-0 left-0 w-full -z-30">
+            <div className="flex w-full h-[400px]">
+              <Image src={bgPark} width={2560} height={1709} alt="img lapin"
+                className="object-cover opacity-50" />
             </div>
           </div>
 

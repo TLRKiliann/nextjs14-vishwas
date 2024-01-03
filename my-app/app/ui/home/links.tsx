@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation'
 export default function Links() {
     const pathname = usePathname();
     return (
-        <div className='flex justify-around w-full text-lg text-indigo-500 dark:text-blue-800 m-auto mb-1'>
+        <div className='flex justify-around w-full text-lg text-indigo-500 dark:text-blue-800 bg-slate-200 m-auto
+            mb-0'>
 
             <Link href="/" className={`${pathname === '/' 
             ? "text-indigo-400 dark:text-sky-600" 
