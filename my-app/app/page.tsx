@@ -19,8 +19,9 @@ import elementDeck from "@/public/img_carousel/deck_element9.png";
 import girlDeck from "@/public/img_carousel/deck_girl2.png";
 import bakerDeck from "@/public/img_carousel/deck_baker5.png";
 import blindDeck from "@/public/img_carousel/deck_blind6.png";
-//import skaterFly from '@/public/img_bg/skater_fly.jpg';
-//import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
+import skaterFly from '@/public/img_bg/skater_fly_title.png';
+import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
+import deckTitle from '@/public/img_decks/deck-h.png';
 
 export default function Home() {
   
@@ -63,12 +64,12 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
+        <div className="mt-0 flex flex-col align-center justify-center w-full
           dark:bg-cyan-50 bg-slate-50 border border-slate-100 dark:border-b-blue-200
           shadow-xllight z-10"
         >
-          
-          <div className='flex flex-col h-40'>
+
+          <div className='flex flex-col py-[100px]'>
             <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
               light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mb-0'
             >
@@ -86,15 +87,36 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="absolute flex justify-center w-full mb-10 -z-10">
+            <div className='w-[550px] h-auto transform translate-x-0 animate-vertical-rotation'>
+              <Image src={deckTitle} width={550} height={200} alt="img title"
+                className='object-cover' />
+            </div>
+          </div>
+
+          <div className="absolute flex justify-end w-full mb-0 mr-0">
+            <div className="w-[440px] h-auto">
+              <Image src={funnyRabbit} width={666} height={375} alt="img lapin"
+                className="object-cover" />
+            </div>
+          </div>
+
+          <div className="absolute flex justify-start w-full mb-0">
+            <div className="w-[400px] h-auto transform transition translate-y-0 animate-up-start">
+              <Image src={skaterFly} width={1920} height={1260} alt="img lapin"
+                className="object-cover opacity-90" />
+            </div>
+          </div>
+
           <Links />
 
         </div>
 
-        <div className='relative flex align-center justify-center h-12 
+        <div className='flex align-center justify-center h-12 
           dark:text-slate-50 text-cyan-600
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
-          bg-indigo-100 shadow-xllight mt-40 z-0'
+          bg-indigo-100 shadow-xllight mt-0 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
@@ -150,34 +172,8 @@ export default function Home() {
 
         <Separator />
 
-        {/* <div className="flex justify-center">
-
-          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-          <div className='w-4/5'>
-            <video autoPlay muted loop className='w-full h-auto'>
-              <source src="/video/skate-trick2.mp4" type="video/mp4" />
-            </video>
-          </div>
-
-          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-        </div>
-
-        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
-        </div>*/}
-
         <div className='flex  w-full'>
 
-          {/* <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
-            <div className='flex items-center justify-center w-[100px] h-[300px] 
-
-              <Image src={deck} width={200} height={550} alt="imd deck right"
-                className='object-cover' />
-            </div>
-          </div> */}
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
@@ -204,14 +200,6 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          {/* <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
-            <div className='flex items-center justify-center w-[100px] h-[300px] transform transition 
-              animate-horizontal-flip'>
-              <Image src={deck} width={200} height={550} alt="imd deck right"
-                className='object-cover' />
-            </div>
-        </div>*/}
-
         </div>
         
         <Separator />
@@ -219,9 +207,6 @@ export default function Home() {
           <TextBlocks title={titleTwo} text={textTwo} />
 
         <Separator />
-
-        {/* <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
-        </div> */}
 
         <div className='flex w-full'>
 
