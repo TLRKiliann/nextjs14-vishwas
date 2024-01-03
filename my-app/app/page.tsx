@@ -10,7 +10,6 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-//import deck from "@/public/img_decks/deck.png";
 import mauricio from "@/public/img_bg/mauricio.jpg";
 import allan from "@/public/img_bg/pexels-allan-mas.jpg";
 import sunSet from "@/public/img_bg/sunset-board.jpg";
@@ -88,7 +87,7 @@ export default function Home() {
           </div>
 
           <div className="absolute flex justify-center w-full mb-10 -z-10">
-            <div className='w-[550px] h-auto transform translate-x-0 animate-vertical-rotation'>
+            <div className='w-[550px] h-auto'>
               <Image src={deckTitle} width={550} height={200} alt="img title"
                 className='object-cover' />
             </div>
@@ -97,14 +96,14 @@ export default function Home() {
           <div className="absolute flex justify-end w-full mb-0 mr-0">
             <div className="w-[440px] h-auto">
               <Image src={funnyRabbit} width={666} height={375} alt="img lapin"
-                className="object-cover" />
+                className="object-cover transition animate-slice-appear" />
             </div>
           </div>
 
           <div className="absolute flex justify-start w-full mb-0">
             <div className="w-[400px] h-auto transform transition translate-y-0 animate-up-start">
               <Image src={skaterFly} width={1920} height={1260} alt="img lapin"
-                className="object-cover opacity-90" />
+                className="object-cover" />
             </div>
           </div>
 
@@ -180,19 +179,19 @@ export default function Home() {
           <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 shadow-inviolet
             dark:bg-sky-700/70'>
 
-            <div className='absolute sm:mr-[400px] xl:left-[160px] sm:w-[300px] sm:h-[200px] 
-              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-20'>
-              <Image src={mauricio} width={1920} height={1441} alt="img photo" className='object-cover rounded-xl' />
-            </div>
-
-            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-[200px] 
-              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-10'>
+            <div className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto ml-2 
+              rotate-[15deg] z-20'>
               <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
+
+            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+              rotate-[15deg] z-10'>
+              <Image src={sunSet} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
+            </div>
   
-            <div className='absolute sm:ml-[400px] xl:ml-[700px] sm:w-[300px] sm:h-[200px] 
-              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-0'>
-              <Image src={sunSet} width={1920} height={1281} alt="img photo" className='object-cover rounded-xl' />
+            <div className='absolute sm:ml-[500px] xl:ml-[700px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto mr-2 
+              rotate-[15deg] z-0'>
+              <Image src={allanFranca} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
 
           </div>
@@ -257,53 +256,6 @@ export default function Home() {
           </TextBlocks>
 
         <Separator />
-
-        {/* <div className='flex'>
-
-          <div className='flex-1 h-auto bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-          <div className='flex xs:w-1/5 md:w-2/5 xl:w-3/5 h-auto bg-transparent rounded-xl'>
-
-            <div className='relative flex flex-col items-center justify-center z-10'>
-
-              <div className='absolute top-0 left-0 flex flex-col items-center justify-center 
-                w-full h-full text-center sm:text-2xl md:text-4xl xl:text-8xl font-bold
-                text-slate-50 bg-sky-800/10 z-40'>
-
-                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
-                  Ride to be live
-                </p>
-                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
-                  &
-                </p>
-                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
-                  Live to be ride !
-                </p>
-
-              </div>
-              
-              <Image
-                src={skaterFly}
-                width={1920}
-                height={1260}
-                alt="skater fly" 
-                className='object-cover opacity-90 rounded-t-full shadow-lg z-10'
-              />
-
-              <div className="absolute bottom-0 right-0 z-30">
-                <Image src={funnyRabbit} width={666} height={375} alt="lapin cretin" 
-                  className="object-cover" />
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-        </div> */}
 
       </main>
 
