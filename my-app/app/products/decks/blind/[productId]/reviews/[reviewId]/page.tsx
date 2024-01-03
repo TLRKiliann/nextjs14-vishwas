@@ -19,8 +19,8 @@ export default async function ReviewById({ params }: PropsProdReview) {
         throw new Error("Error review id is not a number");
     }
 
-    const data: unknown = await genericQuery("SELECT * FROM bakerdecks", []);
-    const bakerdecks: string = JSON.stringify(data);
+    const data: unknown = await genericQuery("SELECT * FROM blinddecks", []);
+    const blinddecks: string = JSON.stringify(data);
 
     const images = [
         bakerDeck,
@@ -34,7 +34,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
             <div className='p-4'>
                 <p>Product id: {params.productId} and article id: {params.reviewId}</p>
             </div>
-            {JSON.parse(bakerdecks).map((prod: DecksProps) => (
+            {JSON.parse(blinddecks).map((prod: DecksProps) => (
                 prod.id === parseInt(params.productId) ? (
                     <div key={prod.id} className='p-4'>
                         <p>{prod.deckname}</p>
@@ -82,5 +82,3 @@ export default async function ReviewById({ params }: PropsProdReview) {
         </div>
     )
 }
-
-// params take the string value of productId & reviewId

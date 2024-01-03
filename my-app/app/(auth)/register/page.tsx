@@ -1,6 +1,12 @@
 import React from 'react'
+import { Metadata } from 'next';
 import RegisterForm from '@/app/ui/auth/register-form';
 import { newMemberQuery } from '@/app/lib/db';
+
+export const metadata: Metadata = {
+  title: "register",
+  description: "registered"
+}
 
 export default async function Register() {
 
@@ -8,7 +14,7 @@ export default async function Register() {
   const users: string = JSON.stringify(data);
 
   return (
-    <div className='min-h-screen'>
+    <div className='w-full min-h-screen'>
       
       <div className='flex justify-center'>
         <RegisterForm users={JSON.parse(users)} />
