@@ -68,55 +68,55 @@ export const imgSet: ImgSetProps[] = [
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        categories: "Last video with baker one",
+        categories: "Last video",
         review: "little text to display something about (baker 1)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 2,
-        categories: "Last video with baker two",
+        categories: "Last video",
         review: "little text to display something about (baker 2)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 3,
-        categories: "Last video with baker three",
+        categories: "Last video",
         review: "little text to display something about (baker 3)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 4,
-        categories: "Last video with baker four",
+        categories: "Last video",
         review: "little text to display something about (baker 4)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 5,
-        categories: "Last video with baker five",
+        categories: "Last video",
         review: "little text to display something about (baker 5)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 6,
-        categories: "Last article about baker six",
+        categories: "Last video",
         review: "little text to display something about (baker 6)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 7,
-        categories: "Last article about baker seven",
+        categories: "Last video",
         review: "little text to display something (baker 7)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 8,
-        categories: "Last article about baker eight",
+        categories: "Last video",
         review: "little text to display something (baker 8)",
         video: "/video/skate-trick2.mp4"
     },
     {
         id: 9,
-        categories: "Last article about baker nine",
+        categories: "Last video",
         review: "little text to display something (baker 9)",
         video: "/video/skate-trick2.mp4"
     }
