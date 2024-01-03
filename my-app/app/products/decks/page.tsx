@@ -6,7 +6,7 @@ import allanSkate from "@/public/img_bg/pexels-allan-mas.jpg";
 import deckFlip from "@/public/img_decks/deck.png";
 
 export const metadata: Metadata = {
-  title: "decks",
+  title: "Decks",
   description: "access accepted"
 }
 
