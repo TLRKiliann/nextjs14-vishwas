@@ -64,51 +64,61 @@ export const imgSet: ImgSetProps[] = [
     }
 ];
 
+// reviews & reviews id (need more video to display something)
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        categories: "Last article about baker one",
-        review: "little text to display something about (baker 1)"
+        categories: "Last video",
+        review: "little text to display something about (baker 1)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 2,
-        categories: "Last article about baker two",
-        review: "little text to display something about (baker 2)"
+        categories: "Last video",
+        review: "little text to display something about (baker 2)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 3,
-        categories: "Last article about baker three",
-        review: "little text to display something about (baker 3)"
+        categories: "Last video",
+        review: "little text to display something about (baker 3)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 4,
-        categories: "Last article about baker four",
-        review: "little text to display something about (baker 4)"
+        categories: "Last video",
+        review: "little text to display something about (baker 4)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 5,
-        categories: "Last article about baker five",
-        review: "little text to display something about (baker 5)"
+        categories: "Last video",
+        review: "little text to display something about (baker 5)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 6,
-        categories: "Last article about baker six",
-        review: "little text to display something about (baker 6)"
+        categories: "Last video",
+        review: "little text to display something about (baker 6)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 7,
-        categories: "Last article about baker seven",
-        review: "little text to display something (baker 7)"
+        categories: "Last video",
+        review: "little text to display something (baker 7)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 8,
-        categories: "Last article about baker eight",
-        review: "little text to display something (baker 8)"
+        categories: "Last video",
+        review: "little text to display something (baker 8)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 9,
-        categories: "Last article about baker nine",
-        review: "little text to display something (baker 9)"
+        categories: "Last video",
+        review: "little text to display something (baker 9)",
+        video: "/video/skate-trick2.mp4"
     }
 ];
 
@@ -198,7 +208,8 @@ const customers: CustomersProps[] = [
 export const allTitle: AllTitlesProps = {
     titleOne: "High performance for demanding customers",
     titleTwo: "We can help you make the right choice",
-    titleThree: "We're present on every network",
+    titleThree: "We have all what you need",
+    titleFour: "We're present on every network",
     titlebox_1: "Win a free training session",
     titlebox_2: "Offer on skate-park passes"
 }
@@ -212,16 +223,15 @@ export const allText: AllTextProps = {
         culpa qui officia deserunt mollit anim id est laborum.",
     textTwo: "Text 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
-        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
-        culpa qui officia deserunt mollit anim id est laborum.",
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     textThree: "Text 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \
         fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \
         culpa qui officia deserunt mollit anim id est laborum.",
+    textFour: "Text 3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     textbox_1: "Text 4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, \
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, \
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \

@@ -1,10 +1,28 @@
 import React from 'react';
+import { Metadata } from 'next';
+import Image from 'next/image';
 import DataShop from '@/app/ui/contact/data-shop';
 import Message from '@/app/ui/contact/message';
+import mauricio from "@/public/img_bg/mauricio.jpg";
+
+export const metadata: Metadata = {
+    title: "Contact",
+    description: "access accepted"
+}
 
 export default function Contact() {
     return (
-        <div className='min-h-screen bg-slate-50 text-slate-900 dark:text-slate-50 dark:bg-slate-900 py-[75px]'>
+        <div className='w-full min-h-screen bg-slate-50 text-slate-900 dark:text-slate-50 
+            dark:bg-slate-900 py-[75px]'>
+            
+            <div className='-z-10'>
+                <Image
+                    src={mauricio} width={1920} height={1441}
+                    alt="img bg contact"
+                    className='fixed opacity-20 object-cover -mt-[200px]'
+                />
+            </div>
+
             <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
                 Contact us
             </h1>
@@ -16,6 +34,7 @@ export default function Contact() {
                 <Message />
 
             </div>
+
         </div>
     )
 }

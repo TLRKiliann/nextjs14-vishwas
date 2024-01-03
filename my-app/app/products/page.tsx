@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import bgProducts from '@/public/img_bg/sunset-board.jpg';
 import MainShop from '@/app/ui/products/main-shop';
@@ -10,6 +11,11 @@ type TitleProps = {
 type LinksProps = {
     id: number;
     link: string;
+}
+
+export const metadata: Metadata = {
+    title: "Products",
+    description: "access accepted"
 }
 
 export default function ListProducts() {

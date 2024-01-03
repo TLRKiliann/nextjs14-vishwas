@@ -12,7 +12,7 @@ export default function Loading() {
               width={20}
               height={20}
               alt="img loader"
-              className="m-auto animate-spin" 
+              className="object-cover animate-spin" 
           />
 
           <h2 className='font-bold ml-4'>Loading...</h2>

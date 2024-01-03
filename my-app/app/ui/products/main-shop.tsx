@@ -20,10 +20,10 @@ export default function MainShop({link, children}: ShopProps) {
     }
 
     return (
-        <div className='flex'>
+        <div className='flex xl:h-full'>
 
             {deckBool === false ? (
-                <div className='flex flex-col items-center justify-center w-full h-[340px]'>
+                <div className='flex flex-col items-center justify-center w-full h-auto my-5 xl:my-20'>
 
                     <Link
                         href={`${link}`}
@@ -49,7 +49,7 @@ export default function MainShop({link, children}: ShopProps) {
                     </Link>
                 </div>
             ) : (
-                <div className='flex items-center justify-center w-full h-[340px]'>
+                <div className='flex items-center justify-center w-full h-auto my-5 xl:my-20'>
                     <Image
                         src={deckHorizon}
                         width={400}

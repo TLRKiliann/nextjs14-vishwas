@@ -51,6 +51,8 @@ and call
 
 className="animate-slide-anime"
 
+- ex: transition transform rotate-x-0 animate-vertical-rotation
+
 ## Database
 
 - Create a db:

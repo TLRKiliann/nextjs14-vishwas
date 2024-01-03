@@ -5,11 +5,11 @@ import Carousel from '@/app/ui/carousel';
 import ScrollIndicator from '@/app//ui/scroll-indicator';
 import SocialIcons from '@/app/ui/home/social-icons';
 import TextBlocks from '@/app/ui/home/text-blocs';
+import TextBlockDesign from '@/app/ui/home/text-bloc-design';
 import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-import deck from "@/public/img_decks/deck.png";
 import mauricio from "@/public/img_bg/mauricio.jpg";
 import allan from "@/public/img_bg/pexels-allan-mas.jpg";
 import sunSet from "@/public/img_bg/sunset-board.jpg";
@@ -18,8 +18,9 @@ import elementDeck from "@/public/img_carousel/deck_element9.png";
 import girlDeck from "@/public/img_carousel/deck_girl2.png";
 import bakerDeck from "@/public/img_carousel/deck_baker5.png";
 import blindDeck from "@/public/img_carousel/deck_blind6.png";
-import skaterFly from '@/public/img_bg/skater_fly.jpg';
+import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
+import deckTitle from '@/public/img_decks/deck-h.png';
 
 export default function Home() {
   
@@ -33,17 +34,19 @@ export default function Home() {
   const titleOne: string = allTitle.titleOne;
   const titleTwo: string = allTitle.titleTwo;
   const titleThree: string = allTitle.titleThree;
+  const titleFour: string = allTitle.titleFour;
   const titlebox_1: string = allTitle.titlebox_1;
   const titlebox_2: string = allTitle.titlebox_2;
 
   const textOne: string = allText.textOne;
   const textTwo: string = allText.textTwo;
   const textThree: string = allText.textThree;
+  const textFour: string = allText.textFour;
   const textbox_1: string = allText.textbox_1;
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-600 bg-black z-0 py-[70px]'>
+    <div className='relative flex text-slate-600 bg-black z-0 pt-[75px] pb-[20px]'>
       
       <ScrollIndicator />
       
@@ -60,12 +63,12 @@ export default function Home() {
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className="absolute mt-0 flex flex-col align-center justify-center w-full h-40 
+        <div className="mt-0 flex flex-col align-center justify-center w-full
           dark:bg-cyan-50 bg-slate-50 border border-slate-100 dark:border-b-blue-200
           shadow-xllight z-10"
         >
-          
-          <div className='flex flex-col h-40'>
+
+          <div className='flex flex-col py-[100px]'>
             <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
               light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mb-0'
             >
@@ -83,16 +86,36 @@ export default function Home() {
             </p>
           </div>
 
+          <div className="absolute flex justify-center w-full mb-10 -z-10">
+            <div className='w-[550px] h-auto'>
+              <Image src={deckTitle} width={550} height={200} alt="img title"
+                className='object-cover' />
+            </div>
+          </div>
+
+          <div className="absolute flex justify-end w-full mb-0 mr-0">
+            <div className="w-[440px] h-auto">
+              <Image src={funnyRabbit} width={666} height={375} alt="img lapin"
+                className="object-cover transition animate-slice-appear" />
+            </div>
+          </div>
+
+          <div className="absolute flex justify-start w-full mb-0">
+            <div className="w-[400px] h-auto transform transition translate-y-0 animate-up-start">
+              <Image src={skaterFly} width={1920} height={1260} alt="img lapin"
+                className="object-cover" />
+            </div>
+          </div>
+
           <Links />
 
         </div>
 
-        <div className='relative flex align-center justify-center h-12 
+        <div className='flex align-center justify-center h-12 
           dark:text-slate-50 text-cyan-600
           dark:bg-gradient-to-r dark:from-slate-900 dark:from-10% 
           dark:via-sky-400 dark:via-40% dark:to-slate-900 dark:to-90%
-          bg-indigo-100
-          shadow-xllight mt-40 z-0'
+          bg-indigo-100 shadow-xllight mt-0 z-0'
         >
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
@@ -105,11 +128,8 @@ export default function Home() {
             Take a look !
           </h2>
         </div>
-        
-        <Separator />
 
-          <TextBlocks title={titleOne} text={textOne} />
-
+        <TextBlocks title={titleOne} text={textOne} />
         <Separator />
 
         <div className='flex'>
@@ -117,7 +137,7 @@ export default function Home() {
           <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='w-4/5 h-[440px] bg-slate-200/80 dark:bg-blue-100/80'>
+          <div className='w-4/5 h-[440px] bg-slate-200/80 dark:bg-sky-700/70'>
 
             <Carousel loop>
               {images.map((src, i) => {
@@ -138,7 +158,7 @@ export default function Home() {
               })}
             </Carousel>
 
-            </div>
+          </div>
 
           <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
@@ -147,71 +167,45 @@ export default function Home() {
 
         <Separator />
 
-          <TextBlocks title={titleOne} text={textOne} />
+          <TextBlockDesign title={titleTwo} text={textTwo} />
 
         <Separator />
 
-        <div className="flex justify-center">
+        <div className='flex  w-full'>
 
-          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
+          <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='w-4/5'>
-            {/* autoPlay muted loop */}
-            <video className='w-full h-auto'>
-              <source src="/video/skate-trick2.mp4" type="video/mp4" />
-            </video>
-          </div>
+          <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 shadow-inviolet
+            dark:bg-sky-700/70'>
 
-          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-        </div>
-
-        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
-        </div>
-
-        <div className='flex items-center justify-center w-full h-[400px]'>
-
-          <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
-            <div className='flex items-center justify-center w-[100px] h-[300px] 
-              '>{/* transform transition animate-horizontal-flip */}
-              <Image src={deck} width={200} height={550} alt="imd deck right"
-                className='object-cover' />
+            <div className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto ml-2 
+              rotate-[15deg] z-20'>
+              <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
-          </div>
 
-          <div className='relative flex items-center justify-center w-full h-[400px] bg-sky-700/70'>
-
-            <div className='absolute sm:mr-[400px] xl:left-[200px] sm:w-[300px] sm:h-[200px] 
-              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-20'>
-              <Image src={mauricio} width={1920} height={1441} alt="img photo" className='object-cover' />
+            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+              rotate-[15deg] z-10'>
+              <Image src={sunSet} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
   
-            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-[200px] 
-              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-10'>
-              <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover' />
-            </div>
-  
-            <div className='absolute sm:ml-[400px] xl:ml-[700px] sm:w-[300px] sm:h-[200px] 
-              xl:w-[400px] xl:h-[300px] rotate-[15deg] z-0'>
-              <Image src={sunSet} width={1920} height={1281} alt="img photo" className='object-cover' />
+            <div className='absolute sm:ml-[500px] xl:ml-[700px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto mr-2 
+              rotate-[15deg] z-0'>
+              <Image src={allanFranca} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
 
           </div>
-          
-          <div className="w-[150px] flex items-center justify-center h-[400px] bg-slate-100 dark:bg-slate-900">
-            <div className='flex items-center justify-center w-[100px] h-[300px] 
-              '>{/* transform transition animate-horizontal-flip */}
-              <Image src={deck} width={200} height={550} alt="imd deck right"
-                className='object-cover' />
-            </div>
+
+          <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
         </div>
         
-        <div className='w-full bg-slate-100 dark:bg-slate-900 py-10'>
-        </div>
+        <Separator />
+
+          <TextBlocks title={titleTwo} text={textTwo} />
+
+        <Separator />
 
         <div className='flex w-full'>
 
@@ -233,7 +227,7 @@ export default function Home() {
 
         <Separator />
 
-          <TextBlocks title={titleTwo} text={textTwo} />
+          <TextBlocks title={titleThree} text={textThree} />
 
         <Separator />
 
@@ -257,58 +251,11 @@ export default function Home() {
 
         <Separator />
 
-          <TextBlocks title={titleThree} text={textThree}>
+          <TextBlocks title={titleFour} text={textFour}>
             <SocialIcons />
           </TextBlocks>
 
         <Separator />
-
-        <div className='flex'>
-
-          <div className='flex-1 h-auto bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-          <div className='flex xs:w-1/5 md:w-2/5 xl:w-3/5 h-auto bg-transparent rounded-xl'>
-
-            <div className='relative flex flex-col items-center justify-center z-10'>
-
-              <div className='absolute top-0 left-0 flex flex-col items-center justify-center 
-                w-full h-full text-center sm:text-2xl md:text-4xl xl:text-8xl font-bold
-                text-slate-50 bg-sky-800/10 z-40'>
-
-                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
-                  Ride to be live
-                </p>
-                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
-                  &
-                </p>
-                <p className='[text-shadow:1px_5px_2px_#222] rotate-12 sm:my-8 md:my-6 xl:my-4'>
-                  Live to be ride !
-                </p>
-
-              </div>
-              
-              <Image
-                src={skaterFly}
-                width={1920}
-                height={1260}
-                alt="skater fly" 
-                className='object-cover opacity-90 rounded-t-full shadow-lg z-10'
-              />
-
-              <div className="absolute bottom-0 right-0 z-30">
-                <Image src={funnyRabbit} width={666} height={375} alt="lapin cretin" 
-                  className="object-cover" />
-              </div>
-
-            </div>
-
-          </div>
-
-          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
-          </div>
-
-        </div>
 
       </main>
 

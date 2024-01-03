@@ -20,6 +20,7 @@ export type ReviewsProps = {
     id: number;
     categories: string;
     review: string;
+    video: string;
 }
 
 export type CustomersProps = {
@@ -35,6 +36,7 @@ export type AllTitlesProps = {
     titleOne: string;
     titleTwo: string;
     titleThree: string;
+    titleFour: string;
     titlebox_1: string;
     titlebox_2: string;
 }
@@ -43,6 +45,7 @@ export type AllTextProps = {
     textOne: string;
     textTwo: string;
     textThree: string;
+    textFour: string;
     textbox_1: string;
     textbox_2: string;
 }

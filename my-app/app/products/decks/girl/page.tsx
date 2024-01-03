@@ -5,18 +5,18 @@ import DecksCards from '@/app/ui/products/decks/decks-cards';
 
 export const metadata: Metadata = {
   title: {
-      absolute: "Baker's Decks"
+      absolute: "Girl's Decks"
   },
-  description: "list of Baker's decks"
+  description: "list of Girl's decks"
 }
 
-export default async function BakerDecks() {
+export default async function GirlDecks() {
 
   const request = await genericQuery("SELECT * FROM girldecks", []);
   const data = JSON.stringify(request);
   
   if (!data) {
-    throw new Error("Error: data not loaded for baker's decks");
+    throw new Error("Error: data not loaded for girl's decks");
   }
 
   return (

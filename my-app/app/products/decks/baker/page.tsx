@@ -5,7 +5,7 @@ import DecksCards from '@/app/ui/products/decks/decks-cards';
 
 export const metadata: Metadata = {
   title: {
-      absolute: "Baker's Decks"
+    absolute: "Baker's Decks"
   },
   description: "list of Baker's decks"
 }

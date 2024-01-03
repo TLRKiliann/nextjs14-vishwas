@@ -5,7 +5,7 @@ import spinLoader from "@/public/img_logo/loader.png";
 export default function Loading() {
   return (
     <div className="w-full min-h-screen">
-        <div className='w-[200px] flex items-center p-4'>
+        <div className='w-[200px] flex items-center p-4 mt-[100px]'>
 
           <Image
               src={spinLoader}
