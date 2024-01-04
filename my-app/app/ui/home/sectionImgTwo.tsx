@@ -10,7 +10,8 @@ export default function sectionImgTwo() {
                 width={1920}
                 height={1280}
                 alt="forest img"
-                className='object-cover shadow-out transition hover:filter hover:grayscale hover:contrast-200 hover:shadow-none rounded-lg'
+                className='object-cover shadow-out transition hover:filter hover:grayscale hover:contrast-200 
+                    hover:shadow-none rounded-lg'
             />
         </div>
     )

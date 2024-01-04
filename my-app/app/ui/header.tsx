@@ -28,8 +28,7 @@ export default function Header() {
                 text-blue-800 dark:text-slate-50
                 dark:bg-gradient-to-br dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-40% dark:to-slate-900 dark:to-90%
-                bg-indigo-200
-                py-2 z-10"
+                bg-indigo-200 py-2 z-10"
             >
 
                 <div className="relative flex items-center justify-center w-[70px] 
@@ -39,7 +38,7 @@ export default function Header() {
                         width={70}
                         height={70}
                         alt="img logo"
-                        className="flex w-auto h-auto m-auto object-cover"
+                        className="object-cover"
                     />
                 </div>
                 

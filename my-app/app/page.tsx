@@ -47,25 +47,25 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-600 bg-black z-0 pt-[75px] pb-[20px]'>
+    <div className='relative flex text-slate-600 bg-black pt-[75px] pb-[20px] z-0'>
       
       <ScrollIndicator />
       
-      <div className='fixed flex align-center justify-center w-full h-full 
-        filter blur-sm contrast-200 m-auto animate-slice-appear -z-10'>
+      <div className='fixed flex align-center justify-center w-full h-full filter blur-sm contrast-200 m-auto
+        animate-slice-appear -z-10'>
         <Image
           src={skaterBg}
           width={1920}
           height={1080}
           alt="cpu img" 
-          className='flex w-full h-auto m-auto object-cover'
+          className='object-cover'
         />
       </div>
 
       <main className="flex flex-col w-full min-h-screen">
   
         <div className="flex flex-col align-center justify-center w-full
-          dark:bg-cyan-50 bg-slate-50 border border-b-indigo-200 dark:border-b-blue-200
+          dark:bg-cyan-50 bg-slate-50 border-b border-indigo-200 dark:border-blue-200
           shadow-xllight my-0 z-10"
         >
 
@@ -103,14 +103,15 @@ export default function Home() {
 
           <div className="absolute flex justify-start w-full mb-0">
             <div className="w-[400px] h-auto transform transition translate-y-0 animate-up-start">
-              <Image src={skaterFly} width={1920} height={1260} alt="img lapin"
+              <Image src={skaterFly} width={1920} height={1260} alt="img skaterFly"
                 className="object-cover" />
             </div>
           </div>
 
           <div className="absolute top-0 left-0 w-full -z-30">
-            <div className="flex w-full h-[408px]">
-              <Image src={bgPark} width={2560} height={1709} alt="img lapin" className="object-cover opacity-50" />
+            <div className="flex w-full h-[407px]">
+              <Image src={bgPark} width={2560} height={1709} alt="img bgPark" 
+                className="object-cover opacity-50" />
             </div>
           </div>
 
@@ -183,11 +184,11 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 shadow-inviolet
-            dark:bg-sky-700/70'>
+          <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 
+            shadow-inviolet dark:bg-sky-700/70'>
 
-            <div className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto ml-2 
-              rotate-[15deg] z-20'>
+            <div className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+              ml-2 rotate-[15deg] z-20'>
               <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
 
@@ -196,8 +197,8 @@ export default function Home() {
               <Image src={sunSet} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
   
-            <div className='absolute sm:ml-[500px] xl:ml-[700px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto mr-2 
-              rotate-[15deg] z-0'>
+            <div className='absolute sm:ml-[500px] xl:ml-[700px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+              mr-2 rotate-[15deg] z-0'>
               <Image src={allanFranca} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
             </div>
 
