@@ -27,7 +27,7 @@ export default function Contact() {
                 Contact us
             </h1>
 
-            <div className="flex w-full h-auto md:mt-[0%] xl:mt-[5%]">
+            <div className="flex w-full h-auto md:mt-[0%] xl:mt-[5%] border">
 
                 <DataShop />
 

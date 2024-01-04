@@ -32,27 +32,28 @@ export default function Message() {
 
     return (
         <form action={formAction}
-            className='flex flex-col w-2/5 h-fit text-lg font-bold text-indigo-500 dark:text-slate-600 
+            className='relative flex flex-col w-2/5 h-fit text-lg font-bold text-indigo-500 dark:text-slate-600 
             bg-slate-50 mx-auto p-10 pb-6 rounded-xl shadow-lg dark:shadow-in'>
 
             <h3 className='text-2xl font-bold pb-4'>Email</h3>
             
-            <label htmlFor="username">Username</label>
+            <label className="mt-2 mb-1" htmlFor="username">Username</label>
             <input type="text" id="username" name="username" value={user}
                 onChange={(event) => handleUser(event)}
                 placeholder='Username' required
                 className='text-slate-500 bg-slate-200 px-2 py-1' />
 
-            <label htmlFor="email">Email</label>
+            <label className="mt-2 mb-1" htmlFor="email">Email</label>
             <input type="email" id="email" name="email" value={email} 
                 onChange={(event) => handleEmail(event)}
                 placeholder="Email" required
                 className='text-slate-500 bg-slate-200 px-2 py-1' />
             
-            <label htmlFor="message">Enter your text</label>
+            <label className="mt-2 mb-1" htmlFor="message">Enter your text</label>
             <textarea name="message" id="message" cols={20} rows={5}
                 onChange={(event) => handleTextArea(event)}
                 value={textArea}
+                placeholder="Enter something here..."
                 className='text-slate-500 bg-slate-200 p-2'>
             </textarea>
             

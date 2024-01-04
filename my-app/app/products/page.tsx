@@ -72,7 +72,7 @@ export default function ListProducts() {
             </div>
 
             <div className="relative flex flex-col w-full mt-4">
-                <SearchUrl placeholder="ex: baker 1, or element 3, ..." />
+                <SearchUrl placeholder="ex: baker one, or element three, ..." />
             </div>
 
             {titles.map((tName: TitleProps) => (
