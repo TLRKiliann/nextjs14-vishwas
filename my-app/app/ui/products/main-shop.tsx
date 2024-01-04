@@ -35,7 +35,7 @@ export default function MainShop({link, children}: ShopProps) {
                             className='absolute flex items-center justify-center w-full h-full 
                                 text-5xl font-bold text-transparent bg-clip-text
                                 bg-gradient-to-t from-fuchsia-700 from-30% 
-                                to-yellow-400 to-70% z-10'>{/* animate-scale-decks */}
+                                to-yellow-400 to-70% mt-1 z-10'>{/* animate-scale-decks */}
                             {children}
                         </h2>
 

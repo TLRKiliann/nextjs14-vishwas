@@ -4,8 +4,8 @@ import mapShop from '@/public/img_bg/map-shop.png';
 
 export default function DataShop() {
     return (
-        <div className='w-2/5 h-auto text-lg font-bold text-indigo-500 dark:text-slate-600 
-            bg-slate-50 mx-auto mt-2 p-10 rounded-xl shadow-lg dark:shadow-in'
+        <div className='relative w-2/5 h-auto text-lg font-bold text-indigo-500 dark:text-slate-600 
+            bg-slate-50 mx-auto p-10 rounded-xl shadow-lg dark:shadow-in'
         >
 
             <h3 className='text-2xl font-bold pb-4'>Contact</h3>

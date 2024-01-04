@@ -29,6 +29,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const [cartItems, setCartItems] = useLocalStorage<Array<CartItem>>(
     "Shopping-Cart", []);
 
+
   const cartQuantity = cartItems.reduce(
     (quantity: number, item: CartItem) => item.quantity + quantity, 0);
 

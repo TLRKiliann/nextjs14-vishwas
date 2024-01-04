@@ -133,7 +133,7 @@ const config: Config = {
         'btn': '0px 0px 7px rgba(40, 40, 40, 0.8)',
         'out': '0px 0px 10px rgba(0, 0, 0, 0.8)',
         'in': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
-        'inlightmode': 'inset 0px 0px 10px rgba(0, 0, 0, 1)',
+        'inlightmode': '0px 0px 7px rgba(255, 255, 255, 1)',
         'inlight': '0px 0px 7px rgba(2, 132, 199, 0.8)',
         'inviolet': 'inset 0px 0px 7px rgba(147,112,219, 0.5)',
         'outviolet': '0px 0px 7px rgba(147,112,219, 0.5)',

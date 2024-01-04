@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import bgProducts from '@/public/img_bg/sunset-board.jpg';
+import SearchUrl from '@/app/ui/products/search-url';
 import MainShop from '@/app/ui/products/main-shop';
+import bgProducts from '@/public/img_bg/sunset-board.jpg';
 
 type TitleProps = {
     id: number;
@@ -61,16 +62,17 @@ export default function ListProducts() {
             </div>
 
             <div>
-                <h1 className='text-4xl font-bold 
-                    text-transparent bg-clip-text
-                    dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
-                    dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
+                <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1
                     bg-gradient-to-br from-violet-500 from-10% 
                     via-purple-500 via-50% to-violet-200 to-90%
                     p-4'
                 >
                     Welcome to shop !
                 </h1>
+            </div>
+
+            <div className="relative flex flex-col w-full mt-4">
+                <SearchUrl placeholder="ex: baker one, or element three, ..." />
             </div>
 
             {titles.map((tName: TitleProps) => (
@@ -84,7 +86,6 @@ export default function ListProducts() {
                     }
                 })
             ))}
-            
         </div>
     )
 }
