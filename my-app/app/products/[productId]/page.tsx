@@ -40,13 +40,8 @@ const DetailsProduct = async ({params}: Props) => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <div key={prod.id} className='flex justify-center w-full h-auto text-md'>
-                    <div className='flex flex-col
-                        dark:bg-gradient-to-tr dark:from-slate-900 dark:from-10% 
-                        dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
-                        bg-gradient-to-tr from-violet-400 from-10% 
-                        via-slate-50 via-50% to-violet-400 to-90%
-                        transform transition translate-y-0 animate-up-start
-                        px-10 py-4 rounded-lg shadow-lg'
+                    <div className='flex flex-col secondary-dark-bg-gradient secondary-light-bg-gradient
+                        transform transition translate-y-0 animate-up-start px-10 py-4 rounded-lg shadow-lg'
                     >
                         <p className='pb-2'>Name: {prod.name}</p>
                         <p className='pb-2'>Price: {prod.price.toFixed(2)}.- CHF</p>
