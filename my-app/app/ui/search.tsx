@@ -4,27 +4,25 @@ import {useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 
 export default function Search({placeholder}: {placeholder: string}) {
+    
     const searchParams = useSearchParams();
-    //console.log(searchParams, "searchParams")
     const pathname = usePathname();
-    //console.log(pathname, "pathname")
     const { replace } = useRouter();
-    //console.log(replace, "replace")
 
     const handleSearch = useDebouncedCallback((term) => {
 
         const params = new URLSearchParams(searchParams);
-        params.set("", "1");
+        params.set("page", "1");
 
-        if (term === "baker one") {
+        if (term) {
             console.log(term, "term")
-            params.set("", "1");
+            params.set("page", "1");
         } else {
             params.delete("query")
         }
 
-        //replace(`${pathname}?${params.toString()}`);
-        replace(`/products/decks/baker/1`)
+        replace(`${pathname}?${params.toString()}`);
+        //replace(`/products/decks/baker/1`)
     }, 300);
 
     return (
