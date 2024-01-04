@@ -92,3 +92,9 @@ export type ImgSetProps = {
     id: number;
     images: StaticImageData[]
 }
+
+export type ListOfDecksProps = {
+    id: number;
+    name: string;
+    label: string;
+}
