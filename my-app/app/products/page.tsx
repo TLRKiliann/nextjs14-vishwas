@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import bgProducts from '@/public/img_bg/sunset-board.jpg';
+import Search from '@/app/ui/search';
 import MainShop from '@/app/ui/products/main-shop';
+import bgProducts from '@/public/img_bg/sunset-board.jpg';
 
 type TitleProps = {
     id: number;
@@ -71,6 +72,10 @@ export default function ListProducts() {
                 >
                     Welcome to shop !
                 </h1>
+            </div>
+
+            <div className="w-3/5 m-auto mt-4">
+                <Search placeholder="Something for placeholder" />
             </div>
 
             {titles.map((tName: TitleProps) => (
