@@ -10,9 +10,9 @@ export default function LoadMore({load, handleClick}: LoadmoreProps) {
     return (
         <>
             {load === false ? (
-                <div className='relative flex items-center justify-center w-full
-                    bg-gradient-to-b from-transparent from-10% via-slate-900/80 via-20% to-slate-900 to-90%
-                    py-6 -mt-20 z-10'>
+                <div className='relative flex items-center justify-center w-full h-auto
+                    bg-gradient-to-b from-transparent from-10% to-slate-900/90 to-90%
+                    py-6 -mt-[90px] z-10'>
                     <button
                         type="button"
                         onClick={handleClick}
@@ -26,8 +26,8 @@ export default function LoadMore({load, handleClick}: LoadmoreProps) {
                         dark:hover:via-blue-400 dark:hover:via-50% dark:hover:to-indigo-700 
                         dark:hover:to-90%
 
-                        dark:active:bg-gradient-to-br dark:active:from-indigo-600 dark:active:from-10% 
-                        dark:active:via-blue-500 dark:active:via-50% dark:active:to-indigo-600 
+                        dark:active:bg-gradient-to-br dark:active:from-blue-500 dark:active:from-10% 
+                        dark:active:via-blue-500 dark:active:via-50% dark:active:to-blue-500 
                         dark:active:to-90%
 
                         bg-violet-400 hover:bg-violet-500 active:bg-violet-400 
