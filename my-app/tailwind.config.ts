@@ -101,7 +101,7 @@ const config: Config = {
             transform: "rotate3d(0,0,0, 0deg)",
           },
           "100%": {
-            transform: "rotate3d(3,-1,-1, 360deg)",
+            transform: "rotate3d(3,-1,-2, 360deg)",
           },
         },
         horizontalflip: {
@@ -122,7 +122,7 @@ const config: Config = {
         "decks-rotation": "decksrotation 1s ease 1",
         "horizontal-rotation": "horizontalrotation 1s ease 1",
         "vertical-rotation": "verticalrotation 1s ease 1",
-        "deck-flip": "deckflip 2s infinite alternate",
+        "deck-flip": "deckflip 1s ease 1",
         "horizontal-flip": "horizontalflip 2s infinite alternate",
       },
       dropShadow: {
