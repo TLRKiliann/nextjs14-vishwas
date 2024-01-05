@@ -12,70 +12,55 @@ export default function RegisterForm({users}: {users: User[]}) {
 
     return (
         <form action={formAction}
-          className='flex w-2/5 flex-col text-md font-bold 
-            dark:bg-gradient-to-tr dark:from-slate-900 dark:from-10% 
-            dark:via-sky-500 dark:via-50% dark:to-slate-900 dark:to-90%
-            bg-gradient-to-tr from-violet-400 from-10% 
-            via-slate-50 via-50% to-violet-400 to-90%
-            transform transition translate-y-0 animate-up-start
-            py-[20px] rounded-xl shadow-lg'
+          className='flex w-2/5 flex-col text-md font-bold dark:bg-slate-100 transform transition 
+          translate-y-0 animate-up-start p-6 pb-3 rounded-xl shadow-outviolet dark:shadow-lg'
         >
-            <h2>Register</h2>
+            <h2 className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mt-2 mb-1'>
+              Register
+            </h2>
 
             <label htmlFor="id"
-              className='mx-20 my-2 text-violet-600 dark:text-slate-50'
-            >
+              className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mt-2 mb-1'>
               Id
             </label>
             <input type="text" id="id" name="id" 
-              className='text-lg px-[7px] py-[2px]
-              text-fuchsia-300/90 dark:text-cyan-400
-              bg-slate-100 hover:bg-white active:bg-white
-              dark:bg-slate-800 dark:hover:bg-slate-900 dark:active:bg-sky-800
+              className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 hover:bg-violet-200 
+              active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-800
               focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-              rounded-lg mx-20'
+              mx-4 pl-2 py-1 rounded-lg'
             />
 
             <label htmlFor="name"
-              className='mx-20 my-2 text-violet-600 dark:text-slate-50'
-            >
+              className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mt-2 mb-1'>
               Name
             </label>
             <input type="text" id="name" name="name" 
-              className='text-lg px-[7px] py-[2px]
-              text-fuchsia-300/90 dark:text-cyan-400
-              bg-slate-100 hover:bg-white active:bg-white
-              dark:bg-slate-800 dark:hover:bg-slate-900 dark:active:bg-sky-800
+              className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 hover:bg-violet-200 
+              active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-800
               focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-              rounded-lg mx-20'
+              mx-4 pl-2 py-1 rounded-lg'
             />
 
             <label htmlFor="email"
-              className='mx-20 my-2 text-violet-600 dark:text-slate-50'
-            >
+              className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mt-2 mb-1'>
               Email
             </label>
             <input type="email" id="email" name="email" 
-              className='text-lg px-[7px] py-[2px]
-              text-fuchsia-300/90 dark:text-cyan-400
-              bg-slate-100 hover:bg-white active:bg-white
-              dark:bg-slate-800 dark:hover:bg-slate-900 dark:active:bg-sky-800
+              className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 hover:bg-violet-200 
+              active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-800
               focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-              rounded-lg mx-20'
+              mx-4 pl-2 py-1 rounded-lg'
             />
 
             <label htmlFor="password"
-              className='mx-20 my-2 text-violet-600 dark:text-slate-50'
-            >
+              className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mt-2 mb-1'>
               Password
             </label>
             <input type="password" id="password" name="password" 
-              className='text-lg px-[7px] py-[2px]
-              text-fuchsia-300/90 dark:text-cyan-400
-              bg-slate-100 hover:bg-white active:bg-white
-              dark:bg-slate-800 dark:hover:bg-slate-900 dark:active:bg-sky-800
+              className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 hover:bg-violet-200 
+              active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-800
               focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-              rounded-lg mx-20'
+              mx-4 pl-2 py-1 rounded-lg'
             />
 
             <div className='flex justify-center'>
@@ -107,6 +92,7 @@ export default function RegisterForm({users}: {users: User[]}) {
               <p className='text-md text-center text-green-400 mt-4'>Enter data !</p>
             )}
     
+            {/*
             <div>
               {users?.map((prod: User) => (
                 <div key={prod.id}>
@@ -117,6 +103,7 @@ export default function RegisterForm({users}: {users: User[]}) {
                 </div>
               ))}
             </div>
+            */}
 
         </form>
     )

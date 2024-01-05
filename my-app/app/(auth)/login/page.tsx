@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Login() {
 
   return (
-    <div className='min-h-screen'>
+    <div className='w-full min-h-screen bg-slate-100'>
       
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
         Login

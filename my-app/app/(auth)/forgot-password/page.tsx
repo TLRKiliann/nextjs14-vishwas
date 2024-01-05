@@ -4,7 +4,7 @@ import ForgotForm from '@/app/ui/auth/forgot-form'
 
 export const metadata: Metadata = {
   title: "forgot-password",
-  description: "password forget"
+  description: "forgot-password page"
 }
 
 export default function ForgotPassword() {

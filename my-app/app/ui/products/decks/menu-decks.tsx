@@ -10,13 +10,11 @@ export default function MenuDecks() {
     return (
         <>
 
-    
             <div className='absolute w-3/5 p-4'>
         
-                <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
+                <div className='relative bg-slate-200 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
         
-                    <h2 className='text-2xl font-bold text-transparent bg-clip-text
-                        dark-title-h1 light-title-h1'>
+                    <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
                         Baker
                     </h2>
         
@@ -26,17 +24,16 @@ export default function MenuDecks() {
                         </Link>
                     </li>
                     
-                    <div className="absolute top-5 right-5 border">
+                    <div className="absolute top-5 right-5">
                         <Image src={bakerLogo} width={100} height={50} alt="baker logo"
                             className='object-cover rounded' />
                     </div>
         
                 </div>
     
-                <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
+                <div className='relative bg-slate-200 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
                     
-                    <h2 className='text-2xl font-bold text-transparent bg-clip-text
-                        dark-title-h1 light-title-h1'>
+                    <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
                         Blind
                     </h2>
 
@@ -46,17 +43,16 @@ export default function MenuDecks() {
                         </Link>
                     </li>
     
-                    <div className="absolute top-0 right-5 border">
+                    <div className="absolute top-0 right-5">
                         <Image src={blindLogo} width={95} height={95} alt="baker logo"
                             className='object-cover rounded-full' />
                     </div>
         
                 </div>
     
-                <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
+                <div className='relative bg-slate-200 dark:bg-slate-200 h-[100px] p-4 mb-3 rounded-lg'>
                 
-                    <h2 className='text-2xl font-bold text-transparent bg-clip-text
-                        dark-title-h1 light-title-h1'>
+                    <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
                         Girl
                     </h2>
         
@@ -66,17 +62,16 @@ export default function MenuDecks() {
                         </Link>
                     </li>
     
-                    <div className="absolute top-2 right-6 border">
+                    <div className="absolute top-2 right-6">
                         <Image src={girlLogo} width={85} height={85} alt="baker logo"
                             className='object-cover rounded' />
                     </div>
         
                 </div>
     
-                <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 rounded-lg'>
+                <div className='relative bg-slate-200 dark:bg-slate-200 h-[100px] p-4 rounded-lg'>
                 
-                    <h2 className='text-2xl font-bold text-transparent bg-clip-text
-                        dark-title-h1 light-title-h1'>
+                    <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
                         Element
                     </h2>
         
@@ -86,7 +81,7 @@ export default function MenuDecks() {
                         </Link>
                     </li>
     
-                    <div className="absolute top-1 right-5 border">
+                    <div className="absolute top-1 right-5">
                         <Image src={elementLogo} width={90} height={90} alt="baker logo"
                             className='object-cover rounded-full' />
                     </div>

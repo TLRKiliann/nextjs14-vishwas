@@ -5,7 +5,7 @@ import { newMemberQuery } from '@/app/lib/db';
 
 export const metadata: Metadata = {
   title: "register",
-  description: "registered"
+  description: "register page"
 }
 
 export default async function Register() {
