@@ -49,7 +49,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
         <div key={id}
             className="text-slate-600 bg-white shadow-lg transform transition 
                 hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
-                rounded-xl mb-auto"
+                rounded-xl m-auto"
         >
             <span onClick={() => handleImg(id)}>
                 <Image

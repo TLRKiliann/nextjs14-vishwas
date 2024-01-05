@@ -14,7 +14,7 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div className='fixed top-[80px] right-0 w-[160px] text-lg text-slate-600 bg-none rounded-bl-md'>
+        <div className='fixed top-[80px] right-[10px] w-[160px] text-lg text-slate-600 bg-none'>
 
             <div onClick={handleCloseMenu} className='flex cursor-pointer hover:opacity-80 active:opacity-60'>
                 <h2 className='absolute w-full text-xl font-bold text-center mt-3 z-10'>
