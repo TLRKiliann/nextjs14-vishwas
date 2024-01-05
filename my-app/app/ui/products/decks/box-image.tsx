@@ -2,7 +2,11 @@
 
 import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image';
-import { imgSet } from '@/app/lib/datas';
+import { DecksProps } from '@/app/lib/definitions';
+import { imgSetBakerDeck } from '@/app/lib/deckList';
+import { imgSetBlindDeck } from '@/app/lib/deckList';
+import { imgSetElementDeck } from '@/app/lib/deckList';
+import { imgSetGirlDeck } from '@/app/lib/deckList';
 
 type ColorPointProps = {
     color1: boolean;
@@ -15,9 +19,29 @@ type ImgSetProps = {
     images: StaticImageData[];
 }
 
-export default function BoxImage({paramsId}: {paramsId: string}) {
+export default function BoxImage({paramsId, data}: {paramsId: string, data: DecksProps[]}) {
 
-    const searchId = imgSet.find((img: ImgSetProps) => img.id === parseInt(paramsId));
+    const mappingData = data.find((d) => d.id === parseInt(paramsId));
+
+    let retriveLibDeck = null;
+
+    if (mappingData?.deckname.slice(0, 5) === "baker") {
+        retriveLibDeck = imgSetBakerDeck;
+        //console.log("here is baker decks");
+    } else if (mappingData?.deckname.slice(0, 5) === "blind") {
+        retriveLibDeck = imgSetBlindDeck;
+        //console.log("here is blind decks")
+    } else if (mappingData?.deckname.slice(0, 7) === "element") {
+        retriveLibDeck = imgSetElementDeck;
+        //console.log("here is element decks")
+    } else if (mappingData?.deckname.slice(0, 4) === "girl") {
+        retriveLibDeck = imgSetGirlDeck;
+        //console.log("here is girl decks")
+    } else {
+        console.log("No deck was found !");
+    }
+
+    const searchId = retriveLibDeck?.find((img: ImgSetProps) => img.id === parseInt(paramsId));
     const initialState: string | undefined = searchId?.images[0].src;
     const [imgState, setImageState] = useState<string | undefined>(initialState)
 
