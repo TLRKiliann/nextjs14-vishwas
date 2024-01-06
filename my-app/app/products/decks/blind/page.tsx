@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function BlindDecks() {
 
   const request = await genericQuery("SELECT * FROM blinddecks", []);
-  const data = JSON.stringify(request);
+  const data: string = JSON.stringify(request);
   
   if (!data) {
     throw new Error("Error: data not loaded for blind's decks");

@@ -92,7 +92,7 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                             type="submit"
                             id="submit"
                             name="submit"
-                            value="remove"
+                            value="decrease"
                             disabled={pending}
                             onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
                             className='button-card'>
@@ -118,8 +118,8 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                 </div>
 
                 {code?.message ? (
-                        <p className='text-center text-orange-500'>{code.message}</p>
-                    ) : null}
+                    <p className='text-center text-orange-500'>{code.message}</p>
+                ) : null}
 
             </form>
         </div>

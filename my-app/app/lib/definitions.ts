@@ -57,7 +57,7 @@ export type PropsProdReview = {
     }
 }
 
-/* external data */
+/* data for db interactions */
 export type DecksProps = {
     id: number;
     deckname: string;
@@ -97,4 +97,12 @@ export type ListOfDecksProps = {
     id: number;
     name: string;
     label: string;
+}
+
+export type DataDeleteProps = {
+    id: number;
+}
+
+export type EmailProps = {
+    email: string;
 }

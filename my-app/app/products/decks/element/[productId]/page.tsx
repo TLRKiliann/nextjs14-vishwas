@@ -21,11 +21,11 @@ const DetailsProduct = async ({params}: Props) => {
         throw new Error("Error: product id is not a number");
     }
 
-    const data: unknown = await genericQuery("SELECT * FROM elementdecks", []);
-    const elementdecks: string = JSON.stringify(data);
+    const request: unknown = await genericQuery("SELECT * FROM elementdecks", []);
+    const data: string = JSON.stringify(request);
     
     // Display card in side right
-    const productName = JSON.parse(elementdecks).map((prod: DecksProps) => {
+    const productName = JSON.parse(data).map((prod: DecksProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <DeckUnit
@@ -56,7 +56,7 @@ const DetailsProduct = async ({params}: Props) => {
 
             <div className='flex justify-center w-full h-auto'>
 
-                <BoxImage paramsId={params.productId} />
+                <BoxImage paramsId={params.productId} data={JSON.parse(data)} />
 
                 {productName}
             

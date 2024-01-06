@@ -1,21 +1,18 @@
 "use client";
 
 import React from 'react'
-import { CartItem } from "@/app/lib/definitions";
+import { CartProps } from "@/app/lib/definitions";
 import Link from 'next/link';
-import DeleteForm from '@/app/ui/cart-order/delete-form';
-import { useShoppingCart } from '@/app/context/cart-context';
+import DeleteOrder from './delete-order';
 
-export default function TableOrder() {
+export default function TableOrder({order}: {order: CartProps[]}) {
     
-    const { cartItems } = useShoppingCart();
-
     let totalPrice;
-    totalPrice = cartItems.map((p: CartItem) => {
-      if (p.quantity === 0) {
+    totalPrice = order.map((p: CartProps) => {
+      if (p.count === 0) {
         return 0;
       } else {
-        const total: number = p.quantity * p.price
+        const total: number = p.count * p.price
         return total;
       }
     });
@@ -32,8 +29,8 @@ export default function TableOrder() {
                     <th className='py-1'>Quantity</th>
                     <th className='py-1'>Price</th>
                 </tr>
-                {cartItems.map((ord: CartItem) => {
-                    if (ord.quantity !== 0) {
+                {order.map((ord: CartProps) => {
+                    if (ord.count !== 0) {
                     return (
                         <tr key={ord.id} className='flex justify-around text-slate-200 text-center 
                         bg-slate-700'>
@@ -44,7 +41,7 @@ export default function TableOrder() {
                             {ord.deckname}
                         </td>
                         <td className='border-b border-slate-600 py-2'>
-                            {ord.quantity}
+                            {ord.count}
                         </td>
                         <td className='border-b border-slate-600 py-2'>
                             {ord.price.toFixed(2)}.-  
@@ -69,7 +66,7 @@ export default function TableOrder() {
                 </div>
             </div>
 
-            <DeleteForm cartItems={cartItems} />
+            <DeleteOrder order={order} />
             
             <div className='flex justify-center mt-4'>
               <Link href="/products"
