@@ -64,24 +64,19 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
       if (id !== "" && deckname !== "" && price !== "" && count !== "") {
-        const insertQuery = "INSERT INTO cartorder (id, deckname, price, count) VALUES (?, ?, ?, ?)";
-        const updateQuery = "UPDATE cartorder SET deckname = ?, price = ?, count = ? WHERE id = ?";
-        const insertResult = await cartOrderQuery(insertQuery, [id, deckname, price, count]);
-        if (!insertResult) {
-          const updateResult = await cartOrderUpdateQuery(updateQuery, [deckname, price, count, id]);
-          if (updateResult) {
-            revalidatePath("/products/decks");
-            return { message: "Increase to cart" };
-          }
-        } else {
+        const query = `INSERT INTO cartorder (id, deckname, price, count) VALUES (?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE deckname = VALUES(deckname), price = VALUES(price), count = VALUES(count)`;
+        const result = await cartOrderQuery(query, [id, deckname, price, count]);
+        if (result) {
+          console.log("step 1 ok")
           revalidatePath("/products/decks");
-          return { message: "Increase to cart" };
+          return { message: "Insert to cart" };
         }
       }
     }
     if (btnSubmit === "decrease") {
       if (id !== "" && deckname !== "" && price !== "" && count !== "") {
-        const result = await cartOrderQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?", 
+        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?", 
           [id, deckname, price, count, id]);
         if (result) {
           revalidatePath("/products/decks");
@@ -102,9 +97,10 @@ export async function deleteCartItem(prevState: {message: string} | undefined, f
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
     if (btnDelete === "deletecartorder") {
-      if (id !== "") {
+      if (id !== null) {
+        const numConverter = Number(id);
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
-          [id])
+          {id: numConverter})
         if (result) {
           console.log("Ok no error with pathname")
           revalidatePath("/products/decks");
@@ -126,9 +122,10 @@ export async function deleteOrder(prevState: {message: string} | undefined, form
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
     if (btnDelete === "deleteorder") {
-      if (id !== "") {
+      if (id !== null) {
+        const numConverter = Number(id);
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
-          [id])
+          {id: numConverter})
         if (result) {
           revalidatePath("/order");
           return {

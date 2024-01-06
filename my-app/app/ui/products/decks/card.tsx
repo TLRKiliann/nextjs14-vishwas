@@ -77,8 +77,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </div>
                 
                 <div className='flex justify-center items-center pb-2'>
-                    <span className={`text-md font-bold ${quantity === 0 ? "text-slate-500/80" 
-                    : "text-red-500/80" }`}>
+                    <span className={`text-md font-bold ${quantity === 0 ? "text-slate-500/80" : "text-red-500/80" }`}>
                         {quantity}&nbsp;
                     </span>
                     <p className='text-md font-normal text-slate-500/80'>
@@ -101,13 +100,12 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                 <input type="number" id="price" name="price" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
 
-
                 <button type="submit" id="submit" name="submit" value="decrease" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
                     disabled={pending}
                     className='button-card'
                 >
-                    {pending ? "pending..." : "Sub"}
+                    {pending ? "Pending..." : "Sub"}
                 </button>
 
                 <button type="submit" id="submit" name="submit" value="order" 
@@ -115,7 +113,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                     disabled={pending}
                     className='button-card'
                 >
-                    {pending ? "pending..." : "Add"}
+                    {pending ? "Pending..." : "Add"}
                 </button>
 
             </form>

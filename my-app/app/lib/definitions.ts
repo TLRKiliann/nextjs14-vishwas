@@ -98,3 +98,7 @@ export type ListOfDecksProps = {
     name: string;
     label: string;
 }
+
+export type DataDeleteProps = {
+    id: number;
+}
