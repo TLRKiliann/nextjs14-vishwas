@@ -102,7 +102,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
 
 
-                <button type="submit" id="submit" name="submit" value="remove" 
+                <button type="submit" id="submit" name="submit" value="decrease" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
                     disabled={pending}
                     className='button-card'

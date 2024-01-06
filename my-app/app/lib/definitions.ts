@@ -57,7 +57,7 @@ export type PropsProdReview = {
     }
 }
 
-/* external data */
+/* data for db interactions */
 export type DecksProps = {
     id: number;
     deckname: string;
