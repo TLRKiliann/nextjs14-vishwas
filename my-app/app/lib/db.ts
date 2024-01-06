@@ -1,6 +1,13 @@
 import mysql from 'mysql2/promise';
-import { MessageProps, DataDeleteProps } from './definitions';
-//import type { DecksProps, CartProps } from './definitions';
+import type {
+  MessageProps,
+  DataDeleteProps,
+  DecksProps,
+  CartProps,
+  EmailProps,
+} from './definitions';
+
+type GenericProps = DecksProps | CartProps | MessageProps | EmailProps | [];
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -14,7 +21,7 @@ const pool = mysql.createPool({
 });
 
 // fetch all products by server action (no api needed !)
-const genericQuery = async (query: string, data: any) => {
+const genericQuery = async (query: string, data: GenericProps) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -81,7 +88,7 @@ const cartOrderUpdateQuery = async (query: string, data: any) => {
 }
 
 // delete item from cart
-const queryCartDelete = async (query: string, data: DataDeleteProps) => {
+const queryCartDelete = async (query: string, data: any) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -116,6 +123,22 @@ const sendMessage = async (query: string, data: any) => {
 
 // display all messages in dashboard
 const showAllMessageBox = async (query: string, data: MessageProps[]) => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+const forgotQuery = async (query: string, data: any) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -166,5 +189,6 @@ export {
   queryCartDelete,
   sendMessage,
   showAllMessageBox,
+  forgotQuery,
   authQuery 
 };

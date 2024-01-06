@@ -102,3 +102,7 @@ export type ListOfDecksProps = {
 export type DataDeleteProps = {
     id: number;
 }
+
+export type EmailProps = {
+    email: string;
+}

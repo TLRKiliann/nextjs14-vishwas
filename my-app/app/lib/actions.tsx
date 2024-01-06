@@ -1,7 +1,14 @@
 "use server";
 
 import { signIn } from '@/auth';
-import { cartOrderQuery, cartOrderUpdateQuery, genericQuery, newMemberQuery, queryCartDelete, sendMessage } from './db';
+import { 
+  cartOrderQuery,
+  cartOrderUpdateQuery,
+  forgotQuery,
+  newMemberQuery,
+  queryCartDelete,
+  sendMessage
+} from './db';
 import { revalidatePath } from 'next/cache';
 
 // CRUD mariadb
@@ -13,7 +20,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
     const email = formData.get("email");
     const btnName = formData.get("submit");
     if (btnName === "insert") {
-      if (id !== "" && name !== "" && email !== "" && password !== "") {
+      if (id !== null && name !== null && email !== null && password !== null) {
         const result = await newMemberQuery("INSERT INTO users VALUES (?, ?, ?, ?)", 
           [id, name, email, password]
         );
@@ -24,7 +31,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
       }
     }
     if (btnName === "update") {      
-      if (id !== "" && name !== "" && email !== "" && password !== "") {
+      if (id !== null && name !== null && email !== null && password !== null) {
         const result = await newMemberQuery("UPDATE users SET id=?, name=?, email=?, password=? WHERE id=?", 
           [id, name, email, password, id]
         );
@@ -37,7 +44,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
       }
     }
     if (btnName === "delete") {
-      if (id !== "") {
+      if (id !== null) {
         const result = await newMemberQuery("DELETE FROM users WHERE id=?", 
           [id]
         );
@@ -63,7 +70,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
     const count = formData.get("count");
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
-      if (id !== "" && deckname !== "" && price !== "" && count !== "") {
+      if (id !== null && deckname !== null && price !== null && count !== null) {
         const query = `INSERT INTO cartorder (id, deckname, price, count) VALUES (?, ?, ?, ?)
           ON DUPLICATE KEY UPDATE deckname = VALUES(deckname), price = VALUES(price), count = VALUES(count)`;
         const result = await cartOrderQuery(query, [id, deckname, price, count]);
@@ -75,7 +82,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
       }
     }
     if (btnSubmit === "decrease") {
-      if (id !== "" && deckname !== "" && price !== "" && count !== "") {
+      if (id !== null && deckname !== null && price !== null && count !== null) {
         const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?", 
           [id, deckname, price, count, id]);
         if (result) {
@@ -98,9 +105,8 @@ export async function deleteCartItem(prevState: {message: string} | undefined, f
     const btnDelete = formData.get("submit");
     if (btnDelete === "deletecartorder") {
       if (id !== null) {
-        const numConverter = Number(id);
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
-          {id: numConverter})
+          [id])
         if (result) {
           console.log("Ok no error with pathname")
           revalidatePath("/products/decks");
@@ -123,9 +129,8 @@ export async function deleteOrder(prevState: {message: string} | undefined, form
     const btnDelete = formData.get("submit");
     if (btnDelete === "deleteorder") {
       if (id !== null) {
-        const numConverter = Number(id);
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
-          {id: numConverter})
+          [id])
         if (result) {
           revalidatePath("/order");
           return {
@@ -148,7 +153,7 @@ export async function messageToSend(prevState: {message: string} | undefined, fo
     const message = formData.get("message");
     const btnEmail = formData.get("submit");
     if (btnEmail === "sendmessage") {
-      if (username !== "" && email !== "" && message !== "") {
+      if (username !== null && email !== null && message !== null) {
         const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)",
           [username, email, message]);
         if (result) {
@@ -169,8 +174,8 @@ export async function forgotPasswordServerAction(prevState: {message: string} | 
     const email = formData.get("email");
     const btnForgotPassword = formData.get("submit");
     if (btnForgotPassword === "btnForgotPassword") {
-      if (email !== "") {
-        const result = await genericQuery("INSERT INTO forgotpassword VALUES (?)", [email]);
+      if (email !== null) {
+        const result = await forgotQuery("INSERT INTO forgotpassword VALUES (?)", [email]);
         if (result) {
           revalidatePath("/register");
           return {message: "You are registered"}

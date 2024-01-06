@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function BakerDecks() {
 
   const request = await genericQuery("SELECT * FROM bakerdecks", []);
-  const data = JSON.stringify(request);
+  const data: string = JSON.stringify(request);
   //console.log(data, "data to verify")
   
   if (!data) {
