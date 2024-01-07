@@ -2,16 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useShoppingCart } from '@/app/context/cart-context';
 import CartItem from './cartitem';
 import { BsCart3 } from "react-icons/bs";
 
 export default function ShoppingCart() {
 
-    const pathname = usePathname();
-    //console.log(pathname, "pathname of shoppingcart.tsx");
-    
     const { cartItems } = useShoppingCart();
 
     const [isOpen, setIsOpen] = useState<boolean>(false);

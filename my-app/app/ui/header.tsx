@@ -25,7 +25,7 @@ export default function Header() {
     return (
         <>
             <header className="fixed flex top-0 left-0 w-full h-[80px]
-                text-blue-800 dark:text-slate-50
+                text-indigo-600 dark:text-slate-50
                 dark:bg-gradient-to-br dark:from-slate-900 dark:from-10% 
                 dark:via-sky-500 dark:via-40% dark:to-slate-900 dark:to-90%
                 bg-indigo-200 py-2 z-10"
@@ -46,25 +46,25 @@ export default function Header() {
                     <ul className='flex font-bold'>
                       
                         <Link href="/" className={`${pathname === '/' 
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-200 text-violet-500"
                             : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Home</Link>
 
                         <ShopMenu />
 
                         <Link href="/about" className={`${pathname === '/about'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-200 text-violet-500"
                             : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Story</Link>
 
                         <Link href="/contact" className={`${pathname === '/contact'
-                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-300 text-indigo-500"
+                            ? "text-lg m-auto ml-10 p-2 dark:text-cyan-200 text-violet-500"
                             : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Contact</Link>
 
                         <Link href="/login" className={`${pathname === '/login'
                             ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                dark:text-cyan-300 text-indigo-500"
+                                dark:text-cyan-200 text-violet-500"
                             : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
                                 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >
