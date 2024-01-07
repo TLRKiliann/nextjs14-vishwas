@@ -22,14 +22,14 @@ export default function About() {
           width={1920}
           height={1080}
           alt="our story img"
-          className='object-cover'
+          className='object-cover opacity-50'
         />
       </div>
 
       <section className='md:w-4/5 xl:w-3/5 m-auto bg-slate-100/80'>
         <article>
           <h1 className='text-3xl text-transparent bg-clip-text dark-bg-gradient-story light-title-h1 
-            text-center pt-10'
+            text-center pt-10 transform transition translate-y-0 animate-right-start'
           >
             Our story
           </h1>
