@@ -39,12 +39,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
 
   const increaseCartQuantity = (id: number, deckname: string, price: number, img: string, stock: number) => {
     setCartItems((currentItems: CartItem[]) => {
-      if (currentItems.find((item: CartItem) => item.id === id) == null) {
-        return [...currentItems, { id, deckname, price, img, stock,quantity: 1 }];
+      if (currentItems.find((item: CartItem) => (item.id === id) && (item.deckname === deckname)) == null) {
+        return [...currentItems, { id, deckname, price, img, stock, quantity: 1 }];
       } else {
         return currentItems.map((item: CartItem) => {
           if (item.id === id) {
-            return {...item, quantity: item.quantity + 1};
+            return {...item, id, deckname, price, img, stock, quantity: item.quantity + 1};
           } else {
             return item;
           }
@@ -53,14 +53,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     });
   };
 
-  const decreaseCartQuantity = (id: number) => {
+  const decreaseCartQuantity = (id: number, deckname: string, price: number, img: string, stock: number) => {
     setCartItems((currentItems) => {
-      if (currentItems.find((item: CartItem) => item.id === id)?.quantity === 1) {
+      if (currentItems.find((item: CartItem) => item.id === id && item.deckname === deckname)?.quantity === 1) {
         return currentItems.filter((item: CartItem) => item.id !== id);
       } else {
         return currentItems.map((item: CartItem) => {
           if (item.id === id) {
-            return {...item, quantity: item.quantity -1};
+            return {...item, id, deckname, price, img, stock, quantity: item.quantity - 1};
           } else {
             return item;
           }

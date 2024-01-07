@@ -16,7 +16,7 @@ export default function ShoppingCart() {
         setIsOpen((old) => !old);
     };
 
-    const transClass: string = isOpen ? "flex" : "hidden";
+    const transClass: string = isOpen === true ? "flex" : "hidden";
 
     return (
         <div className='flex items-center m-auto'>
@@ -32,7 +32,7 @@ export default function ShoppingCart() {
                         bg-slate-50/80 border-none hover:border-slate-50 dark:border-slate-50 rounded-full'
                     >
                         {cartItems.reduce((total: number, cartItem: {quantity: number}) => {
-                            const totalCart: number = total += cartItem.quantity
+                            const totalCart: number = total += cartItem.quantity;
                             return totalCart}, 0
                         )}
                     </p>

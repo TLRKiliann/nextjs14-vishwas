@@ -75,9 +75,8 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
           ON DUPLICATE KEY UPDATE deckname = VALUES(deckname), price = VALUES(price), count = VALUES(count)`;
         const result = await cartOrderQuery(query, [id, deckname, price, count]);
         if (result) {
-          console.log("step 1 ok")
           revalidatePath("/products/decks");
-          return { message: "Insert to cart" };
+          return { message: "Inserted to cart" };
         }
       }
     }
@@ -100,7 +99,6 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
 // delete from cartitem
 export async function deleteCartItem(prevState: {message: string} | undefined, formData: FormData) {
   try {
-    console.log("test db begin")
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
     if (btnDelete === "deletecartorder") {
@@ -108,7 +106,6 @@ export async function deleteCartItem(prevState: {message: string} | undefined, f
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
           [id])
         if (result) {
-          console.log("Ok no error with pathname")
           revalidatePath("/products/decks");
           return {
             message: "Product deleted"

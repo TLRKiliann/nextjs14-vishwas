@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function ElementDecks() {
 
-  const request = await genericQuery("SELECT * FROM elementdecks", []);
+  const request: unknown = await genericQuery("SELECT * FROM elementdecks", []);
   const data: string = JSON.stringify(request);
   
   if (!data) {

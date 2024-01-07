@@ -24,9 +24,9 @@ export default function ShopMenu() {
         <div className='flex items-center m-auto'>
 
             <span
-                className={`${pathname === "/products"
+                className={`cursor-pointer ${pathname === "/products"
                 ? "text-lg ml-10 p-2 dark:text-cyan-200 text-violet-500"
-                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 hover:cursor-pointer dark:hover:text-slate-50"}`}
+                : "text-lg ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                 onClick={toggle}
             >
                 Shop
