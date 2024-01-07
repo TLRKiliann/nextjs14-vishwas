@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function GirlDecks() {
 
-  const request = await genericQuery("SELECT * FROM girldecks", []);
+  const request: unknown = await genericQuery("SELECT * FROM girldecks", []);
   const data: string = JSON.stringify(request);
   
   if (!data) {

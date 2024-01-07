@@ -18,7 +18,8 @@ export default function MenuDecks() {
                         Baker
                     </h2>
         
-                    <li className='mt-3 ml-4 text-blue-500 hover:text-blue-600'>
+                    <li className='mt-3 ml-4 text-violet-500 hover:text-violet-600 dark:text-blue-500 
+                        dark:hover:text-blue-600'>
                         <Link href="/products/decks/baker">
                             All Baker&apos;s Decks
                         </Link>
@@ -37,7 +38,8 @@ export default function MenuDecks() {
                         Blind
                     </h2>
 
-                    <li className='ml-4 text-blue-500 hover:text-blue-600'>
+                    <li className='ml-4 text-violet-500 hover:text-violet-600 dark:text-blue-500 
+                        dark:hover:text-blue-600'>
                         <Link href="/products/decks/blind">
                             All Blind&apos;s Decks
                         </Link>
@@ -56,7 +58,8 @@ export default function MenuDecks() {
                         Girl
                     </h2>
         
-                    <li className='ml-4 text-blue-500 hover:text-blue-600'>
+                    <li className='ml-4 text-violet-500 hover:text-violet-600 dark:text-blue-500 
+                        dark:hover:text-blue-600'>
                         <Link href="/products/decks/girl">
                             All Girl&apos;s Decks
                         </Link>
@@ -75,7 +78,8 @@ export default function MenuDecks() {
                         Element
                     </h2>
         
-                    <li className='ml-4 text-blue-500 hover:text-blue-600'>
+                    <li className='ml-4 text-violet-500 hover:text-violet-600 dark:text-blue-500 
+                        dark:hover:text-blue-600'>
                         <Link href="/products/decks/element">
                             All Element&apos;s Decks
                         </Link>

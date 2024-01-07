@@ -2,7 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useShoppingCart } from '@/app/context/cart-context';
 import { deleteCartItem } from '@/app/lib/actions';
@@ -18,9 +17,6 @@ type ItemProps = {
 
 export default function CartItem({id, deckname, img, price, stock, quantity}: ItemProps) {
     
-    const pathname = usePathname();
-    console.log(pathname, "pathname")
-    
     const { removeFromCart } = useShoppingCart();
 
     const {pending} = useFormStatus();
@@ -28,10 +24,8 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
 
     const handleDeleteItem = (id: number) => {
         removeFromCart(id);
-    }
+    };
 
-    //const initialCount: number = 0;
-    
     return (
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
 
@@ -60,11 +54,6 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                     </p>
 
                     <input type="number" id="id" name="id" value={id} hidden readOnly />
-                    {/*
-                    <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
-                    <input type="number" id="price" name="price" value={initialCount} hidden readOnly />
-                    <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
-                    */}
 
                     <button type="submit" id="submit" name="submit" value="deletecartorder"
                         onClick={() => handleDeleteItem(id)}

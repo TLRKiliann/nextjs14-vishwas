@@ -57,17 +57,17 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                     width={200}
                     height={200}
                     alt="img deck"
-                    className="m-auto transform ease-in-out hover:opacity-70 hover:cursor-pointer 
+                    className="m-auto transform ease-in-out hover:opacity-70 cursor-pointer 
                         hover:scale-90 active:animate-decks-rotation active:duration-300"
                 />
             </span>
 
             <div className="flex flex-col font-bold bg-slate-100/80">
-                <div className="flex align-center justify-between text-md text-slate-600/80 mx-4 
+                <div className="flex items-center justify-between text-md text-slate-600/80 mx-4 
                     my-2">
                     <h3>{deckname.toUpperCase()}</h3>
                 </div>
-                <div className="flex align-center justify-between text-sm text-slate-500/80 mx-4">
+                <div className="flex items-center justify-between text-sm text-slate-500/80 mx-4">
                     <p>Price</p>
                     <p>{formatCurrency(price)}.- CHF</p>
                 </div>
@@ -129,7 +129,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                     href={`/products/decks/${deckPath}/${id}`}
                     className="text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
                     hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80 
-                    hover:cursor-pointer px-4 py-1 rounded"
+                    cursor-pointer px-4 py-1 rounded"
                 >
                     View
                 </Link>
@@ -137,13 +137,13 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
 
             <div className="bg-slate-100/80">
                 <div className="flex align-center justify-end px-4 py-2">
-                    <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
+                    <span className="text-slate-500 hover:text-slate-600 cursor-pointer ml-2">
                         <IoShareSocial size={24} />
                     </span>
-                    <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
+                    <span className="text-slate-500 hover:text-slate-600 cursor-pointer ml-2">
                         <SlSocialTwitter size={24} />
                     </span>
-                    <span className="text-slate-500 hover:text-slate-600 hover:cursor-pointer ml-2">
+                    <span className="text-slate-500 hover:text-slate-600 cursor-pointer ml-2">
                         <FaGithub size={24} />
                     </span>
                 </div>
