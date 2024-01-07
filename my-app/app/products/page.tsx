@@ -49,7 +49,7 @@ export default function ListProducts() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]">
+        <div className="w-full min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]">
 
             <div className='-z-10'>
                 <Image
@@ -57,12 +57,12 @@ export default function ListProducts() {
                     width={1920}
                     height={1080}
                     alt="img sunset"
-                    className="fixed opacity-20 object-cover"
+                    className="fixed opacity-50 object-cover"
                 />
             </div>
 
             <div>
-                <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1
+                <h1 className='relative text-4xl font-bold text-transparent bg-clip-text dark-title-h1
                     bg-gradient-to-br from-violet-500 from-10% 
                     via-purple-500 via-50% to-violet-200 to-90%
                     p-4'

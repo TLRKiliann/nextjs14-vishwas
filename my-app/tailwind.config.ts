@@ -118,7 +118,7 @@ const config: Config = {
         "up-start": "upstart 0.4s ease-in-out 1",
         "down-start": "downstart 0.4s ease-in-out 1",
         "right-start": "rightstart 0.4s ease-in-out 1",
-        "scale-decks": "scaledecks 1s infinite",
+        "scale-decks": "scaledecks 1s 2",
         "decks-rotation": "decksrotation 1s ease 1",
         "horizontal-rotation": "horizontalrotation 1s ease 1",
         "vertical-rotation": "verticalrotation 1s ease 1",
