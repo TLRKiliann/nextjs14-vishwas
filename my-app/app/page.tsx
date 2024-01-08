@@ -76,7 +76,7 @@ export default function Home() {
               The
             </p>
             <h1 className='text-4xl font-bold text-transparent bg-clip-text 
-              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto my-0'
+              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto my-0 transform animate-scale-decks'
             >
               Skateboard-Shop
             </h1>
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
 
           <div className="absolute flex justify-start w-full mb-0">
-            <div className="w-[400px] h-auto transform transition translate-y-0 animate-up-start">
+            <div className="w-[400px] h-auto transition transform translate-y-0 animate-up-start">
               <Image src={skaterFly} width={1920} height={1260} alt="img skaterFly"
                 className="object-cover" />
             </div>
@@ -111,7 +111,7 @@ export default function Home() {
           <div className="absolute top-0 left-0 w-full -z-30">
             <div className="flex w-full h-[407px]">
               <Image src={bgPark} width={2560} height={1709} alt="img bgPark" 
-                className="object-cover opacity-50" />
+                className="object-cover opacity-70" />
             </div>
           </div>
 
@@ -175,11 +175,11 @@ export default function Home() {
 
         <Separator />
 
-          <TextBlockDesign title={titleTwo} text={textTwo} />
+          <TextBlockDesign text={textTwo} />
 
         <Separator />
 
-        <div className='flex  w-full'>
+        <div id="targetElement" className='flex  w-full'>
 
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>

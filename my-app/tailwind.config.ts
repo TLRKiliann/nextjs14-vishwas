@@ -115,9 +115,9 @@ const config: Config = {
       },
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
-        "up-start": "upstart 0.4s ease-in-out 1",
-        "down-start": "downstart 0.4s ease-in-out 1",
-        "right-start": "rightstart 0.4s ease-in-out 1",
+        "up-start": "upstart 0.4s ease 1",
+        "down-start": "downstart 0.4s ease 1",
+        "right-start": "rightstart 0.4s ease 1",
         "scale-decks": "scaledecks 1s 1",
         "decks-rotation": "decksrotation 1s ease 1",
         "horizontal-rotation": "horizontalrotation 1s ease 1",

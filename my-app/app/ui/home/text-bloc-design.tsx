@@ -3,11 +3,10 @@ import Image from 'next/image';
 import flipFamily from '@/public/img_decks/flip-family.jpg';
 
 type PropsText = {
-    title: string;
     text: string;
 }
 
-export default function TextBlockDesign({title, text}: PropsText) {
+export default function TextBlockDesign({text}: PropsText) {
     return (
         <div className='w-full dark:bg-slate-900 bg-slate-100 py-10'>
             
@@ -15,14 +14,14 @@ export default function TextBlockDesign({title, text}: PropsText) {
 
             <div className='flex items-center justify-between w-4/5 m-auto'>
                 
-                <div className='flex flex-col items-center justify-center w-3/5 xl:py-10'>
+                <div className='flex flex-col items-center justify-center w-3/5 h-[260px] xl:py-10'>
 
                     <h2 className='sm:text-3xl xl:text-5xl font-extrabold text-transparent bg-clip-text 
-                        dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
+                        dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% 
                         dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
                         bg-indigo-500/80 mb-4 pb-4'
                     >
-                        {title}
+                        High-quality products with guarantees for our members.
                     </h2>
 
                     <p className='sm:text-md xl:text-2xl text-justify text-slate-600 dark:text-blue-300 pr-8'>
