@@ -33,8 +33,8 @@ export default function ShoppingCart() {
                     >
                         {cartItems.reduce((total: number, cartItem: {quantity: number}) => {
                             const totalCart: number = total += cartItem.quantity;
-                            return totalCart}, 0
-                        )}
+                            return totalCart}, 0)
+                        }
                     </p>
                 </div>
             </span>
@@ -64,6 +64,10 @@ export default function ShoppingCart() {
                     )}
 
                 </div>
+                
+                <Link href="/cart" onClick={toggle} className='m-auto'>
+                    Go to cart
+                </Link>
 
                 <div className='flex items-center justify-center pt-2 pb-4'>
                     <Link href="/order"
