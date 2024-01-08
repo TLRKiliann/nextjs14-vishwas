@@ -64,17 +64,24 @@ export default function ShoppingCart() {
                     )}
 
                 </div>
-                
-                <Link href="/cart" onClick={toggle} className='m-auto'>
-                    Go to cart
-                </Link>
+
+                <div className='flex items-center justify-center pt-2 pb-2'>
+                    <Link href="/cart" onClick={toggle}
+                        className='w-full font-bold text-center text-slate-50 bg-sky-700/80
+                        hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
+                        active:text-slate-50 active:bg-sky-700/70 active:scale-95 active:shadow-none
+                        border-none mx-4 py-2 rounded-lg shadow-md'
+                    >
+                        GO TO CART
+                    </Link>
+                </div>
 
                 <div className='flex items-center justify-center pt-2 pb-4'>
                     <Link href="/order"
                         onClick={toggle}
                         className='w-full font-bold text-center text-slate-50 bg-sky-700/80
                         hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
-                        active:text-green-300 active:bg-sky-700/70 active:scale-95 active:shadow-none
+                        active:text-slate-50 active:bg-sky-700/70 active:scale-95 active:shadow-none
                         border-none mx-4 py-2 rounded-lg shadow-md'
                     >
                         CHECKOUT

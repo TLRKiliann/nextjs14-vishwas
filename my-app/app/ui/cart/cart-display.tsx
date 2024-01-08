@@ -27,13 +27,14 @@ export default function Cart({id, deckname, img, price, stock, quantity}: ItemPr
     };
 
     return (
-        <div key={id} className='flex items-center justify-around mt-0 mb-4'>
+        <div key={id} className='flex items-center justify-around w-3/5 bg-slate-200 mx-4 mb-4 py-2 rounded 
+            shadow-md'>
 
             <div className='m-auto ml-4'>
                 <Image src={img} width={100} height={100} alt="no img" className='rounded-lg drop-shadow-lg' />
             </div>
 
-            <div className='flex-1 items-center m-auto mr-4 ml-4 pl-4 pr-2'>
+            <div className='flex-1 items-center m-auto mr-4 ml-4 pl-4 pr-0'>
 
                 <p className='text-xl font-bold text-slate-600 mb-0'>
                     {deckname.toUpperCase()} 
@@ -58,9 +59,9 @@ export default function Cart({id, deckname, img, price, stock, quantity}: ItemPr
                     <button type="submit" id="submit" name="submit" value="deletecartorder"
                         onClick={() => handleDeleteItem(id)}
                         disabled={pending}
-                        className='text-slate-200 font-bold bg-red-500 hover:bg-red-500/80 
-                            hover:shadow-none active:text-slate-50 active:bg-red-400 px-2 py-1 
-                            rounded drop-shadow-lg'
+                        className='text-slate-50 font-bold bg-red-500 hover:bg-red-500/80 
+                            hover:shadow-none active:text-slate-50 active:bg-red-400 mb-2 px-4 py-1
+                            rounded shadow-lg'
                     >
                         {pending ? "Pending" : "Remove"}
                     </button>
