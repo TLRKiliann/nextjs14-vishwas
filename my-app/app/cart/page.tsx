@@ -1,8 +1,25 @@
 import React from 'react';
 import Link from 'next/link';
+import { CartProps } from '@/app/lib/definitions';
+import { genericQuery } from '@/app/lib/db';
 import CartItems from '@/app/ui/cart/cart-items';
 
-export default function Cart() {
+export default async function Cart() {
+
+    const request: unknown = await genericQuery("SELECT * FROM cartorder", []);
+    const order: string = JSON.stringify(request);
+
+    let totalPrice;
+    totalPrice = JSON.parse(order).map((p: CartProps) => {
+      if (p.count === 0) {
+        return 0;
+      } else {
+        const total: number = p.count * p.price
+        return total;
+      }
+    });
+    
+    let filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0);
 
     return (
         <div className='w-full min-h-screen dark:bg-slate-100 py-[75px]'>
@@ -11,9 +28,21 @@ export default function Cart() {
                 Cart
             </h1>
 
-            <CartItems />
+            <CartItems order={JSON.parse(order)} />
 
-            <div className='flex items-center justify-center w-full pt-2 pb-4'>
+            <div className='flex justify-center'>
+
+                <div className='flex items-center justify-between w-3/5 bg-slate-300 px-4 py-2 rounded shadow-md'>
+                    <h2 className='text-lg font-bold text-slate-600'>Total:</h2>
+
+                    <p className='text-lg font-bold text-slate-600'>
+                        {filterTotal.toFixed(2)}.-
+                    </p>
+                </div>
+
+            </div>
+
+            <div className='flex items-center justify-center w-full pt-4 pb-4'>
                 <Link href="/order"
                     className='w-3/5 font-bold text-center text-slate-50 bg-sky-700/80
                     hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
