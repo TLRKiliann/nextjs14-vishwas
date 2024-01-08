@@ -35,10 +35,10 @@ export default async function DetailsProduct({children, params}:
         Baker&apos;s Decks
       </h1>
         {children}
-      <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
-        <Link href="/order">Go to checkout</Link>
+      <li className='text-2xl font-bold text-sky-500 hover:text-sky-400 p-4'>
+        <Link href="/order">Checkout</Link>
       </li>
-      <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
+      <li className='text-2xl font-bold text-sky-500 hover:text-sky-400 p-4'>
         <Link href={`/products/decks/baker/${params.productId}/reviews`}>All Videos</Link>
       </li>
     </div>
