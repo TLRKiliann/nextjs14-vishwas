@@ -2,9 +2,6 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { useFormState, useFormStatus } from 'react-dom';
-import { useShoppingCart } from '@/app/context/cart-context';
-import { deleteCartItem } from '@/app/lib/actions';
 
 type ItemProps = {
     id: number;
@@ -16,15 +13,6 @@ type ItemProps = {
 }
 
 export default function CartItem({id, deckname, img, price, stock, quantity}: ItemProps) {
-    
-    const { removeFromCart } = useShoppingCart();
-
-    const {pending} = useFormStatus();
-    const [code, formAction] = useFormState(deleteCartItem, undefined);
-
-    const handleDeleteItem = (id: number) => {
-        removeFromCart(id);
-    };
 
     return (
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
@@ -47,29 +35,12 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
                     Quantity: x{quantity}
                 </p>
 
-                <form action={formAction} className='flex items-center justify-between'>
-
-                    <p className='text-md text-slate-600'>
-                        stock: {stock - quantity}
-                    </p>
-
-                    <input type="number" id="id" name="id" value={id} hidden readOnly />
-
-                    <button type="submit" id="submit" name="submit" value="deletecartorder"
-                        onClick={() => handleDeleteItem(id)}
-                        disabled={pending}
-                        className='text-slate-200 font-bold bg-red-500 hover:bg-red-500/80 
-                            hover:shadow-none active:text-slate-50 active:bg-red-400 px-2 py-1 
-                            rounded drop-shadow-lg'
-                    >
-                        {pending ? "Pending" : "Remove"}
-                    </button>
-                    {code?.message ? (
-                        <p>{code.message}</p>
-                    ) : null}
-                </form>
+                <p className='text-md text-slate-600'>
+                    stock: {stock - quantity}
+                </p>
                 
             </div>
+            
         </div>
     )
 }
