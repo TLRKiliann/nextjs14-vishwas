@@ -72,6 +72,8 @@ export type CartProps = {
     deckname: string;
     price: number;
     count: number;
+    stock: number;
+    img: string;
 }
 
 export type CartItem = {

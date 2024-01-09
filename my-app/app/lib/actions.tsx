@@ -21,9 +21,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
     const btnName = formData.get("submit");
     if (btnName === "insert") {
       if (id !== null && name !== null && email !== null && password !== null) {
-        const result = await newMemberQuery("INSERT INTO users VALUES (?, ?, ?, ?)", 
-          [id, name, email, password]
-        );
+        const result = await newMemberQuery("INSERT INTO users VALUES (?, ?, ?, ?)", [id, name, email, password]);
         if (result) {
           revalidatePath("/register");
           return {message: "You are registered"}
@@ -45,8 +43,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
     }
     if (btnName === "delete") {
       if (id !== null) {
-        const result = await newMemberQuery("DELETE FROM users WHERE id=?", 
-          [id]
+        const result = await newMemberQuery("DELETE FROM users WHERE id=?", [id]
         );
         if (result) {
           revalidatePath("/register");
@@ -68,12 +65,15 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
     const deckname = formData.get("deckname");
     const price = formData.get("price");
     const count = formData.get("count");
+    const stock = formData.get("stock");
+    const img = formData.get("img");
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
-      if (id !== null && deckname !== null && price !== null && count !== null) {
-        const query = `INSERT INTO cartorder (id, deckname, price, count) VALUES (?, ?, ?, ?)
-          ON DUPLICATE KEY UPDATE deckname = VALUES(deckname), price = VALUES(price), count = VALUES(count)`;
-        const result = await cartOrderQuery(query, [id, deckname, price, count]);
+      if (id !== null && deckname !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const query = `INSERT INTO cartorder (id, deckname, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE deckname = VALUES(deckname), price = VALUES(price), count = VALUES(count),
+          stock = VALUES(stock), img = VALUES(img)`;
+        const result = await cartOrderQuery(query, [id, deckname, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/decks");
           return { message: "Inserted to cart" };
@@ -81,9 +81,10 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
       }
     }
     if (btnSubmit === "decrease") {
-      if (id !== null && deckname !== null && price !== null && count !== null) {
-        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=? WHERE id=?", 
-          [id, deckname, price, count, id]);
+      if (id !== null && deckname !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=?, \
+          stock=?, img=? WHERE id=?", 
+          [id, deckname, price, count, stock, img, id]);
         if (result) {
           revalidatePath("/products/decks");
           return {message: "Decrease from cart"}
@@ -103,8 +104,7 @@ export async function deleteCartItem(prevState: {message: string} | undefined, f
     const btnDelete = formData.get("submit");
     if (btnDelete === "deletecartorder") {
       if (id !== null) {
-        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
-          [id])
+        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
           revalidatePath("/products/decks");
           return {
@@ -126,8 +126,7 @@ export async function deleteOrder(prevState: {message: string} | undefined, form
     const btnDelete = formData.get("submit");
     if (btnDelete === "deleteorder") {
       if (id !== null) {
-        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?",
-          [id])
+        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
           revalidatePath("/order");
           return {
@@ -151,8 +150,7 @@ export async function messageToSend(prevState: {message: string} | undefined, fo
     const btnEmail = formData.get("submit");
     if (btnEmail === "sendmessage") {
       if (username !== null && email !== null && message !== null) {
-        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)",
-          [username, email, message]);
+        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, message]);
         if (result) {
           revalidatePath("/contact");
           return {message: "Message was sent successfully !"}
@@ -189,7 +187,6 @@ export async function authenticate(prevState: string | undefined, formData: Form
   try {
     //console.log(prevState, formData, "prevState + formData in console.log");
     await signIn('credentials', Object.fromEntries(formData));
-
   } catch (error) {
     if ((error as Error).message.includes('CredentialsSignin')) {
       return 'CredentialSignin';
