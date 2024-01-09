@@ -19,7 +19,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     }, 300)
   })
   return {
-    title: `Element's ${title}`
+    title: `Element ${title}`
   }
 }
 

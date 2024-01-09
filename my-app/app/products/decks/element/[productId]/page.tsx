@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { genericQuery } from '@/app/lib/db';
 import { DecksProps } from '@/app/lib/definitions';
-import { reviews } from "@/app/lib/datas";
+import { reviewsElement } from "@/app/lib/datas";
 import BoxImage from '@/app/ui/products/decks/box-image';
 import DeckUnit from '@/app/ui/products/decks/deck-unit';
 
@@ -14,7 +14,7 @@ type Props = {
 
 const DetailsProduct = async ({params}: Props) => {
 
-    if (parseInt(params.productId) > 36) {
+    if (parseInt(params.productId) > 27) {
         notFound();
     };
 
@@ -63,7 +63,7 @@ const DetailsProduct = async ({params}: Props) => {
             
             </div>
 
-            {reviews.map((rev) => (
+            {reviewsElement.map((rev) => (
                 rev.id === parseInt(params.productId) ? (
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 

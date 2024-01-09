@@ -19,7 +19,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     }, 300)
   })
   return {
-    title: `Baker's ${title}`
+    title: `Bakers ${title}`
   }
 }
 

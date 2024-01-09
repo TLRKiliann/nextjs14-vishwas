@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { genericQuery } from '@/app/lib/db';
 import { DecksProps, PropsProdReview } from '@/app/lib/definitions';
-import { reviews } from "@/app/lib/datas";
+import { reviewsElement } from "@/app/lib/datas";
 import Carousel from '@/app/ui/carousel';
 import elementDeck from "@/public/img_carousel/deck_element9.png";
 import girlDeck from "@/public/img_carousel/deck_girl2.png";
@@ -43,7 +43,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                 ) : null
             ))}
             
-            {reviews.map((rev) => (
+            {reviewsElement.map((rev) => (
                 rev.id === parseInt(params.reviewId) ? (
                     <div key={rev.id} className='p-4'>
                         <h3 className='text-2xl'>{rev.categories}</h3>

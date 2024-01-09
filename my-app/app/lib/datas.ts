@@ -2,7 +2,7 @@ import type { ReviewsProps, CustomersProps } from "./definitions";
 import type { AllTitlesProps, AllTextProps } from "./definitions";  
 
 // reviews & reviews id (need more video to display something)
-export const reviews: ReviewsProps[] = [
+export const reviewsBaker: ReviewsProps[] = [
     {
         id: 1,
         categories: "Watch Baker's Video 1",
@@ -65,7 +65,10 @@ export const reviews: ReviewsProps[] = [
         review: "Little text to display something about (baker 9)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
-    },
+    }
+];
+
+export const reviewsBlind: ReviewsProps[] = [
     {
         id: 10,
         categories: "Watch Blind's Video 1",
@@ -128,7 +131,10 @@ export const reviews: ReviewsProps[] = [
         review: "Little text to display something about (blind 9)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
-    },
+    }
+];
+
+export const reviewsElement: ReviewsProps[] = [
     {
         id: 19,
         categories: "Watch Element's Video 1",
@@ -191,7 +197,10 @@ export const reviews: ReviewsProps[] = [
         review: "Little text to display something about (element 9)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
-    },
+    }
+];
+
+export const reviewsGirl: ReviewsProps[] = [
     {
         id: 28,
         categories: "Watch Girl's Video 1",
