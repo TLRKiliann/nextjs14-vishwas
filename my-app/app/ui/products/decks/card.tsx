@@ -99,6 +99,8 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                 <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
                 <input type="number" id="price" name="price" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
+                <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
+                <input type="text" id="img" name="img" value={img} hidden readOnly />
 
                 <button type="submit" id="submit" name="submit" value="decrease" 
                     onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}

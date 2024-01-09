@@ -19,7 +19,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     }, 300)
   })
   return {
-    title: `Element's ${title}`
+    title: `Element ${title}`
   }
 }
 
@@ -35,10 +35,12 @@ export default async function DetailsProduct({children, params}:
         Element&apos;s Decks
       </h1>
         {children}
-      <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
-        <Link href="/order">Go to checkout</Link>
+      <li className='text-2xl text-transparent bg-clip-text dark-title-h1 light-title-h1 cursor-pointer
+        hover:text-sky-400 p-4'>
+        <Link href="/order">Checkout</Link>
       </li>
-      <li className='text-md font-bold text-sky-500 hover:text-sky-400 p-4'>
+      <li className='text-2xl text-transparent bg-clip-text dark-title-h1 light-title-h1 cursor-pointer
+        hover:text-sky-400 p-4'>
         <Link href={`/products/decks/element/${params.productId}/reviews`}>All Videos</Link>
       </li>
     </div>

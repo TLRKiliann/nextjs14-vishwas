@@ -19,7 +19,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     }, 300)
   })
   return {
-    title: `Baker's ${title}`
+    title: `Bakers ${title}`
   }
 }
 
@@ -35,10 +35,12 @@ export default async function DetailsProduct({children, params}:
         Baker&apos;s Decks
       </h1>
         {children}
-      <li className='text-2xl font-bold text-sky-500 hover:text-sky-400 p-4'>
+      <li className='text-2xl text-transparent bg-clip-text dark-title-h1 light-title-h1 cursor-pointer
+        hover:text-sky-400 p-4'>
         <Link href="/order">Checkout</Link>
       </li>
-      <li className='text-2xl font-bold text-sky-500 hover:text-sky-400 p-4'>
+      <li className='text-2xl text-transparent bg-clip-text dark-title-h1 light-title-h1 cursor-pointer
+        hover:text-sky-400 p-4'>
         <Link href={`/products/decks/baker/${params.productId}/reviews`}>All Videos</Link>
       </li>
     </div>

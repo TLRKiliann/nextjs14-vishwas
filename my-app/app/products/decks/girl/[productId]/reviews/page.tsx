@@ -3,25 +3,25 @@
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { reviews } from '@/app/lib/datas'
+import { reviewsGirl } from '@/app/lib/datas'
 
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 100) {
+    if (parseInt(params.productId) > 36) {
         notFound();
-    }
+    };
 
     if (parseInt(params.productId) !== Number(params.productId)) {
         throw new Error("Error product id is not a number");
-    }
+    };
 
     return (
         <>
             <h2 className='text-xl font-bold text-violet-500 dark:text-sky-500 m-4'>
-                All Videos about Baker
+                All Videos about Girl
             </h2>
-            {reviews.map((rev) => (
+            {reviewsGirl.map((rev) => (
                 <ul key={rev.id} className='list-outside list-disc m-4 ml-10'>
                     <li className='text-violet-600 dark:text-slate-200'>
                         <Link 

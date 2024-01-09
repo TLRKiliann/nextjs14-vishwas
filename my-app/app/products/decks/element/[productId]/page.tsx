@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { genericQuery } from '@/app/lib/db';
 import { DecksProps } from '@/app/lib/definitions';
-import { reviews } from "@/app/lib/datas";
+import { reviewsElement } from "@/app/lib/datas";
 import BoxImage from '@/app/ui/products/decks/box-image';
 import DeckUnit from '@/app/ui/products/decks/deck-unit';
 
@@ -13,13 +13,14 @@ type Props = {
 }
 
 const DetailsProduct = async ({params}: Props) => {
-    if (parseInt(params.productId) > 100) {
+
+    if (parseInt(params.productId) > 27) {
         notFound();
-    }
+    };
 
     if (parseInt(params.productId) !== Number(params.productId)) {
         throw new Error("Error: product id is not a number");
-    }
+    };
 
     const request: unknown = await genericQuery("SELECT * FROM elementdecks", []);
     const data: string = JSON.stringify(request);
@@ -40,8 +41,8 @@ const DetailsProduct = async ({params}: Props) => {
         }
     })
     return (
-        <div className='min-h-screen'>
-            <p className="p-4">Details by product id: {params.productId}</p>
+        <>
+            {/* <p className="p-4">Details by product id: {params.productId}</p> */}
 
             <div className="flex align-center justify-start">
                 <Link 
@@ -62,21 +63,20 @@ const DetailsProduct = async ({params}: Props) => {
             
             </div>
 
-            {reviews.map((rev) => (
+            {reviewsElement.map((rev) => (
                 rev.id === parseInt(params.productId) ? (
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 
                             href={`/products/decks/element/${params.productId}/reviews/${rev.id}`}
-                            className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
-                            text-violet-500 hover:text-violet-400 p-4'
+                            className='text-lg text-transparent bg-clip-text dark-title-h1 light-title-h1 
+                            hover:dark:text-sky-400 hover:text-violet-400 p-4'
                         >
                             {rev.categories}
                         </Link>
-
                     </div>
                 ) : null
             ))}
-        </div>
+        </>
     )
-}
+};
 export default DetailsProduct;

@@ -12,12 +12,12 @@ type ColorPointProps = {
     color1: boolean;
     color2: boolean;
     color3: boolean;
-}
+};
 
 type ImgSetProps = {
     id: number;
     images: StaticImageData[];
-}
+};
 
 export default function BoxImage({paramsId, data}: {paramsId: string, data: DecksProps[]}) {
 
@@ -27,19 +27,15 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Deck
 
     if (mappingData?.deckname.slice(0, 5) === "baker") {
         retriveLibDeck = imgSetBakerDeck;
-        //console.log("here is baker decks");
     } else if (mappingData?.deckname.slice(0, 5) === "blind") {
         retriveLibDeck = imgSetBlindDeck;
-        //console.log("here is blind decks")
     } else if (mappingData?.deckname.slice(0, 7) === "element") {
         retriveLibDeck = imgSetElementDeck;
-        //console.log("here is element decks")
     } else if (mappingData?.deckname.slice(0, 4) === "girl") {
         retriveLibDeck = imgSetGirlDeck;
-        //console.log("here is girl decks")
     } else {
         console.log("No deck was found !");
-    }
+    };
 
     const searchId = retriveLibDeck?.find((img: ImgSetProps) => img.id === parseInt(paramsId));
     const initialState: string | undefined = searchId?.images[0].src;
