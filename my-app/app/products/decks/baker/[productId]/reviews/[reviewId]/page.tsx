@@ -36,9 +36,15 @@ export default async function ReviewById({ params }: PropsProdReview) {
             </div>*/}
             {JSON.parse(bakerdecks).map((prod: DecksProps) => (
                 prod.id === parseInt(params.productId) ? (
-                    <div key={prod.id} className='text-lg text-slate-500 bg-slate-50/10 px-5 py-4'>
-                        <p className='font-bold'>{prod.deckname.toUpperCase()}</p>
-                        <p className='font-bold'>{prod.price.toFixed(2)}.- CHF</p>
+                    <div key={prod.id} className='flex text-lg text-slate-200 bg-slate-50/10 px-5 py-4'>
+                        <div className=''>
+                            <Image src={prod.img} width={100} height={100} alt="img perID" 
+                                className='object-cover rounded' />
+                        </div>
+                        <div className='flex flex-col items-start justify-center w-40'>
+                            <p className='font-bold ml-4'>{prod.deckname.toUpperCase()}</p>
+                            <p className='font-bold ml-4'>{prod.price.toFixed(2)}.- CHF</p>                
+                        </div>
                     </div>
                 ) : null
             ))}
@@ -55,33 +61,136 @@ export default async function ReviewById({ params }: PropsProdReview) {
 
                         <p className='text-md mt-2'>{rev.review}</p>
 
-                        <div className='flex items-center justify-center w-full py-4'>
-                            <video autoPlay muted controls className='w-2/5 h-auto'>
-                                <source src={rev.video} type="video/mp4" />
-                            </video>
+
+
+                        <div className='flex items-center justify-center mx-10 my-5'>
+
+                            <div className='flex flex-col items-center justify-center w-full py-4'>
+                                <video autoPlay muted controls className='w-4/5 h-auto'>
+                                    <source src={rev.video} type="video/mp4" />
+                                </video>
+                                <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
+                                    py-2'>
+                                    <span className='flex items-center justify-center text-sm font-bold px-[7px] 
+                                        pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        B1
+                                    </span> 
+                                    <p className='flex items-center justify-center text-sm mt-1'>
+                                        Commentaire
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col items-center justify-center w-full py-4'>
+                                <video autoPlay muted controls className='w-4/5 h-auto'>
+                                    <source src={rev.video_2} type="video/mp4" />
+                                </video>
+                                <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
+                                    py-2'>
+                                    <span className='flex items-center justify-center text-sm font-bold px-[7px] 
+                                        pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        B1
+                                    </span> 
+                                    <p className='flex items-center justify-center text-sm mt-1'>
+                                        Commentaire
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col items-center justify-center w-full py-4'>
+                                
+                                <video autoPlay muted controls className='w-4/5 h-auto'>
+                                    <source src={rev.video_2} type="video/mp4" />
+                                </video>
+                                
+                                <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
+                                    py-2'>
+                                    <span className='flex items-center justify-center text-sm font-bold px-[7px] 
+                                        pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        B1
+                                    </span> 
+                                    <p className='flex items-center justify-center text-sm mt-1'>
+                                        Commentaire
+                                    </p>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <div className='flex items-center justify-center w-full py-4'>
-                            <video autoPlay muted controls className='w-2/5 h-auto'>
-                                <source src={rev.video_2} type="video/mp4" />
-                            </video>
+                        <div className='flex items-center justify-center mx-10 mt-5'>
+
+                            <div className='flex flex-col items-center justify-center w-full py-4'>
+                                <video autoPlay muted controls className='w-4/5 h-auto'>
+                                    <source src={rev.video} type="video/mp4" />
+                                </video>
+                                <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
+                                    py-2'>
+                                    <span className='flex items-center justify-center text-sm font-bold px-[7px] 
+                                        pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        B1
+                                    </span> 
+                                    <p className='flex items-center justify-center text-sm mt-1'>
+                                        Commentaire
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col items-center justify-center w-full py-4'>
+                                <video autoPlay muted controls className='w-4/5 h-auto'>
+                                    <source src={rev.video_2} type="video/mp4" />
+                                </video>
+                                <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
+                                    py-2'>
+                                    <span className='flex items-center justify-center text-sm font-bold px-[7px] 
+                                        pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        B1
+                                    </span> 
+                                    <p className='flex items-center justify-center text-sm mt-1'>
+                                        Commentaire
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className='flex flex-col items-center justify-center w-full py-4'>
+                                
+                                <video autoPlay muted controls className='w-4/5 h-auto'>
+                                    <source src={rev.video_2} type="video/mp4" />
+                                </video>
+                                
+                                <div className='flex items-center justify-start w-4/5 text-sm text-slate-100
+                                    py-2'>
+                                    <span className='flex items-center justify-center text-sm font-bold px-[7px] 
+                                        pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        B1
+                                    </span> 
+                                    <p className='flex items-center justify-center text-sm mt-1'>
+                                        Commentaire
+                                    </p>
+                                </div>
+
+                            </div>
+
                         </div>
+
+
+
 
                     </div>
                 ) : null
             ))}
 
-            <div className='bg-slate-50/10 pt-10 pb-5'>
+            <div className='w-4/5 m-auto bg-slate-50/10 pt-10 pb-5'>
                 <Carousel loop>
                     {images.map((src, i) => {
                     return (
                         <div key={i}
-                        className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
-                            xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
+                        className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[200px] 
+                            xs:h-[100px] sm:h-[200px] md:h-[200px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
                             sm:my-6 md:my-3"
                         >
                         <Image src={src} 
-                            width={300} height={300} fill={false} 
+                            width={200} height={200} fill={false} 
                             className="m-auto" 
                             alt="img carousel"
                         />
