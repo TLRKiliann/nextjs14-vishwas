@@ -19,7 +19,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
     return (
         <>
             <h2 className='text-xl font-bold text-violet-500 dark:text-sky-500 m-4'>
-                All Videos about Baker
+                All Videos about Girl
             </h2>
             {reviews.map((rev) => (
                 <ul key={rev.id} className='list-outside list-disc m-4 ml-10'>
