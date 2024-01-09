@@ -10,11 +10,11 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
 
     if (parseInt(params.productId) > 36) {
         notFound();
-    }
+    };
 
     if (parseInt(params.productId) !== Number(params.productId)) {
         throw new Error("Error product id is not a number");
-    }
+    };
 
     return (
         <>

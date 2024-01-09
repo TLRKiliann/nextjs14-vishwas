@@ -3,11 +3,6 @@ import Image from 'next/image';
 import { genericQuery } from '@/app/lib/db';
 import { DecksProps, PropsProdReview } from '@/app/lib/definitions';
 import { reviewsBaker } from "@/app/lib/datas";
-import Carousel from '@/app/ui/carousel';
-import elementDeck from "@/public/img_carousel/deck_element9.png";
-import girlDeck from "@/public/img_carousel/deck_girl2.png";
-import bakerDeck from "@/public/img_carousel/deck_baker5.png";
-import blindDeck from "@/public/img_carousel/deck_blind6.png";
 
 export default async function ReviewById({ params }: PropsProdReview) {
     
@@ -22,13 +17,6 @@ export default async function ReviewById({ params }: PropsProdReview) {
     const data: unknown = await genericQuery("SELECT * FROM bakerdecks", []);
     const bakerdecks: string = JSON.stringify(data);
 
-    const images = [
-        bakerDeck,
-        elementDeck,
-        girlDeck,
-        blindDeck
-    ];
-
     return (
         <div className='w-full'>
             {/* <div className='p-4'>
@@ -36,14 +24,24 @@ export default async function ReviewById({ params }: PropsProdReview) {
             </div>*/}
             {JSON.parse(bakerdecks).map((prod: DecksProps) => (
                 prod.id === parseInt(params.productId) ? (
-                    <div key={prod.id} className='flex text-lg text-slate-200 bg-slate-50/10 px-5 py-4'>
-                        <div className=''>
+                    <div key={prod.id} className='flex text-slate-200 bg-slate-800 my-10 px-6 py-6'>
+                        
+                        <div>
                             <Image src={prod.img} width={100} height={100} alt="img perID" 
                                 className='object-cover rounded' />
                         </div>
-                        <div className='flex flex-col items-start justify-center w-40'>
-                            <p className='font-bold ml-4'>{prod.deckname.toUpperCase()}</p>
-                            <p className='font-bold ml-4'>{prod.price.toFixed(2)}.- CHF</p>                
+
+                        <div className='flex flex-col items-start justify-between w-40'>
+
+                            <div>
+                                <p className='text-lg font-bold ml-4'>{prod.deckname.toUpperCase()}</p>
+                            </div>
+
+                            <div>
+                                <p className='text-md font-bold ml-4'>{prod.price.toFixed(2)}.- CHF</p>
+                                <p className='text-md font-bold ml-4'>Stock: {prod.stock}</p>
+                            </div>
+           
                         </div>
                     </div>
                 ) : null
@@ -174,27 +172,6 @@ export default async function ReviewById({ params }: PropsProdReview) {
                     </div>
                 ) : null
             ))}
-
-            <div className='w-4/5 m-auto bg-slate-50/10 pt-10 pb-5'>
-                <Carousel loop>
-                    {images.map((src, i) => {
-                    return (
-                        <div key={i}
-                        className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[200px] 
-                            xs:h-[100px] sm:h-[200px] md:h-[200px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
-                            sm:my-6 md:my-3"
-                        >
-                        <Image src={src} 
-                            width={200} height={200} fill={false} 
-                            className="m-auto" 
-                            alt="img carousel"
-                        />
-                        </div>
-                    );
-                    })}
-                </Carousel>
-            </div>
-
         </div>
     )
 }
