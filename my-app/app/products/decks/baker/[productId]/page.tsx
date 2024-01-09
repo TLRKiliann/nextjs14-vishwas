@@ -13,7 +13,8 @@ type Props = {
 };
 
 const DetailsProduct = async ({params}: Props) => {
-    if (parseInt(params.productId) > 100) {
+    
+    if (parseInt(params.productId) > 36) {
         notFound();
     };
 
@@ -67,5 +68,5 @@ const DetailsProduct = async ({params}: Props) => {
             ))}
         </>
     )
-}
+};
 export default DetailsProduct;

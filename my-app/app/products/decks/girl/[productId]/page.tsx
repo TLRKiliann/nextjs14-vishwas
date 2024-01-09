@@ -13,13 +13,14 @@ type Props = {
 }
 
 const DetailsProduct = async ({params}: Props) => {
-    if (parseInt(params.productId) > 100) {
+
+    if (parseInt(params.productId) > 36) {
         notFound();
-    }
+    };
 
     if (parseInt(params.productId) !== Number(params.productId)) {
         throw new Error("Error: product id is not a number");
-    }
+    };
 
     const request: unknown = await genericQuery("SELECT * FROM girldecks", []);
     const data: string = JSON.stringify(request);
@@ -38,10 +39,11 @@ const DetailsProduct = async ({params}: Props) => {
                 />
             )
         }
-    })
+    });
+
     return (
         <>
-            <p className="p-4">Details by product id: {params.productId}</p>
+            {/* <p className="p-4">Details by product id: {params.productId}</p> */}
 
             <div className="flex align-center justify-start">
                 <Link 
@@ -77,5 +79,5 @@ const DetailsProduct = async ({params}: Props) => {
             ))}
         </>
     )
-}
+};
 export default DetailsProduct;

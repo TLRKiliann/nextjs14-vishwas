@@ -8,7 +8,7 @@ import { reviews } from '@/app/lib/datas'
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 100) {
+    if (parseInt(params.productId) > 36) {
         notFound();
     }
 
