@@ -65,117 +65,117 @@ export const imgSetBakerDeck: ImgSetProps[] = [
 
 export const imgSetBlindDeck: ImgSetProps[] = [
     {
-        id: 1,
+        id: 10,
         images: [bakerOver, bakerUnder, bakerProfile]
     },
     {
-        id: 2,
+        id: 11,
         images: [bakerOver_2, bakerUnder_2, bakerProfile_2]
     },
     {
-        id: 3,
+        id: 12,
         images: [bakerOver_3, bakerUnder_3, bakerProfile_3]
     },
     {
-        id: 4,
+        id: 13,
         images: [bakerOver_4, bakerUnder_4, bakerProfile_4]
     },
     {
-        id: 5,
+        id: 14,
         images: [bakerOver_5, bakerUnder_5, bakerProfile_5]
     },
     {
-        id: 6,
+        id: 15,
         images: [bakerOver_6, bakerUnder_6, bakerProfile_6]
     },
     {
-        id: 7,
+        id: 16,
         images: [bakerOver_7, bakerUnder_7, bakerProfile_7]
     },
     {
-        id: 8,
+        id: 17,
         images: [bakerOver_8, bakerUnder_8, bakerProfile_8]
     },
     {
-        id: 9,
+        id: 18,
         images: [bakerOver_8, bakerUnder_8, bakerProfile_8]
     }
 ];
 
 export const imgSetElementDeck: ImgSetProps[] = [
     {
-        id: 1,
+        id: 19,
         images: [bakerOver, bakerUnder, bakerProfile]
     },
     {
-        id: 2,
+        id: 20,
         images: [bakerOver_2, bakerUnder_2, bakerProfile_2]
     },
     {
-        id: 3,
+        id: 21,
         images: [bakerOver_3, bakerUnder_3, bakerProfile_3]
     },
     {
-        id: 4,
+        id: 22,
         images: [bakerOver_4, bakerUnder_4, bakerProfile_4]
     },
     {
-        id: 5,
+        id: 23,
         images: [bakerOver_5, bakerUnder_5, bakerProfile_5]
     },
     {
-        id: 6,
+        id: 24,
         images: [bakerOver_6, bakerUnder_6, bakerProfile_6]
     },
     {
-        id: 7,
+        id: 25,
         images: [bakerOver_7, bakerUnder_7, bakerProfile_7]
     },
     {
-        id: 8,
+        id: 26,
         images: [bakerOver_8, bakerUnder_8, bakerProfile_8]
     },
     {
-        id: 9,
+        id: 27,
         images: [bakerOver_8, bakerUnder_8, bakerProfile_8]
     }
 ];
 
 export const imgSetGirlDeck: ImgSetProps[] = [
     {
-        id: 1,
+        id: 28,
         images: [bakerOver, bakerUnder, bakerProfile]
     },
     {
-        id: 2,
+        id: 29,
         images: [bakerOver_2, bakerUnder_2, bakerProfile_2]
     },
     {
-        id: 3,
+        id: 30,
         images: [bakerOver_3, bakerUnder_3, bakerProfile_3]
     },
     {
-        id: 4,
+        id: 31,
         images: [bakerOver_4, bakerUnder_4, bakerProfile_4]
     },
     {
-        id: 5,
+        id: 32,
         images: [bakerOver_5, bakerUnder_5, bakerProfile_5]
     },
     {
-        id: 6,
+        id: 33,
         images: [bakerOver_6, bakerUnder_6, bakerProfile_6]
     },
     {
-        id: 7,
+        id: 34,
         images: [bakerOver_7, bakerUnder_7, bakerProfile_7]
     },
     {
-        id: 8,
+        id: 35,
         images: [bakerOver_8, bakerUnder_8, bakerProfile_8]
     },
     {
-        id: 9,
+        id: 36,
         images: [bakerOver_8, bakerUnder_8, bakerProfile_8]
     }
 ];

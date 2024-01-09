@@ -1,5 +1,6 @@
 import type { ListOfDecksProps } from "./definitions";
 
+// help to find composed name in searchbar
 export const listOfBaker: ListOfDecksProps[] = [
     {
         id: 1,
@@ -48,145 +49,145 @@ export const listOfBaker: ListOfDecksProps[] = [
     }
 ];
 
-export const listOfElement: ListOfDecksProps[] = [
+export const listOfBlind: ListOfDecksProps[] = [
     {
-        id: 1,
+        id: 10,
         name: "one",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 2,
+        id: 11,
         name: "two",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 3,
+        id: 12,
         name: "three",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 4,
+        id: 13,
         name: "four",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 5,
+        id: 14,
         name: "five",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 6,
+        id: 15,
         name: "six",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 7,
+        id: 16,
         name: "seven",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 8,
+        id: 17,
         name: "eight",
-        label: "element"
+        label: "blind"
     },
     {
-        id: 9,
+        id: 18,
         name: "nine",
-        label: "element"
+        label: "blind"
     }
 ];
 
-export const listOfBlind: ListOfDecksProps[] = [
+export const listOfElement: ListOfDecksProps[] = [
     {
-        id: 1,
+        id: 19,
         name: "one",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 2,
+        id: 20,
         name: "two",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 3,
+        id: 21,
         name: "three",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 4,
+        id: 22,
         name: "four",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 5,
+        id: 23,
         name: "five",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 6,
+        id: 24,
         name: "six",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 7,
+        id: 25,
         name: "seven",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 8,
+        id: 26,
         name: "eight",
-        label: "blind"
+        label: "element"
     },
     {
-        id: 9,
+        id: 27,
         name: "nine",
-        label: "blind"
+        label: "element"
     }
 ];
 
 export const listOfGirl: ListOfDecksProps[] = [
     {
-        id: 1,
+        id: 28,
         name: "one",
         label: "girl"
     },
     {
-        id: 2,
+        id: 29,
         name: "two",
         label: "girl"
     },
     {
-        id: 3,
+        id: 30,
         name: "three",
         label: "girl"
     },
     {
-        id: 4,
+        id: 31,
         name: "four",
         label: "girl"
     },
     {
-        id: 5,
+        id: 32,
         name: "five",
         label: "girl"
     },
     {
-        id: 6,
+        id: 33,
         name: "six",
         label: "girl"
     },
     {
-        id: 7,
+        id: 34,
         name: "seven",
         label: "girl"
     },
     {
-        id: 8,
+        id: 35,
         name: "eight",
         label: "girl"
     },
     {
-        id: 9,
+        id: 36,
         name: "nine",
         label: "girl"
     }
