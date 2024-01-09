@@ -1,24 +1,19 @@
-"use client";
-
 import React from 'react'
-import { useShoppingCart } from '@/app/context/cart-context';
 import CartDisplay from '@/app/ui/cart/cart-display';
+import { CartProps } from '@/app/lib/definitions';
 
-export default function CartItems() {
-    
-    const { cartItems } = useShoppingCart();
-
+export default async function CartItems({order}: {order: CartProps[]}) {
     return (
         <div className='flex flex-col items-center justify-center'>
 
-            {cartItems.length !== 0 ? cartItems.map((item) => (
+            {order.length !== 0 ? order.map((item: CartProps) => (
                 <CartDisplay key={item.id} {...item} />
                 )) : (
                 <p className='text-center text-slate-600'>
                     Add product to cart
                 </p>
             )}
-            
+
         </div>
     )
 }

@@ -55,6 +55,26 @@ export default function MenuDecks() {
             <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 rounded-lg shadow-outviolet dark:shadow-none'>
             
                 <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+                    Element
+                </h2>
+    
+                <li className='ml-4 text-violet-500 hover:text-violet-600 dark:text-blue-500 
+                    dark:hover:text-blue-600'>
+                    <Link href="/products/decks/element">
+                        All Element&apos;s Decks
+                    </Link>
+                </li>
+
+                <div className="absolute top-1 right-5">
+                    <Image src={elementLogo} width={90} height={90} alt="baker logo"
+                        className='object-cover rounded-full' />
+                </div>
+
+            </div>
+
+            <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 rounded-lg shadow-outviolet dark:shadow-none'>
+            
+                <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
                     Girl
                 </h2>
     
@@ -72,25 +92,6 @@ export default function MenuDecks() {
     
             </div>
 
-            <div className='relative bg-slate-100 dark:bg-slate-200 h-[100px] p-4 rounded-lg shadow-outviolet dark:shadow-none'>
-            
-                <h2 className='text-2xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
-                    Element
-                </h2>
-    
-                <li className='ml-4 text-violet-500 hover:text-violet-600 dark:text-blue-500 
-                    dark:hover:text-blue-600'>
-                    <Link href="/products/decks/element">
-                        All Element&apos;s Decks
-                    </Link>
-                </li>
-
-                <div className="absolute top-1 right-5">
-                    <Image src={elementLogo} width={90} height={90} alt="baker logo"
-                        className='object-cover rounded-full' />
-                </div>
-
-            </div>
         </div>
     )
 }

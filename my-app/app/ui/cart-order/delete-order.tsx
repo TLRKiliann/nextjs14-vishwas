@@ -39,11 +39,6 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                             <p className='text-center m-auto'>{ord.count}</p>
                             
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
-                            {/*
-                            <input type="text" id="deckname" name="deckname" value={ord.deckname} hidden readOnly />
-                            <input type="number" id="price" name="price" value={initialCount} hidden readOnly />
-                            <input type="number" id="count" name="count" value={initialCount} hidden readOnly />
-                            */}
 
                             <button type="submit" id="submit" name="submit" value="deleteorder"
                                 onClick={() => handleDeleteCount(ord.id)}
@@ -51,7 +46,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                                 className='text-sm font-bold text-red-400/80 bg-slate-800 
                                 hover:text-red-400 hover:bg-slate-900 active:text-slate-100 
                                 active:bg-red-400 mr-2 px-4 py-2 rounded'>
-                                {pending ? "Pending..." : "Delete"}
+                                {pending ? "Pending..." : "Remove"}
                             </button>
                         </form>
                     )

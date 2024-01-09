@@ -21,7 +21,7 @@ type ImgSetProps = {
 
 export default function BoxImage({paramsId, data}: {paramsId: string, data: DecksProps[]}) {
 
-    const mappingData = data.find((d) => d.id === parseInt(paramsId));
+    const mappingData = data.find((d: DecksProps) => d.id === parseInt(paramsId));
 
     let retriveLibDeck = null;
 
@@ -87,7 +87,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Deck
             <div className='flex w-full h-full rounded-tl-xl rounded-bl-xl'>
             
                 <div className='flex flex-col items-center justify-around w-2/5 bg-slate-100 my-0 rounded-tl-xl rounded-bl-xl
-                    transform transition translate-y-0 animate-right-start'>
+                    transition transform translate-y-0 animate-right-start'>
 
                     <span onClick={handlePointOne} className="w-[100px] h-auto cursor-pointer p-2 pb-0">
                         <Image src={String(searchId?.images[0].src)} 
@@ -119,7 +119,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Deck
                 </div>
 
                 <div className='flex flex-col items-center justify-between w-full bg-slate-100 border-r border-l 
-                    border-slate-800/50 transform transition translate-y-0 animate-down-start'>
+                    border-slate-600/50 transform transition translate-y-0 animate-down-start'>
                     
                     <div className='flex items-center justify-center md:w-[200px] lg:w-[300px] h-auto 
                         bg-slate-100 m-auto p-4'>
