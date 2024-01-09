@@ -10,16 +10,16 @@ type Props = {
     params: {
         productId: string;
     }
-}
+};
 
 const DetailsProduct = async ({params}: Props) => {
     if (parseInt(params.productId) > 100) {
         notFound();
-    }
+    };
 
     if (parseInt(params.productId) !== Number(params.productId)) {
         throw new Error("Error: product id is not a number");
-    }
+    };
 
     const request: unknown = await genericQuery("SELECT * FROM blinddecks", []);
     const data: string = JSON.stringify(request);
@@ -38,15 +38,16 @@ const DetailsProduct = async ({params}: Props) => {
                 />
             )
         }
-    })
+    });
+
     return (
-        <div className='min-h-screen'>
-            <p className="p-4">Details by product id: {params.productId}</p>
+        <>
+            {/* <p className="p-4">Details by product id: {params.productId}</p> */}
 
             <div className="flex align-center justify-start">
                 <Link 
                     href={`/products/decks/blind/${params.productId}/reviews`}
-                    className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
+                    className='text-2xl font-bold dark:text-sky-500 hover:dark:text-sky-400 
                     text-violet-500 hover:text-violet-400
                     p-4'
                 >
@@ -67,16 +68,15 @@ const DetailsProduct = async ({params}: Props) => {
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 
                             href={`/products/decks/blind/${params.productId}/reviews/${rev.id}`}
-                            className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
-                            text-violet-500 hover:text-violet-400 p-4'
+                            className='text-lg text-transparent bg-clip-text dark-title-h1 light-title-h1 
+                            hover:dark:text-sky-400 hover:text-violet-400 p-4'
                         >
                             {rev.categories}
                         </Link>
-
                     </div>
                 ) : null
             ))}
-        </div>
+        </>
     )
 }
 export default DetailsProduct;

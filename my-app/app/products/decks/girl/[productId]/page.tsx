@@ -40,7 +40,7 @@ const DetailsProduct = async ({params}: Props) => {
         }
     })
     return (
-        <div className='min-h-screen'>
+        <>
             <p className="p-4">Details by product id: {params.productId}</p>
 
             <div className="flex align-center justify-start">
@@ -67,16 +67,15 @@ const DetailsProduct = async ({params}: Props) => {
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 
                             href={`/products/decks/girl/${params.productId}/reviews/${rev.id}`}
-                            className='text-lg font-bold dark:text-sky-500 hover:dark:text-sky-400 
-                            text-violet-500 hover:text-violet-400 p-4'
+                            className='text-lg text-transparent bg-clip-text dark-title-h1 light-title-h1 
+                            hover:dark:text-sky-400 hover:text-violet-400 p-4'
                         >
                             {rev.categories}
                         </Link>
-
                     </div>
                 ) : null
             ))}
-        </div>
+        </>
     )
 }
 export default DetailsProduct;

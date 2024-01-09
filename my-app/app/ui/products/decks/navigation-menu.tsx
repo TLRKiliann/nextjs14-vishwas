@@ -14,7 +14,7 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div className='fixed top-[70px] right-[20px] w-[200px] h-auto text-lg bg-none'>
+        <div className='fixed top-[75px] right-[20px] w-[200px] h-auto text-lg bg-none'>
 
             <div onClick={handleCloseMenu} className='flex items-center text-amber-900 cursor-pointer 
                 active:text-amber-500 transform hover:scale-105 active:scale-95'>
