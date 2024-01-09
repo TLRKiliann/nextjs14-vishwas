@@ -5,63 +5,63 @@ import type { AllTitlesProps, AllTextProps } from "./definitions";
 export const reviews: ReviewsProps[] = [
     {
         id: 1,
-        categories: "Baker's Video",
+        categories: "Baker's Video 1",
         review: "little text to display something about (baker 1)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 2,
-        categories: "Baker's Video",
+        categories: "Baker's Video 2",
         review: "little text to display something about (baker 2)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 3,
-        categories: "Baker's Video",
+        categories: "Baker's Video 3",
         review: "little text to display something about (baker 3)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 4,
-        categories: "Baker's Video",
+        categories: "Baker's Video 4",
         review: "little text to display something about (baker 4)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 5,
-        categories: "Baker's Video",
+        categories: "Baker's Video 5",
         review: "little text to display something about (baker 5)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 6,
-        categories: "Baker's Video",
+        categories: "Baker's Video 6",
         review: "little text to display something about (baker 6)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 7,
-        categories: "Baker's Video",
+        categories: "Baker's Video 7",
         review: "little text to display something (baker 7)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 8,
-        categories: "Baker's Video",
+        categories: "Baker's Video 8",
         review: "little text to display something (baker 8)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"
     },
     {
         id: 9,
-        categories: "Baker's Video",
+        categories: "Baker's Video 9",
         review: "little text to display something (baker 9)",
         video: "/video/skate-trick2.mp4",
         video_2: "/video/skate-trick1.mp4"

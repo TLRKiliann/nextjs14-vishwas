@@ -4,15 +4,15 @@ import spinLoader from "@/public/img_logo/loader.png";
 
 export default function Loading() {
   return (
-    <div className="min-h-screen">
-        <div className='flex align-center p-4'>
+    <div className="w-full min-h-screen">
+        <div className='w-[200px] flex items-center p-4'>
 
           <Image
               src={spinLoader}
               width={20}
               height={20}
               alt="img loader"
-              className="m-auto animate-spin" 
+              className="object-cover animate-spin" 
           />
 
           <h2 className='font-bold ml-4'>Loading...</h2>

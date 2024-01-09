@@ -13,11 +13,11 @@ export default async function ReviewById({ params }: PropsProdReview) {
     
     if (parseInt(params.reviewId) > 100) {
         notFound();
-    }
+    };
 
     if (parseInt(params.reviewId) !== Number(params.reviewId)) {
         throw new Error("Error review id is not a number");
-    }
+    };
 
     const data: unknown = await genericQuery("SELECT * FROM bakerdecks", []);
     const bakerdecks: string = JSON.stringify(data);
@@ -60,8 +60,6 @@ export default async function ReviewById({ params }: PropsProdReview) {
                         </h3>
 
                         <p className='text-md mt-2'>{rev.review}</p>
-
-
 
                         <div className='flex items-center justify-center mx-10 my-5'>
 
@@ -172,9 +170,6 @@ export default async function ReviewById({ params }: PropsProdReview) {
                             </div>
 
                         </div>
-
-
-
 
                     </div>
                 ) : null
