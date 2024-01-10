@@ -19,33 +19,33 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
     }
 
     return (
-        <div className='w-full flex flex-col items-center rounded mt-20'>
+        <div className='w-full mt-[100px]'>
             {order.map((ord: CartProps) => {
                 if (ord.count !== 0) {
                     return (
                         <form
                             key={ord.id}
                             action={formAction}
-                            className='flex items-center justify-evenly w-full h-10 bg-slate-700 
-                                m-auto rounded'>
+                            className='flex items-center justify-between w-full h-12 bg-slate-700 
+                                my-1 rounded'>
                             
-                            <p className='text-center ml-2'>{ord.id}</p>
+                            <p className='w-1/5 text-center ml-2'>{ord.id}</p>
     
-                            <div className='m-auto'>
+                            <div className='w-2/5 m-auto'>
                                 <p className='text-center'>{ord.deckname}</p>
                             </div>
 
-                            <p className='text-center m-auto'>{ord.price.toFixed(2)}.-</p>
-                            <p className='text-center m-auto'>{ord.count}</p>
+                            <p className='w-2/5 text-center m-auto'>{ord.price.toFixed(2)}.-</p>
+                            <p className='w-1/5 text-center m-auto'>{ord.count}</p>
                             
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
 
                             <button type="submit" id="submit" name="submit" value="deleteorder"
                                 onClick={() => handleDeleteCount(ord.id)}
                                 disabled={pending}
-                                className='text-sm font-bold text-red-400/80 bg-slate-800 
-                                hover:text-red-400 hover:bg-slate-900 active:text-slate-100 
-                                active:bg-red-400 mr-2 px-4 py-2 rounded'>
+                                className='text-slate-50 font-bold bg-red-500 hover:bg-red-500/80 
+                                hover:shadow-none active:text-slate-50 active:bg-red-400 m-2 px-4 py-1
+                                rounded shadow-lg'>
                                 {pending ? "Pending..." : "Remove"}
                             </button>
                         </form>
@@ -53,7 +53,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                 }
             })}
             {code?.message ? (
-                <p className='text-orange-400 mt-2'>{code.message}</p>
+                <p className='text-center text-orange-400 mt-2'>{code.message}</p>
             ) : null}
         </div>
     )

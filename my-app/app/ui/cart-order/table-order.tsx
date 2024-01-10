@@ -20,30 +20,31 @@ export default function TableOrder({order}: {order: CartProps[]}) {
     let filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0)
 
     return (
-        <div className='flex flex-col w-full pr-4'>
+        <div className='flex flex-col items-start w-full min-h-[500px] pr-4'>
             <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
                 <tbody className='flex flex-col'>
-                <tr className='flex justify-around w-full text-lg text-slate-500 bg-slate-800'>
-                    <th className='py-1'>Id</th>
-                    <th className='py-1'>Product</th>
-                    <th className='py-1'>Quantity</th>
-                    <th className='py-1'>Price</th>
+                <tr className='flex justify-between w-full text-lg text-slate-400/80 bg-slate-800 
+                    rounded-tl-md rounded-tr-md'>
+                    <th className='w-2/5 py-1'>Id</th>
+                    <th className='w-2/5 py-1'>Product</th>
+                    <th className='w-2/5 py-1'>Quantity</th>
+                    <th className='w-2/5 py-1'>Price</th>
                 </tr>
                 {order.map((ord: CartProps) => {
                     if (ord.count !== 0) {
                     return (
-                        <tr key={ord.id} className='flex justify-around text-slate-200 text-center 
-                        bg-slate-700'>
-                        <td className='border-b border-slate-600 py-2'>
+                        <tr key={ord.id} className='flex justify-between text-slate-200 text-center 
+                        bg-slate-700 '>
+                        <td className='w-2/5 border-b border-slate-600 py-2'>
                             {ord.id}
                         </td>
-                        <td className='border-b border-slate-600 py-2'>
+                        <td className='w-2/5 border-b border-slate-600 py-2'>
                             {ord.deckname}
                         </td>
-                        <td className='border-b border-slate-600 py-2'>
+                        <td className='w-2/5 border-b border-slate-600 py-2'>
                             {ord.count}
                         </td>
-                        <td className='border-b border-slate-600 py-2'>
+                        <td className='w-2/5 border-b border-slate-600 py-2'>
                             {ord.price.toFixed(2)}.-  
                         </td>
                         </tr>
@@ -52,23 +53,24 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                 </tbody>
             </table>
             
-            <div className="w-full text-lg font-bold bg-slate-700/80 m-auto mt-0 py-2 
+            <div className="w-full text-lg font-bold bg-slate-800 m-auto mt-0 py-2 
                 rounded-bl-md rounded-br-md">
                 <div className='flex justify-between text-slate-300 w-full'>
-                    <h2 className='ml-8'>Total:</h2>
-                    <div className='mr-8'>
-
-                        <p className='text-center'>
+                    
+                    <h2 className='w-1/5 text-center ml-4'>Total:</h2>
+                    
+                    <div className='flex justify-end w-2/5'>
+                        <p className='mr-8 xl:mr-14'>
                         {filterTotal.toFixed(2)}.-
                         </p>
-
                     </div>
+
                 </div>
             </div>
 
             <DeleteOrder order={order} />
             
-            <div className='flex justify-center mt-4'>
+            <div className='flex items-center justify-center w-full mt-4'>
               <Link href="/products"
                 className='text-purple-500 hover:text-purple-600 active:text-purple-400
                   dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400'
