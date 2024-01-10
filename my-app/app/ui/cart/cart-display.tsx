@@ -4,8 +4,8 @@ import React from 'react';
 import Image from 'next/image';
 import { CartProps } from '@/app/lib/definitions';
 import { useFormState, useFormStatus } from 'react-dom';
-import { useShoppingCart } from '@/app/context/cart-context';
 import { deleteCartItem } from '@/app/lib/actions';
+import { useShoppingCart } from '@/app/context/cart-context';
 
 export default function Cart({id, deckname, price, count, stock, img}: CartProps) {
     

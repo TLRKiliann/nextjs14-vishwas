@@ -40,8 +40,8 @@ export default function ShoppingCart() {
             </span>
 
             <div id="miniscroll-cart"  
-                className={`absolute flex-col text-md font-normal top-[80px] right-0 w-[400px] h-[auto] 
-                text-slate-900 bg-slate-100 rounded-bl-lg ${transClass} z-70`}
+                className={`fixed flex-col text-md font-normal top-[80px] right-0 w-[400px] h-[auto] 
+                text-slate-900 bg-slate-100 rounded-bl-lg ${transClass} z-20`}
             >
                 <div className='text-right pt-2 pr-2'>
                     <button
