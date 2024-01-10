@@ -1,24 +1,23 @@
 "use client";
 
 import React from 'react'
-import { useRouter } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import { shippingRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
 export default function Shipping() {
 
-    const router = useRouter();
+
 
     const { removeFromCart } = useShoppingCart();
 
     const { pending } = useFormStatus();
     const [code, formAction] = useFormState(shippingRequest, undefined);
 
-    const handleDeleteAllItem = () => {
+    const handleDeleteAllItem = (): void => {
         //removeFromCar
         // empty cart ???
-        router.push("/"); 
+        console.log("shipping done");
     };
 
     return (
