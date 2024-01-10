@@ -58,6 +58,7 @@ export default function Shipping() {
             >
                 {pending ? "Pending..." : "Order"}
             </button>
+            
             {code?.message ? (
                 <p>{code.message}</p>
             ) : null}

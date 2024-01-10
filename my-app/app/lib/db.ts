@@ -1,7 +1,6 @@
 import mysql from 'mysql2/promise';
 import type {
   MessageProps,
-  DataDeleteProps,
   DecksProps,
   CartProps,
   EmailProps,
@@ -55,6 +54,22 @@ const newMemberQuery = async (query: string, data: any) => {
 }
 
 const cartOrderQuery = async (query: string, data: any) => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+const paymentQuery = async (query: string, data: any) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -187,6 +202,7 @@ export {
   cartOrderQuery,
   cartOrderUpdateQuery,
   queryCartDelete,
+  paymentQuery,
   sendMessage,
   showAllMessageBox,
   forgotQuery,

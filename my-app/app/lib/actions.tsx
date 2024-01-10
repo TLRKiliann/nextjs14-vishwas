@@ -7,7 +7,8 @@ import {
   forgotQuery,
   newMemberQuery,
   queryCartDelete,
-  sendMessage
+  sendMessage,
+  paymentQuery
 } from './db';
 import { revalidatePath } from 'next/cache';
 
@@ -194,16 +195,16 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
 export async function paymentRequest(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const user = formData.get("user");
-    const address = formData.get("address");
+    const date = formData.get("date");
     const securitycode = formData.get("securitycode");
     const checkcard = formData.get("checkcard");
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
-      if (user !== null && address !== null && securitycode !== null && checkcard !== null) {
-        const request = await cartOrderQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
-          [user, address, securitycode, checkcard]);
+      if (user !== null && date !== null && securitycode !== null && checkcard !== null) {
+        const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
+          [user, date, securitycode, checkcard]);
         if (request) {
-          revalidatePath("/order");
+          revalidatePath("/orderpayment");
           return {message: "Payment done !"};
         }
       }
