@@ -46,7 +46,7 @@ export default function Cart({id, deckname, price, count, stock, img}: CartProps
                 </p>
             </div>
 
-            <form action={formAction} className='flex items-end justify-end w-3/5'>
+            <form action={formAction} className='flex items-end justify-end w-3/5 mr-3'>
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
 

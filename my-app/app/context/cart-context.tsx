@@ -75,11 +75,8 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   };
 
-  // C'est pas comment ça !!!
   const removeAllFromCart = () => {
-    setCartItems((currentItems: CartItem[]) => {
-      return currentItems.filter((item: CartItem) => item === null)
-    })
+    setCartItems([]);
   };
 
   return (

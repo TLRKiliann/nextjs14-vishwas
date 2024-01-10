@@ -24,7 +24,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
             <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
                 <tbody className='flex flex-col'>
                 <tr className='flex justify-between w-full text-lg text-slate-500 bg-slate-300
-                    dark:text-slate-400/80 dark:bg-slate-800 rounded-tl-md rounded-tr-md'>
+                    dark:text-slate-400/80 dark:bg-slate-800 py-2 rounded-tl-md rounded-tr-md'>
                     <th className='w-1/5 py-1'>Id</th>
                     <th className='w-2/5 py-1'>Product</th>
                     <th className='w-2/5 py-1'>Quantity</th>
