@@ -49,6 +49,33 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+#miniscroll-cart {
+  min-height: 100px;
+  max-height: 500px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  margin: 0px;
+  padding: 0px;
+}
+
+#miniscroll-cart::-webkit-scrollbar {
+  width: 10px;
+}
+
+#miniscroll-cart::-webkit-scrollbar-track {
+  background: #3A4958;
+  border-radius: 10px;
+}
+
+#miniscroll-cart::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+#miniscroll-cart::-webkit-scrollbar-thumb:hover {
+  background: #617891;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
