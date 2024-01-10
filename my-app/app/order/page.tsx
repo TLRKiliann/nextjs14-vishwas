@@ -15,7 +15,7 @@ export default async function OrderPage() {
   const order: string = JSON.stringify(request);
 
   return (
-    <div className='min-h-screen w-full py-[75px] bg-slate-900'>
+    <div className='min-h-screen w-full py-[75px] bg-slate-100 dark:bg-slate-900'>
       
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
         Order

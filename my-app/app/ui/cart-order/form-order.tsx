@@ -25,20 +25,20 @@ export default function FormOrder() {
         </button>
 
         <button className='flex items-center justify-center w-2/5 text-blue-500 
-          bg-slate-100 rounded'>
+          bg-slate-200 dark:bg-slate-100 rounded'>
           <Image src={googleLogo} width={30} height={30} alt="paypal logo" />
           <span className='text-xl font-bold text-slate-600 mt-1'>oogle</span>
         </button>
 
       </div>
 
-      <h2 className='text-2xl font-bold mt-3 px-4 py-2'>
+      <h2 className='text-2xl font-bold text-slate-600 dark:text-slate-300 mt-3 px-4 py-2'>
         Shipping
       </h2>
 
       <Shipping />
 
-      <h2 className='text-2xl font-bold mt-3 px-4 py-2'>
+      <h2 className='text-2xl font-bold text-slate-600 dark:text-slate-300 mt-3 px-4 py-2'>
         Payment
       </h2>
 

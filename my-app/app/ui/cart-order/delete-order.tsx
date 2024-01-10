@@ -16,7 +16,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
 
     const handleDeleteCount = (id: number) => {
         removeFromCart(id);
-    }
+    };
 
     return (
         <div className='w-full mt-[100px]'>
@@ -26,8 +26,8 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                         <form
                             key={ord.id}
                             action={formAction}
-                            className='flex items-center justify-between w-full h-12 bg-slate-700 
-                                my-1 rounded'>
+                            className='flex items-center justify-between w-full h-12 text-slate-600 
+                            dark:text-slate-300 bg-slate-200 dark:bg-slate-700 my-2 rounded'>
                             
                             <p className='w-1/5 text-center ml-2'>{ord.id}</p>
     
