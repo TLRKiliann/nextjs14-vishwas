@@ -69,22 +69,6 @@ const cartOrderQuery = async (query: string, data: any) => {
   }
 }
 
-const paymentQuery = async (query: string, data: any) => {
-  let connection;
-  try {
-    connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
-    return result;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
-}
-
 //cart order update query
 const cartOrderUpdateQuery = async (query: string, data: any) => {
   let connection;
@@ -108,6 +92,39 @@ const queryCartDelete = async (query: string, data: any) => {
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+const paymentQuery = async (query: string, data: any) => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// erase cartorder table
+const eraseQuery = async (query: string) => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query);
     return result;
   } catch (error) {
     console.error(error);
@@ -203,6 +220,7 @@ export {
   cartOrderUpdateQuery,
   queryCartDelete,
   paymentQuery,
+  eraseQuery,
   sendMessage,
   showAllMessageBox,
   forgotQuery,

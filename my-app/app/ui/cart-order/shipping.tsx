@@ -33,17 +33,17 @@ export default function Shipping() {
                     my-3 px-2 py-2' />
                 
             <div className='flex items-center justify-between'>
-            <input type="text" id="address" name="address" placeholder="Address" required
-                className='text-lg w-3/5 bg-slate-200 dark:bg-slate-700 rounded focus:outline 
-                focus:outline-blue-600 focus:border focus:border-blue-600 mr-2 placeholder:text-slate-600
-                dark:placeholder:text-slate-400
-                my-3 px-2 py-2' />
-            
-            <input type="number" id="npa" name="npa" placeholder="Postal Code" required
-                className='text-lg w-2/5 bg-slate-200 dark:bg-slate-700 rounded focus:outline 
-                focus:outline-blue-600 focus:border focus:border-blue-600 ml-2 placeholder:text-slate-600
-                dark:placeholder:text-slate-400
-                my-3 px-2 py-2' />
+                <input type="text" id="address" name="address" placeholder="Address" required
+                    className='text-lg w-3/5 bg-slate-200 dark:bg-slate-700 rounded focus:outline 
+                    focus:outline-blue-600 focus:border focus:border-blue-600 placeholder:text-slate-600
+                    dark:placeholder:text-slate-400
+                    my-3 mr-2 px-2 py-2' />
+                
+                <input type="number" id="npa" name="npa" placeholder="Postal Code" required
+                    className='text-lg w-2/5 bg-slate-200 dark:bg-slate-700 rounded focus:outline 
+                    focus:outline-blue-600 focus:border focus:border-blue-600 placeholder:text-slate-600
+                    dark:placeholder:text-slate-400
+                    my-3 ml-2 px-2 py-2' />
             </div>
 
             <input type="number" id="phone" name="phone" placeholder="Phone" required

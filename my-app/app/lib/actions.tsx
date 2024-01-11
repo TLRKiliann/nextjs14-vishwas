@@ -8,7 +8,8 @@ import {
   newMemberQuery,
   queryCartDelete,
   sendMessage,
-  paymentQuery
+  paymentQuery,
+  eraseQuery
 } from './db';
 import { revalidatePath } from 'next/cache';
 
@@ -180,8 +181,11 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
         const request = await cartOrderQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?)",
           [email, user, address, npa, phone, passwd]);
         if (request) {
-          revalidatePath("/order");
-          return {message: "Shipping done !"};
+          const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+          if (eraseTable) {
+            revalidatePath("/order");
+            return {message: "Shipping done !"};
+          }
         }
       }
     }
