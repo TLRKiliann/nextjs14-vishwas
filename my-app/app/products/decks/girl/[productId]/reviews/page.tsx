@@ -29,7 +29,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                             className="text-violet-600 hover:text-fuchsia-600 
                                 dark:text-slate-200 hover:dark:text-blue-400"
                         >
-                            Refs : {rev.categories}
+                            {rev.categories}
                         </Link>
                     </li>
                 </ul>

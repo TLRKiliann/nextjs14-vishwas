@@ -29,8 +29,7 @@ export default async function DetailsProduct({children, params}:
   return (
     <div className='min-h-screen bg-slate-50 text-slate-900 
       dark:text-slate-50 dark:bg-slate-900 py-[75px]'>
-      <h1 className='text-4xl font-bold text-transparent bg-clip-text
-          dark-title-h1 light-title-h1 p-4'
+      <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'
       >
         Baker&apos;s Decks
       </h1>
