@@ -54,8 +54,8 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                                     </video>
                                     <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
                                         py-2'>
-                                        <span className='flex items-center justify-center text-sm font-bold px-[7px] 
-                                            pt-[8px] pb-[5px] bg-red-600 ml-0 mr-3 rounded-full'>
+                                        <span className='flex items-center justify-center text-sm font-bold bg-red-600
+                                            ml-0 mr-3 px-[7px] pt-[8px] pb-[5px] rounded-full'>
                                             {rev.label}
                                         </span>
                                         <div className='text-md text-transparent bg-clip-text dark-title-h1 light-title-h1 
@@ -75,6 +75,5 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
             </div>
         </>
     )
-}
-
+};
 export default ReviewsList;
