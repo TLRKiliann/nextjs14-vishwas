@@ -9,7 +9,7 @@ export default function NotFound() {
           Page not found...
         </h2>
         <Link 
-          href="/products/decks/baker/1/reviews" 
+          href="/products/decks/baker" 
           className='dark:text-sky-500 dark:hover:text-sky-600 dark:active:text-sky-400
             text-purple-500 hover:text-purple-600 active:text-purple-400'>
           Back to reviews

@@ -79,7 +79,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
 
                             <div className='flex flex-col items-center justify-center w-full py-4'>
                                 <video autoPlay muted controls className='w-4/5 h-auto'>
-                                    <source src={rev.video_2} type="video/mp4" />
+                                    <source src={rev.video} type="video/mp4" />
                                 </video>
                                 <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
                                     py-2'>
@@ -96,7 +96,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                             <div className='flex flex-col items-center justify-center w-full py-4'>
                                 
                                 <video autoPlay muted controls className='w-4/5 h-auto'>
-                                    <source src={rev.video_2} type="video/mp4" />
+                                    <source src={rev.video} type="video/mp4" />
                                 </video>
                                 
                                 <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
@@ -134,7 +134,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
 
                             <div className='flex flex-col items-center justify-center w-full py-4'>
                                 <video autoPlay muted controls className='w-4/5 h-auto'>
-                                    <source src={rev.video_2} type="video/mp4" />
+                                    <source src={rev.video} type="video/mp4" />
                                 </video>
                                 <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
                                     py-2'>
@@ -151,7 +151,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                             <div className='flex flex-col items-center justify-center w-full py-4'>
                                 
                                 <video autoPlay muted controls className='w-4/5 h-auto'>
-                                    <source src={rev.video_2} type="video/mp4" />
+                                    <source src={rev.video} type="video/mp4" />
                                 </video>
                                 
                                 <div className='flex items-center justify-start w-4/5 text-sm text-slate-100

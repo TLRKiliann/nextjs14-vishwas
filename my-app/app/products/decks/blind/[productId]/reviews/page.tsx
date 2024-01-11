@@ -8,7 +8,7 @@ import { reviewsBlind } from '@/app/lib/datas'
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 9) {
+    if (parseInt(params.productId) > 18) {
         notFound();
     };
 

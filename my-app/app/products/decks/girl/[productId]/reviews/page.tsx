@@ -8,7 +8,7 @@ import { reviewsGirl } from '@/app/lib/datas'
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
-    if (parseInt(params.productId) > 9) {
+    if (parseInt(params.productId) > 36) {
         notFound();
     };
 
@@ -54,7 +54,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                                     </video>
                                     <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
                                         py-2'>
-                                        <span className='flex items-center justify-center text-sm font-bold text-green-400 bg-yellow-400
+                                        <span className='flex items-center justify-center text-sm font-bold text-red-600 bg-yellow-400
                                             ml-0 mr-3 px-[7px] pt-[8px] pb-[5px] rounded-full'>
                                             {rev.label}
                                         </span>
