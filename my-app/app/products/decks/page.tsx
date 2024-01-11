@@ -39,6 +39,10 @@ export default function BoardShop() {
             alt="alt"
             className="object-cover opacity-90"
           />
+          <h2 className='absolute text-5xl font-bold text-transparent bg-clip-text dark-title-h1 
+            light-title-h1 rotate-90 ml-2'>
+            DECKS
+          </h2>
         </div>
       </div>
 

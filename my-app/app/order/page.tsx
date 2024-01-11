@@ -21,7 +21,7 @@ export default async function OrderPage() {
         Order
       </h1>
 
-      <div className="flex w-full">
+      <div className="flex items-start w-full">
 
         <FormOrder />
 

@@ -19,9 +19,9 @@ export type ProductsProps = {
 export type ReviewsProps = {
     id: number;
     categories: string;
+    label: string;
     review: string;
     video: string;
-    video_2: string;
 }
 
 export type CustomersProps = {

@@ -37,8 +37,8 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
 
                 <p className='text-md text-slate-600'>
                     stock: {stock - quantity}
-                </p>
-                
+                </p> 
+
             </div>
             
         </div>

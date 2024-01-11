@@ -13,7 +13,7 @@ type ShoppingCartContextProps = {
   increaseCartQuantity: (id: number, deckname: string, price: number, img: string, stock: number) => void;
   decreaseCartQuantity: (id: number, deckname: string, price: number, img: string, stock: number) => void;
   removeFromCart: (id: number) => void;
-
+  removeAllFromCart: () => void;
   cartQuantity: number;
   cartItems: CartItem[];
 }
@@ -75,6 +75,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     })
   };
 
+  const removeAllFromCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -82,6 +86,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
+        removeAllFromCart,
         cartItems,
         cartQuantity
       }}

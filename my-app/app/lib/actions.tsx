@@ -7,7 +7,9 @@ import {
   forgotQuery,
   newMemberQuery,
   queryCartDelete,
-  sendMessage
+  sendMessage,
+  paymentQuery,
+  eraseQuery
 } from './db';
 import { revalidatePath } from 'next/cache';
 
@@ -163,6 +165,64 @@ export async function messageToSend(prevState: {message: string} | undefined, fo
   }
 }
 
+// shipping from order
+export async function shippingRequest(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const email = formData.get("email");
+    const user = formData.get("user");
+    const address = formData.get("address");
+    const npa = formData.get("npa");
+    const phone = formData.get("phone");
+    const passwd = formData.get("passwd");
+    const btnShipping = formData.get("submit");
+    if (btnShipping === "shipping") {
+      if (email !== null && user !== null && address !== null && npa !== null && phone !== null && 
+        passwd !== null) {
+        const request = await cartOrderQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?)",
+          [email, user, address, npa, phone, passwd]);
+        if (request) {
+          const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+          if (eraseTable) {
+            revalidatePath("/order");
+            return {message: "Shipping done !"};
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log("Error", error);
+    throw error;
+  }
+}
+
+// payment from order
+export async function paymentRequest(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const user = formData.get("user");
+    const date = formData.get("date");
+    const securitycode = formData.get("securitycode");
+    const checkcard = formData.get("checkcard");
+    const btnPayment = formData.get("submit");
+    if (btnPayment === "payment") {
+      if (user !== null && date !== null && securitycode !== null) {
+        const checkcardValue = checkcard === "true" ? 1 : 0;
+        const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
+          [user, date, securitycode, checkcardValue]);
+        if (request) {
+          const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+          if (eraseTable) {
+            revalidatePath("/order");
+            return {message: "Payment done !"};
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log("Error", error);
+    throw error;
+  }
+}
+
 // email to retrieve password
 export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -173,7 +233,7 @@ export async function forgotPasswordServerAction(prevState: {message: string} | 
         const result = await forgotQuery("INSERT INTO forgotpassword VALUES (?)", [email]);
         if (result) {
           revalidatePath("/register");
-          return {message: "You are registered"}
+          return {message: "You are registered"};
         }
       }
     }

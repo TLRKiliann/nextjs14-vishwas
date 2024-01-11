@@ -5,264 +5,264 @@ import type { AllTitlesProps, AllTextProps } from "./definitions";
 export const reviewsBaker: ReviewsProps[] = [
     {
         id: 1,
-        categories: "Watch Baker's Video 1",
-        review: "Little text to display something about (baker 1)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 1",
+        label: "B1",
+        review: "Trick with (baker 1)",
+        video: "/video/skate-trick1.mp4"
     },
     {
         id: 2,
-        categories: "Watch Baker's Video 2",
-        review: "Little text to display something about (baker 2)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 2",
+        label: "B2",
+        review: "Trick with (baker 2)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 3,
-        categories: "Watch Baker's Video 3",
-        review: "Little text to display something about (baker 3)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 3",
+        label: "B3",
+        review: "Trick with (baker 3)",
+        video: "/video/skate-trick1.mp4"
     },
     {
         id: 4,
-        categories: "Watch Baker's Video 4",
-        review: "Little text to display something about (baker 4)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 4",
+        label: "B4",
+        review: "Trick with (baker 4)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 5,
-        categories: "Watch Baker's Video 5",
-        review: "Little text to display something about (baker 5)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 5",
+        label: "B5",
+        review: "Trick with (baker 5)",
+        video: "/video/skate-trick1.mp4"
     },
     {
         id: 6,
-        categories: "Watch Baker's Video 6",
-        review: "Little text to display something about (baker 6)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 6",
+        label: "B6",
+        review: "Trick with (baker 6)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 7,
-        categories: "Watch Baker's Video 7",
-        review: "Little text to display something about (baker 7)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 7",
+        label: "B7",
+        review: "Trick with (baker 7)",
+        video: "/video/skate-trick1.mp4"
     },
     {
         id: 8,
-        categories: "Watch Baker's Video 8",
-        review: "Little text to display something about (baker 8)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 8",
+        label: "B8",
+        review: "Trick with (baker 8)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 9,
-        categories: "Watch Baker's Video 9",
-        review: "Little text to display something about (baker 9)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Baker's Video 9",
+        label: "B9",
+        review: "Trick with (baker 9)",
+        video: "/video/skate-trick1.mp4"
     }
 ];
 
 export const reviewsBlind: ReviewsProps[] = [
     {
         id: 10,
-        categories: "Watch Blind's Video 1",
-        review: "Little text to display something about (blind 1)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 1",
+        label: "B1",
+        review: "Trick with (blind 1)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 11,
-        categories: "Watch Blind's Video 2",
-        review: "Little text to display something about (blind 2)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 2",
+        label: "B2",
+        review: "Trick with (blind 2)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 12,
-        categories: "Watch Blind's Video 3",
-        review: "Little text to display something about (blind 3)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 3",
+        label: "B3",
+        review: "Trick with (blind 3)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 13,
-        categories: "Watch Blind's Video 4",
-        review: "Little text to display something about (blind 4)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 4",
+        label: "B4",
+        review: "Trick with (blind 4)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 14,
-        categories: "Watch Blind's Video 5",
-        review: "Little text to display something about (blind 5)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 5",
+        label: "B5",
+        review: "Trick with (blind 5)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 15,
-        categories: "Watch Blind's Video 6",
-        review: "Little text to display something about (blind 6)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 6",
+        label: "B6",
+        review: "Trick with (blind 6)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 16,
-        categories: "Watch Blind's Video 7",
-        review: "Little text to display something about (blind 7)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 7",
+        label: "B7",
+        review: "Trick with (blind 7)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 17,
-        categories: "Watch Blind's Video 8",
-        review: "Little text to display something about (blind 8)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 8",
+        label: "B8",
+        review: "Trick with (blind 8)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 18,
-        categories: "Watch Blind's Video 9",
-        review: "Little text to display something about (blind 9)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Blind's Video 9",
+        label: "B9",
+        review: "Trick with (blind 9)",
+        video: "/video/skate-trick2.mp4"
     }
 ];
 
 export const reviewsElement: ReviewsProps[] = [
     {
         id: 19,
-        categories: "Watch Element's Video 1",
-        review: "Little text to display something about (element 1)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 1",
+        label: "E1",
+        review: "Trick with (element 1)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 20,
-        categories: "Watch Element's Video 2",
-        review: "Little text to display something about (element 2)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 2",
+        label: "E2",
+        review: "Trick with (element 2)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 21,
-        categories: "Watch Element's Video 3",
-        review: "Little text to display something about (element 3)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 3",
+        label: "E3",
+        review: "Trick with (element 3)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 22,
-        categories: "Watch Element's Video 4",
-        review: "Little text to display something about (element 4)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 4",
+        label: "E4",
+        review: "Trick with (element 4)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 23,
-        categories: "Watch Element's Video 5",
-        review: "Little text to display something about (element 5)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 5",
+        label: "E5",
+        review: "Trick with (element 5)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 24,
-        categories: "Watch Element's Video 6",
-        review: "Little text to display something about (element 6)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 6",
+        label: "E6",
+        review: "Trick with (element 6)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 25,
-        categories: "Watch Element's Video 7",
-        review: "Little text to display something about (element 7)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 7",
+        label: "E7",
+        review: "Trick with (element 7)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 26,
-        categories: "Watch Element's Video 8",
-        review: "Little text to display something about (element 8)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 8",
+        label: "E8",
+        review: "Trick with (element 8)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 27,
-        categories: "Watch Element's Video 9",
-        review: "Little text to display something about (element 9)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Element's Video 9",
+        label: "E9",
+        review: "Trick with (element 9)",
+        video: "/video/skate-trick2.mp4"
     }
 ];
 
 export const reviewsGirl: ReviewsProps[] = [
     {
         id: 28,
-        categories: "Watch Girl's Video 1",
-        review: "Little text to display something about (girl 1)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 1",
+        label: "G1",
+        review: "Trick with (girl 1)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 29,
-        categories: "Watch Girl's Video 2",
-        review: "Little text to display something about (girl 2)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 2",
+        label: "G2",
+        review: "Trick with (girl 2)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 30,
-        categories: "Watch Girl's Video 3",
-        review: "Little text to display something about (girl 3)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 3",
+        label: "G3",
+        review: "Trick with (girl 3)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 31,
-        categories: "Watch Girl's Video 4",
-        review: "Little text to display something about (girl 4)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 4",
+        label: "G4",
+        review: "Trick with (girl 4)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 32,
-        categories: "Watch Girl's Video 5",
-        review: "Little text to display something about (girl 5)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 5",
+        label: "G5",
+        review: "Trick with (girl 5)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 33,
-        categories: "Watch Girl's Video 6",
-        review: "Little text to display something about (girl 6)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 6",
+        label: "G6",
+        review: "Trick with (girl 6)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 34,
-        categories: "Watch Girl's Video 7",
-        review: "Little text to display something about (girl 7)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 7",
+        label: "G7",
+        review: "Trick with (girl 7)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 35,
-        categories: "Watch Girl's Video 8",
-        review: "Little text to display something about (girl 8)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 8",
+        label: "G8",
+        review: "Trick with (girl 8)",
+        video: "/video/skate-trick2.mp4"
     },
     {
         id: 36,
-        categories: "Watch Girl's Video 9",
-        review: "Little text to display something about (girl 9)",
-        video: "/video/skate-trick2.mp4",
-        video_2: "/video/skate-trick1.mp4"
+        categories: "Girl's Video 9",
+        label: "G9",
+        review: "Trick with (girl 9)",
+        video: "/video/skate-trick2.mp4"
     }
 ];
 
