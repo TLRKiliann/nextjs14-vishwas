@@ -29,6 +29,14 @@ const config: Config = {
             opacity: "1"
           }
         },
+        scalestart: {
+          '0%': { 
+            transform: 'scale(5.0)',
+          },
+          '100%': { 
+            transform: 'scale(1.0)',
+          }
+        },
         downstart: {
           '0%': { 
             transform: 'translateY(-200px)',
@@ -116,6 +124,7 @@ const config: Config = {
       animation: {
         "slice-appear": "sliceappear 0.5s ease-out 1",
         "up-start": "upstart 0.4s ease 1",
+        "scale-start": "scalestart 1s ease 1",
         "down-start": "downstart 0.4s ease 1",
         "right-start": "rightstart 0.4s ease 1",
         "scale-decks": "scaledecks 1s 1",
