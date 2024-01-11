@@ -198,18 +198,22 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
 // payment from order
 export async function paymentRequest(prevState: {message: string} | undefined, formData: FormData) {
   try {
-    const username = formData.get("username");
+    const user = formData.get("user");
     const date = formData.get("date");
     const securitycode = formData.get("securitycode");
     const checkcard = formData.get("checkcard");
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
-      if (username !== null && date !== null && securitycode !== null && checkcard !== null) {
+      if (user !== null && date !== null && securitycode !== null) {
+        const checkcardValue = checkcard === "true" ? 1 : 0;
         const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
-          [username, date, securitycode, checkcard]);
+          [user, date, securitycode, checkcardValue]);
         if (request) {
-          revalidatePath("/order");
-          return {message: "Payment done !"};
+          const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+          if (eraseTable) {
+            revalidatePath("/order");
+            return {message: "Payment done !"};
+          }
         }
       }
     }

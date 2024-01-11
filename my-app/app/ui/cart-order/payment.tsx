@@ -8,16 +8,16 @@ import { useShoppingCart } from '@/app/context/cart-context';
 export default function Payment() {
 
     const [checking, setchecking] = useState<boolean>(false);
-    
+
+    const { removeAllFromCart } = useShoppingCart();
+
+    const { pending } = useFormStatus();
+    const [status, formData] = useFormState(paymentRequest, undefined);
+
     const handleCheck = (): void => {
         setchecking((old) => !old);
         console.log("checked");
     };
-
-    const { pending } = useFormStatus();
-    const [status, formData] = useFormState(paymentRequest, undefined);
-  
-    const { removeAllFromCart } = useShoppingCart();
 
     const handleDeleteAllItem = (): void => {
         removeAllFromCart()
@@ -27,7 +27,7 @@ export default function Payment() {
     return (
         <form action={formData} className='flex flex-col px-8'>
     
-            <input type="text" id="username" name="username" placeholder="Card number" required
+            <input type="text" id="user" name="user" placeholder="Card number" required
                 className='text-lg w-full bg-slate-200 dark:bg-slate-700 rounded focus:outline 
                 focus:outline-blue-600 focus:border focus:border-blue-600 placeholder:text-slate-600
                 dark:placeholder:text-slate-400
@@ -45,12 +45,13 @@ export default function Payment() {
                 dark:placeholder:text-slate-400 mt-3 px-2 py-2' />
                 
             <div className="flex items-center justify-start py-6">
-                <input type="checkbox" id="checkcard" name="checkcard" 
-                    checked={checking} onChange={handleCheck}
+                <input type="checkbox" id="checkcard" name="checkcard" checked={checking} onChange={handleCheck}
                     className='text-lg placeholder:text-slate-600 dark:placeholder:text-slate-400 
                     bg-slate-200 dark:bg-slate-700 mr-3'
                 />
-                <p className='text-slate-700 dark:text-slate-300'>Use shipping address as billing address</p>
+                <p className='text-slate-700 dark:text-slate-300'>
+                    Use shipping address as billing address
+                </p>
             </div>
 
             <button type="submit" id="submit" name="submit" value="payment" 
