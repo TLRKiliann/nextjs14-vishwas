@@ -13,7 +13,7 @@ export default async function DetailProductWheel({params}: ParamsProps) {
   };
 
   if (parseInt(params.wheelId) !== Number(params.wheelId)) {
-      throw new Error("Error: product id is not a number");
+      throw new Error("Error: product id is not a number !");
   };
 
   return (
