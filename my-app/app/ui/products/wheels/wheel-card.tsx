@@ -14,8 +14,8 @@ export default function WheelCard({data}: {data: WheelsProps[]}) {
     const wordCut = convertBonesWord?.split(" ");
     const wheelPath = wordCut?.[0];
 
-    const handleBone = (id: number) => {
-        router.push(`/products/wheels/${id}`);
+    const handlePath = (id: number) => {
+        router.push(`/products/wheels/${wheelPath}/${id}`);
     };
 
     if (!data) {
@@ -33,15 +33,17 @@ export default function WheelCard({data}: {data: WheelsProps[]}) {
 
             <div className='grid grid-cols-4 grid-row-3 gap-0 justify-items-center w-[600px] m-auto border'>
 
-                {data.map((bone: WheelsProps) => (
-                    <span key={bone.id} onClick={() => handleBone(bone.id)} 
+                {data.map((wheelUnit: WheelsProps) => (
+                    <span key={wheelUnit.id} onClick={() => handlePath(wheelUnit.id)} 
                         className='w-[150px] h-auto cursor-pointer border'>
-                        <Image src={bone.image} width={435} height={580} alt="img bone"
+                        <Image src={wheelUnit.image} width={435} height={580} alt="img wheelUnit"
                             className='object-cover' />
                         <div className='text-slate-600/80 bg-slate-50 p-2 border'>
-                            <h3 className='text-sm font-bold'>{bone.name.charAt(0).toUpperCase() + bone.name.slice(1)}</h3>
-                            <h4 className='text-sm font-bold'>{bone.price}.-</h4>
-                            <p className='text-sm mt-2'>Stock: {bone.stock}pcs</p>
+                            <h3 className='text-sm font-bold'>
+                                {wheelUnit.name.charAt(0).toUpperCase() + wheelUnit.name.slice(1)}
+                            </h3>
+                            <h4 className='text-sm font-bold'>{wheelUnit.price}.-</h4>
+                            <p className='text-sm mt-2'>Stock: {wheelUnit.stock}pcs</p>
                         </div>
                     </span>
                 ))}

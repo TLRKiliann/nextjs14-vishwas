@@ -1,8 +1,14 @@
 import React from 'react';
+import { Metadata } from 'next';
+import { genericQuery } from '@/app/lib/db';
 import Image from 'next/image';
 import deckTitle from "@/public/img_decks/deck-h.png";
 import WheelCard from '@/app/ui/products/wheels/wheel-card';
-import { genericQuery } from '@/app/lib/db';
+
+export const metadata: Metadata = {
+  title: "Wheels",
+  description: "access accepted"
+}
 
 export default async function AxisShop() {
   
