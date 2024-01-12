@@ -3,16 +3,8 @@ import Image from 'next/image';
 import SearchUrl from '@/app/ui/products/search-url';
 import MainShop from '@/app/ui/products/main-shop';
 import bgProducts from '@/public/img_bg/sunset-board.jpg';
-
-type TitleProps = {
-    id: number;
-    title: string;
-}
-
-type LinksProps = {
-    id: number;
-    link: string;
-}
+import { titles, links } from '@/app/lib/product-list';
+import type { TitlesProps, LinksProps } from '@/app/lib/definitions';
 
 export const metadata: Metadata = {
     title: "Products",
@@ -21,32 +13,9 @@ export const metadata: Metadata = {
 
 export default function ListProducts() {
 
-    const titles: TitleProps[] = [
-        {
-            id: 1,
-            title: "Decks"
-        },
-        {
-            id: 2,
-            title: "Wheels"
-        },
-        {
-            id: 3,
-            title: "Trucks"
-        }
-    ];
-
-    const links: LinksProps[] = [
-        {
-            id: 1,
-            link: "/products/decks"},
-        {
-            id: 2,
-            link: "/products/wheels"},
-        {
-            id: 3,
-            link: "/products/trucks"}
-    ];
+    if (!titles || !links) {
+        throw new Error("Error: some troubles with titles or links from products page !");
+    };
 
     return (
         <div className="w-full min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]">
@@ -75,7 +44,7 @@ export default function ListProducts() {
                 <SearchUrl placeholder="ex: baker one, or element three, ..." />
             </div>
 
-            {titles.map((tName: TitleProps) => (
+            {titles.map((tName: TitlesProps) => (
                 links.map((lName: LinksProps) => {
                     if (lName.id === tName.id) {
                         return (
