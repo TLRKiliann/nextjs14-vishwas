@@ -1,7 +1,13 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import deckFlip from "@/public/img_decks/deck-h.png";
 import imgTruck from '@/public/trucks_img/ace_1.jpg';
+
+export const metadata: Metadata = {
+  title: "Wheels",
+  description: "access accepted"
+};
 
 export default function AxisShop() {
   return (

@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import SearchUrl from '@/app/ui/products/search-url';
 import MainShop from '@/app/ui/products/main-shop';

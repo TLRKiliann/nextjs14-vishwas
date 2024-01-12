@@ -1,5 +1,5 @@
+import type { Metadata } from 'next';
 import React from 'react';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Partners from '@/app/ui/about/partners-bloc';
 import story from '@/public/img_bg/wallpaper-about.jpg';

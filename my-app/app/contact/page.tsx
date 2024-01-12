@@ -1,5 +1,5 @@
+import type { Metadata } from 'next';
 import React from 'react';
-import { Metadata } from 'next';
 import Image from 'next/image';
 import DataShop from '@/app/ui/contact/data-shop';
 import Message from '@/app/ui/contact/message';
