@@ -26,8 +26,11 @@ export default function AxisShop() {
       
       <div className='w-full h-auto border'>
   
-        <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 
-            light-title-h1'>Bones</h2>
+        <div className="w-[600px] m-auto py-2">
+          <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+            Bones
+          </h2>
+        </div>
   
         <div className='grid grid-cols-4 grid-row-3 gap-0 justify-items-center w-[600px] m-auto border'>
           {bones.map((img: ImgWheelsProps) => (
@@ -41,8 +44,11 @@ export default function AxisShop() {
 
       <div className='w-full h-auto border'>
   
-        <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 
-            light-title-h1'>Slimballs</h2>
+        <div className="w-[600px] m-auto py-2">
+          <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+            Slimballs
+          </h2>
+        </div>
   
         <div className='grid grid-cols-4 grid-row-3 gap-0 justify-items-center w-[600px] m-auto border'>
           {slimballs.map((img: ImgWheelsProps) => (
@@ -56,8 +62,11 @@ export default function AxisShop() {
 
       <div className='w-full h-auto border'>
   
-        <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 
-            light-title-h1'>Spitfire</h2>
+        <div className="w-[600px] m-auto py-2">
+          <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+            Spitfire
+          </h2>
+        </div>
   
         <div className='grid grid-cols-4 grid-row-3 gap-0 justify-items-center w-[600px] m-auto border'>
           {spitfire.map((img: ImgWheelsProps) => (
