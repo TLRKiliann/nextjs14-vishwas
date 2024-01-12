@@ -85,6 +85,11 @@ export type CartItem = {
     quantity: number;
 }
 
+export type ImgWheelsProps = {
+    id: number;
+    imageWheel: string;
+};
+
 export type MessageProps = {
     username: string;
     email: string;

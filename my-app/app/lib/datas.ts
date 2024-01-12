@@ -206,63 +206,63 @@ export const reviewsGirl: ReviewsProps[] = [
         categories: "Girl's Video 1",
         label: "G1",
         review: "Trick with (girl 1)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick1.mp4"
     },
     {
         id: 29,
         categories: "Girl's Video 2",
         label: "G2",
         review: "Trick with (girl 2)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick2.mp4"
     },
     {
         id: 30,
         categories: "Girl's Video 3",
         label: "G3",
         review: "Trick with (girl 3)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick3.mp4"
     },
     {
         id: 31,
         categories: "Girl's Video 4",
         label: "G4",
         review: "Trick with (girl 4)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick4.mp4"
     },
     {
         id: 32,
         categories: "Girl's Video 5",
         label: "G5",
         review: "Trick with (girl 5)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick5.mp4"
     },
     {
         id: 33,
         categories: "Girl's Video 6",
         label: "G6",
         review: "Trick with (girl 6)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick1.mp4"
     },
     {
         id: 34,
         categories: "Girl's Video 7",
         label: "G7",
         review: "Trick with (girl 7)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick2.mp4"
     },
     {
         id: 35,
         categories: "Girl's Video 8",
         label: "G8",
         review: "Trick with (girl 8)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick3.mp4"
     },
     {
         id: 36,
         categories: "Girl's Video 9",
         label: "G9",
         review: "Trick with (girl 9)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/girl-trick4.mp4"
     }
 ];
 

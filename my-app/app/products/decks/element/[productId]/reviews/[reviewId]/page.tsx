@@ -6,7 +6,7 @@ import { reviewsElement } from "@/app/lib/datas";
 
 export default async function ReviewById({ params }: PropsProdReview) {
     
-    if (parseInt(params.reviewId) > 9) {
+    if (parseInt(params.reviewId) > 27) {
         notFound();
     };
 
