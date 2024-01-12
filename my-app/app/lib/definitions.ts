@@ -85,8 +85,11 @@ export type CartItem = {
     quantity: number;
 }
 
-export type ImgWheelsProps = {
+export type WheelsProps = {
     id: number;
+    name: string;
+    price: number;
+    stock: number;
     imageWheel: string;
 };
 
