@@ -90,7 +90,7 @@ export type WheelsProps = {
     name: string;
     price: number;
     stock: number;
-    imageWheel: string;
+    image: string;
 };
 
 export type MessageProps = {

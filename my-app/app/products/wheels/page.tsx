@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import deckFlip from "@/public/img_decks/deck-h.png";
+import deckTitle from "@/public/img_decks/deck-h.png";
 import WheelCard from '@/app/ui/products/wheels/wheel-card';
 import { genericQuery } from '@/app/lib/db';
 
@@ -20,7 +20,7 @@ export default async function AxisShop() {
 
       <div className='flex items-center justify-center w-full h-auto overflow-hidden'>
         <Image
-          src={deckFlip}
+          src={deckTitle}
           width={550}
           height={200}
           alt="alt"
