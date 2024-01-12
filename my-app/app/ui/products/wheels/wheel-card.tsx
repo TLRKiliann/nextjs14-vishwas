@@ -6,10 +6,12 @@ import { useRouter } from 'next/navigation';
 import { bones } from '@/app/lib/wheels';
 import type { WheelsProps } from '@/app/lib//definitions';
 
-export default function BonesWheel() {
+export default function WheelCard({data}: {data: WheelsProps}) {
 
     const router = useRouter();
-    let wheelPath = "bones";
+
+    const cutword = data.name.split(" ");
+    const wheelPath = cutword[0];
 
     const handleBone = (id: number) => {
         router.push(`/products/wheels/${wheelPath}/${id}`);
