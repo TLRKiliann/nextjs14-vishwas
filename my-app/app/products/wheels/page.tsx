@@ -8,7 +8,7 @@ import WheelCard from '@/app/ui/products/wheels/wheel-card';
 export const metadata: Metadata = {
   title: "Wheels",
   description: "access accepted"
-}
+};
 
 export default async function AxisShop() {
   
