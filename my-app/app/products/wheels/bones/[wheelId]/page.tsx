@@ -27,10 +27,8 @@ export default async function DetailProductWheel({params}: ParamsProps) {
   };
 
   return (
-    <div className='min-h-screen bg-slate-900 py-[75px]'>
+    <div className='bg-slate-900'>
         <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
-          Affiche Wheels per ID {params.wheelId}
-
           {JSON.parse(data).map((d: WheelsProps) => {
             if (d.id === parseInt(params.wheelId)) {
               return (

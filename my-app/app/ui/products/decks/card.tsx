@@ -118,9 +118,9 @@ const Card = ({ id, name, price, img, stock }: DecksProps) => {
                 </button>
 
             </form>
-            {code?.message ? (
+            {code?.message && quantity !== 0 ? (
                 <div>
-                    <p className='text-center text-orange-500'>{code.message}</p>
+                    <p className='message-cart'>{code.message}</p>
                 </div>
                 ) : null
             }

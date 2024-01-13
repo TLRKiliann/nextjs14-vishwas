@@ -70,7 +70,9 @@ export default function WheelCardUnit({id, name, price, stock, img}: WheelsProps
                     
                 </form>
                 {code?.message ? (
-                    <p className='text-center text-orange-500'>{code.message}</p>
+                    <p className='message-cart'>
+                        {code.message}
+                    </p>
                 ) : null}
             </div>
         </div>

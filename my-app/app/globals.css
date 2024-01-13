@@ -41,6 +41,13 @@
     hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
     px-5 py-1 rounded;
   }
+  .message-cart {
+    @apply text-sm text-center text-red-500 bg-orange-200/70 py-2;
+  }
+  .custom-link {
+    @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 
+    hover:text-fuchsia-600 hover:dark:text-blue-400;
+  }
 }
 
 :root {

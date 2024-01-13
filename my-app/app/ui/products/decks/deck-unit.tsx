@@ -119,8 +119,8 @@ export default function DeckUnit({id, name, img, price, stock}: DecksProps) {
 
                 </div>
 
-                {code?.message ? (
-                    <p className='text-center text-orange-500'>{code.message}</p>
+                {code?.message && quantity !== 0 ? (
+                    <p className='message-cart'>{code.message}</p>
                 ) : null}
 
             </form>

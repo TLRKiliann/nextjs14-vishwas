@@ -31,8 +31,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                             <li className='text-lg dark:text-blue-500'>
                                 <Link 
                                     href={`/products/decks/baker/${params.productId}/reviews/${rev.id}`}
-                                    className="text-transparent bg-clip-text dark-title-h1 light-title-h1 
-                                    hover:text-fuchsia-600 hover:dark:text-blue-400"
+                                    className="custom-link"
                                 >
                                     {rev.categories}
                                 </Link>

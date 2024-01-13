@@ -1,5 +1,6 @@
 import type { ListOfDecksProps } from "@/app/lib/definitions";
 import { listOfBaker, listOfElement, listOfBlind, listOfGirl } from "@/app/lib/labels";
+import { notFound } from "next/navigation";
 
 export const generateProductUrl = (text: string, textNumber: string) => {
 
@@ -25,9 +26,14 @@ export const generateProductUrl = (text: string, textNumber: string) => {
     else if (formattedText === "wheels" || formattedText === "wheel") {
       return `/products/wheels`;
     }
+    else if (formattedText === "bones" || formattedText === "slimballs" || formattedText === "spitfire") {
+      return `/products/wheels`;
+    }
     else if (formattedText === "trucks" || formattedText === "truck") {
       return `/products/trucks`;
-    }  
+    } else {
+      return `/products/not-found`;
+    }
   }
   
   if (formattedNumber !== undefined) {
