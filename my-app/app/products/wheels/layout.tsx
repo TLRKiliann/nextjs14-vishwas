@@ -2,11 +2,10 @@ import React from 'react';
 import NavigationMenu from '@/app/ui/products/decks/navigation-menu';
 import Image from 'next/image';
 import deckTitle from "@/public/img_decks/deck-h.png";
-import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 export default function LayoutBoardShop({children}: {children: React.ReactNode}) {
     return (
-        <div className='bg-slate-900 py-[75px]'>
+        <div className='bg-slate-100 dark:bg-slate-900 py-[75px]'>
             <div className='flex items-center justify-center w-full h-auto overflow-hidden'>
                 <Image
                     src={deckTitle}
@@ -21,7 +20,6 @@ export default function LayoutBoardShop({children}: {children: React.ReactNode})
                 </h2>
             </div>
             {children}
-            <MenuWheelsSpitSlimBones />
             <NavigationMenu />
         </div>
     )

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
-import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 type ParamsProps = {
   spitId: string;
@@ -28,16 +27,19 @@ export default async function DetailsProduct({children, params}:
   {children: React.ReactNode, params: ParamsProps}
   ) {
   return (
-    <div className='bg-slate-900 text-slate-900 
-      dark:text-slate-50 dark:bg-slate-900'>
+    <div className='text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-900'>
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'
       >
         Bones wheel
       </h1>
-      <Link href="/products/wheels" className='text-lg custom-link p-4'>
-        Back to wheels
-      </Link>
-
+      <div className='flex flex-col'>
+        <Link href="/products/wheels" className='text-lg custom-link py-2 pl-4'>
+          Back to wheels
+        </Link>
+        <Link href="/products" className='text-lg custom-link py-2 pl-4'>
+          Back to products
+        </Link>
+      </div>
         {children}
     </div>
   )

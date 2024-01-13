@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import React from 'react';
 import { genericQuery } from '@/app/lib/db';
-import Image from 'next/image';
-import deckTitle from "@/public/img_decks/deck-h.png";
 import WheelCard from '@/app/ui/products/wheels/wheel-card';
 
 export const metadata: Metadata = {
@@ -30,7 +28,7 @@ export default async function AxisShop() {
   }
 
   return (
-    <div className='min-h-screen bg-slate-200 dark:bg-slate-900 mt-4'>
+    <div className='min-h-screen bg-slate-100 dark:bg-slate-900 mt-4'>
       
       <WheelCard data={JSON.parse(data)} />
 
