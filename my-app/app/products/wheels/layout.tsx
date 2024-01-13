@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationMenu from '@/app/ui/products/decks/navigation-menu';
 import Image from 'next/image';
 import deckTitle from "@/public/img_decks/deck-h.png";
+import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 export default function LayoutBoardShop({children}: {children: React.ReactNode}) {
     return (
@@ -20,6 +21,7 @@ export default function LayoutBoardShop({children}: {children: React.ReactNode})
                 </h2>
             </div>
             {children}
+            <MenuWheelsSpitSlimBones />
             <NavigationMenu />
         </div>
     )

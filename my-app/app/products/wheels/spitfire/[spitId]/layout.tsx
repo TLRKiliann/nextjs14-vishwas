@@ -1,21 +1,22 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
+import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 type ParamsProps = {
-  wheelId: string;
+  spitId: string;
 }
 
 type Props = {
   params: {
-    wheelId: string;
+    spitId: string;
   }
 }
 
 export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
   const title = await new Promise((resolve) => {
     setTimeout(() => {
-      resolve(`Slimballs ${params.wheelId}`)
+      resolve(`Spitfire ${params.spitId}`)
     }, 300)
   })
   return {
@@ -36,6 +37,7 @@ export default async function DetailsProduct({children, params}:
       <Link href="/products/wheels" className='text-lg custom-link p-4'>
         Back to wheels
       </Link>
+
         {children}
     </div>
   )

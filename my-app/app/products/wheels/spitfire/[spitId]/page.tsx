@@ -3,24 +3,23 @@ import { genericQuery } from '@/app/lib/db';
 import type { WheelsProps } from '@/app/lib/definitions';
 import { notFound } from 'next/navigation';
 import WheelCardUnit from '@/app/ui/products/wheels/wheel-card-unit';
-import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 type ParamsProps = {
   params: {
-      wheelId: string;
+      spitId: string;
   }
 };
 export default async function DetailProductWheel({params}: ParamsProps) {
 
-  if (parseInt(params.wheelId) > 8) {
+  if (parseInt(params.spitId) > 12) {
     notFound();
   };
 
-  if (parseInt(params.wheelId) !== Number(params.wheelId)) {
+  if (parseInt(params.spitId) !== Number(params.spitId)) {
       throw new Error("Error: product id is not a number !");
   };
 
-  const request: unknown = await genericQuery("SELECT * FROM slimballs", []);
+  const request: unknown = await genericQuery("SELECT * FROM spitfire", []);
   const data: string = JSON.stringify(request);
 
   if (!data) {
@@ -30,10 +29,8 @@ export default async function DetailProductWheel({params}: ParamsProps) {
   return (
     <div className='flex bg-slate-900 mt-4'>
       
-      <MenuWheelsSpitSlimBones />
-
       {JSON.parse(data).map((d: WheelsProps) => {
-        if (d.id === parseInt(params.wheelId)) {
+        if (d.id === parseInt(params.spitId)) {
           return (
             <div key={d.id} className='flex items-center justify-center w-full'>
               <WheelCardUnit

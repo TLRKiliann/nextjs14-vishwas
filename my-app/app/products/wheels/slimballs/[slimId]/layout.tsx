@@ -4,19 +4,19 @@ import Link from 'next/link';
 import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 type ParamsProps = {
-  wheelId: string;
+  slimId: string;
 }
 
 type Props = {
   params: {
-    wheelId: string;
+    slimId: string;
   }
 }
 
 export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
   const title = await new Promise((resolve) => {
     setTimeout(() => {
-      resolve(`Bones ${params.wheelId}`)
+      resolve(`Slimballs ${params.slimId}`)
     }, 300)
   })
   return {
@@ -37,7 +37,7 @@ export default async function DetailsProduct({children, params}:
       <Link href="/products/wheels" className='text-lg custom-link p-4'>
         Back to wheels
       </Link>
-      <MenuWheelsSpitSlimBones />
+
         {children}
     </div>
   )
