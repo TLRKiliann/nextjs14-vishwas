@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
+import AccessWheels from '@/app/ui/products/wheels/access-wheels';
 
 type ParamsProps = {
   bonesId: string;
@@ -39,6 +40,7 @@ export default async function DetailsProduct({children, params}:
         <Link href="/products" className='text-lg custom-link py-2 pl-4'>
           Back to products
         </Link>
+        <AccessWheels />
       </div>
         {children}
     </div>
