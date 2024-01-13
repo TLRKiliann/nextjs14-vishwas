@@ -34,7 +34,7 @@ export default async function DetailProductWheel({params}: ParamsProps) {
           {JSON.parse(data).map((d: WheelsProps) => {
             if (d.id === parseInt(params.wheelId)) {
               return (
-                <div key={d.id} className='flex items-center justify-center w-full border'>
+                <div key={d.id} className='flex items-center justify-center w-full'>
                   <WheelCardUnit
                     id={d.id}
                     name={d.name}
