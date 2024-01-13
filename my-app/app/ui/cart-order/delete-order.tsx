@@ -32,7 +32,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                             <p className='w-1/5 text-center ml-2'>{ord.id}</p>
     
                             <div className='w-2/5 m-auto'>
-                                <p className='text-center'>{ord.deckname}</p>
+                                <p className='text-center'>{ord.name}</p>
                             </div>
 
                             <p className='w-2/5 text-center m-auto'>{ord.price.toFixed(2)}.-</p>

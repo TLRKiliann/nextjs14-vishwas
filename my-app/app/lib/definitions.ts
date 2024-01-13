@@ -58,10 +58,20 @@ export type PropsProdReview = {
     }
 }
 
+export type TitlesProps = {
+    id: number;
+    title: string;
+}
+
+export type LinksProps = {
+    id: number;
+    link: string;
+}
+
 /* data for db interactions */
 export type DecksProps = {
     id: number;
-    deckname: string;
+    name: string;
     img: string;
     price: number;
     stock: number;
@@ -69,7 +79,7 @@ export type DecksProps = {
 
 export type CartProps = {
     id: number;
-    deckname: string;
+    name: string;
     price: number;
     count: number;
     stock: number;
@@ -78,16 +88,19 @@ export type CartProps = {
 
 export type CartItem = {
     id: number;
-    deckname: string;
+    name: string;
     img: string;
     price: number;
     stock: number;
     quantity: number;
 }
 
-export type ImgWheelsProps = {
+export type WheelsProps = {
     id: number;
-    imageWheel: string;
+    name: string;
+    price: number;
+    stock: number;
+    img: string;
 };
 
 export type MessageProps = {

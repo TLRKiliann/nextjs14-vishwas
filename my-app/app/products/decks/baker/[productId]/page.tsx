@@ -32,7 +32,7 @@ const DetailsProduct = async ({params}: Props) => {
                 <DeckUnit
                     key={prod.id}
                     id={prod.id}
-                    deckname={prod.deckname}
+                    name={prod.name}
                     img={prod.img}
                     price={prod.price}
                     stock={prod.stock}

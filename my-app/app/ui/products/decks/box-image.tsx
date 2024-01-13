@@ -25,13 +25,13 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Deck
 
     let retriveLibDeck = null;
 
-    if (mappingData?.deckname.slice(0, 5) === "baker") {
+    if (mappingData?.name.slice(0, 5) === "baker") {
         retriveLibDeck = imgSetBakerDeck;
-    } else if (mappingData?.deckname.slice(0, 5) === "blind") {
+    } else if (mappingData?.name.slice(0, 5) === "blind") {
         retriveLibDeck = imgSetBlindDeck;
-    } else if (mappingData?.deckname.slice(0, 7) === "element") {
+    } else if (mappingData?.name.slice(0, 7) === "element") {
         retriveLibDeck = imgSetElementDeck;
-    } else if (mappingData?.deckname.slice(0, 4) === "girl") {
+    } else if (mappingData?.name.slice(0, 4) === "girl") {
         retriveLibDeck = imgSetGirlDeck;
     } else {
         console.log("No deck was found !");

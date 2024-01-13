@@ -1,5 +1,5 @@
+import type { Metadata } from 'next';
 import React from 'react';
-import { Metadata } from 'next';
 import Link from 'next/link';
 import { CartProps } from '@/app/lib/definitions';
 import { genericQuery } from '@/app/lib/db';
@@ -14,6 +14,10 @@ export default async function Cart() {
 
     const request: unknown = await genericQuery("SELECT * FROM cartorder", []);
     const order: string = JSON.stringify(request);
+
+    if (!order) {
+        throw new Error("Error: server failed to catch data from cartorder !");
+    };
 
     let totalPrice;
     totalPrice = JSON.parse(order).map((p: CartProps) => {

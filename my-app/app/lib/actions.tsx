@@ -64,18 +64,18 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
 export async function queryDecksCart(prevState: { message: string } | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
-    const deckname = formData.get("deckname");
+    const name = formData.get("name");
     const price = formData.get("price");
     const count = formData.get("count");
     const stock = formData.get("stock");
     const img = formData.get("img");
     const btnSubmit = formData.get("submit");
     if (btnSubmit === "order") {
-      if (id !== null && deckname !== null && price !== null && count !== null && stock !== null && img !== null) {
-        const query = `INSERT INTO cartorder (id, deckname, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
-          ON DUPLICATE KEY UPDATE deckname = VALUES(deckname), price = VALUES(price), count = VALUES(count),
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
           stock = VALUES(stock), img = VALUES(img)`;
-        const result = await cartOrderQuery(query, [id, deckname, price, count, stock, img]);
+        const result = await cartOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/decks");
           return { message: "Inserted to cart" };
@@ -83,10 +83,10 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
       }
     }
     if (btnSubmit === "decrease") {
-      if (id !== null && deckname !== null && price !== null && count !== null && stock !== null && img !== null) {
-        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, deckname=?, price=?, count=?, \
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, name=?, price=?, count=?, \
           stock=?, img=? WHERE id=?", 
-          [id, deckname, price, count, stock, img, id]);
+          [id, name, price, count, stock, img, id]);
         if (result) {
           revalidatePath("/products/decks");
           return {message: "Decrease from cart"}
@@ -117,6 +117,45 @@ export async function deleteCartItem(prevState: {message: string} | undefined, f
     }
   } catch (error) {
     console.log(error)
+    throw error;
+  }
+}
+
+// wheels cart query
+export async function queryWheelsCart(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const name = formData.get("name");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const stock = formData.get("stock");
+    const img = formData.get("img");
+    const btnWheel = formData.get("submit");
+    if (btnWheel === "addWheel") {
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
+          stock = VALUES(stock), img = VALUES(img)`;
+        const result = await cartOrderQuery(query, [id, name, price, count, stock, img]);
+        if (result) {
+          revalidatePath("/products/wheels");
+          return {message: "Inserted to cart !"}
+        }
+      }
+    }
+    if (btnWheel === "deleteWheel") {
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, name=?, price=?, count=?, \
+          stock=?, img=? WHERE id=?", 
+          [id, name, price, count, stock, img, id]);
+        if (result) {
+          revalidatePath("/products/wheels");
+          return {message: "Deleted from cart"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
     throw error;
   }
 }

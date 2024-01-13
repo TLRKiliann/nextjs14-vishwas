@@ -8,7 +8,7 @@ import { queryDecksCart } from '@/app/lib/actions';
 import { DecksProps } from '@/app/lib/definitions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) {
+export default function DeckUnit({id, name, img, price, stock}: DecksProps) {
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
@@ -22,12 +22,12 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
 
     const quantity = getItemQuantity(id);
 
-    const handleAddToCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
-        increaseCartQuantity(id, deckname, price, img, stock);
+    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number) => {
+        increaseCartQuantity(id, name, price, img, stock);
     };
   
-    const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
-        decreaseCartQuantity(id, deckname, price, img, stock);
+    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number) => {
+        decreaseCartQuantity(id, name, price, img, stock);
     };
 
     return (
@@ -48,7 +48,7 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                 </div>
 
                 <h3 className='text-lg text-gray-500 font-bold pt-2 pl-2'>
-                    {deckname.toUpperCase()}
+                    {name.toUpperCase()}
                 </h3>
 
                 <p className='text-md text-slate-600/80 px-2 pt-0'>
@@ -75,12 +75,12 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                         Video
                     </summary>
                     <Link href="#" className="text-sm text-blue-500 hover:text-blue-600 px-3">
-                        https://www.{deckname}.link
+                        https://www.{name}.link
                     </Link>
                 </details>
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
-                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
+                <input type="text" id="name" name="name" value={name} hidden readOnly />
                 <input type="number" id="price" name="price" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
                 <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
@@ -96,7 +96,7 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                             name="submit"
                             value="decrease"
                             disabled={pending}
-                            onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
+                            onClick={() => handleRemoveFromCart(id, name, price, img, stock)}
                             className='button-card'>
                                 { pending ? "pending..." : "Sub" }
                         </button>
@@ -108,7 +108,7 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
                                 name="submit"
                                 value="order"
                                 disabled={pending}
-                                onClick={() => handleAddToCart(id, deckname, price, img, stock)}
+                                onClick={() => handleAddToCart(id, name, price, img, stock)}
                                 className='button-card'>
                                 { pending ? "pending..." : "Add" }
                             </button>
@@ -119,8 +119,8 @@ export default function DeckUnit({id, deckname, img, price, stock}: DecksProps) 
 
                 </div>
 
-                {code?.message ? (
-                    <p className='text-center text-orange-500'>{code.message}</p>
+                {code?.message && quantity !== 0 ? (
+                    <p className='message-cart'>{code.message}</p>
                 ) : null}
 
             </form>

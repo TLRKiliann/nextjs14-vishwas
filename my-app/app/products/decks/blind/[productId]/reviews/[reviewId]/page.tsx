@@ -64,7 +64,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                         <div className='flex flex-col items-start justify-between w-40'>
 
                             <div>
-                                <p className='text-lg font-bold ml-4'>{prod.deckname.toUpperCase()}</p>
+                                <p className='text-lg font-bold ml-4'>{prod.name.toUpperCase()}</p>
                             </div>
 
                             <div>

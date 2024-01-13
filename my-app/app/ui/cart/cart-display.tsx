@@ -7,7 +7,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { deleteCartItem } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function Cart({id, deckname, price, count, stock, img}: CartProps) {
+export default function Cart({id, name, price, count, stock, img}: CartProps) {
     
     const { removeFromCart } = useShoppingCart();
 
@@ -30,7 +30,7 @@ export default function Cart({id, deckname, price, count, stock, img}: CartProps
             <div className='flex flex-col items-start w-2/5 ml-4'>
 
                 <p className='text-xl font-bold text-slate-600 mb-0'>
-                    {deckname.toUpperCase()} 
+                    {name.toUpperCase()} 
                 </p>
 
                 <p className='text-lg text-slate-600 mb-0'>
