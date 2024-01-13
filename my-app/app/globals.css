@@ -48,6 +48,9 @@
     @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 
     hover:text-fuchsia-600 hover:dark:text-blue-400;
   }
+  .custom-li {
+    @apply text-lg dark:text-blue-500;
+  }
 }
 
 :root {
