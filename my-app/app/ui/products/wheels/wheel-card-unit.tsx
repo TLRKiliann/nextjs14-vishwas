@@ -30,7 +30,7 @@ export default function WheelCardUnit({id, name, price, stock, img}: WheelsProps
     };
 
     return (
-        <div key={id} className='w-[300px] h-auto cursor-pointer'>
+        <div key={id} className='w-[300px] h-auto'>
             <Image src={img} width={435} height={580} alt="img wheelUnit"
                 className='object-cover rounded-tr-md rounded-tl-md' />
             <div className='text-slate-600/80 bg-slate-50 p-4 rounded-br-md rounded-bl-md'>
