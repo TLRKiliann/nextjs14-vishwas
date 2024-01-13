@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
-import MenuWheelsSpitSlim from '@/app/ui/products/wheels/menu-split-slim';
+import MenuWheelsSpitSlimBones from '@/app/ui/products/wheels/menu-splitslimbones';
 
 type ParamsProps = {
   wheelId: string;
@@ -34,10 +34,10 @@ export default async function DetailsProduct({children, params}:
       >
         Bones wheel
       </h1>
-      <Link href="/products/wheels" className='custom-link p-4'>Back to wheels</Link>
-      <MenuWheelsSpitSlim />
-      {/* <MenuWheelsSpitBones /> */}
-      {/* <MenuWheelsSlimBones /> */}
+      <Link href="/products/wheels" className='text-lg custom-link p-4'>
+        Back to wheels
+      </Link>
+      <MenuWheelsSpitSlimBones />
         {children}
     </div>
   )

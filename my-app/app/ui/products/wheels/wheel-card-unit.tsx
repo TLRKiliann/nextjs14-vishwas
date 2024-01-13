@@ -69,7 +69,7 @@ export default function WheelCardUnit({id, name, price, stock, img}: WheelsProps
                     </button>
                     
                 </form>
-                {code?.message ? (
+                {code?.message && quantity !== 0 ? (
                     <p className='message-cart'>
                         {code.message}
                     </p>

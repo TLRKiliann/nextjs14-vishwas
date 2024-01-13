@@ -28,7 +28,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
 
                     {reviewsBaker.map((rev) => (
                         <ul key={rev.id} className='list-outside list-disc mb-2 ml-10'>
-                            <li className='text-lg dark:text-blue-500'>
+                            <li className='custom-li'>
                                 <Link 
                                     href={`/products/decks/baker/${params.productId}/reviews/${rev.id}`}
                                     className="custom-link"
