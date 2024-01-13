@@ -71,7 +71,7 @@ export type LinksProps = {
 /* data for db interactions */
 export type DecksProps = {
     id: number;
-    deckname: string;
+    name: string;
     img: string;
     price: number;
     stock: number;
@@ -79,7 +79,7 @@ export type DecksProps = {
 
 export type CartProps = {
     id: number;
-    deckname: string;
+    name: string;
     price: number;
     count: number;
     stock: number;
@@ -88,7 +88,7 @@ export type CartProps = {
 
 export type CartItem = {
     id: number;
-    deckname: string;
+    name: string;
     img: string;
     price: number;
     stock: number;
@@ -100,7 +100,7 @@ export type WheelsProps = {
     name: string;
     price: number;
     stock: number;
-    image: string;
+    img: string;
 };
 
 export type MessageProps = {

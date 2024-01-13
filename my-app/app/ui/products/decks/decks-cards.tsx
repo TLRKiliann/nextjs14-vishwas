@@ -28,7 +28,7 @@ export default function DecksCards({data}: {data: DecksProps[]}) {
                         <Card
                             key={d.id}
                             id={d.id}
-                            deckname={d.deckname}
+                            name={d.name}
                             img={d.img}
                             price={d.price}
                             stock={d.stock}
@@ -38,7 +38,7 @@ export default function DecksCards({data}: {data: DecksProps[]}) {
                             <Card 
                                 key={d.id}
                                 id={d.id}
-                                deckname={d.deckname}
+                                name={d.name}
                                 img={d.img}
                                 price={d.price}
                                 stock={d.stock}

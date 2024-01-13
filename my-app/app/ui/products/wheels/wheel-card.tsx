@@ -36,7 +36,7 @@ export default function WheelCard({data}: {data: WheelsProps[]}) {
                 {data.map((wheelUnit: WheelsProps) => (
                     <span key={wheelUnit.id} onClick={() => handlePath(wheelUnit.id)} 
                         className='w-[150px] h-auto cursor-pointer border'>
-                        <Image src={wheelUnit.image} width={435} height={580} alt="img wheelUnit"
+                        <Image src={wheelUnit.img} width={435} height={580} alt="img wheelUnit"
                             className='object-cover' />
                         <div className='text-slate-600/80 bg-slate-50 p-2 border'>
                             <h3 className='text-sm font-bold'>

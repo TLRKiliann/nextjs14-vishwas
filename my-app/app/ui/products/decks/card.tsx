@@ -13,10 +13,12 @@ import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
 
-const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
+const Card = ({ id, name, price, img, stock }: DecksProps) => {
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
+
+    const router = useRouter();
 
     const {
         getItemQuantity,
@@ -27,23 +29,20 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
 
     const quantity = getItemQuantity(id);
 
-    const cutword = deckname.split(" ");
+    const cutword = name.split(" ");
     const deckPath = cutword[0];
 
-
-    const handleAddToCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
-        increaseCartQuantity(id, deckname, price, img, stock);
+    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number) => {
+        increaseCartQuantity(id, name, price, img, stock);
     };
   
-    const handleRemoveFromCart = (id: number, deckname: string, price: number, img: string, stock: number) => {
-        decreaseCartQuantity(id, deckname, price, img, stock);
+    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number) => {
+        decreaseCartQuantity(id, name, price, img, stock);
     };
-
-    const router = useRouter();
 
     const handleImg = (id: number) => {
         router.push(`/products/decks/${deckPath}/${id}`);
-    }
+    };
 
     return (
         <div key={id}
@@ -65,7 +64,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
             <div className="flex flex-col font-bold bg-slate-100/80">
                 <div className="flex items-center justify-between text-md text-slate-600/80 mx-4 
                     my-2">
-                    <h3>{deckname.toUpperCase()}</h3>
+                    <h3>{name.toUpperCase()}</h3>
                 </div>
                 <div className="flex items-center justify-between text-sm text-slate-500/80 mx-4">
                     <p>Price</p>
@@ -96,14 +95,14 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
             <form action={formAction} className='flex justify-between px-4 py-2 pt-4 bg-slate-100/80'>
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
-                <input type="text" id="deckname" name="deckname" value={deckname} hidden readOnly />
+                <input type="text" id="name" name="name" value={name} hidden readOnly />
                 <input type="number" id="price" name="price" value={price} hidden readOnly />
                 <input type="number" id="count" name="count" value={quantity} hidden readOnly />
                 <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
                 <input type="text" id="img" name="img" value={img} hidden readOnly />
 
                 <button type="submit" id="submit" name="submit" value="decrease" 
-                    onClick={() => handleRemoveFromCart(id, deckname, price, img, stock)}
+                    onClick={() => handleRemoveFromCart(id, name, price, img, stock)}
                     disabled={pending}
                     className='button-card'
                 >
@@ -111,7 +110,7 @@ const Card = ({ id, deckname, price, img, stock }: DecksProps) => {
                 </button>
 
                 <button type="submit" id="submit" name="submit" value="order" 
-                    onClick={() => handleAddToCart(id, deckname, price, img, stock)}
+                    onClick={() => handleAddToCart(id, name, price, img, stock)}
                     disabled={pending}
                     className='button-card'
                 >

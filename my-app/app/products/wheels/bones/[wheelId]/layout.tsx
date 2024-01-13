@@ -18,7 +18,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
     }, 300)
   })
   return {
-    title: `Num ${title}`
+    title: `Wheel ${title}`
   }
 }
 

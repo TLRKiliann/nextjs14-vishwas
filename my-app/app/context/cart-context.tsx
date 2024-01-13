@@ -10,8 +10,8 @@ type ShoppingCartProviderProps = {
 
 type ShoppingCartContextProps = {
   getItemQuantity: (id: number) => number;
-  increaseCartQuantity: (id: number, deckname: string, price: number, img: string, stock: number) => void;
-  decreaseCartQuantity: (id: number, deckname: string, price: number, img: string, stock: number) => void;
+  increaseCartQuantity: (id: number, name: string, price: number, img: string, stock: number) => void;
+  decreaseCartQuantity: (id: number, name: string, price: number, img: string, stock: number) => void;
   removeFromCart: (id: number) => void;
   removeAllFromCart: () => void;
   cartQuantity: number;
@@ -37,14 +37,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     return cartItems.find((item: CartItem) => item.id === id)?.quantity || 0;
   };
 
-  const increaseCartQuantity = (id: number, deckname: string, price: number, img: string, stock: number) => {
+  const increaseCartQuantity = (id: number, name: string, price: number, img: string, stock: number) => {
     setCartItems((currentItems: CartItem[]) => {
-      if (currentItems.find((item: CartItem) => (item.id === id) && (item.deckname === deckname)) == null) {
-        return [...currentItems, { id, deckname, price, img, stock, quantity: 1 }];
+      if (currentItems.find((item: CartItem) => (item.id === id) && (item.name === name)) == null) {
+        return [...currentItems, { id, name, price, img, stock, quantity: 1 }];
       } else {
         return currentItems.map((item: CartItem) => {
           if (item.id === id) {
-            return {...item, id, deckname, price, img, stock, quantity: item.quantity + 1};
+            return {...item, id, name, price, img, stock, quantity: item.quantity + 1};
           } else {
             return item;
           }
@@ -53,14 +53,14 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     });
   };
 
-  const decreaseCartQuantity = (id: number, deckname: string, price: number, img: string, stock: number) => {
+  const decreaseCartQuantity = (id: number, name: string, price: number, img: string, stock: number) => {
     setCartItems((currentItems) => {
-      if (currentItems.find((item: CartItem) => item.id === id && item.deckname === deckname)?.quantity === 1) {
+      if (currentItems.find((item: CartItem) => item.id === id && item.name === name)?.quantity === 1) {
         return currentItems.filter((item: CartItem) => item.id !== id);
       } else {
         return currentItems.map((item: CartItem) => {
           if (item.id === id) {
-            return {...item, id, deckname, price, img, stock, quantity: item.quantity - 1};
+            return {...item, id, name, price, img, stock, quantity: item.quantity - 1};
           } else {
             return item;
           }

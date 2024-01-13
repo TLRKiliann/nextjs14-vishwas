@@ -39,7 +39,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                                 {ord.id}
                             </td>
                             <td className='w-2/5 border-b border-slate-400 dark:border-slate-600 py-2'>
-                                {ord.deckname}
+                                {ord.name}
                             </td>
                             <td className='w-2/5 border-b border-slate-400 dark:border-slate-600 py-2'>
                                 {ord.count}
