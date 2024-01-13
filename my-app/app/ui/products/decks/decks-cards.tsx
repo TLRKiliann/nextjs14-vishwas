@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { DecksProps } from "@/app/lib/definitions";
 import Card from './card';
-import LoadMore from '../loadmore';
+import LoadMore from './loadmore';
 
 export default function DecksCards({data}: {data: DecksProps[]}) {
 

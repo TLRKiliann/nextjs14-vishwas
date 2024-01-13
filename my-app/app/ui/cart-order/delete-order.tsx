@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { CartProps } from "@/app/lib/definitions";
-
+import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { deleteOrder } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
@@ -26,16 +26,19 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                         <form
                             key={ord.id}
                             action={formAction}
-                            className='flex items-center justify-between w-full h-12 text-slate-600 
+                            className='flex items-center justify-between w-full h-16 text-slate-600 
                             dark:text-slate-300 bg-slate-200 dark:bg-slate-700 my-2 rounded'>
                             
-                            <p className='w-1/5 text-center ml-2'>{ord.id}</p>
+                            <div className='w-1/5 h-auto text-center ml-2'>
+                                <Image src={ord.img} width={40} height={40} alt="img deleteorder" 
+                                    className="object-cover w-[40px] h-auto" />
+                            </div>
     
                             <div className='w-2/5 m-auto'>
                                 <p className='text-center'>{ord.name}</p>
                             </div>
 
-                            <p className='w-2/5 text-center m-auto'>{ord.price.toFixed(2)}.-</p>
+                            <p className='w-1/5 text-center m-auto'>{ord.price.toFixed(2)}.-</p>
                             <p className='w-1/5 text-center m-auto'>{ord.count}</p>
                             
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
