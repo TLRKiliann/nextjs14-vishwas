@@ -6,13 +6,13 @@ import Image from 'next/image';
 type ItemProps = {
     id: number;
     img: string
-    deckname: string;
+    name: string;
     price: number;
     stock: number;
     quantity: number;
 }
 
-export default function CartItem({id, deckname, img, price, stock, quantity}: ItemProps) {
+export default function CartItem({id, name, img, price, stock, quantity}: ItemProps) {
 
     return (
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
@@ -24,11 +24,11 @@ export default function CartItem({id, deckname, img, price, stock, quantity}: It
             <div className='flex-1 items-center m-auto mr-4 ml-4 pl-4 pr-2'>
 
                 <p className='text-xl font-bold text-slate-600 mb-0'>
-                    {deckname.toUpperCase()} 
+                    {name.toUpperCase()} 
                 </p>
 
                 <p className='text-lg text-slate-600 mb-0'>
-                    Price: {price.toFixed(2)}.- CHF
+                    Price: {price}.- CHF
                 </p>
 
                 <p className='text-md text-slate-600 mb-0'>
