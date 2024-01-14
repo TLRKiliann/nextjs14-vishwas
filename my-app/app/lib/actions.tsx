@@ -160,6 +160,28 @@ export async function queryWheelsCart(prevState: {message: string} | undefined, 
   }
 }
 
+// delete item from wheels
+export async function deleteWheels(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const btnDelete = formData.get("submit");
+    if (btnDelete === "removeAllById") {
+      if (id !== null) {
+        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
+        if (result) {
+          revalidatePath("/wheels");
+          return {
+            message: "Product removed"
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    throw error;
+  }
+}
+
 // delete item from order
 export async function deleteOrder(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -293,5 +315,3 @@ export async function authenticate(prevState: string | undefined, formData: Form
     throw error;
   }
 }
-
-

@@ -33,16 +33,18 @@ export default async function DetailsProduct({children, params}:
       >
         Bones wheel
       </h1>
-      <div className='flex flex-col'>
-        <Link href="/products/wheels" className='text-lg custom-link py-2 pl-4'>
-          Back to wheels
-        </Link>
-        <Link href="/products" className='text-lg custom-link py-2 pl-4'>
-          Back to products
-        </Link>
-        <AccessWheels />
+      <div className='flex'>
+        <div className='flex flex-col w-[300px]'>
+          <Link href="/products/wheels" className='text-lg custom-link py-2 pl-4'>
+            Back to Wheels
+          </Link>
+          <Link href="/products" className='text-lg custom-link py-2 pl-4'>
+            Back to Products
+          </Link>
+          <AccessWheels />
+        </div>
+          {children}
       </div>
-        {children}
     </div>
   )
 }

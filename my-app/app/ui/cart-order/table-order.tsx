@@ -1,7 +1,8 @@
 "use client";
 
+import type { CartProps } from "@/app/lib/definitions";
 import React from 'react'
-import { CartProps } from "@/app/lib/definitions";
+import Image from 'next/image';
 import Link from 'next/link';
 import DeleteOrder from './delete-order';
 
@@ -25,7 +26,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                 <tbody className='flex flex-col'>
                 <tr className='flex justify-between w-full text-lg text-slate-500 bg-slate-300
                     dark:text-slate-400/80 dark:bg-slate-800 py-2 rounded-tl-md rounded-tr-md'>
-                    <th className='w-1/5 py-1'>Id</th>
+                    <th className='w-1/5 py-1'>Img</th>
                     <th className='w-2/5 py-1'>Product</th>
                     <th className='w-2/5 py-1'>Quantity</th>
                     <th className='w-2/5 py-1'>Price</th>
@@ -33,13 +34,14 @@ export default function TableOrder({order}: {order: CartProps[]}) {
                 {order.map((ord: CartProps) => {
                     if (ord.count !== 0) {
                     return (
-                        <tr key={ord.id} className='flex justify-between text-center text-slate-600 
-                            bg-slate-200 dark:text-slate-200 dark:bg-slate-700 '>
-                            <td className='w-1/5 border-b border-slate-400 dark:border-slate-600 py-2'>
-                                {ord.id}
+                        <tr key={ord.id} className='flex items-center justify-between text-center text-slate-600 
+                            bg-slate-200 dark:text-slate-200 dark:bg-slate-700'>
+                            <td className='w-1/5'>
+                                <Image src={ord.img} width={40} height={40} alt="img order"
+                                    className='object-cover w-[30px] h-auto m-auto' />
                             </td>
-                            <td className='w-2/5 border-b border-slate-400 dark:border-slate-600 py-2'>
-                                {ord.name}
+                            <td className='flex w-2/5 border-b border-slate-400 dark:border-slate-600 py-2'>
+                                <p className='m-auto'>{ord.name}</p>
                             </td>
                             <td className='w-2/5 border-b border-slate-400 dark:border-slate-600 py-2'>
                                 {ord.count}

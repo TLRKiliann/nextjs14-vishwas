@@ -7,7 +7,6 @@ export type User = {
     password: string;
 };
 
-/* external data*/
 export type ProductsProps = {
     id: number;
     name: string;
@@ -69,12 +68,13 @@ export type LinksProps = {
 }
 
 /* data for db interactions */
-export type DecksProps = {
+export type CartItem = {
     id: number;
     name: string;
     img: string;
     price: number;
     stock: number;
+    quantity: number;
 }
 
 export type CartProps = {
@@ -85,23 +85,6 @@ export type CartProps = {
     stock: number;
     img: string;
 }
-
-export type CartItem = {
-    id: number;
-    name: string;
-    img: string;
-    price: number;
-    stock: number;
-    quantity: number;
-}
-
-export type WheelsProps = {
-    id: number;
-    name: string;
-    price: number;
-    stock: number;
-    img: string;
-};
 
 export type MessageProps = {
     username: string;
@@ -126,4 +109,10 @@ export type DataDeleteProps = {
 
 export type EmailProps = {
     email: string;
+}
+export type PaymentProps = {
+    user: string;
+    date: string;
+    securitycode: number;
+    checkcardValue: number;
 }

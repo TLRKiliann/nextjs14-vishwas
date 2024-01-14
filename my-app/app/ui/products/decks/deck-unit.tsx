@@ -1,14 +1,14 @@
 "use client";
 
+import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
-import { DecksProps } from '@/app/lib/definitions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function DeckUnit({id, name, img, price, stock}: DecksProps) {
+export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)

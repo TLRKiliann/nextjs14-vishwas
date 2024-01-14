@@ -1,5 +1,3 @@
-//"use client";
-
 import { useState, useMemo } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {

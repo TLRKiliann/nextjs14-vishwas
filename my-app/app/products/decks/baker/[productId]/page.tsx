@@ -1,7 +1,7 @@
+import type { ProductsProps } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { DecksProps } from '@/app/lib/definitions';
-import { genericQuery } from '@/app/lib/db';
+import { queryDecks } from '@/app/lib/db';
 import { reviewsBaker } from "@/app/lib/datas";
 import BoxImage from '@/app/ui/products/decks/box-image';
 import DeckUnit from '@/app/ui/products/decks/deck-unit';
@@ -22,11 +22,11 @@ const DetailsProduct = async ({params}: Props) => {
         throw new Error("Error: product id is not a number");
     };
 
-    const request: unknown = await genericQuery("SELECT * FROM bakerdecks", []);
+    const request: ProductsProps[] = await queryDecks("SELECT * FROM bakerdecks", []);
     const data: string = JSON.stringify(request);
     
     // Display card in side right
-    const productName = JSON.parse(data).map((prod: DecksProps) => {
+    const productName = JSON.parse(data).map((prod: ProductsProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <DeckUnit
