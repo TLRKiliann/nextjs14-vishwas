@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { TrucksProps } from '@/app/lib/definitions';
 import React from 'react';
 import Image from 'next/image';
-import { genericQuery } from '@/app/lib/db';
+import { queryTrucks } from '@/app/lib/db';
 import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
 import deckFlip from "@/public/img_decks/deck-h.png";
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function AxisShop() {
 
-  const request: unknown = await genericQuery("SELECT * FROM trucks", []);
+  const request: TrucksProps[] = await queryTrucks("SELECT * FROM trucks", []);
   const data: string = JSON.stringify(request);
 
   if (!data) {

@@ -1,12 +1,15 @@
-import mysql from 'mysql2/promise';
+import mysql, { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import type {
   MessageProps,
   DecksProps,
   CartProps,
   EmailProps,
+  TrucksProps,
 } from './definitions';
 
-type GenericProps = DecksProps | CartProps | MessageProps | EmailProps | [];
+type GenericResult = TrucksProps[] | DecksProps | CartProps | MessageProps | EmailProps | TrucksProps;
+
+type GenericProps = DecksProps | CartProps | MessageProps | EmailProps | TrucksProps | [];
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -25,7 +28,24 @@ const genericQuery = async (query: string, data: GenericProps) => {
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as GenericResult;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// fetch all products by server action (no api needed !)
+const queryTrucks = async (query: string, data: GenericProps): Promise<TrucksProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as TrucksProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -215,6 +235,7 @@ process.on('SIGINT', async () => {
 
 export { 
   genericQuery,
+  queryTrucks,
   newMemberQuery,
   cartOrderQuery,
   cartOrderUpdateQuery,

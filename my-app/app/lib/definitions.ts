@@ -103,13 +103,13 @@ export type WheelsProps = {
     img: string;
 };
 
-export type TrucksProps ={
+export type TrucksProps = {
     id: number;
     name: string;
     price: number;
     stock: number;
     img: string; 
-}
+};
 
 export type MessageProps = {
     username: string;
