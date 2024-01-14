@@ -1,7 +1,7 @@
-import { Metadata } from 'next';
-import type { WheelsProps } from '@/app/lib//definitions';
+import type { Metadata } from 'next';
+import type { ProductsProps } from '@/app/lib//definitions';
 import React from 'react';
-import { genericQuery } from '@/app/lib/db';
+import { queryWheels } from '@/app/lib/db';
 import WheelCard from '@/app/ui/products/wheels/wheel-card';
 
 export const metadata: Metadata = {
@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default async function AxisShop() {
   
-  const request: unknown = await genericQuery("SELECT * FROM bones", []);
+  const request: ProductsProps[] = await queryWheels("SELECT * FROM bones", []);
   const data: string = JSON.stringify(request);
 
-  const requestTwo: unknown = await genericQuery("SELECT * FROM slimballs", []);
+  const requestTwo: ProductsProps[] = await queryWheels("SELECT * FROM slimballs", []);
   const dataTwo: string = JSON.stringify(requestTwo);
 
-  const requestThree: unknown = await genericQuery("SELECT * FROM spitfire", []);
+  const requestThree: ProductsProps[] = await queryWheels("SELECT * FROM spitfire", []);
   const dataThree: string = JSON.stringify(requestThree);
 
   if (!data) {
@@ -44,7 +44,7 @@ export default async function AxisShop() {
           md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
           shadow-none'>
 
-          {JSON.parse(data).map((wheelUnit: WheelsProps) => (
+          {JSON.parse(data).map((wheelUnit: ProductsProps) => (
             <WheelCard
               key={wheelUnit.id}
               id={wheelUnit.id}
@@ -70,7 +70,7 @@ export default async function AxisShop() {
           md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
           shadow-none'>
 
-          {JSON.parse(dataTwo).map((wheelUnit: WheelsProps) => (
+          {JSON.parse(dataTwo).map((wheelUnit: ProductsProps) => (
             <WheelCard
               key={wheelUnit.id}
               id={wheelUnit.id}
@@ -96,7 +96,7 @@ export default async function AxisShop() {
           md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
           shadow-none'>
 
-          {JSON.parse(dataThree).map((wheelUnit: WheelsProps) => (
+          {JSON.parse(dataThree).map((wheelUnit: ProductsProps) => (
             <WheelCard
               key={wheelUnit.id}
               id={wheelUnit.id}

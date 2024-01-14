@@ -1,8 +1,8 @@
 "use client";
 
+import type { ProductsProps } from '@/app/lib/definitions';
 import React, { useState } from 'react'
 import Image, { StaticImageData } from 'next/image';
-import { DecksProps } from '@/app/lib/definitions';
 import { imgSetBakerDeck } from '@/app/lib/deckList';
 import { imgSetBlindDeck } from '@/app/lib/deckList';
 import { imgSetElementDeck } from '@/app/lib/deckList';
@@ -19,9 +19,9 @@ type ImgSetProps = {
     images: StaticImageData[];
 };
 
-export default function BoxImage({paramsId, data}: {paramsId: string, data: DecksProps[]}) {
+export default function BoxImage({paramsId, data}: {paramsId: string, data: ProductsProps[]}) {
 
-    const mappingData = data.find((d: DecksProps) => d.id === parseInt(paramsId));
+    const mappingData = data.find((d: ProductsProps) => d.id === parseInt(paramsId));
 
     let retriveLibDeck = null;
 

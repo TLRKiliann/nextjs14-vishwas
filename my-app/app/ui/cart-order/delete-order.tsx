@@ -1,7 +1,7 @@
 "use client";
 
+import type { CartProps } from "@/app/lib/definitions";
 import React from 'react'
-import { CartProps } from "@/app/lib/definitions";
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { deleteOrder } from '@/app/lib/actions';
@@ -31,7 +31,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                             
                             <div className='w-1/5 h-auto text-center ml-2'>
                                 <Image src={ord.img} width={40} height={40} alt="img deleteorder" 
-                                    className="object-cover w-[40px] h-auto" />
+                                    className="object-cover w-[40px] h-[40px]" />
                             </div>
     
                             <div className='w-2/5 m-auto'>

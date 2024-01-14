@@ -1,6 +1,7 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
-import { genericQuery } from '@/app/lib/db';
+import { queryDecks } from '@/app/lib/db';
 import DecksCards from '@/app/ui/products/decks/decks-cards';
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function ElementDecks() {
 
-  const request: unknown = await genericQuery("SELECT * FROM elementdecks", []);
+  const request: ProductsProps[] = await queryDecks("SELECT * FROM elementdecks", []);
   const data: string = JSON.stringify(request);
   
   if (!data) {

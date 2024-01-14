@@ -315,5 +315,3 @@ export async function authenticate(prevState: string | undefined, formData: Form
     throw error;
   }
 }
-
-

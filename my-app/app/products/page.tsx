@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
+import type { TitlesProps, LinksProps } from '@/app/lib/definitions';
 import Image from 'next/image';
 import SearchUrl from '@/app/ui/products/search-url';
 import MainShop from '@/app/ui/products/main-shop';
 import bgProducts from '@/public/img_bg/sunset-board.jpg';
 import { titles, links } from '@/app/lib/product-list';
-import type { TitlesProps, LinksProps } from '@/app/lib/definitions';
 
 export const metadata: Metadata = {
     title: "Products",

@@ -1,7 +1,7 @@
+import type { ProductsProps, PropsProdReview } from '@/app/lib/definitions';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { genericQuery } from '@/app/lib/db';
-import { DecksProps, PropsProdReview } from '@/app/lib/definitions';
+import { queryDecks } from '@/app/lib/db';
 import { reviewsBaker } from "@/app/lib/datas";
 
 export default async function ReviewById({ params }: PropsProdReview) {
@@ -14,7 +14,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
         throw new Error("Error review id is not a number");
     };
 
-    const data: unknown = await genericQuery("SELECT * FROM bakerdecks", []);
+    const data: ProductsProps[] = await queryDecks("SELECT * FROM bakerdecks", []);
     const bakerdecks: string = JSON.stringify(data);
 
     return (
@@ -52,7 +52,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                 ) : null
             ))}
 
-            {JSON.parse(bakerdecks).map((prod: DecksProps) => (
+            {JSON.parse(bakerdecks).map((prod: ProductsProps) => (
                 prod.id === parseInt(params.productId) ? (
                     <div key={prod.id} className='flex text-slate-200 bg-slate-800 my-10 px-6 py-6'>
                         

@@ -1,15 +1,15 @@
-import mysql, { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
+import mysql, { OkPacketParams, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
 import type {
   MessageProps,
-  DecksProps,
+  ProductsProps,
   CartProps,
   EmailProps,
-  TrucksProps,
+  //PaymentProps,
 } from './definitions';
 
-type GenericResult = TrucksProps[] | DecksProps | CartProps | MessageProps | EmailProps | TrucksProps;
+//type GenericResult = ProductsProps | CartProps | MessageProps | EmailProps;
 
-type GenericProps = DecksProps | CartProps | MessageProps | EmailProps | TrucksProps | [];
+type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | [];
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -23,12 +23,12 @@ const pool = mysql.createPool({
 });
 
 // fetch all products by server action (no api needed !)
-const genericQuery = async (query: string, data: GenericProps) => {
+const queryDecks = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result as GenericResult;
+    return result as ProductsProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -39,13 +39,47 @@ const genericQuery = async (query: string, data: GenericProps) => {
   }
 }
 
-// fetch all products by server action (no api needed !)
-const queryTrucks = async (query: string, data: GenericProps): Promise<TrucksProps[]> => {
+// fetch all products wheels by server action
+const queryCartOrder = async (query: string, data: GenericProps): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result as TrucksProps[];
+    return result as CartProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// fetch all products wheels by server action
+const queryWheels = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as ProductsProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// fetch all products trucks by server action
+const queryTrucks = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as ProductsProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -73,12 +107,12 @@ const newMemberQuery = async (query: string, data: any) => {
   }
 }
 
-const cartOrderQuery = async (query: string, data: any) => {
+const cartOrderQuery = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as CartProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -90,12 +124,12 @@ const cartOrderQuery = async (query: string, data: any) => {
 }
 
 //cart order update query
-const cartOrderUpdateQuery = async (query: string, data: any) => {
+const cartOrderUpdateQuery = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as CartProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -107,12 +141,12 @@ const cartOrderUpdateQuery = async (query: string, data: any) => {
 }
 
 // delete item from cart
-const queryCartDelete = async (query: string, data: any) => {
+const queryCartDelete = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as CartProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -123,7 +157,8 @@ const queryCartDelete = async (query: string, data: any) => {
   }
 }
 
-const paymentQuery = async (query: string, data: any) => {
+// type of checkcardValue doesn't work !
+const paymentQuery = async (query: string, data: any[]) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -157,12 +192,12 @@ const eraseQuery = async (query: string) => {
 }
 
 // send message from contact with server-actions
-const sendMessage = async (query: string, data: any) => {
+const sendMessage = async (query: string, data: FormDataEntryValue[]): Promise<MessageProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as MessageProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -190,12 +225,12 @@ const showAllMessageBox = async (query: string, data: MessageProps[]) => {
   }
 }
 
-const forgotQuery = async (query: string, data: any) => {
+const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as EmailProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -234,8 +269,10 @@ process.on('SIGINT', async () => {
 });
 
 export { 
-  genericQuery,
+  queryDecks,
+  queryCartOrder,
   queryTrucks,
+  queryWheels,
   newMemberQuery,
   cartOrderQuery,
   cartOrderUpdateQuery,

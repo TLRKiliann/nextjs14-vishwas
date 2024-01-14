@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
+import type { CartProps } from '@/app/lib/definitions';
 import React from 'react';
 import Link from 'next/link';
-import { CartProps } from '@/app/lib/definitions';
-import { genericQuery } from '@/app/lib/db';
+import { queryCartOrder } from '@/app/lib/db';
 import CartItems from '@/app/ui/cart/cart-items';
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default async function Cart() {
 
-    const request: unknown = await genericQuery("SELECT * FROM cartorder", []);
+    const request: CartProps[] = await queryCartOrder("SELECT * FROM cartorder", []);
     const order: string = JSON.stringify(request);
 
     if (!order) {

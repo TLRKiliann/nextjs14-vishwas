@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import type { TrucksProps } from '@/app/lib/definitions';
+import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
 import Image from 'next/image';
 import { queryTrucks } from '@/app/lib/db';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function AxisShop() {
 
-  const request: TrucksProps[] = await queryTrucks("SELECT * FROM trucks", []);
+  const request: ProductsProps[] = await queryTrucks("SELECT * FROM trucks", []);
   const data: string = JSON.stringify(request);
 
   if (!data) {
@@ -37,7 +37,7 @@ export default async function AxisShop() {
         </h2>
       </div>
 
-      {JSON.parse(data).map((truck: TrucksProps) => (
+      {JSON.parse(data).map((truck: ProductsProps) => (
         <TrucksCards 
           key={truck.id}
           id={truck.id}

@@ -1,8 +1,8 @@
 "use client";
 
+import type { CartProps } from "@/app/lib/definitions";
 import React from 'react'
 import Image from 'next/image';
-import { CartProps } from "@/app/lib/definitions";
 import Link from 'next/link';
 import DeleteOrder from './delete-order';
 

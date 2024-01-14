@@ -1,13 +1,13 @@
 "use client";
 
-import type { WheelsProps } from '@/app/lib/definitions';
+import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function WheelCardUnit({id, name, price, stock, img}: WheelsProps) {
+export default function WheelCardUnit({id, name, price, stock, img}: ProductsProps) {
 
     const { pending } = useFormStatus();
     const [code, formAction] = useFormState(queryWheelsCart, undefined)

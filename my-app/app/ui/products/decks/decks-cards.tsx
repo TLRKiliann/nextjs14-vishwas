@@ -1,11 +1,11 @@
 "use client";
 
+import type { ProductsProps } from "@/app/lib/definitions";
 import React, { useState } from 'react'
-import { DecksProps } from "@/app/lib/definitions";
 import Card from './card';
 import LoadMore from './loadmore';
 
-export default function DecksCards({data}: {data: DecksProps[]}) {
+export default function DecksCards({data}: {data: ProductsProps[]}) {
 
     const [load, setLoad] = useState<boolean>(false);
 
@@ -24,7 +24,7 @@ export default function DecksCards({data}: {data: DecksProps[]}) {
                 dark:bg-slate-50 rounded-2xl shadow-in p-10`}
             >
                 {load === false ? (
-                    data.slice(0, 4).map((d: DecksProps) => (
+                    data.slice(0, 4).map((d: ProductsProps) => (
                         <Card
                             key={d.id}
                             id={d.id}
@@ -34,7 +34,7 @@ export default function DecksCards({data}: {data: DecksProps[]}) {
                             stock={d.stock}
                         />
                     ))) : (
-                        data.slice(0, 9).map((d: DecksProps) => (
+                        data.slice(0, 9).map((d: ProductsProps) => (
                             <Card 
                                 key={d.id}
                                 id={d.id}

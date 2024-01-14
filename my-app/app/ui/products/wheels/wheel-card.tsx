@@ -1,6 +1,6 @@
 "use client";
 
-import type { WheelsProps } from '@/app/lib//definitions';
+import type { ProductsProps } from '@/app/lib//definitions';
 import React from 'react'
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -9,7 +9,7 @@ import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 import BtnRemoveAll from './btn-remove-all';
 
-export default function WheelCard({id, name, price, stock, img}: WheelsProps) {
+export default function WheelCard({id, name, price, stock, img}: ProductsProps) {
 
     const router = useRouter();
 

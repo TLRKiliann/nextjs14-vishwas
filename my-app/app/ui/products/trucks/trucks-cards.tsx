@@ -1,10 +1,10 @@
 "use client";
 
-import type { TrucksProps } from '@/app/lib/definitions';
+import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
 import Image from 'next/image';
 
-export default function TrucksCards({id, name, price, stock, img}: TrucksProps) {
+export default function TrucksCards({id, name, price, stock, img}: ProductsProps) {
     
     return (
         <div key={id} className='w-[400px] m-auto bg-slate-100 mt-10 border-2'>

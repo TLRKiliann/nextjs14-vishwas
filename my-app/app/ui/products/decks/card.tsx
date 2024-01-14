@@ -1,10 +1,10 @@
 "use client";
 
+import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { DecksProps } from '@/app/lib/definitions';
 import { useShoppingCart } from '@/app/context/cart-context';
 import { formatCurrency } from "@/app/utils/formatCurrency";
 import { useFormState, useFormStatus } from 'react-dom';
@@ -13,7 +13,7 @@ import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
 
-const Card = ({ id, name, price, img, stock }: DecksProps) => {
+const Card = ({ id, name, price, img, stock }: ProductsProps) => {
 
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
