@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import deckFlip from "@/public/img_decks/deck-h.png";
-import imgTruck from '@/public/trucks_img/ace_1.jpg';
+import imgTruck from '@/public/img_trucks/ace_1.jpg';
+import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
 
 export const metadata: Metadata = {
   title: "Wheels",
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function AxisShop() {
+
+  // call db mysql
+
   return (
     <div className='min-h-screen bg-slate-200 dark:bg-slate-900 py-[75px]'>
 
@@ -27,9 +31,7 @@ export default function AxisShop() {
         </h2>
       </div>
 
-      <div>
-        <Image src={imgTruck} width={435} height={580} alt="truck img" className='object-cover' />
-      </div>
+      <TrucksCards />
 
     </div>
   )
