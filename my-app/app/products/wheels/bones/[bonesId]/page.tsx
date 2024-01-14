@@ -11,7 +11,7 @@ type ParamsProps = {
 };
 export default async function DetailProductWheel({params}: ParamsProps) {
 
-  if (parseInt(params.bonesId) > 4) {
+  if (parseInt(params.bonesId) > 40) {
     notFound();
   };
 

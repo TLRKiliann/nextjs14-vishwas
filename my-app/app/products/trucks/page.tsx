@@ -1,18 +1,24 @@
 import type { Metadata } from 'next';
+import type { TrucksProps } from '@/app/lib/definitions';
 import React from 'react';
 import Image from 'next/image';
-import deckFlip from "@/public/img_decks/deck-h.png";
-import imgTruck from '@/public/img_trucks/ace_1.jpg';
+import { genericQuery } from '@/app/lib/db';
 import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
+import deckFlip from "@/public/img_decks/deck-h.png";
 
 export const metadata: Metadata = {
   title: "Wheels",
   description: "access accepted"
 };
 
-export default function AxisShop() {
+export default async function AxisShop() {
 
-  // call db mysql
+  const request: unknown = await genericQuery("SELECT * FROM trucks", []);
+  const data: string = JSON.stringify(request);
+
+  if (!data) {
+    throw new Error("Error: server failed to return data from db.");
+  }
 
   return (
     <div className='min-h-screen bg-slate-200 dark:bg-slate-900 py-[75px]'>
@@ -31,7 +37,16 @@ export default function AxisShop() {
         </h2>
       </div>
 
-      <TrucksCards />
+      {JSON.parse(data).map((truck: TrucksProps) => (
+        <TrucksCards 
+          key={truck.id}
+          id={truck.id}
+          name={truck.name}
+          price={truck.price}
+          stock={truck.stock}
+          img={truck.img}
+        />
+      ))}
 
     </div>
   )
