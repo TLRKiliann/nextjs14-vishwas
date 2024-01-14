@@ -41,8 +41,13 @@
     hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
     px-5 py-1 rounded;
   }
+  .button-wheels {
+    @apply text-sm text-slate-500 bg-slate-300 hover:text-slate-50 
+    hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
+    w-8 h-8 rounded-full;
+  }
   .message-cart {
-    @apply text-sm text-center text-red-500 bg-orange-200/70 py-2;
+    @apply text-sm text-center text-red-500 bg-orange-200/70 my-2 py-2;
   }
   .custom-link {
     @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 
