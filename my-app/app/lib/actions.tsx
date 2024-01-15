@@ -165,7 +165,7 @@ export async function deleteWheels(prevState: {message: string} | undefined, for
   try {
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllById") {
+    if (btnDelete === "removeAllByIdWheel") {
       if (id !== null) {
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
@@ -226,7 +226,7 @@ export async function deleteTrucks(prevState: {message: string} | undefined, for
   try {
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllById") {
+    if (btnDelete === "removeAllByIdTruck") {
       if (id !== null) {
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
