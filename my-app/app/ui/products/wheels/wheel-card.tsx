@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
-import BtnRemoveAll from './btn-remove-all';
+import BtnRemoveAll from './btnwheels-rm-all';
 
 export default function WheelCard({id, name, price, stock, img}: ProductsProps) {
 

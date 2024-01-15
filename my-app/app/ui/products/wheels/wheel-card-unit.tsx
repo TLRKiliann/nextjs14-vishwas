@@ -16,7 +16,6 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
-        //removeFromCart
     } = useShoppingCart();
 
     const quantity = getItemQuantity(id);
