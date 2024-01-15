@@ -1,6 +1,13 @@
 import type { ListOfDecksProps } from "@/app/lib/definitions";
-import { listOfBaker, listOfElement, listOfBlind, listOfGirl } from "@/app/lib/labels";
-import { notFound } from "next/navigation";
+import { 
+  listOfBaker, 
+  listOfElement, 
+  listOfBlind, 
+  listOfGirl,
+  listOfBones,
+  listOfSlimballs,
+  listOfSpitfire
+} from "@/app/lib/labels";
 
 export const generateProductUrl = (text: string, textNumber: string) => {
 
@@ -11,47 +18,68 @@ export const generateProductUrl = (text: string, textNumber: string) => {
   let listChecked: ListOfDecksProps[] = [];
 
   if (formattedNumber === undefined) {
-    if (formattedText === "baker") {
-      return `/products/decks/baker`;
-    }
-    else if (formattedText === "blind") {
-      return `/products/decks/blind`;
-    }
-    else if (formattedText === "element") {
-      return `/products/decks/element`;
-    }
-    else if (formattedText === "girl") {
-      return `/products/decks/girl`;
-    }
-    else if (formattedText === "wheels" || formattedText === "wheel") {
-      return `/products/wheels`;
-    }
-    else if (formattedText === "bones" || formattedText === "slimballs" || formattedText === "spitfire") {
-      return `/products/wheels`;
-    }
-    else if (formattedText === "trucks" || formattedText === "truck") {
-      return `/products/trucks`;
-    } else {
-      return `/products/not-found`;
+    switch (formattedText) {
+      case "baker":
+        return `/products/decks/baker`;
+      case "blind":
+        return `/products/decks/blind`;
+      case "element":
+        return `/products/decks/element`;
+      case "girl":
+        return `/products/decks/girl`;
+      case "wheels":
+        return `/products/wheels`;
+      case "bones":
+        return `/products/wheels`;
+      case "slimballs":
+        return `/products/wheels`;
+      case "spitfire":
+        return `/products/wheels`;
+      case "trucks":
+        return `/products/trucks`;
+      default:
+        return `/products/not-found`;
     }
   }
   
   if (formattedNumber !== undefined) {
-    if (formattedText === "baker") {
-      listChecked = listOfBaker;
-    } else if (formattedText === "element") {
-      listChecked = listOfElement;
-    } else if (formattedText === "blind") {
-      listChecked = listOfBlind;
-    } else if (formattedText === "girl") {
-      listChecked = listOfGirl;
-    } else {
-      console.log("No product exists for your search")
+    switch (formattedText) {
+      case "baker":
+        listChecked = listOfBaker;
+        break;
+      case "element":
+        listChecked = listOfElement;
+        break;
+      case "blind":
+        listChecked = listOfBlind;
+        break;
+      case "girl":
+        listChecked = listOfGirl;
+        break;
+      case "bones":
+        listChecked = listOfBones;
+        break;
+      case "slimballs":
+        listChecked = listOfSlimballs;
+        break;
+      case "spitfire":
+        listChecked = listOfSpitfire;
+        break;
+      default: 
+        console.log("No product exists for your search");
     }
   }
 
-  const mappingNumber = listChecked?.find((list: ListOfDecksProps) => list.name === formattedNumber);
+  const mappingNumber: ListOfDecksProps | undefined = listChecked?.find((list: ListOfDecksProps) => list.name === formattedNumber);
   const mappingLabel = listChecked?.find((list: ListOfDecksProps) => list.label === formattedText);
-  
-  return `/products/decks/${mappingLabel?.label}/${mappingNumber?.id}`;
+
+  const mapWheels: number | undefined= mappingNumber?.id;
+
+  if (mapWheels && (mapWheels > 36)) {
+    return `/products/wheels/${mappingLabel?.label}/${mappingNumber?.id}`;
+  } else if (mapWheels && (mapWheels < 36)) {
+    return `/products/decks/${mappingLabel?.label}/${mappingNumber?.id}`;
+  } else {
+    return `/products`;
+  }
 };
