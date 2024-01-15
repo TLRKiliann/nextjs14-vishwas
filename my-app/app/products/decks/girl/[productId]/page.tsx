@@ -1,4 +1,4 @@
-import type { ProductsProps } from '@/app/lib/definitions';
+import type { ProductsProps, ReviewsProps } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { queryDecks } from '@/app/lib/db';
@@ -10,7 +10,7 @@ type Props = {
     params: {
         productId: string;
     }
-}
+};
 
 const DetailsProduct = async ({params}: Props) => {
 
@@ -43,8 +43,6 @@ const DetailsProduct = async ({params}: Props) => {
 
     return (
         <>
-            {/* <p className="p-4">Details by product id: {params.productId}</p> */}
-
             <div className="flex align-center justify-start">
                 <Link 
                     href={`/products/decks/girl/${params.productId}/reviews`}
@@ -64,7 +62,7 @@ const DetailsProduct = async ({params}: Props) => {
             
             </div>
 
-            {reviewsGirl.map((rev) => (
+            {reviewsGirl.map((rev: ReviewsProps) => (
                 rev.id === parseInt(params.productId) ? (
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 

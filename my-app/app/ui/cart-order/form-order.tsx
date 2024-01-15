@@ -8,8 +8,7 @@ import googleLogo from '@/public/img_logo/google-icon.png';
 
 export default function FormOrder({order}: {order: CartProps[]}) {
 
-  let totalPrice;
-  totalPrice = order.map((p: CartProps) => {
+  let totalPrice: number[] = order.map((p: CartProps): number => {
     if (p.count === 0) {
       return 0;
     } else {
@@ -18,7 +17,7 @@ export default function FormOrder({order}: {order: CartProps[]}) {
     }
   });
   
-  const filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0)
+  const filterTotal: number = totalPrice.reduce((a: number, b: number) => a += b, 0);
 
   return (
     <div className='w-full'>

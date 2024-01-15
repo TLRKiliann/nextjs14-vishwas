@@ -12,7 +12,7 @@ export default function BtnRemoveAll({id}: {id: number}) {
 
     const { removeFromCart } = useShoppingCart();
 
-    const handleRemove = (id: number) => {
+    const handleRemove = (id: number): void => {
         removeFromCart(id);
     };
 

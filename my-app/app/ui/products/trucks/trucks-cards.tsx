@@ -21,11 +21,11 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
 
     const quantity = getItemQuantity(id);
 
-    const handleDelete = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleDelete = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
 
-    const handleAdd = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleAdd = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
     };
 

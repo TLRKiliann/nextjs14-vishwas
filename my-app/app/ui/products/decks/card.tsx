@@ -23,24 +23,23 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
     const {
         getItemQuantity,
         increaseCartQuantity,
-        decreaseCartQuantity,
-        //removeFromCart
+        decreaseCartQuantity
     } = useShoppingCart();
 
-    const quantity = getItemQuantity(id);
+    const quantity: number = getItemQuantity(id);
 
     const cutword = name.split(" ");
     const deckPath = cutword[0];
 
-    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
     };
   
-    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
 
-    const handleImg = (id: number) => {
+    const handleImg = (id: number): void => {
         router.push(`/products/decks/${deckPath}/${id}`);
     };
 

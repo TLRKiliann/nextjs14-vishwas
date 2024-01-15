@@ -7,7 +7,7 @@ type Props = {
   params: {
     bonesId: string;
   }
-}
+};
 
 export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
   let numberWheel = parseInt(params.bonesId);
@@ -28,7 +28,7 @@ export const generateMetadata = async ({params}: Props): Promise<Metadata> => {
   }
   const title = await new Promise((resolve) => {
     setTimeout(() => {
-      resolve(`Slimballs ${converterNum}`)
+      resolve(`Bones ${converterNum}`)
     }, 300)
   })
   return {

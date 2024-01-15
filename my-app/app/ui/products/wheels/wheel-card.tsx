@@ -27,15 +27,15 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
     const wordCut = name.split(" ");
     const wheelPath = wordCut?.[0];
 
-    const handleDelete = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleDelete = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
 
-    const handleAdd = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleAdd = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
     };
 
-    const handlePath = (id: number) => {
+    const handlePath = (id: number): void => {
         router.push(`/products/wheels/${wheelPath}/${id}`);
     };
 

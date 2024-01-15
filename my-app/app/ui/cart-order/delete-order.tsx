@@ -14,7 +14,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
     const {pending} = useFormStatus();
     const [code, formAction] = useFormState(deleteOrder, undefined);
 
-    const handleDeleteCount = (id: number) => {
+    const handleDeleteCount = (id: number): void => {
         removeFromCart(id);
     };
 

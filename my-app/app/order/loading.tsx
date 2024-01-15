@@ -2,7 +2,7 @@ import React from 'react'
 import Image from "next/image"
 import spinLoader from "@/public/img_logo/loader.png";
 
-export default function Loading() {
+export default function Loading(): JSX.Element {
   return (
     <div className="w-full min-h-screen">
         <div className='w-[200px] flex items-center p-4'>

@@ -19,8 +19,7 @@ export default async function Cart() {
         throw new Error("Error: server failed to catch data from cartorder !");
     };
 
-    let totalPrice;
-    totalPrice = JSON.parse(order).map((p: CartProps) => {
+    let totalPrice: number[] = JSON.parse(order).map((p: CartProps): number => {
       if (p.count === 0) {
         return 0;
       } else {
@@ -29,7 +28,7 @@ export default async function Cart() {
       }
     });
     
-    let filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0);
+    let filterTotal: number = totalPrice.reduce((a: number, b: number) => a += b, 0);
 
     return (
         <div className='w-full min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]'>

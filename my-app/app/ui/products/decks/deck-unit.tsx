@@ -16,17 +16,16 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     const {
         getItemQuantity,
         increaseCartQuantity,
-        decreaseCartQuantity,
-        //removeFromCart
+        decreaseCartQuantity
     } = useShoppingCart();
 
-    const quantity = getItemQuantity(id);
+    const quantity: number = getItemQuantity(id);
 
-    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
     };
   
-    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
 

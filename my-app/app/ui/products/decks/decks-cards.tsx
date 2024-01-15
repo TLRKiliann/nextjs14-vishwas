@@ -9,7 +9,7 @@ export default function DecksCards({data}: {data: ProductsProps[]}) {
 
     const [load, setLoad] = useState<boolean>(false);
 
-    const handleClick = () => {
+    const handleClick = (): void => {
         setLoad((load) => !load);
     };
 

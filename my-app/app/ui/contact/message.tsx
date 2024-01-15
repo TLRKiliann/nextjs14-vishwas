@@ -14,19 +14,19 @@ export default function Message() {
     const [textArea, setTextArea] = useState<string>("");
 
     const handleUser = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        let value_user = event.target.value;
+        let value_user: string = event.target.value;
         console.log(value_user);
         setUser(value_user);
     }
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        let value_email = event.target.value;
+        let value_email: string = event.target.value;
         console.log(value_email);
         setEmail(value_email);
     }
 
     const handleTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
-        let textValue = event.target.value;
+        let textValue: string = event.target.value;
         setTextArea(textValue);
     }
 

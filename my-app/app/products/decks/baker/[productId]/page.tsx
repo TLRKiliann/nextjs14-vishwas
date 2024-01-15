@@ -1,4 +1,4 @@
-import type { ProductsProps } from '@/app/lib/definitions';
+import type { ProductsProps, ReviewsProps } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { queryDecks } from '@/app/lib/db';
@@ -43,8 +43,6 @@ const DetailsProduct = async ({params}: Props) => {
 
     return (
         <>
-            {/* <p className="p-4">Details by product id: {params.productId}</p> */}
-
             <div className='flex justify-center w-full h-auto mt-10'>
 
                 <BoxImage paramsId={params.productId} data={JSON.parse(data)} />
@@ -53,7 +51,7 @@ const DetailsProduct = async ({params}: Props) => {
             
             </div>
 
-            {reviewsBaker.map((rev) => (
+            {reviewsBaker.map((rev: ReviewsProps) => (
                 rev.id === parseInt(params.productId) ? (
                     <div key={rev.id} className="flex align-center justify-center">
                         <Link 

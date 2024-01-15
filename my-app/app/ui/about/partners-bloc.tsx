@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import nextJs from '@/public/img_logo/next-logo.png';
 import nextAuth from '@/public/img_logo/nextAuth-logo.png';
-
 import reactLogo from '@/public/img_logo/react_logo.png';
 import mySql from '@/public/img_logo/mysql-logo.png';
 import tailWind from '@/public/img_logo/tailwind-logo.png';

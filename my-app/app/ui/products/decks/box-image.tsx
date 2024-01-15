@@ -39,7 +39,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
 
     const searchId = retriveLibDeck?.find((img: ImgSetProps) => img.id === parseInt(paramsId));
     const initialState: string | undefined = searchId?.images[0].src;
-    const [imgState, setImageState] = useState<string | undefined>(initialState)
+    const [imgState, setImageState] = useState<string | undefined>(initialState);
 
     const [colorPoint, setColorPoint] = useState<ColorPointProps>({
         color1: true,
@@ -47,7 +47,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
         color3: false
     });
 
-    const handlePointOne = () => {
+    const handlePointOne = (): void => {
         setImageState(searchId?.images[0].src);
         setColorPoint(prevState => ({
             ...prevState,
@@ -57,7 +57,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
         }));
     };
     
-    const handlePointTwo = () => {
+    const handlePointTwo = (): void => {
         setImageState(searchId?.images[1].src);
         setColorPoint(prevState => ({
             ...prevState,
@@ -67,7 +67,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
         }));
     };
 
-    const handlePointThree = () => {
+    const handlePointThree = (): void => {
         setImageState(searchId?.images[2].src);
         setColorPoint(prevState => ({
             ...prevState,
