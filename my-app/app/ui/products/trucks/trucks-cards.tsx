@@ -40,6 +40,13 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
                 <p className='text-sm'>Stock: {stock - quantity}pcs</p>
             </div>
 
+            <p className='text-center text-lg font-normal text-slate-500/80 m-auto pt-2'>
+                <span className={`font-bold ${quantity === 0 ? "text-slate-500/80" : "text-red-500/80" }`}>
+                    {quantity}&nbsp;
+                </span>
+                in cart
+            </p>
+
             <form action={formAction} className=''>
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
@@ -70,8 +77,9 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
                 {code?.message ? (
                     <p className='message-cart'>{code.message}</p>
                 ) : null }
-                <BtnRemoveAll id={id} />
             </form>
+
+            <BtnRemoveAll id={id} />
 
         </div>
     )

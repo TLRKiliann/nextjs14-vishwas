@@ -37,8 +37,8 @@ export default async function AxisShop() {
         </h2>
       </div>
 
-      <div className='w-[800px] m-auto bg-slate-100 mt-10 border-2'>
-        <div className='flex'>
+      <div className='w-[800px] m-auto bg-slate-100 my-10 xl:mt-[100px]'>
+        <div className='flex items-center justify-between'>
           {JSON.parse(data).map((truck: ProductsProps) => (
             <TrucksCards 
               key={truck.id}

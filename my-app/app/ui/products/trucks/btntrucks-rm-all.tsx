@@ -17,11 +17,11 @@ export default function BtnRemoveAll({id}: {id: number}) {
     };
 
     return (
-        <form action={formData} className='flex flex-col items-center justify-center mb-4'>
+        <form action={formData} className='flex flex-col items-center justify-center my-2'>
 
             <input type="number" id="id" name="id" value={id} hidden readOnly />
 
-            <button type="submit" id="submit" name="submit" value="removeAllById" 
+            <button type="submit" id="submit" name="submit" value="removeAllByIdTruck" 
                 disabled={pending} onClick={() => handleRemove(id)} className='button-card'
             >
                 {pending ? "Pending" : "Remove"}
