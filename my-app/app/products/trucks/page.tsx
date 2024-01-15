@@ -7,7 +7,7 @@ import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
 import deckFlip from "@/public/img_decks/deck-h.png";
 
 export const metadata: Metadata = {
-  title: "Wheels",
+  title: "Trucks",
   description: "access accepted"
 };
 

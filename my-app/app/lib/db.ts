@@ -1,6 +1,5 @@
 import mysql from 'mysql2/promise';
 import type {
-  User,
   MessageProps,
   ProductsProps,
   CartProps,
