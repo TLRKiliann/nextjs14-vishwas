@@ -1,9 +1,11 @@
 import mysql from 'mysql2/promise';
 import type {
+  User,
   MessageProps,
   ProductsProps,
   CartProps,
   EmailProps,
+  ShippingProps,
   PaymentProps,
 } from './definitions';
 
@@ -172,6 +174,23 @@ const paymentQuery = async (query: string, data: any[]): Promise<PaymentProps[]>
   }
 }
 
+// shipping query
+const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise<ShippingProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as ShippingProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
 // erase cartorder table
 const eraseQuery = async (query: string) => {
   let connection;
@@ -240,7 +259,7 @@ const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<E
 }
 
 // authentication
-const authQuery = async (query: string, data: FormDataEntryValue[]) => {
+const authQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailProps[]> => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -252,7 +271,7 @@ const authQuery = async (query: string, data: FormDataEntryValue[]) => {
     })
     const [result] = await db.execute(query, data);
     //await db.end();
-    return result;
+    return result as EmailProps[];
   } catch (error) {
     console.log(error);
     throw error;
@@ -275,6 +294,7 @@ export {
   actionOrderQuery,
   cartOrderUpdateQuery,
   queryCartDelete,
+  shippingQuery,
   paymentQuery,
   eraseQuery,
   sendMessage,
