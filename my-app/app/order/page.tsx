@@ -28,7 +28,7 @@ export default async function OrderPage() {
 
       <div className="flex items-start w-full">
 
-        <FormOrder />
+        <FormOrder order={JSON.parse(order)} />
 
         <TableOrder order={JSON.parse(order)} />
 

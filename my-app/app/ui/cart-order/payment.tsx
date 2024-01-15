@@ -5,7 +5,7 @@ import { useFormStatus, useFormState } from 'react-dom';
 import { paymentRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function Payment() {
+export default function Payment({filterTotal}: {filterTotal: number}) {
 
     const [checking, setchecking] = useState<boolean>(false);
 
@@ -53,6 +53,9 @@ export default function Payment() {
                     Use shipping address as billing address
                 </p>
             </div>
+
+            <input type="number" id="filterTotal" name="filterTotal" value={filterTotal.toFixed(2)} 
+                hidden readOnly />
 
             <button type="submit" id="submit" name="submit" value="payment" 
                 onClick={handleDeleteAllItem}

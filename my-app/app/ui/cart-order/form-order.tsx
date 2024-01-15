@@ -1,3 +1,4 @@
+import type { CartProps } from '@/app/lib/definitions';
 import React from 'react'
 import Image from 'next/image';
 import Shipping from './shipping';
@@ -5,7 +6,19 @@ import Payment from './payment';
 import payPalLogo from '@/public/img_logo/paypal-logo.png';
 import googleLogo from '@/public/img_logo/google-icon.png';
 
-export default function FormOrder() {
+export default function FormOrder({order}: {order: CartProps[]}) {
+
+  let totalPrice;
+  totalPrice = order.map((p: CartProps) => {
+    if (p.count === 0) {
+      return 0;
+    } else {
+      const total: number = p.count * p.price
+      return total;
+    }
+  });
+  
+  const filterTotal = totalPrice.reduce((a: number, b: number) => a += b, 0)
 
   return (
     <div className='w-full'>
@@ -36,13 +49,13 @@ export default function FormOrder() {
         Shipping
       </h2>
 
-      <Shipping />
+      <Shipping filterTotal={filterTotal} />
 
       <h2 className='text-2xl font-bold text-slate-600 dark:text-slate-300 mt-3 px-4 py-2'>
         Payment
       </h2>
 
-      <Payment />
+      <Payment filterTotal={filterTotal} />
 
     </div>
   )

@@ -8,6 +8,7 @@ import {
   newMemberQuery,
   queryCartDelete,
   sendMessage,
+  shippingQuery,
   paymentQuery,
   eraseQuery
 } from './db';
@@ -296,12 +297,13 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
     const npa = formData.get("npa");
     const phone = formData.get("phone");
     const passwd = formData.get("passwd");
+    const filterTotal = formData.get("filterTotal");
     const btnShipping = formData.get("submit");
     if (btnShipping === "shipping") {
       if (email !== null && user !== null && address !== null && npa !== null && phone !== null && 
-        passwd !== null) {
-        const request = await actionOrderQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?)",
-          [email, user, address, npa, phone, passwd]);
+        passwd !== null && filterTotal !== null) {
+        const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
+          [email, user, address, npa, phone, passwd, filterTotal]);
         if (request) {
           const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
           if (eraseTable) {
@@ -324,12 +326,13 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
     const date = formData.get("date");
     const securitycode = formData.get("securitycode");
     const checkcard = formData.get("checkcard");
+    const filterTotal = formData.get("filterTotal");
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
-      if (user !== null && date !== null && securitycode !== null) {
+      if (user !== null && date !== null && securitycode !== null && filterTotal !== null) {
         const checkcardValue: number = checkcard === "true" ? 1 : 0;
-        const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
-          [user, date, securitycode, checkcardValue]);
+        const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?, ?)",
+          [user, date, securitycode, checkcardValue, filterTotal]);
         if (request) {
           const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
           if (eraseTable) {
