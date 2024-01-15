@@ -169,7 +169,68 @@ export async function deleteWheels(prevState: {message: string} | undefined, for
       if (id !== null) {
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
-          revalidatePath("/wheels");
+          revalidatePath("/products/wheels");
+          return {
+            message: "Product removed"
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    throw error;
+  }
+}
+
+// trucks cart query
+export async function queryTruckCart(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const name = formData.get("name");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const stock = formData.get("stock");
+    const img = formData.get("img");
+    const btnWheel = formData.get("submit");
+    if (btnWheel === "addTruck") {
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
+          stock = VALUES(stock), img = VALUES(img)`;
+        const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
+        if (result) {
+          revalidatePath("/products/trucks");
+          return {message: "Inserted to cart !"}
+        }
+      }
+    }
+    if (btnWheel === "deleteTruck") {
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, name=?, price=?, count=?, \
+          stock=?, img=? WHERE id=?", 
+          [id, name, price, count, stock, img, id]);
+        if (result) {
+          revalidatePath("/products/trucks");
+          return {message: "Deleted from cart"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// delete item from trucks
+export async function deleteTrucks(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const btnDelete = formData.get("submit");
+    if (btnDelete === "removeAllById") {
+      if (id !== null) {
+        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
+        if (result) {
+          revalidatePath("/products/trucks");
           return {
             message: "Product removed"
           }

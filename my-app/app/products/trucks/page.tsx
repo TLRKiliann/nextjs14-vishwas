@@ -37,17 +37,20 @@ export default async function AxisShop() {
         </h2>
       </div>
 
-      {JSON.parse(data).map((truck: ProductsProps) => (
-        <TrucksCards 
-          key={truck.id}
-          id={truck.id}
-          name={truck.name}
-          price={truck.price}
-          stock={truck.stock}
-          img={truck.img}
-        />
-      ))}
-
+      <div className='w-[800px] m-auto bg-slate-100 mt-10 border-2'>
+        <div className='flex'>
+          {JSON.parse(data).map((truck: ProductsProps) => (
+            <TrucksCards 
+              key={truck.id}
+              id={truck.id}
+              name={truck.name}
+              price={truck.price}
+              stock={truck.stock}
+              img={truck.img}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
