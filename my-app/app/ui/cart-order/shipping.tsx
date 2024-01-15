@@ -7,13 +7,22 @@ import { useShoppingCart } from '@/app/context/cart-context';
 
 export default function Shipping({filterTotal}: {filterTotal: number}) {
 
-    const { removeAllFromCart } = useShoppingCart();
-
     const { pending } = useFormStatus();
     const [code, formAction] = useFormState(shippingRequest, undefined);
 
+    const { removeAllFromCart } = useShoppingCart();
+
+    const resetCall = (): void => {
+        if (typeof window !== "undefined") {
+            const timer = setTimeout(() => {
+                document.getElementById("resetShipping")?.click();
+            }, 1000)
+        }
+    };
+
     const handleDeleteAllItem = (): void => {
         removeAllFromCart();
+        resetCall();
         console.log("shipping done");
     };
 
@@ -60,6 +69,8 @@ export default function Shipping({filterTotal}: {filterTotal: number}) {
 
             <input type="number" id="filterTotal" name="filterTotal" value={filterTotal.toFixed(2)} 
                 hidden readOnly />
+
+            <input type="reset" id="resetShipping" hidden />
 
             <button type="submit" id="submit" name="submit" value="shipping" 
                 onClick={handleDeleteAllItem}

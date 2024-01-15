@@ -13,6 +13,7 @@ import {
   eraseQuery
 } from './db';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/dist/server/api-utils';
 
 // CRUD mariadb
 export async function mysqlServerAction(prevState: {message: string} | undefined, formData: FormData) {

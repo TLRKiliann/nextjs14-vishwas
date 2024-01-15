@@ -53,6 +53,17 @@ className="animate-slide-anime"
 
 - ex: transition transform rotate-x-0 animate-vertical-rotation
 
+- Erase a form with onSubmit :
+``````
+    const handleDeleteAllItem = (e: React.FormEvent<HTMLFormElement>): void => {
+        e.preventDefault();
+        removeAllFromCart();
+        const target = e.target as HTMLFormElement;
+        target.reset();
+        console.log("payment done");
+    };
+```
+
 ## Database
 
 - Create a db:
