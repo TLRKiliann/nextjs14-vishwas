@@ -2,7 +2,7 @@
 
 import { signIn } from '@/auth';
 import { 
-  cartOrderQuery,
+  actionOrderQuery,
   cartOrderUpdateQuery,
   forgotQuery,
   newMemberQuery,
@@ -75,7 +75,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
         const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
           ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
           stock = VALUES(stock), img = VALUES(img)`;
-        const result = await cartOrderQuery(query, [id, name, price, count, stock, img]);
+        const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/decks");
           return { message: "Inserted to cart" };
@@ -136,7 +136,7 @@ export async function queryWheelsCart(prevState: {message: string} | undefined, 
         const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
           ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
           stock = VALUES(stock), img = VALUES(img)`;
-        const result = await cartOrderQuery(query, [id, name, price, count, stock, img]);
+        const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/wheels");
           return {message: "Inserted to cart !"}
@@ -239,7 +239,7 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
     if (btnShipping === "shipping") {
       if (email !== null && user !== null && address !== null && npa !== null && phone !== null && 
         passwd !== null) {
-        const request = await cartOrderQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?)",
+        const request = await actionOrderQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?)",
           [email, user, address, npa, phone, passwd]);
         if (request) {
           const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
@@ -266,7 +266,7 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
       if (user !== null && date !== null && securitycode !== null) {
-        const checkcardValue = checkcard === "true" ? 1 : 0;
+        const checkcardValue: number = checkcard === "true" ? 1 : 0;
         const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
           [user, date, securitycode, checkcardValue]);
         if (request) {

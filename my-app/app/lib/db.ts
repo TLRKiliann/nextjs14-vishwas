@@ -1,13 +1,11 @@
-import mysql, { OkPacketParams, ResultSetHeader, RowDataPacket } from 'mysql2/promise';
+import mysql from 'mysql2/promise';
 import type {
   MessageProps,
   ProductsProps,
   CartProps,
   EmailProps,
-  //PaymentProps,
+  PaymentProps,
 } from './definitions';
-
-//type GenericResult = ProductsProps | CartProps | MessageProps | EmailProps;
 
 type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | [];
 
@@ -22,7 +20,7 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// fetch all products by server action (no api needed !)
+// fetch all products decks
 const queryDecks = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
   let connection;
   try {
@@ -39,24 +37,7 @@ const queryDecks = async (query: string, data: GenericProps): Promise<ProductsPr
   }
 }
 
-// fetch all products wheels by server action
-const queryCartOrder = async (query: string, data: GenericProps): Promise<CartProps[]> => {
-  let connection;
-  try {
-    connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
-    return result as CartProps[];
-  } catch (error) {
-    console.error(error);
-    throw error;
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
-}
-
-// fetch all products wheels by server action
+// fetch all products wheels
 const queryWheels = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
   let connection;
   try {
@@ -73,7 +54,7 @@ const queryWheels = async (query: string, data: GenericProps): Promise<ProductsP
   }
 }
 
-// fetch all products trucks by server action
+// fetch all products trucks
 const queryTrucks = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
   let connection;
   try {
@@ -107,7 +88,24 @@ const newMemberQuery = async (query: string, data: any) => {
   }
 }
 
-const cartOrderQuery = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
+const actionOrderQuery = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as CartProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// fetch all products cartorder
+const queryCartOrder = async (query: string, data: GenericProps): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -158,12 +156,12 @@ const queryCartDelete = async (query: string, data: FormDataEntryValue[]): Promi
 }
 
 // type of checkcardValue doesn't work !
-const paymentQuery = async (query: string, data: any[]) => {
+const paymentQuery = async (query: string, data: any[]): Promise<PaymentProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result;
+    return result as PaymentProps[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -242,7 +240,7 @@ const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<E
 }
 
 // authentication
-const authQuery = async (query: string, data: string[]) => {
+const authQuery = async (query: string, data: FormDataEntryValue[]) => {
   try {
     const db = await mysql.createConnection({
       host: process.env.MYSQL_HOST,
@@ -253,11 +251,11 @@ const authQuery = async (query: string, data: string[]) => {
       namedPlaceholders: true,
     })
     const [result] = await db.execute(query, data);
-    await db.end();
+    //await db.end();
     return result;
   } catch (error) {
     console.log(error);
-    return error;
+    throw error;
   }
 }
 
@@ -274,7 +272,7 @@ export {
   queryTrucks,
   queryWheels,
   newMemberQuery,
-  cartOrderQuery,
+  actionOrderQuery,
   cartOrderUpdateQuery,
   queryCartDelete,
   paymentQuery,

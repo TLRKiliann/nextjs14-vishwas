@@ -114,5 +114,5 @@ export type PaymentProps = {
     user: string;
     date: string;
     securitycode: number;
-    checkcardValue: number;
+    checkcard: boolean;
 }
