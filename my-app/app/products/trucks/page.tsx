@@ -7,6 +7,7 @@ import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
 import deckFlip from "@/public/img_decks/deck-h.png";
 import NavigationMenu from '@/app/ui/products/decks/navigation-menu';
 import NavigationWheels from '@/app/ui/products/wheels/navigation-wheels';
+import SearchUrl from '@/app/ui/products/search-url';
 
 export const metadata: Metadata = {
   title: "Trucks",
@@ -37,6 +38,10 @@ export default async function AxisShop() {
           light-title-h1 mt-3'>
           Trucks
         </h2>
+      </div>
+
+      <div className="relative flex flex-col items-center justify-center w-full mt-4">
+        <SearchUrl placeholder="Search by product name..." />
       </div>
 
       <div className='w-[800px] m-auto bg-slate-100 my-10 xl:mt-[100px]'>

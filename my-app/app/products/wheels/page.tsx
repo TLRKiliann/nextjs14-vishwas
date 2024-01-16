@@ -29,7 +29,7 @@ export default async function AxisShop() {
   }
 
   return (
-    <div className='min-h-screen bg-slate-100 dark:bg-slate-900 mt-4'>
+    <div className='min-h-screen bg-slate-100 dark:bg-slate-900 mt-20'>
       
       <div className='xs:w-4/5 w-3/5 h-auto bg-slate-300 m-auto mb-10 pt-4 pb-10 rounded dark:shadow-in 
           shadow-inviolet'>

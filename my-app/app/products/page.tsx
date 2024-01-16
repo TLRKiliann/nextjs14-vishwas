@@ -40,8 +40,8 @@ export default function ListProducts() {
                 </h1>
             </div>
 
-            <div className="relative flex flex-col w-full mt-4">
-                <SearchUrl placeholder="ex: baker one, or element three, ..." />
+            <div className="relative flex flex-col items-center justify-center w-full mt-4">
+                <SearchUrl placeholder="Search by product name..." />
             </div>
 
             {titles.map((tName: TitlesProps) => (
