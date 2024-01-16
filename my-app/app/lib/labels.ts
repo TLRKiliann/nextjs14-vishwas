@@ -192,3 +192,73 @@ export const listOfGirl: ListOfDecksProps[] = [
         label: "girl"
     }
 ];
+
+
+export const listOfBones: ListOfDecksProps[] = [
+    {
+        id: 37,
+        name: "one",
+        label: "bones"
+    },
+    {
+        id: 38,
+        name: "two",
+        label: "bones"
+    },
+    {
+        id: 39,
+        name: "three",
+        label: "bones"
+    },
+    {
+        id: 40,
+        name: "four",
+        label: "bones"
+    }
+];
+
+export const listOfSlimballs: ListOfDecksProps[] = [
+    {
+        id: 41,
+        name: "one",
+        label: "slimballs"
+    },
+    {
+        id: 42,
+        name: "two",
+        label: "slimballs"
+    },
+    {
+        id: 43,
+        name: "three",
+        label: "slimballs"
+    },
+    {
+        id: 44,
+        name: "four",
+        label: "slimballs"
+    }
+];
+
+export const listOfSpitfire: ListOfDecksProps[] = [
+    {
+        id: 45,
+        name: "one",
+        label: "spitfire"
+    },
+    {
+        id: 46,
+        name: "two",
+        label: "spitfire"
+    },
+    {
+        id: 47,
+        name: "three",
+        label: "spitfire"
+    },
+    {
+        id: 48,
+        name: "four",
+        label: "spitfire"
+    }
+];

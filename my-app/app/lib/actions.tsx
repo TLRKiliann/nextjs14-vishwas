@@ -2,16 +2,18 @@
 
 import { signIn } from '@/auth';
 import { 
-  cartOrderQuery,
+  actionOrderQuery,
   cartOrderUpdateQuery,
   forgotQuery,
   newMemberQuery,
   queryCartDelete,
   sendMessage,
+  shippingQuery,
   paymentQuery,
   eraseQuery
 } from './db';
 import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/dist/server/api-utils';
 
 // CRUD mariadb
 export async function mysqlServerAction(prevState: {message: string} | undefined, formData: FormData) {
@@ -75,7 +77,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
         const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
           ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
           stock = VALUES(stock), img = VALUES(img)`;
-        const result = await cartOrderQuery(query, [id, name, price, count, stock, img]);
+        const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/decks");
           return { message: "Inserted to cart" };
@@ -136,7 +138,7 @@ export async function queryWheelsCart(prevState: {message: string} | undefined, 
         const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
           ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
           stock = VALUES(stock), img = VALUES(img)`;
-        const result = await cartOrderQuery(query, [id, name, price, count, stock, img]);
+        const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/wheels");
           return {message: "Inserted to cart !"}
@@ -165,11 +167,72 @@ export async function deleteWheels(prevState: {message: string} | undefined, for
   try {
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllById") {
+    if (btnDelete === "removeAllByIdWheel") {
       if (id !== null) {
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
-          revalidatePath("/wheels");
+          revalidatePath("/products/wheels");
+          return {
+            message: "Product removed"
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error)
+    throw error;
+  }
+}
+
+// trucks cart query
+export async function queryTruckCart(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const name = formData.get("name");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const stock = formData.get("stock");
+    const img = formData.get("img");
+    const btnWheel = formData.get("submit");
+    if (btnWheel === "addTruck") {
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const query = `INSERT INTO cartorder (id, name, price, count, stock, img) VALUES (?, ?, ?, ?, ?, ?)
+          ON DUPLICATE KEY UPDATE name = VALUES(name), price = VALUES(price), count = VALUES(count),
+          stock = VALUES(stock), img = VALUES(img)`;
+        const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
+        if (result) {
+          revalidatePath("/products/trucks");
+          return {message: "Inserted to cart !"}
+        }
+      }
+    }
+    if (btnWheel === "deleteTruck") {
+      if (id !== null && name !== null && price !== null && count !== null && stock !== null && img !== null) {
+        const result = await cartOrderUpdateQuery("UPDATE cartorder SET id=?, name=?, price=?, count=?, \
+          stock=?, img=? WHERE id=?", 
+          [id, name, price, count, stock, img, id]);
+        if (result) {
+          revalidatePath("/products/trucks");
+          return {message: "Deleted from cart"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// delete item from trucks
+export async function deleteTrucks(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const id = formData.get("id");
+    const btnDelete = formData.get("submit");
+    if (btnDelete === "removeAllByIdTruck") {
+      if (id !== null) {
+        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
+        if (result) {
+          revalidatePath("/products/trucks");
           return {
             message: "Product removed"
           }
@@ -235,12 +298,13 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
     const npa = formData.get("npa");
     const phone = formData.get("phone");
     const passwd = formData.get("passwd");
+    const filterTotal = formData.get("filterTotal");
     const btnShipping = formData.get("submit");
     if (btnShipping === "shipping") {
       if (email !== null && user !== null && address !== null && npa !== null && phone !== null && 
-        passwd !== null) {
-        const request = await cartOrderQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?)",
-          [email, user, address, npa, phone, passwd]);
+        passwd !== null && filterTotal !== null) {
+        const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
+          [email, user, address, npa, phone, passwd, filterTotal]);
         if (request) {
           const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
           if (eraseTable) {
@@ -263,12 +327,13 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
     const date = formData.get("date");
     const securitycode = formData.get("securitycode");
     const checkcard = formData.get("checkcard");
+    const filterTotal = formData.get("filterTotal");
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
-      if (user !== null && date !== null && securitycode !== null) {
-        const checkcardValue = checkcard === "true" ? 1 : 0;
-        const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?)",
-          [user, date, securitycode, checkcardValue]);
+      if (user !== null && date !== null && securitycode !== null && filterTotal !== null) {
+        const checkcardValue: number = checkcard === "true" ? 1 : 0;
+        const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?, ?)",
+          [user, date, securitycode, checkcardValue, filterTotal]);
         if (request) {
           const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
           if (eraseTable) {

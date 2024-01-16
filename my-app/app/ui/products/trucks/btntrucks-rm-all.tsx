@@ -3,25 +3,25 @@
 import { useShoppingCart } from '@/app/context/cart-context';
 import React from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
-import { deleteWheels } from '@/app/lib/actions';
+import { deleteTrucks } from '@/app/lib/actions';
 
 export default function BtnRemoveAll({id}: {id: number}) {
 
     const { pending } = useFormStatus();
-    const [state, formData] = useFormState(deleteWheels, undefined);
+    const [state, formData] = useFormState(deleteTrucks, undefined);
 
     const { removeFromCart } = useShoppingCart();
 
-    const handleRemove = (id: number) => {
+    const handleRemove = (id: number): void => {
         removeFromCart(id);
     };
 
     return (
-        <form action={formData} className='flex flex-col items-center justify-center mb-4'>
+        <form action={formData} className='flex flex-col items-center justify-center my-2'>
 
             <input type="number" id="id" name="id" value={id} hidden readOnly />
 
-            <button type="submit" id="submit" name="submit" value="removeAllById" 
+            <button type="submit" id="submit" name="submit" value="removeAllByIdTruck" 
                 disabled={pending} onClick={() => handleRemove(id)} className='button-card'
             >
                 {pending ? "Pending" : "Remove"}

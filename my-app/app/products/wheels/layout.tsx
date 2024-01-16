@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationMenu from '@/app/ui/products/decks/navigation-menu';
 import Image from 'next/image';
 import deckTitle from "@/public/img_decks/deck-h.png";
+import SearchUrl from '@/app/ui/products/search-url';
 
 export default function LayoutBoardShop({children}: {children: React.ReactNode}) {
     return (
@@ -18,6 +19,9 @@ export default function LayoutBoardShop({children}: {children: React.ReactNode})
                     light-title-h1 mt-3'>
                     Wheels
                 </h2>
+            </div>
+            <div className="absolute flex flex-col items-center justify-center w-full mt-4">
+                <SearchUrl placeholder="Search by product name..." />
             </div>
             {children}
             <NavigationMenu />

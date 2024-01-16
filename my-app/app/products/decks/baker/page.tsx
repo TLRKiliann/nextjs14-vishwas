@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: "Baker's Decks"
   },
   description: "list of Baker's decks"
-}
+};
 
 export default async function BakerDecks() {
 

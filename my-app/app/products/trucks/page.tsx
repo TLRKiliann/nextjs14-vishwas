@@ -5,9 +5,12 @@ import Image from 'next/image';
 import { queryTrucks } from '@/app/lib/db';
 import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
 import deckFlip from "@/public/img_decks/deck-h.png";
+import NavigationMenu from '@/app/ui/products/decks/navigation-menu';
+import NavigationWheels from '@/app/ui/products/wheels/navigation-wheels';
+import SearchUrl from '@/app/ui/products/search-url';
 
 export const metadata: Metadata = {
-  title: "Wheels",
+  title: "Trucks",
   description: "access accepted"
 };
 
@@ -37,17 +40,26 @@ export default async function AxisShop() {
         </h2>
       </div>
 
-      {JSON.parse(data).map((truck: ProductsProps) => (
-        <TrucksCards 
-          key={truck.id}
-          id={truck.id}
-          name={truck.name}
-          price={truck.price}
-          stock={truck.stock}
-          img={truck.img}
-        />
-      ))}
+      <div className="relative flex flex-col items-center justify-center w-full mt-4">
+        <SearchUrl placeholder="Search by product name..." />
+      </div>
 
+      <div className='w-[800px] m-auto bg-slate-100 md:mt-10 mb-10 xl:mt-20'>
+        <div className='flex items-center justify-between'>
+          {JSON.parse(data).map((truck: ProductsProps) => (
+            <TrucksCards 
+              key={truck.id}
+              id={truck.id}
+              name={truck.name}
+              price={truck.price}
+              stock={truck.stock}
+              img={truck.img}
+            />
+          ))}
+        </div>
+      </div>
+      <NavigationMenu />
+      <NavigationWheels />
     </div>
   )
 }

@@ -108,11 +108,24 @@ export type DataDeleteProps = {
 }
 
 export type EmailProps = {
+    password: string;
     email: string;
 }
+
+export type ShippingProps = {
+    email: string;
+    user: string;
+    address: string;
+    npa: number;
+    phone: number;
+    passwd: string;
+    filterTotal: number;
+}
+
 export type PaymentProps = {
     user: string;
     date: string;
     securitycode: number;
-    checkcardValue: number;
+    checkcard: boolean;
+    filterTotal: number;
 }

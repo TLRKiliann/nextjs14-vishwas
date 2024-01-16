@@ -14,7 +14,7 @@ export default function Cart({id, name, price, count, stock, img}: CartProps) {
     const {pending} = useFormStatus();
     const [code, formAction] = useFormState(deleteCartItem, undefined);
 
-    const handleDeleteItem = (id: number) => {
+    const handleDeleteItem = (id: number): void => {
         removeFromCart(id);
     };
 

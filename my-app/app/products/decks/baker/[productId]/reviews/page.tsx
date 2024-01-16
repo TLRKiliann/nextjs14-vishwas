@@ -1,10 +1,10 @@
 "use client";
 
+import type { ReviewsProps } from '@/app/lib/definitions';
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { reviewsBaker } from '@/app/lib/datas'
-
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
 
@@ -26,7 +26,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
 
                 <div className='w-[220px] py-2'>
 
-                    {reviewsBaker.map((rev) => (
+                    {reviewsBaker.map((rev: ReviewsProps) => (
                         <ul key={rev.id} className='list-outside list-disc mb-2 ml-10'>
                             <li className='custom-li'>
                                 <Link 
@@ -42,7 +42,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                 </div>
 
                 <div className='grid grid-cols-3 grid-rows-3 w-4/5 mr-10'>
-                    {reviewsBaker.map((rev) => (
+                    {reviewsBaker.map((rev: ReviewsProps) => (
                         <div key={rev.id} className='flex flex-col '>
                             
                             <div className='flex items-center justify-center '>

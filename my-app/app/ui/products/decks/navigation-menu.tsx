@@ -9,16 +9,17 @@ export default function NavigationMenu() {
     
     const [closeMenu, setCloseMenu] = useState<boolean>(false);
 
-    const handleCloseMenu = (): void => {
+    const handleCloseMenuDecks = (): void => {
         setCloseMenu(!closeMenu);
     };
 
     return (
-        <div className='fixed top-[75px] right-[20px] w-[200px] h-auto text-lg bg-none'>
+        <div className='fixed top-[75px] right-[20px] w-[200px] h-auto text-lg bg-none z-20'>
 
-            <div onClick={handleCloseMenu} className='flex items-center text-amber-900 cursor-pointer 
-                active:text-amber-500 transform hover:scale-105 active:scale-95'>
-                <h2 className='absolute w-full text-2xl font-bold text-center mt-2 z-10'>
+            <div onClick={handleCloseMenuDecks} className='flex items-center cursor-pointer 
+                transform hover:scale-105 active:scale-95'>
+                <h2 className='absolute w-full text-2xl font-bold text-center text-transparent 
+                    bg-clip-text dark-title-h1 light-title-h1 mt-2'>
                     Decks
                 </h2>
                 <div className='flex items-center justify-center w-200 h-auto'>
@@ -29,28 +30,28 @@ export default function NavigationMenu() {
             </div>
 
             {closeMenu ? (
-                <div className='font-bold dark:text-amber-900 bg-orange-200 transition transform 
+                <div className='font-bold dark:text-amber-900 bg-orange-200 pl-6 transition transform 
                     duration-300 ease-in-out rounded-lg'>
-                    <li className='mt-1 ml-8 py-2 hover:text-amber-700 active:text-amber-500'>
-                        <Link href="/products/decks/baker">
+                    <li className='custom-li'>
+                        <Link href="/products/decks/baker" className='custom-link'>
                             Baker
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='ml-8 py-2 hover:text-amber-700 active:text-amber-500'>
-                        <Link href="/products/decks/blind">
+                    <li className='custom-li'>
+                        <Link href="/products/decks/blind" className='custom-link'>
                             Blind
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='ml-8 py-2 hover:text-amber-700 active:text-amber-500'>
-                        <Link href="/products/decks/element">
+                    <li className='custom-li'>
+                        <Link href="/products/decks/element" className='custom-link'>
                             Element
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='ml-8 py-2 hover:text-amber-700 active:text-amber-500'>
-                        <Link href="/products/decks/girl">
+                    <li className='custom-li'>
+                        <Link href="/products/decks/girl" className='custom-link'>
                             Girl
                         </Link>
                     </li>

@@ -39,7 +39,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
 
     const searchId = retriveLibDeck?.find((img: ImgSetProps) => img.id === parseInt(paramsId));
     const initialState: string | undefined = searchId?.images[0].src;
-    const [imgState, setImageState] = useState<string | undefined>(initialState)
+    const [imgState, setImageState] = useState<string | undefined>(initialState);
 
     const [colorPoint, setColorPoint] = useState<ColorPointProps>({
         color1: true,
@@ -47,7 +47,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
         color3: false
     });
 
-    const handlePointOne = () => {
+    const handlePointOne = (): void => {
         setImageState(searchId?.images[0].src);
         setColorPoint(prevState => ({
             ...prevState,
@@ -57,7 +57,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
         }));
     };
     
-    const handlePointTwo = () => {
+    const handlePointTwo = (): void => {
         setImageState(searchId?.images[1].src);
         setColorPoint(prevState => ({
             ...prevState,
@@ -67,7 +67,7 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
         }));
     };
 
-    const handlePointThree = () => {
+    const handlePointThree = (): void => {
         setImageState(searchId?.images[2].src);
         setColorPoint(prevState => ({
             ...prevState,
@@ -78,12 +78,12 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
     };
 
     return (
-        <div className='flex w-3/5 h-content'>
+        <div className='flex w-full h-content'>
                     
             <div className='flex w-full h-full rounded-tl-xl rounded-bl-xl'>
             
-                <div className='flex flex-col items-center justify-around w-2/5 bg-slate-100 my-0 rounded-tl-xl rounded-bl-xl
-                    transition transform translate-y-0 animate-right-start'>
+                <div className='flex flex-col items-center justify-around w-2/5 bg-slate-100 my-0 
+                    rounded-tl-xl rounded-bl-xl transition transform translate-y-0 animate-right-start'>
 
                     <span onClick={handlePointOne} className="w-[100px] h-auto cursor-pointer p-2 pb-0">
                         <Image src={String(searchId?.images[0].src)} 
@@ -114,8 +114,8 @@ export default function BoxImage({paramsId, data}: {paramsId: string, data: Prod
 
                 </div>
 
-                <div className='flex flex-col items-center justify-between w-full bg-slate-100 border-r border-l 
-                    border-slate-600/50 transform transition translate-y-0 animate-down-start'>
+                <div className='flex flex-col w-3/5 bg-slate-100 border-r 
+                    border-l border-slate-600/50 transform transition translate-y-0 animate-down-start'>
                     
                     <div className='flex items-center justify-center md:w-[200px] lg:w-[300px] h-auto 
                         bg-slate-100 m-auto p-4'>

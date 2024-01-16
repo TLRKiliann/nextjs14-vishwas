@@ -9,7 +9,7 @@ export const metadata: Metadata = {
       absolute: "Blind's Decks"
   },
   description: "list of Blind's decks"
-}
+};
 
 export default async function BlindDecks() {
 
@@ -18,7 +18,7 @@ export default async function BlindDecks() {
   
   if (!data) {
     throw new Error("Error: data not loaded for blind's decks");
-  }
+  };
 
   return (
     <div className='min-h-screen bg-slate-900 py-[75px]'>
@@ -30,4 +30,4 @@ export default async function BlindDecks() {
 
     </div>
   )
-}
+};

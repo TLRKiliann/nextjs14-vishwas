@@ -5,27 +5,36 @@ import { useFormStatus, useFormState } from 'react-dom';
 import { paymentRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function Payment() {
+export default function Payment({filterTotal}: {filterTotal: number}) {
 
     const [checking, setchecking] = useState<boolean>(false);
 
-    const { removeAllFromCart } = useShoppingCart();
-
     const { pending } = useFormStatus();
     const [status, formData] = useFormState(paymentRequest, undefined);
+
+    const { removeAllFromCart } = useShoppingCart();
 
     const handleCheck = (): void => {
         setchecking((old) => !old);
         console.log("checked");
     };
 
+    const resetCall = (): void => {
+        if (typeof window !== "undefined") {
+            const timer = setTimeout(() => {
+                document.getElementById("resetPayment")?.click();
+            }, 1000)
+        }
+    };
+
     const handleDeleteAllItem = (): void => {
-        removeAllFromCart()
+        removeAllFromCart();
+        resetCall();
         console.log("payment done");
     };
 
     return (
-        <form action={formData} className='flex flex-col px-8'>
+        <form id="payment-form" action={formData} className='flex flex-col px-8'>
     
             <input type="text" id="user" name="user" placeholder="Card number" required
                 className='text-lg w-full bg-slate-200 dark:bg-slate-700 rounded focus:outline 
@@ -54,7 +63,12 @@ export default function Payment() {
                 </p>
             </div>
 
-            <button type="submit" id="submit" name="submit" value="payment" 
+            <input type="number" id="filterTotal" name="filterTotal" value={filterTotal.toFixed(2)} 
+                hidden readOnly />
+            
+            <input type="reset" id="resetPayment" hidden />
+            
+            <button type="submit" id="submit" name="submit" value="payment"
                 onClick={handleDeleteAllItem}
                 disabled={pending}
                 className='w-ful text-xl font-bold text-slate-50 bg-blue-600 hover:bg-blue-700 
@@ -64,7 +78,7 @@ export default function Payment() {
             </button>
 
             {status?.message ? (
-                <p className='text-center text-green-400'>{status.message}</p>
+                <p className='text-center text-green-400'>{status.message}</p> 
             ) : null}
 
         </form>

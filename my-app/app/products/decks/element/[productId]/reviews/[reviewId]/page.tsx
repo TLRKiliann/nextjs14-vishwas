@@ -1,4 +1,4 @@
-import type { ProductsProps, PropsProdReview } from '@/app/lib/definitions';
+import type { ProductsProps, PropsProdReview, ReviewsProps } from '@/app/lib/definitions';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { queryDecks } from '@/app/lib/db';
@@ -19,7 +19,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
 
     return (
         <div className='w-full'>
-            {reviewsElement.map((rev) => (
+            {reviewsElement.map((rev: ReviewsProps) => (
                 rev.id === parseInt(params.reviewId) ? (
                     <div key={rev.id} className='md:w-3/5 xl:w-4/5 m-auto'>
                         
@@ -79,9 +79,3 @@ export default async function ReviewById({ params }: PropsProdReview) {
         </div>
     )
 }
-
-/*
-<div className='p-4'>
-    <p>Product id: {params.productId} and article id: {params.reviewId}</p>
-</div>
-*/

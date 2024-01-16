@@ -5,15 +5,24 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { shippingRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
-export default function Shipping() {
-
-    const { removeAllFromCart } = useShoppingCart();
+export default function Shipping({filterTotal}: {filterTotal: number}) {
 
     const { pending } = useFormStatus();
     const [code, formAction] = useFormState(shippingRequest, undefined);
 
+    const { removeAllFromCart } = useShoppingCart();
+
+    const resetCall = (): void => {
+        if (typeof window !== "undefined") {
+            const timer = setTimeout(() => {
+                document.getElementById("resetShipping")?.click();
+            }, 1000)
+        }
+    };
+
     const handleDeleteAllItem = (): void => {
         removeAllFromCart();
+        resetCall();
         console.log("shipping done");
     };
 
@@ -57,6 +66,11 @@ export default function Shipping() {
                     focus:outline-blue-600 focus:border focus:border-blue-600 placeholder:text-slate-600
                     dark:placeholder:text-slate-400
                     my-3 mb-6 px-2 py-2' />
+
+            <input type="number" id="filterTotal" name="filterTotal" value={filterTotal.toFixed(2)} 
+                hidden readOnly />
+
+            <input type="reset" id="resetShipping" hidden />
 
             <button type="submit" id="submit" name="submit" value="shipping" 
                 onClick={handleDeleteAllItem}

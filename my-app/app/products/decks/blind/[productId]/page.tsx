@@ -1,4 +1,4 @@
-import type { ProductsProps } from '@/app/lib/definitions';
+import type { ProductsProps, ReviewsProps } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { queryDecks } from '@/app/lib/db';
@@ -29,34 +29,23 @@ const DetailsProduct = async ({params}: Props) => {
     const productName = JSON.parse(data).map((prod: ProductsProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
-                <DeckUnit
-                    key={prod.id}
-                    id={prod.id}
-                    name={prod.name}
-                    img={prod.img}
-                    price={prod.price}
-                    stock={prod.stock}
-                />
+                <div key={prod.id} className='w-2/5'>
+                    <DeckUnit
+                        key={prod.id}
+                        id={prod.id}
+                        name={prod.name}
+                        img={prod.img}
+                        price={prod.price}
+                        stock={prod.stock}
+                    />
+                </div>
             )
         }
     });
 
     return (
         <>
-            {/* <p className="p-4">Details by product id: {params.productId}</p> */}
-
-            <div className="flex align-center justify-start">
-                <Link 
-                    href={`/products/decks/blind/${params.productId}/reviews`}
-                    className='text-2xl font-bold dark:text-sky-500 hover:dark:text-sky-400 
-                    text-violet-500 hover:text-violet-400
-                    p-4'
-                >
-                    All videos of Blind
-                </Link>
-            </div>
-
-            <div className='flex justify-center w-full h-auto'>
+            <div className='flex justify-center w-3/5 h-auto bg-slate-100 m-auto mt-10 xl:mt-[8%] rounded-xl'>
 
                 <BoxImage paramsId={params.productId} data={JSON.parse(data)} />
 
@@ -64,9 +53,9 @@ const DetailsProduct = async ({params}: Props) => {
             
             </div>
 
-            {reviewsBlind.map((rev) => (
+            {reviewsBlind.map((rev: ReviewsProps) => (
                 rev.id === parseInt(params.productId) ? (
-                    <div key={rev.id} className="flex align-center justify-center">
+                    <div key={rev.id} className="flex items-center justify-center">
                         <Link 
                             href={`/products/decks/blind/${params.productId}/reviews/${rev.id}`}
                             className='text-lg text-transparent bg-clip-text dark-title-h1 light-title-h1 

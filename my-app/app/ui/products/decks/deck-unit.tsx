@@ -16,27 +16,25 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     const {
         getItemQuantity,
         increaseCartQuantity,
-        decreaseCartQuantity,
-        //removeFromCart
+        decreaseCartQuantity
     } = useShoppingCart();
 
-    const quantity = getItemQuantity(id);
+    const quantity: number = getItemQuantity(id);
 
-    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
     };
   
-    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number) => {
+    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
 
     return (
-        <div key={id} className='flex items-center justify-start w-[250px] h-content text-md'>
+        <div key={id} className='flex items-center justify-center w-full h-full text-md'>
 
-            <form action={formAction} className='w-[250px] flex flex-col bg-slate-100
+            <form action={formAction} className='flex flex-col w-full h-full bg-slate-100
                 transform transition translate-y-0 animate-up-start rounded-tr-xl rounded-br-xl'
             >
-                {/* secondary-dark-bg-gradient secondary-light-bg-gradient */}
                 <div className='w-full h-auto'>
                     <Image
                         src={img}
