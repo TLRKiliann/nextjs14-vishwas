@@ -29,21 +29,23 @@ const DetailsProduct = async ({params}: Props) => {
     const productName = JSON.parse(data).map((prod: ProductsProps) => {
         if (prod.id === parseInt(params.productId)) {
             return (
-                <DeckUnit
-                    key={prod.id}
-                    id={prod.id}
-                    name={prod.name}
-                    img={prod.img}
-                    price={prod.price}
-                    stock={prod.stock}
-                />
+                <div key={prod.id} className='w-2/5'>
+                    <DeckUnit
+                        key={prod.id}
+                        id={prod.id}
+                        name={prod.name}
+                        img={prod.img}
+                        price={prod.price}
+                        stock={prod.stock}
+                    />
+                </div>
             )
         }
     });
 
     return (
         <>
-            <div className='flex justify-center w-full h-auto mt-10'>
+            <div className='flex justify-center w-3/5 h-auto bg-slate-100 m-auto mt-10 xl:mt-[8%] rounded-xl'>
 
                 <BoxImage paramsId={params.productId} data={JSON.parse(data)} />
 
@@ -53,14 +55,15 @@ const DetailsProduct = async ({params}: Props) => {
 
             {reviewsBaker.map((rev: ReviewsProps) => (
                 rev.id === parseInt(params.productId) ? (
-                    <div key={rev.id} className="flex align-center justify-center">
-                        <Link 
-                            href={`/products/decks/baker/${params.productId}/reviews/${rev.id}`}
+                    <div key={rev.id} className="flex items-center justify-center">
+
+                        <Link href={`/products/decks/baker/${params.productId}/reviews/${rev.id}`}
                             className='text-lg text-transparent bg-clip-text dark-title-h1 light-title-h1 
                             hover:dark:text-sky-400 hover:text-violet-400 p-4'
                         >
                             {rev.categories}
                         </Link>
+
                     </div>
                 ) : null
             ))}

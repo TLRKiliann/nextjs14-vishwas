@@ -30,12 +30,11 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     };
 
     return (
-        <div key={id} className='flex items-center justify-start w-[250px] h-content text-md'>
+        <div key={id} className='flex items-center justify-center w-full h-full text-md'>
 
-            <form action={formAction} className='w-[250px] flex flex-col bg-slate-100
+            <form action={formAction} className='flex flex-col w-full h-full bg-slate-100
                 transform transition translate-y-0 animate-up-start rounded-tr-xl rounded-br-xl'
             >
-                {/* secondary-dark-bg-gradient secondary-light-bg-gradient */}
                 <div className='w-full h-auto'>
                     <Image
                         src={img}
