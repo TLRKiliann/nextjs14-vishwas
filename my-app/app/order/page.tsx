@@ -6,9 +6,9 @@ import FormOrder from '@/app/ui/cart-order/form-order';
 import TableOrder from '@/app//ui/cart-order/table-order';
 
 export const metadata: Metadata = {
-  title: "order",
+  title: "Order",
   description: "access accepted"
-}
+};
 
 export default async function OrderPage() {
   
