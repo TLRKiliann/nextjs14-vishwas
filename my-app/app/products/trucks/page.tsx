@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { queryTrucks } from '@/app/lib/db';
 import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
 import deckFlip from "@/public/img_decks/deck-h.png";
+import NavigationMenu from '@/app/ui/products/decks/navigation-menu';
+import NavigationWheels from '@/app/ui/products/wheels/navigation-wheels';
 
 export const metadata: Metadata = {
   title: "Trucks",
@@ -51,6 +53,8 @@ export default async function AxisShop() {
           ))}
         </div>
       </div>
+      <NavigationMenu />
+      <NavigationWheels />
     </div>
   )
 }
