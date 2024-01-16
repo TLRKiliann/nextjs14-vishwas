@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
+import NavBakerBlindDecks from '@/app/ui/products/decks/navbakerblind-decks';
+import NavElementGirlDecks from '@/app/ui/products/decks/navelemgirl-decks';
 
 type ParamsProps = {
   productId: string;
@@ -33,7 +35,9 @@ export default async function DetailsProduct({children, params}:
       >
         Baker&apos;s Decks
       </h1>
+      <NavBakerBlindDecks />
         {children}
+      <NavElementGirlDecks />
       <li className='text-2xl text-transparent bg-clip-text dark-title-h1 light-title-h1 cursor-pointer
         hover:text-sky-400 p-4'>
         <Link href="/order">Checkout</Link>
