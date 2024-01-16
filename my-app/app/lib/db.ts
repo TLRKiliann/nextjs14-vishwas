@@ -21,7 +21,7 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// fetch all products decks
+// fetch all products from decks (bakerdecks, blinddecks, elementdecks, girldecks)
 const queryDecks = async (query: string, data: GenericProps): Promise<ProductsProps[]> => {
   let connection;
   try {
@@ -87,8 +87,26 @@ const newMemberQuery = async (query: string, data: any) => {
       connection.release();
     }
   }
-}
+};
 
+// fetch all products from cartorder
+const queryCartOrder = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as CartProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+};
+
+// insert product into cartorder
 const actionOrderQuery = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
   let connection;
   try {
@@ -105,24 +123,7 @@ const actionOrderQuery = async (query: string, data: FormDataEntryValue[]): Prom
   }
 }
 
-// fetch all products cartorder
-const queryCartOrder = async (query: string, data: GenericProps): Promise<CartProps[]> => {
-  let connection;
-  try {
-    connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
-    return result as CartProps[];
-  } catch (error) {
-    console.error(error);
-    throw error;
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
-}
-
-//cart order update query
+// update data into cartorder
 const cartOrderUpdateQuery = async (query: string, data: FormDataEntryValue[]): Promise<CartProps[]> => {
   let connection;
   try {
@@ -241,6 +242,7 @@ const showAllMessageBox = async (query: string, data: MessageProps[]) => {
   }
 }
 
+// send email if password forgotten
 const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailProps[]> => {
   let connection;
   try {

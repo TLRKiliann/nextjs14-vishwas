@@ -8,7 +8,7 @@ import CartItems from '@/app/ui/cart/cart-items';
 export const metadata: Metadata = {
     title: "Cart",
     description: "access accepted"
-}
+};
 
 export default async function Cart() {
 
@@ -28,7 +28,7 @@ export default async function Cart() {
       }
     });
     
-    let filterTotal: number = totalPrice.reduce((a: number, b: number) => a += b, 0);
+    const filterTotal: number = totalPrice.reduce((a: number, b: number) => a += b, 0);
 
     return (
         <div className='w-full min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]'>
@@ -41,7 +41,8 @@ export default async function Cart() {
 
             <div className='flex justify-center'>
 
-                <div className='flex items-center justify-between w-3/5 bg-slate-300 px-4 py-2 rounded shadow-md'>
+                <div className='flex items-center justify-between w-3/5 bg-slate-300 px-4 py-2 rounded 
+                    shadow-md'>
                     <h2 className='text-lg font-bold text-slate-600'>
                         Total :
                     </h2>
@@ -55,11 +56,10 @@ export default async function Cart() {
 
             <div className='flex items-center justify-center w-full pt-4 pb-4'>
                 <Link href="/order"
-                    className='w-3/5 font-bold text-center text-slate-50
-                    hover:text-slate-200 hover:shadow-none
-                    active:text-slate-50 bg-blue-600 hover:bg-blue-700 
-                    active:bg-blue-500 active:scale-95 active:shadow-none
-                    border-none mx-4 py-2 rounded-lg shadow-lg'
+                    className='w-3/5 font-bold text-center text-slate-50 hover:text-slate-200 
+                    hover:shadow-none active:text-slate-50 bg-blue-600 hover:bg-blue-700 
+                    active:bg-blue-500 active:scale-95 active:shadow-none border-none mx-4 py-2 rounded-lg 
+                    shadow-lg'
                 >
                     CHECKOUT
                 </Link>
