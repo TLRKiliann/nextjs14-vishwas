@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function NavBakerBlindDecks() {
   return (
-    <div className='absolute w-[200px] mt-10 xl:mt-[5%] p-4 pl-8 border'>
+    <div className='absolute w-[200px] mt-10 xl:mt-[5%] p-4 pl-8'>
         <li className='custom-li'>
             <Link href="/products/decks/baker/1" className='custom-link'>
                 Baker One
@@ -49,7 +49,6 @@ export default function NavBakerBlindDecks() {
                 Baker Nine
             </Link>
         </li>
-
         <li className='custom-li'>
             <Link href="/products/decks/blind/10" className='custom-link'>
                 Blind One
