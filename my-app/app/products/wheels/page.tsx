@@ -26,7 +26,7 @@ export default async function AxisShop() {
     throw new Error("Error: server failed to catch data from slimballs !");
   } else if (!dataThree) {
     throw new Error("Error: server failed to catch data from spitfire !");
-  }
+  };
 
   return (
     <div className='min-h-screen bg-slate-100 dark:bg-slate-900 mt-20'>
