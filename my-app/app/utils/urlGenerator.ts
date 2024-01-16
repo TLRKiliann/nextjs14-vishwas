@@ -37,8 +37,6 @@ export const generateProductUrl = (text: string, textNumber: string) => {
         return `/products/wheels`;
       case "trucks":
         return `/products/trucks`;
-      default:
-        return `/products/not-found`;
     }
   }
   
@@ -65,8 +63,6 @@ export const generateProductUrl = (text: string, textNumber: string) => {
       case "spitfire":
         listChecked = listOfSpitfire;
         break;
-      default: 
-        console.log("No product exists for your search");
     }
   }
 
@@ -79,7 +75,5 @@ export const generateProductUrl = (text: string, textNumber: string) => {
     return `/products/wheels/${mappingLabel?.label}/${mappingNumber?.id}`;
   } else if (mapWheels && (mapWheels < 36)) {
     return `/products/decks/${mappingLabel?.label}/${mappingNumber?.id}`;
-  } else {
-    return `/products`;
   }
 };
