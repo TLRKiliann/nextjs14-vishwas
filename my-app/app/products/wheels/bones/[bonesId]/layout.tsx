@@ -41,15 +41,15 @@ export default async function DetailsProduct({children}: {children: React.ReactN
     <div className='text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-900'>
       
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
-        Bones wheel
+        Bones
       </h1>
 
       <div className='flex'>
-        <div className='flex flex-col w-[300px] border'>
+        <div className='absolute flex flex-col w-[300px] z-20'>
           <Link href="/products/wheels" className='text-lg custom-link py-2 pl-4'>
             Back to Wheels
           </Link>
-          <Link href="/products" className='text-lg custom-link py-2 pl-4'>
+          <Link href="/products" className='text-lg custom-link mb-2 py-2 pl-4'>
             Back to Products
           </Link>
           <AccessWheels />

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function AccessWheels() {
     return (
-        <div className='p-4 pl-8'>
+        <div className='px-4 pl-8'>
             <li className='custom-li'>
                 <Link href="/products/wheels/bones/37" className="custom-link">
                     Bones One
