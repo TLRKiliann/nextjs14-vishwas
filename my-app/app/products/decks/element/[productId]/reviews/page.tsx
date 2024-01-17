@@ -80,35 +80,38 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
 
                 </div>*/}
 
-                <div className='grid grid-cols-3 grid-rows-3 w-4/5 mr-10'>
-                    {reviewsElement.map((rev: ReviewsProps) => (
-                        <div key={rev.id} className='flex flex-col '>
-                            
-                            <div className='flex items-center justify-center '>
+                <div className='flex items-center justify-center w-full'>
 
-                                <div className='flex flex-col items-center justify-center w-full py-4'>
-                                    <video muted controls className='w-4/5 h-auto'>
-                                        <source src={rev.video} type="video/mp4" />
-                                    </video>
-                                    <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
-                                        py-2'>
-                                        <span className='flex items-center justify-center text-sm font-bold text-yellow-300 bg-green-600
-                                            ml-0 mr-3 px-[7px] pt-[8px] pb-[5px] rounded-full'>
-                                            {rev.label}
-                                        </span>
-                                        <div className='text-md text-transparent bg-clip-text dark-title-h1 light-title-h1 
-                                            hover:dark:text-blue-400 mt-1'>
-                                            <Link 
-                                                href={`/products/decks/element/${params.productId}/reviews/${rev.id}`}
-                                            >
-                                                {rev.review}
-                                            </Link>
+                    <div className='grid grid-cols-3 grid-rows-3 w-3/5 gap-x-4'>
+                        {reviewsElement.map((rev: ReviewsProps) => (
+                            <div key={rev.id} className='flex flex-col '>
+                                
+                                <div className='flex items-center justify-center '>
+
+                                    <div className='flex flex-col items-center justify-center w-full py-4'>
+                                        <video muted controls className='w-4/5 h-auto'>
+                                            <source src={rev.video} type="video/mp4" />
+                                        </video>
+                                        <div className='flex items-center justify-start w-4/5 text-sm text-slate-100 
+                                            py-2'>
+                                            <span className='flex items-center justify-center text-sm font-bold text-yellow-300 bg-green-600
+                                                ml-0 mr-3 px-[7px] pt-[8px] pb-[5px] rounded-full'>
+                                                {rev.label}
+                                            </span>
+                                            <div className='text-md text-transparent bg-clip-text dark-title-h1 light-title-h1 
+                                                hover:dark:text-blue-400 mt-1'>
+                                                <Link 
+                                                    href={`/products/decks/element/${params.productId}/reviews/${rev.id}`}
+                                                >
+                                                    {rev.review}
+                                                </Link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

@@ -34,9 +34,11 @@ export default async function DetailsProduct({children, params}:
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
         Element&apos;s Decks
       </h1>
-      <NavBakerBlindDecks />
-        {children}
-      <NavElementGirlDecks />
+      <div className='border'>
+        <NavBakerBlindDecks />
+          {children}
+        <NavElementGirlDecks />
+      </div>
       <li className='text-2xl text-transparent bg-clip-text dark-title-h1 light-title-h1 cursor-pointer
         hover:text-sky-400 p-4'>
         <Link href="/order">Checkout</Link>
