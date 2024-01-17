@@ -129,3 +129,8 @@ export type PaymentProps = {
     checkcard: boolean;
     filterTotal: number;
 }
+
+export type VideoProps = {
+    id: number;
+    video: string;
+}
