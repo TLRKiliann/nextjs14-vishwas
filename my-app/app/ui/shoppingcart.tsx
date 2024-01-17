@@ -57,7 +57,15 @@ export default function ShoppingCart() {
                 <div className='my-auto'>
 
                     {cartItems.length !== 0 ? cartItems.map((item) => (
-                        <CartItem key={item.id} {...item} />
+                        <CartItem 
+                            key={item.id}
+                            id={item.id}
+                            name={item.name}
+                            img={item.img}
+                            price={item.price}
+                            stock={item.stock}
+                            quantity={item.quantity}
+                        />
                         )) : (
                         <p className='text-center text-slate-600'>
                             Add product to cart
