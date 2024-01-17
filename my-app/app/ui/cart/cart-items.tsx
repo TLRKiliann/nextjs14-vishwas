@@ -2,7 +2,7 @@ import type { CartProps } from '@/app/lib/definitions';
 import React from 'react'
 import CartDisplay from '@/app/ui/cart/cart-display';
 
-export default async function CartItems({order}: {order: CartProps[]}) {
+export default function CartItems({order}: {order: CartProps[]}) {
     return (
         <div className='flex flex-col items-center justify-center'>
 
