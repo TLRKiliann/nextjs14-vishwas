@@ -28,7 +28,7 @@ export default function CartItem({id, name, img, price, stock, quantity}: ItemPr
                 </p>
 
                 <p className='text-lg text-slate-600 mb-0'>
-                    Price: {price}.- CHF
+                    Price: {price.toFixed(2)}.- CHF
                 </p>
 
                 <p className='text-md text-slate-600 mb-0'>

@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+/*import { useState, useMemo } from "react";
 
 export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
@@ -21,3 +21,4 @@ export function useLocalStorage<T>(key: string, initialValue: T | (() => T)) {
 
   return [value, setValue] as const;
 }
+*/
