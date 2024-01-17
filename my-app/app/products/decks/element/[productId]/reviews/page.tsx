@@ -62,24 +62,6 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
             
             <div className='flex'>
 
-                {/*<div className='w-[220px] py-2'>
-
-                    {reviewsElement.map((rev: ReviewsProps) => (
-                        <ul key={rev.id} className='list-outside list-disc mb-2 ml-10'>
-                            <li className='text-lg dark:text-blue-500'>
-                                <Link 
-                                    href={`/products/decks/element/${params.productId}/reviews/${rev.id}`}
-                                    className="text-transparent bg-clip-text dark-title-h1 light-title-h1 
-                                    hover:text-fuchsia-600 hover:dark:text-blue-400"
-                                >
-                                    {rev.categories}
-                                </Link>
-                            </li>
-                        </ul>
-                    ))}
-
-                </div>*/}
-
                 <div className='flex items-center justify-center w-full'>
 
                     <div className='grid grid-cols-3 grid-rows-3 w-3/5 gap-x-4'>

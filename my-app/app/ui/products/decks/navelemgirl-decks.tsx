@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function NavElementGirlDecks() {
   return (
-    <div className='absolute right-0 w-[200px] top-[180px] xl:top-[220px] p-4 pl-8 border'>
+    <div className='absolute right-0 w-[200px] top-[180px] xl:top-[220px] p-4 pl-8'>
         <li className='custom-li'>
             <Link href="/products/decks/element/19" className='custom-link'>
                 Element One

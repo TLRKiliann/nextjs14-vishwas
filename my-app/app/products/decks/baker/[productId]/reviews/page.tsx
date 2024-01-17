@@ -60,23 +60,6 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
             </div>
             
             <div className='flex'>
-
-                {/*<div className='flex flex-col w-[220px] py-2 border'>
-
-                    {reviewsBaker.map((rev: ReviewsProps) => (
-                        <ul key={rev.id} className='list-outside list-disc mb-2 ml-10'>
-                            <li className='custom-li'>
-                                <Link 
-                                    href={`/products/decks/baker/${params.productId}/reviews/${rev.id}`}
-                                    className="custom-link"
-                                >
-                                    {rev.categories}
-                                </Link>
-                            </li>
-                        </ul>
-                    ))}
-
-                </div>*/}
                 
                 <div className='flex items-center justify-center w-full'>
 
