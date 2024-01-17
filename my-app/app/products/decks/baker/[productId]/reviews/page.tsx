@@ -1,17 +1,18 @@
 "use client";
 
-import type { ReviewsProps } from '@/app/lib/definitions';
+import type { ReviewsProps, VideoProps } from '@/app/lib/definitions';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { reviewsBaker } from '@/app/lib/datas'
-
-type VideoProps = {
-    id: number;
-    video: string;
-}
+import { videoDecks } from '@/app/lib/video-data';
+import videoTape from '@/public/video/video-tape.png';
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
+    
+    const router = useRouter();
 
     if (parseInt(params.productId) > 9) {
         notFound();
@@ -21,38 +22,36 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
         throw new Error("Error product id is not a number");
     };
 
-    const videoMap: VideoProps[] = [
-        {
-            id: 1,
-            video: "Baker"
-        },
-        {
-            id: 2,
-            video: "Blind"
-        },
-        {
-            id: 3,
-            video: "Element"
-        },
-        {
-            id: 4,
-            video: "Girl"
-        }
-    ];
+    const handlePath = (id: number, video: string) => {
+        router.push(`/products/decks/${video}/${id}/reviews`);
+    };
 
     return (
         <>
-            <div className='flex items-center justify-start border'>
+            <div className='flex items-center justify-start'>
                 <h2 className='text-3xl text-transparent bg-clip-text dark-title-h1 light-title-h1 m-4'>
                     All videos about Baker
                 </h2>
-                <div className='absolute w-full flex items-center justify-center border'>
-                    <div className='flex items-center justify-evenly w-2/5 border'>
-                        {videoMap.map((v.id: VideoProps) => (
-                            v.id !== parseInt(params.productId) ? (
-                                <Link key={v.id} href={`/products/decks/${v.video}/1/reviews`} className='cursor-pointer border'>
-                                    {v.video} Video
-                                </Link>
+                <div className='absolute w-full flex items-center justify-center'>
+                    <div className='flex items-center justify-evenly w-2/5'>
+
+                        {videoDecks.map((vid: VideoProps) => (
+                            vid.id !== parseInt(params.productId) ? (
+                                <div key={vid.id}
+                                    onClick={() => handlePath(vid.id, vid.video)}
+                                    className="relative flex items-center justify-center cursor-pointer 
+                                        hover:scale-105">
+                                    <span className='w-[100px] h-auto'>
+                                        <Image src={videoTape} width={512} height={512} alt="tape img"
+                                            className="object-cover" />
+                                    </span>
+                                    <div className='absolute w-[200px] flex justify-center -rotate-45'>
+                                        <h3 className='text-2xl font-bold text-transparent bg-clip-text
+                                            dark-title-h1 light-title-h1'>
+                                            {vid.video.toUpperCase()}
+                                        </h3>
+                                    </div>
+                                </div>
                             ): null )
                         )}
 

@@ -1,12 +1,18 @@
 "use client";
 
-import type { ReviewsProps } from '@/app/lib/definitions';
+import type { ReviewsProps, VideoProps } from '@/app/lib/definitions';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { reviewsGirl } from '@/app/lib/datas'
+import { reviewsGirl } from '@/app/lib/datas';
+import { videoDecks } from '@/app/lib/video-data';
+import videoTape from '@/public/video/video-tape.png';
 
 const ReviewsList = ({params}: {params: {productId: string}}) => {
+
+    const router = useRouter();
 
     if (parseInt(params.productId) > 36) {
         notFound();
@@ -16,15 +22,46 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
         throw new Error("Error product id is not a number");
     };
 
+    const handlePath = (id: number, video: string) => {
+        router.push(`/products/decks/${video}/${id}/reviews`);
+    };
+
     return (
         <>
-            <h2 className='text-3xl text-transparent bg-clip-text dark-title-h1 light-title-h1 m-4'>
-                All videos about Girl
-            </h2>
+            <div className='flex items-center justify-start'>
+                <h2 className='text-3xl text-transparent bg-clip-text dark-title-h1 light-title-h1 m-4'>
+                    All videos about Baker
+                </h2>
+                <div className='absolute w-full flex items-center justify-center'>
+                    <div className='flex items-center justify-evenly w-2/5'>
+
+                        {videoDecks.map((vid: VideoProps) => (
+                            vid.id !== parseInt(params.productId) ? (
+                                <div key={vid.id}
+                                    onClick={() => handlePath(vid.id, vid.video)}
+                                    className="relative flex items-center justify-center cursor-pointer 
+                                        hover:scale-105">
+                                    <span className='w-[100px] h-auto'>
+                                        <Image src={videoTape} width={512} height={512} alt="tape img"
+                                            className="object-cover" />
+                                    </span>
+                                    <div className='absolute w-[200px] flex justify-center -rotate-45'>
+                                        <h3 className='text-2xl font-bold text-transparent bg-clip-text
+                                            dark-title-h1 light-title-h1'>
+                                            {vid.video.toUpperCase()}
+                                        </h3>
+                                    </div>
+                                </div>
+                            ): null )
+                        )}
+
+                    </div>
+                </div>
+            </div>
             
             <div className='flex'>
 
-                <div className='w-[220px] py-2'>
+                {/*<div className='w-[220px] py-2'>
 
                     {reviewsGirl.map((rev: ReviewsProps) => (
                         <ul key={rev.id} className='list-outside list-disc mb-2 ml-10'>
@@ -40,7 +77,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
                         </ul>
                     ))}
 
-                </div>
+                </div>*/}
 
                 <div className='grid grid-cols-3 grid-rows-3 w-4/5 mr-10'>
                     {reviewsGirl.map((rev: ReviewsProps) => (
