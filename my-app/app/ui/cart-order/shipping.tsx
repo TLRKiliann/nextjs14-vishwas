@@ -67,7 +67,7 @@ export default function Shipping({filterTotal}: {filterTotal: number}) {
                     dark:placeholder:text-slate-400
                     my-3 mb-6 px-2 py-2' />
 
-            <input type="number" id="filterTotal" name="filterTotal" value={filterTotal.toFixed(2)} 
+            <input type="number" id="filterTotal" name="filterTotal" value={Number(filterTotal).toFixed(2)} 
                 hidden readOnly />
 
             <input type="reset" id="resetShipping" hidden />

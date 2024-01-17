@@ -63,7 +63,7 @@ export default function Payment({filterTotal}: {filterTotal: number}) {
                 </p>
             </div>
 
-            <input type="number" id="filterTotal" name="filterTotal" value={filterTotal.toFixed(2)} 
+            <input type="number" id="filterTotal" name="filterTotal" value={Number(filterTotal).toFixed(2)} 
                 hidden readOnly />
             
             <input type="reset" id="resetPayment" hidden />

@@ -48,7 +48,7 @@ export default async function Cart() {
                     </h2>
 
                     <p className='text-lg font-bold text-slate-600'>
-                        {filterTotal.toFixed(2)}.-
+                        {Number(filterTotal).toFixed(2)}.-
                     </p>
                 </div>
 

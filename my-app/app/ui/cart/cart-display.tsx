@@ -34,7 +34,7 @@ export default function Cart({id, name, price, count, stock, img}: CartProps) {
                 </p>
 
                 <p className='text-lg text-slate-600 mb-0'>
-                    Price: {price.toFixed(2)}.- CHF
+                    Price: {Number(price).toFixed(2)}.- CHF
                 </p>
 
                 <p className='text-md text-slate-600 mb-0'>
