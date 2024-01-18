@@ -68,7 +68,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
                             </div>
 
                             <div>
-                                <p className='text-md font-bold ml-4'>{prod.price.toFixed(2)}.- CHF</p>
+                                <p className='text-md font-bold ml-4'>{Number(prod.price).toFixed(2)}.- CHF</p>
                                 <p className='text-md font-bold ml-4'>Stock: {prod.stock}</p>
                             </div>
            

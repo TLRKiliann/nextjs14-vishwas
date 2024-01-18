@@ -50,7 +50,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                 </h3>
 
                 <p className='text-md text-slate-600/80 px-2 pt-0'>
-                    {price.toFixed(2)}.- CHF
+                    {Number(price).toFixed(2)}.- CHF
                 </p>
                 
                 <p className='text-sm text-slate-600/80 px-2 pt-3'>

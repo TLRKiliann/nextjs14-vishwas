@@ -49,12 +49,27 @@
   .message-cart {
     @apply text-sm text-center text-red-500 bg-orange-200/70 my-2 py-2;
   }
+  .shopmenu-mainlink {
+    @apply flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700 
+    hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1 
+    rounded-br-lg rounded-bl-lg;
+  }
+  .shopmenu-sublinkmapped {
+    @apply text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+    dark:active:bg-sky-500 py-2 pl-4;
+  }
+  .shopmenu-hr {
+    @apply border-t-slate-700 border-b-sky-800 px-14 m-auto;
+  }
+  .shopmenu-hrmapped {
+    @apply w-4/5 border-t-slate-700 border-b-sky-800 m-auto;
+  }
   .custom-link {
-    @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 
-    hover:text-fuchsia-600 hover:dark:text-blue-400;
+    @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 hover:text-fuchsia-600 
+    hover:dark:text-blue-400 active:text-fuchsia-500 active:dark:text-blue-300;
   }
   .custom-li {
-    @apply text-lg dark:text-blue-500;
+    @apply text-lg text-purple-600 dark:text-blue-500 ml-1 py-2;
   }
 }
 
@@ -62,6 +77,14 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 #miniscroll-cart {
@@ -91,10 +114,18 @@
   background: #617891;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.hover-trigger .hover-target {
+  display: none;
+}
+
+.hover-trigger:hover .hover-target {
+  display: block;
+}
+
+.hover-trigger2 .hover-target2 {
+  display: none;
+}
+
+.hover-trigger2:hover .hover-target2 {
+  display: block;
 }

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { queryCartOrder } from '@/app/lib/db';
 import CartItems from '@/app/ui/cart/cart-items';
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
     title: "Cart",
     description: "access accepted"
@@ -48,7 +50,7 @@ export default async function Cart() {
                     </h2>
 
                     <p className='text-lg font-bold text-slate-600'>
-                        {filterTotal.toFixed(2)}.-
+                        {Number(filterTotal).toFixed(2)}.-
                     </p>
                 </div>
 

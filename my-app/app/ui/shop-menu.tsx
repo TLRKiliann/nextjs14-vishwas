@@ -1,5 +1,15 @@
 "use client";
 
+import type { LinksShopMenuProps } from '@/app/lib/definitions';
+import { 
+    linksDecksBaker,
+    linksDecksBlind,
+    linksDecksElement,
+    linksDecksGirl,
+    wheelsBones,
+    wheelsSlimballs,
+    wheelsSpitfire
+} from '@/app/lib/shop-menu-lists'; 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -39,48 +49,234 @@ export default function ShopMenu() {
                 <Link 
                     href="/products"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
-                        hover:text-slate-200 px-3 pt-2 pb-1"
+                    className="flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700
+                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1"
                 >
-                    <span><FaProductHunt className="mt-[3px] mr-4" size={18} /></span>
+                    <span><FaProductHunt className="mr-4" size={18} /></span>
                     <p>Products</p>
+
                 </Link>
 
-                <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
+                <hr className='shopmenu-hr' />
                 
-                <Link href="/products/decks"
-                    onClick={toggle}
-                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
-                        hover:text-slate-200 px-3 pt-2 pb-1"
-                >
-                    <span><MdSkateboarding className="mt-[3px] mr-4" size={18} /></span>
-                    <p>Decks</p>
-                </Link>
+                <div id="parent" className='relative hover-trigger hover:bg-indigo-300 dark:hover:bg-sky-700'>
+                    <Link href="/products/decks"
+                        onClick={toggle}
+                        className="shopmenu-mainlink"
+                    >
+                        <span><MdSkateboarding className="mr-4" size={18} /></span>
+                        <p>Decks</p>
+                    </Link>
+                    
+                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                        
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/baker" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Baker
+                                </p>
+                            </Link>
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                                
+                                {linksDecksBaker.map((linkbaker: LinksShopMenuProps) => (
+                                    <div key={linkbaker.id}>
+                                        <Link href={`/products/decks/baker/${linkbaker.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {linkbaker.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+
+                        <hr className='shopmenu-hrmapped' />
+
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/blind" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Blind
+                                </p>
+                            </Link>
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+
+                                {linksDecksBlind.map((linkblind: LinksShopMenuProps) => (
+                                    <div key={linkblind.id}>
+                                        <Link href={`/products/decks/blind/${linkblind.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {linkblind.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+
+                        <hr className='shopmenu-hrmapped' />
+
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/element" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Element
+                                </p>
+                            </Link>
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+
+                                {linksDecksElement.map((linkelement: LinksShopMenuProps) => (
+                                    <div key={linkelement.id}>
+                                        <Link href={`/products/decks/element/${linkelement.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {linkelement.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+
+                        <hr className='shopmenu-hrmapped' />
+
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/girl" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Girl
+                                </p>
+                            </Link>
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+
+                                {linksDecksGirl.map((linkgirl: LinksShopMenuProps) => (
+                                    <div key={linkgirl.id}>
+                                        <Link href={`/products/decks/girl/${linkgirl.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {linkgirl.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
+                <hr className='shopmenu-hr' />
                 
                 <Link href="/products/trucks"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
-                        hover:text-slate-200 px-3 pt-2 pb-1"
+                    className="flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700 
+                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1"
                 >
-                    <span><CgMaximizeAlt className="mt-[3px] mr-4" size={18} /></span>
+                    <span><CgMaximizeAlt className="mr-4" size={18} /></span>
                     <p>Trucks</p>
                 </Link>
 
-                <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
+                <hr className='shopmenu-hr' />
 
-                <Link href="/products/wheels"
-                    onClick={toggle}
-                    className="flex align-center justify-left hover:bg-indigo-300 hover:dark:bg-sky-700 
-                        hover:text-slate-200 px-3 pt-2 pb-2"
-                >
-                    <span><GiBoomerangSun className="mt-[3px] mr-4" size={18} /></span>
-                    <p>Wheels</p>
-                </Link>
+                <div id="parent" className='relative hover-trigger hover:bg-indigo-300 dark:hover:bg-sky-700 
+                    rounded-br-lg rounded-bl-lg'>
+                    <Link href="/products/wheels"
+                        onClick={toggle}
+                        className="shopmenu-mainlink"
+                    >
+                        <span><GiBoomerangSun className="mr-4" size={18} /></span>
+                        <p>Wheels</p>
+                    </Link>
+                    
+                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                        
+                        <div className='relative hover-trigger2'>
 
+                            <p className='text-sm hover:bg-indigo-300 dark:hover:bg-slate-800 py-2 pl-4'>
+                                Bones
+                            </p>
+                            
+                            <hr className='shopmenu-hrmapped' />
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                                
+                                {wheelsBones.map((wbone: LinksShopMenuProps) => (
+                                    <div key={wbone.id}>
+                                        <Link href={`/products/wheels/bones/${wbone.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {wbone.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </div>
+
+                        <div className='relative hover-trigger2'>
+
+                            <p className='text-sm hover:bg-indigo-300 dark:hover:bg-slate-800 py-2 pl-4'>
+                                Slimballs
+                            </p>
+
+                            <hr className='shopmenu-hrmapped' />
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+
+                                {wheelsSlimballs.map((wslim: LinksShopMenuProps) => (
+                                    <div key={wslim.id}>
+                                        <Link href={`/products/wheels/slimballs/${wslim.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {wslim.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+
+                        </div>
+
+                        <div className='relative hover-trigger2'>
+
+                            <p className='text-sm hover:bg-indigo-300 dark:hover:bg-slate-800 py-2 pl-4'>
+                                Spitfire
+                            </p>
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                                
+                                {wheelsSpitfire.map((wfire: LinksShopMenuProps) => (
+                                    <div key={wfire.id}>
+                                        <Link href={`/products/wheels/spitfire/${wfire.id}`} onClick={toggle}>
+                                            <p className='shopmenu-sublinkmapped'>
+                                                {wfire.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='shopmenu-hrmapped' />
+                                    </div>
+                                ))}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     )
 }

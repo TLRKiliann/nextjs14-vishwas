@@ -38,7 +38,7 @@ export default function DeleteOrder({order}: {order: CartProps[]}) {
                                 <p className='text-center'>{ord.name}</p>
                             </div>
 
-                            <p className='w-1/5 text-center m-auto'>{ord.price.toFixed(2)}.-</p>
+                            <p className='w-1/5 text-center m-auto'>{Number(ord.price).toFixed(2)}.-</p>
                             <p className='w-1/5 text-center m-auto'>{ord.count}</p>
                             
                             <input type="number" id="id" name="id" value={ord.id} hidden readOnly />
