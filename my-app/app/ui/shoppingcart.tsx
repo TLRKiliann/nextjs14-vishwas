@@ -1,15 +1,13 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useShoppingCart } from '@/app/context/cart-context';
 import CartItem from './cartitem';
 import { BsCart3 } from "react-icons/bs";
 
 export default function ShoppingCart() {
-    const router = useRouter();
-    //router.push('/cart') first, followed by router.refresh()
+
     const { cartItems } = useShoppingCart();
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -17,12 +15,6 @@ export default function ShoppingCart() {
     const toggle = () => {
         setIsOpen((old) => !old);
     };
-
-    const handleRefresh = () => {
-        toggle();
-        router.push('/cart');
-        router.refresh();
-    }
 
     const transClass: string = isOpen === true ? "flex" : "hidden";
 
@@ -83,7 +75,7 @@ export default function ShoppingCart() {
                 </div>
 
                 <div className='flex items-center justify-center pt-2 pb-2'>
-                    <Link href="/cart" onClick={handleRefresh}
+                    <Link href="/cart" onClick={toggle}
                         className='w-full font-bold text-center text-slate-50 bg-sky-700/80
                         hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
                         active:text-slate-50 active:bg-sky-700/70 active:scale-95 active:shadow-none
@@ -95,7 +87,7 @@ export default function ShoppingCart() {
 
                 <div className='flex items-center justify-center pt-2 pb-4'>
                     <Link href="/order"
-                        onClick={handleRefresh}
+                        onClick={toggle}
                         className='w-full font-bold text-center text-slate-50 bg-sky-700/80
                         hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
                         active:text-slate-50 active:bg-sky-700/70 active:scale-95 active:shadow-none

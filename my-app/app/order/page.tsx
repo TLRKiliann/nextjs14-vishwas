@@ -5,6 +5,8 @@ import { queryCartOrder } from '@/app/lib/db';
 import FormOrder from '@/app/ui/cart-order/form-order';
 import TableOrder from '@/app//ui/cart-order/table-order';
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Order",
   description: "access accepted"

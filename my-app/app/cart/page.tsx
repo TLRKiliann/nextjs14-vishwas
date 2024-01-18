@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { queryCartOrder } from '@/app/lib/db';
 import CartItems from '@/app/ui/cart/cart-items';
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
     title: "Cart",
     description: "access accepted"
