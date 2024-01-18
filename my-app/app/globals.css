@@ -65,11 +65,11 @@
     @apply w-4/5 border-t-slate-700 border-b-sky-800 m-auto;
   }
   .custom-link {
-    @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 
-    hover:text-fuchsia-600 hover:dark:text-blue-400;
+    @apply text-transparent bg-clip-text dark-title-h1 light-title-h1 hover:text-fuchsia-600 
+    hover:dark:text-blue-400 active:text-fuchsia-500 active:dark:text-blue-300;
   }
   .custom-li {
-    @apply text-lg dark:text-blue-500;
+    @apply text-lg text-purple-600 dark:text-blue-500 ml-1 py-2;
   }
 }
 
