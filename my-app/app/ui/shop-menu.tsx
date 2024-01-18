@@ -115,7 +115,7 @@ export default function ShopMenu() {
 
                                 {linksDecksBlind.map((linkblind: LinksShopMenuProps) => (
                                     <div key={linkblind.id}>
-                                        <Link href={`/products/decks/baker/${linkblind.id}`} onClick={toggle}>
+                                        <Link href={`/products/decks/blind/${linkblind.id}`} onClick={toggle}>
                                             <p className='text-sm hover:bg-indigo-300 
                                                 dark:hover:bg-sky-700 py-2 pl-4'>
                                                 {linkblind.name}
@@ -144,7 +144,7 @@ export default function ShopMenu() {
 
                                 {linksDecksElement.map((linkelement: LinksShopMenuProps) => (
                                     <div key={linkelement.id}>
-                                        <Link href={`/products/decks/baker/${linkelement.id}`} onClick={toggle}>
+                                        <Link href={`/products/decks/element/${linkelement.id}`} onClick={toggle}>
                                             <p className='text-sm hover:bg-indigo-300 
                                                 dark:hover:bg-sky-700 py-2 pl-4'>
                                                 {linkelement.name}
@@ -173,7 +173,7 @@ export default function ShopMenu() {
 
                                 {linksDecksGirl.map((linkgirl: LinksShopMenuProps) => (
                                     <div key={linkgirl.id}>
-                                        <Link href={`/products/decks/baker/${linkgirl.id}`} onClick={toggle}>
+                                        <Link href={`/products/decks/girl/${linkgirl.id}`} onClick={toggle}>
                                             <p className='text-sm hover:bg-indigo-300 
                                                 dark:hover:bg-sky-700 py-2 pl-4'>
                                                 {linkgirl.name}
@@ -254,7 +254,7 @@ export default function ShopMenu() {
 
                                 {wheelsSlimballs.map((wslim: LinksShopMenuProps) => (
                                     <div key={wslim.id}>
-                                        <Link href={`/products/wheels/bones/${wslim.id}`} onClick={toggle}>
+                                        <Link href={`/products/wheels/slimballs/${wslim.id}`} onClick={toggle}>
                                             <p className='text-sm hover:bg-indigo-300 
                                                 dark:hover:bg-sky-700 py-2 pl-4'>
                                                 {wslim.name}
@@ -281,7 +281,7 @@ export default function ShopMenu() {
                                 
                                 {wheelsSpitfire.map((wfire: LinksShopMenuProps) => (
                                     <div key={wfire.id}>
-                                        <Link href={`/products/wheels/bones/${wfire.id}`} onClick={toggle}>
+                                        <Link href={`/products/wheels/spitfire/${wfire.id}`} onClick={toggle}>
                                             <p className='text-sm hover:bg-indigo-300 
                                                 dark:hover:bg-sky-700 py-2 pl-4'>
                                                 {wfire.name}
