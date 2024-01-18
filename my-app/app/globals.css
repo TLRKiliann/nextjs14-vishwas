@@ -98,3 +98,19 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+.hover-trigger .hover-target {
+  display: none;
+}
+
+.hover-trigger:hover .hover-target {
+  display: block;
+}
+
+.hover-trigger2 .hover-target2 {
+  display: none;
+}
+
+.hover-trigger2:hover .hover-target2 {
+  display: block;
+}
