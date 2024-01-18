@@ -1,5 +1,15 @@
 "use client";
 
+import type { LinksShopMenuProps } from '@/app/lib/definitions';
+import { 
+    linksDecksBaker,
+    linksDecksBlind,
+    linksDecksElement,
+    linksDecksGirl,
+    wheelsBones,
+    wheelsSlimballs,
+    wheelsSpitfire
+} from '@/app/lib/shop-menu-lists'; 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -73,68 +83,18 @@ export default function ShopMenu() {
 
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/decks/baker/1" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/2" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/3" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/4" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Four
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/5" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Five
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/6" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Six
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/7" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Seven
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/8" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Eight
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/baker/9" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Baker Nine
-                                    </p>
-                                </Link>
+                                
+                                {linksDecksBaker.map((linkbaker: LinksShopMenuProps) => (
+                                    <div key={linkbaker.id}>
+                                        <Link href={`/products/decks/baker/${linkbaker.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {linkbaker.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
                         </div>
@@ -152,72 +112,21 @@ export default function ShopMenu() {
 
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/decks/blind/10" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/11" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/12" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/13" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Four
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/14" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Five
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/15" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Six
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/16" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Seven
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/17" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Eight
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/blind/18" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Blind Nine
-                                    </p>
-                                </Link>
+
+                                {linksDecksBlind.map((linkblind: LinksShopMenuProps) => (
+                                    <div key={linkblind.id}>
+                                        <Link href={`/products/decks/baker/${linkblind.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {linkblind.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
                         </div>
-
 
                         <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
 
@@ -232,68 +141,18 @@ export default function ShopMenu() {
 
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/decks/element/19" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/20" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/21" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/22" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Four
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/23" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Five
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/24" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Six
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/25" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Seven
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/26" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Eight
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/element/27" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Element Nine
-                                    </p>
-                                </Link>
+
+                                {linksDecksElement.map((linkelement: LinksShopMenuProps) => (
+                                    <div key={linkelement.id}>
+                                        <Link href={`/products/decks/baker/${linkelement.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {linkelement.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
                         </div>
@@ -311,74 +170,22 @@ export default function ShopMenu() {
 
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/decks/girl/28" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/29" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/30" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/31" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Four
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/32" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Five
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/33" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Six
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/34" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Seven
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/35" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Eight
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/decks/girl/36" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Girl Nine
-                                    </p>
-                                </Link>
+
+                                {linksDecksGirl.map((linkgirl: LinksShopMenuProps) => (
+                                    <div key={linkgirl.id}>
+                                        <Link href={`/products/decks/baker/${linkgirl.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {linkgirl.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 
                 <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
@@ -417,36 +224,18 @@ export default function ShopMenu() {
                             </Link>
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/wheels/bones/37" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Bones One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/wheels/bones/38" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Bones Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-
-                                <Link href="/products/wheels/bones/39" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Bones Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-
-
-                                <Link href="/products/wheels/bones/40" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Bones Four
-                                    </p>
-                                </Link>
+                                
+                                {wheelsBones.map((wbone: LinksShopMenuProps) => (
+                                    <div key={wbone.id}>
+                                        <Link href={`/products/wheels/bones/${wbone.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {wbone.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
 
@@ -462,36 +251,18 @@ export default function ShopMenu() {
                             </Link>
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/wheels/slimballs/41" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Slimballs One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/wheels/slimballs/42" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Slimballs Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
 
-                                <Link href="/products/wheels/slimballs/43" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Slimballs Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-
-
-                                <Link href="/products/wheels/slimballs/44" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Slimballs Four
-                                    </p>
-                                </Link>
+                                {wheelsSlimballs.map((wslim: LinksShopMenuProps) => (
+                                    <div key={wslim.id}>
+                                        <Link href={`/products/wheels/bones/${wslim.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {wslim.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
 
@@ -507,47 +278,24 @@ export default function ShopMenu() {
                             </Link>
                             <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
                                 dark:bg-slate-800 ml-[140px]'>
-                                <Link href="/products/wheels/spitfire/45" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Spitfire One
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-                                <Link href="/products/wheels/spitfire/46" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Spitfire Two
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-
-                                <Link href="/products/wheels/spitfire/47" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Spitfire Three
-                                    </p>
-                                </Link>
-                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
-
-
-                                <Link href="/products/wheels/spitfire/48" onClick={toggle}>
-                                    <p className='text-sm hover:bg-indigo-300 
-                                        dark:hover:bg-sky-700 py-2 pl-4'>
-                                        Spitfire Four
-                                    </p>
-                                </Link>
+                                
+                                {wheelsSpitfire.map((wfire: LinksShopMenuProps) => (
+                                    <div key={wfire.id}>
+                                        <Link href={`/products/wheels/bones/${wfire.id}`} onClick={toggle}>
+                                            <p className='text-sm hover:bg-indigo-300 
+                                                dark:hover:bg-sky-700 py-2 pl-4'>
+                                                {wfire.name}
+                                            </p>
+                                        </Link>
+                                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                    </div>
+                                ))}
 
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     )
 }

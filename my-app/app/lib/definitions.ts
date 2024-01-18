@@ -134,3 +134,8 @@ export type VideoProps = {
     id: number;
     video: string;
 }
+
+export type LinksShopMenuProps = {
+    id: number;
+    name: string;
+}
