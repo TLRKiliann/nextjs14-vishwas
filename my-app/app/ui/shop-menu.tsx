@@ -39,23 +39,136 @@ export default function ShopMenu() {
                 <Link 
                     href="/products"
                     onClick={toggle}
-                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
+                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700
                         hover:text-slate-200 px-3 pt-2 pb-1"
                 >
                     <span><FaProductHunt className="mt-[3px] mr-4" size={18} /></span>
                     <p>Products</p>
+
                 </Link>
 
                 <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
                 
-                <Link href="/products/decks"
-                    onClick={toggle}
-                    className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
-                        hover:text-slate-200 px-3 pt-2 pb-1"
-                >
-                    <span><MdSkateboarding className="mt-[3px] mr-4" size={18} /></span>
-                    <p>Decks</p>
-                </Link>
+                <div id="parent" className='relative hover-trigger hover:bg-indigo-300 dark:hover:bg-sky-700'>
+                    <Link href="/products/decks"
+                        onClick={toggle}
+                        className="flex align-center justify-left hover:bg-indigo-300 dark:hover:bg-sky-700 
+                            hover:text-slate-200 px-3 pt-2 pb-1"
+                    >
+                        <span><MdSkateboarding className="mt-[3px] mr-4" size={18} /></span>
+                        <p>Decks</p>
+                    </Link>
+                    
+                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800
+                        ml-[140px]'>
+                        
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/baker" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 
+                                    dark:hover:bg-sky-700 py-2 pl-4'>
+                                    Baker
+                                </p>
+                            </Link>
+
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 
+                                dark:bg-slate-800 ml-[140px]'>
+                                <Link href="/products/decks/baker/1" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker One
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/2" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Two
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/3" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Three
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/4" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Four
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/5" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Five
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/6" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Six
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/7" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Seven
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/8" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Eight
+                                    </p>
+                                </Link>
+                                <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+                                <Link href="/products/decks/baker/9" onClick={toggle}>
+                                    <p className='text-sm hover:bg-indigo-300 
+                                        dark:hover:bg-sky-700 py-2 pl-4'>
+                                        Baker Nine
+                                    </p>
+                                </Link>
+
+                            </div>
+                        </div>
+
+
+
+                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+
+                        <Link href="/products/decks/blind" onClick={toggle}>
+                            <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 py-2 pl-4'>
+                                Blind
+                            </p>
+                        </Link>
+
+                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+
+                        <Link href="/products/decks/element" onClick={toggle}>
+                            <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 py-2 pl-4'>
+                                Element
+                            </p>
+                        </Link>
+
+                        <hr className='w-4/5 border-t-slate-700 border-b-sky-800 m-auto' />
+
+                        <Link href="/products/decks/girl" onClick={toggle}>
+                            <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 py-2 pl-4'>
+                                Girl
+                            </p>
+                        </Link>
+
+
+                    </div>
+
+                </div>
                 
                 <hr className='border-t-slate-700 border-b-sky-800 px-14 m-auto' />
                 
