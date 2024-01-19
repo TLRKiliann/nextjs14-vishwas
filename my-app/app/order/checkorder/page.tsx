@@ -7,7 +7,7 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 
 // const dynamic = "force-dynamic";
 
-export default async function Logout() {
+export default async function CheckOrder() {
 
     //const query: AllProps[] = await queryOrderPaid("SELECT * FROM checkout_paid", []);
     //const data: string = JSON.stringify(query);
