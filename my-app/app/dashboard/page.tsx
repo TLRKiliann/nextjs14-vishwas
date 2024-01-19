@@ -15,8 +15,9 @@ export default async function Dashboard() {
 
     console.log(session, "session watch on server terminal !");
 
-    const request = showAllMessageBox("SELECT * FROM messagebox", []);
-    const messages = JSON.stringify(request);
+    const request: unknown = showAllMessageBox("SELECT * FROM messagebox", []);
+    const data: string = JSON.stringify(request);
+    console.log(data, "data")
 
     return (
         <>
@@ -31,13 +32,13 @@ export default async function Dashboard() {
                 </li>
             </ul>
 
-            {JSON.parse(messages).map((msg: MessageProps) => (
+            {/*JSON.parse(data).map((msg: MessageProps) => (
                 <div key={msg.username}>
                     <p>{msg.username}</p>
                     <p>{msg.email}</p>
                     <p>{msg.message}</p>
                 </div>
-            ))}
+            ))*/}
 
         </>
     )

@@ -10,12 +10,13 @@ import { GrValidate } from "react-icons/gr";
 
 export default function LoginForm() {
 
-    const [code, formAction] = useFormState(authenticate, undefined)
+    const [errorMessage, dispatch] = useFormState(authenticate, undefined)
+    console.log(errorMessage, "code");
 
     return (
-        <form action={formAction}
-            className='flex w-2/5 flex-col text-md font-bold dark:bg-slate-100 transform transition 
-                translate-y-0 animate-up-start p-6 pb-3 rounded-xl shadow-outviolet dark:shadow-lg'
+        <form action={dispatch} autoComplete='off'
+            className='flex flex-col md:w-[500px] xl:w-[500px] md:h-[500px] xl:h-[500px] text-md font-bold dark:bg-slate-100 transform 
+                transition translate-y-0 animate-up-start pt-[70px] rounded-xl shadow-outviolet dark:shadow-lg'
         >
 
             <label htmlFor="email"
@@ -29,10 +30,10 @@ export default function LoginForm() {
                 name="email"
                 placeholder="Enter your email address"
                 required
-                className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 hover:bg-violet-200 
-                active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-800
-                focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-                mx-4 pl-2 py-1 rounded-lg'
+                className='text-lg text-slate-600 bg-violet-100 hover:bg-violet-200 active:bg-white 
+                dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-500 focus:outline-none 
+                placeholder:text-violet-300 dark:placeholder:text-blue-300 focus:ring focus:ring-violet-400/70 
+                dark:focus:ring-sky-500 mx-4 pl-2 py-1 rounded-lg'
             />
 
             <label htmlFor="password"
@@ -47,21 +48,21 @@ export default function LoginForm() {
                 required
                 minLength={6}
                 placeholder="Enter password of 12 caracters"  
-                className='text-lg text-violet-600 dark:text-cyan-400 bg-violet-100 
-                hover:bg-violet-200 active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 
-                dark:active:bg-sky-800 focus:outline-none focus:ring focus:ring-violet-400/70 
-                dark:focus:ring-sky-500 mx-4 pl-2 py-1 rounded-lg'
+                className='text-lg text-slate-600 bg-violet-100 hover:bg-violet-200 active:bg-white 
+                dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-500 focus:outline-none 
+                focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500 mx-4 
+                placeholder:text-violet-300 dark:placeholder:text-blue-300 pl-2 py-1 rounded-lg'
             />
             <LoginButton />
             <div className="flex h-8 items-center text-slate-900"
                 aria-live="polite"
                 aria-atomic="true"
             >
-                {code === 'CredentialSignin' && (
+                {errorMessage && (
                     <>
                         <PiWarningDuotone className="h-5 w-5 text-red-500" />
                         <p aria-live="polite" className="text-sm text-red-500">
-                            Invalid credentials
+                            Invalid credentials {errorMessage}
                         </p>
                     </>
                 )}
@@ -84,8 +85,8 @@ function LoginButton() {
 
     return (
         <BtnValidate 
-            className='flex items-center justify-center bg-slate-100 hover:bg-transparent hover:shadow-none 
-                hover:scale-[0.95] hover:border hover:border-slate-400 active:bg-violet-200 
+            className='flex items-center justify-center bg-slate-100 hover:bg-transparent
+                hover:scale-[0.95] hover:shadow-md active:bg-violet-200 
                 active:shadow-inviolet dark:active:bg-sky-700 dark:active:shadow-in transition-all ease-in-out 
                 mx-4 mt-8 rounded-xl shadow-lg'
             disabled={pending}

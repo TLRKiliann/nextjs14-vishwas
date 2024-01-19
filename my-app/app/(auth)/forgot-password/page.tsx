@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ForgotPassword() {
   return (
-    <div className='min-h-screen'>
+    <div className='w-full min-h-screen text-slate-900 dark:text-slate-50 py-[75px]'>
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
         Forgot Password
       </h1>

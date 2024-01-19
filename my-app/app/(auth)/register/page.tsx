@@ -14,7 +14,7 @@ export default async function Register() {
   const users: string = JSON.stringify(data);
 
   return (
-    <div className='w-full min-h-screen'>
+    <div className='w-full min-h-screen text-slate-900 dark:text-slate-50 py-[75px]'>
       
       <div className='flex justify-center'>
         <RegisterForm users={JSON.parse(users)} />
