@@ -191,6 +191,40 @@ const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise
   }
 }
 
+// erase checkout_paid table to prepare copy
+const queryToPrepareTable = async (query: string, data: GenericProps): Promise<ShippingProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as ShippingProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// copy cartorder table to checkout_paid table
+const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as CartProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
 /*
 // display all items from table
 const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllProps[]> => {
@@ -316,6 +350,8 @@ export {
   queryCartDelete,
   shippingQuery,
   paymentQuery,
+  //queryToCopyTable,
+  //queryToCopyTable
   // queryOrderPaid,
   eraseQuery,
   sendMessage,
