@@ -173,7 +173,7 @@ export async function deleteWheels(prevState: {message: string} | undefined, for
         if (result) {
           revalidatePath("/products/wheels");
           return {
-            message: "Product removed"
+            message: "Removed from cart"
           }
         }
       }
@@ -234,7 +234,7 @@ export async function deleteTrucks(prevState: {message: string} | undefined, for
         if (result) {
           revalidatePath("/products/trucks");
           return {
-            message: "Product removed"
+            message: "Removed from cart"
           }
         }
       }
@@ -368,19 +368,6 @@ export async function forgotPasswordServerAction(prevState: {message: string} | 
     throw error;
   }
 }
-/*
-export async function authenticate(prevState: string | undefined, formData: FormData) {
-  try {
-    //console.log(prevState, formData, "prevState + formData in console.log");
-    await signIn('credentials', Object.fromEntries(formData));
-  } catch (error) {
-    if ((error as Error).message.includes('CredentialSignin')) {
-      return 'CredentialSignin';
-    }
-    throw error;
-  }
-}
-*/
 
 export async function authenticate(prevState: string | undefined, formData: FormData) {
   try {
