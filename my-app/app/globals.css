@@ -69,7 +69,7 @@
     hover:dark:text-blue-400 active:text-fuchsia-500 active:dark:text-blue-300;
   }
   .custom-li {
-    @apply text-lg text-purple-600 dark:text-blue-500 ml-1 py-2;
+    @apply text-lg text-purple-600 dark:text-blue-500 ml-1;
   }
 }
 

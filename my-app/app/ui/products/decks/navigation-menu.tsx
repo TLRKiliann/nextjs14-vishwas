@@ -14,7 +14,7 @@ export default function NavigationMenu() {
     };
 
     return (
-        <div className='fixed top-[75px] right-[20px] w-[200px] h-auto text-lg bg-none z-0'>
+        <div className='fixed top-[75px] right-[20px] w-[200px] h-auto text-lg bg-none z-20'>
 
             <div onClick={handleCloseMenuDecks} className='flex items-center cursor-pointer 
                 transform hover:scale-105 active:scale-95'>
@@ -31,7 +31,7 @@ export default function NavigationMenu() {
 
             {closeMenu ? (
                 <div className='font-bold dark:text-amber-900 bg-orange-200 pl-6 transition transform 
-                    duration-300 ease-in-out rounded-lg'>
+                    duration-300 ease-in-out rounded-lg z-30'>
                     <li className='custom-li'>
                         <Link href="/products/decks/baker" className='custom-link'>
                             Baker

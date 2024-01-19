@@ -14,7 +14,7 @@ export default function NavigationWheels() {
     };
 
     return (
-        <div className='fixed top-[140px] right-[20px] w-[200px] h-auto text-lg bg-none z-0'>
+        <div className='fixed top-[140px] right-[20px] w-[200px] h-auto text-lg bg-none z-10'>
 
             <div onClick={handleCloseMenuWheels} className='flex items-center text-amber-900 cursor-pointer 
                 active:text-amber-500 transform hover:scale-105 active:scale-95'>
@@ -31,7 +31,7 @@ export default function NavigationWheels() {
 
             {closeMenu ? (
                 <div className='font-bold dark:text-amber-900 bg-orange-200 pl-6 transition transform 
-                    duration-300 ease-in-out rounded-lg'>
+                    duration-300 ease-in-out rounded-lg '>
                     <li className='custom-li'>
                         <Link href="/products/wheels/bones/37" className="custom-link">
                             Bones One
