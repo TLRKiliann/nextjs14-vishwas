@@ -14,7 +14,7 @@ export default function NavigationWheels() {
     };
 
     return (
-        <div className='fixed top-[140px] right-[20px] w-[200px] h-auto text-lg bg-none z-10'>
+        <div className='fixed top-[140px] right-[20px] w-[200px] h-auto text-lg bg-none z-0'>
 
             <div onClick={handleCloseMenuWheels} className='flex items-center text-amber-900 cursor-pointer 
                 active:text-amber-500 transform hover:scale-105 active:scale-95'>

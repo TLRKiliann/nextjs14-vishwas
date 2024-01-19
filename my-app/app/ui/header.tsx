@@ -63,25 +63,14 @@ export default function Header() {
                             : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Contact</Link>
 
-                    
-                            <Link href="/order/logout" className={`${pathname === '/order/logout'
-                                ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                    dark:text-cyan-200 text-violet-500"
-                                : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                    hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
-                                >
-                                <span><BiLogInCircle size={20} /></span><p className='ml-1'>Logout</p>
-                            </Link>
-                       
-                            <Link href="/login" className={`${pathname === '/login'
-                                ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                    dark:text-cyan-200 text-violet-500"
-                                : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
-                                    hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
-                            >
-                                <span><BiLogInCircle size={20} /></span><p className='ml-1'>Login</p>
-                            </Link>
-                        
+                        <Link href="/login" className={`${pathname === '/login'
+                            ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
+                                dark:text-cyan-200 text-violet-500"
+                            : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
+                                hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
+                        >
+                            <span><BiLogInCircle size={20} /></span><p className='ml-1'>Login</p>
+                        </Link>
 
                         <ShoppingCart />
 

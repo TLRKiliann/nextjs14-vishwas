@@ -50,7 +50,7 @@ export default function ShopMenu() {
                     href="/products"
                     onClick={toggle}
                     className="flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700
-                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1"
+                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 py-2"
                 >
                     <span><FaProductHunt className="mr-4" size={18} /></span>
                     <p>Products</p>
@@ -183,7 +183,7 @@ export default function ShopMenu() {
                 <Link href="/products/trucks"
                     onClick={toggle}
                     className="flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700 
-                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1"
+                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 py-2"
                 >
                     <span><CgMaximizeAlt className="mr-4" size={18} /></span>
                     <p>Trucks</p>

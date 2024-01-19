@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { CartProps } from '@/app/lib/definitions';
 import React from 'react'
+import Link from 'next/link';
 import { queryCartOrder } from '@/app/lib/db';
 import FormOrder from '@/app/ui/cart-order/form-order';
 import TableOrder from '@/app//ui/cart-order/table-order';
@@ -23,10 +24,18 @@ export default async function OrderPage() {
 
   return (
     <div className='min-h-screen w-full py-[75px] bg-slate-100 dark:bg-slate-900'>
-      
-      <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
-        Order
-      </h1>
+      <div className='w-full flex items-center justify-between'>
+
+        <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
+          Order
+        </h1>
+        <li className='custom-li pr-4'>
+          <Link href="/order/logout" className='custom-link'>
+            Logout
+          </Link>
+        </li>
+
+      </div>
 
       <div className="flex items-start w-full">
 
