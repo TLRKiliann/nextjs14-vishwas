@@ -5,6 +5,8 @@ import { signOut } from '@/auth';
 //import { queryOrderPaid } from '@/app/lib/db';
 import { RiLogoutCircleLine } from "react-icons/ri";
 
+// const dynamic = "force-dynamic";
+
 export default async function Logout() {
 
     //const query: AllProps[] = await queryOrderPaid("SELECT * FROM checkout_paid", []);
@@ -18,7 +20,7 @@ export default async function Logout() {
     */
 
     return (
-        <>
+        <div className='w-full min-h-screen flex flex-col items-center justify-center'>
 
             {/*
             <div className=''>
@@ -58,7 +60,7 @@ export default async function Logout() {
                     "use server";
                     await signOut();
                 }}
-                className='w-full min-h-screen flex flex-col items-center justify-center'
+                className='w-2/5 h-auto m-auto'
             >
                 <Link href="/order" className="text-sky-500 hover:text-sky-400 active:text-orange-400 mb-4">Go back to order ?</Link>
                 <button className='text-lg flex items-center justify-between text-slate-400 bg-slate-800 
@@ -71,7 +73,7 @@ export default async function Logout() {
                 </button>
             </form>
         
-        </>
+        </div>
     )
 }
 
