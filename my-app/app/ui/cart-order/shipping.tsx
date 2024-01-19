@@ -5,6 +5,8 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { shippingRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
+export const dynamic = "force-dynamic";
+
 export default function Shipping({filterTotal}: {filterTotal: number}) {
 
     const { pending } = useFormStatus();

@@ -21,7 +21,7 @@ export default async function BakerDecks() {
   }
 
   return (
-    <div className='min-h-screen bg-slate-900 py-[75px]'>
+    <div className='min-h-screen bg-white dark:bg-slate-900 py-[75px]'>
       <h1 className='baker-blind-element-girl-title'>
         Baker&apos;s Decks
       </h1>

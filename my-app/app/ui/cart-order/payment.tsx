@@ -5,6 +5,8 @@ import { useFormStatus, useFormState } from 'react-dom';
 import { paymentRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 
+export const dynamic = "force-dynamic";
+
 export default function Payment({filterTotal}: {filterTotal: number}) {
 
     const [checking, setchecking] = useState<boolean>(false);

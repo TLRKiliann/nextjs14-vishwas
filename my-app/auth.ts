@@ -5,7 +5,7 @@ import { authConfig } from './auth.config';
 import { z } from 'zod';
 import { authQuery } from './app/lib/db';
 
-async function getUser(email: string): Promise<EmailProps[] | undefined> {
+export async function getUser(email: string): Promise<EmailProps[] | undefined> {
   try {
     const user = await authQuery(`SELECT * FROM users WHERE email = ?`, [email]);
     return user as EmailProps[];

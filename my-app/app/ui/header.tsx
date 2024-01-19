@@ -7,11 +7,11 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { FiMoon } from "react-icons/fi";
 import { FiSun } from "react-icons/fi";
+import { RiLogoutCircleLine } from "react-icons/ri";
 import { BiLogInCircle } from "react-icons/bi";
 import ShoppingCart from "./shoppingcart";
 import skateLogo from '@/public/img_logo/main-logo.png';
 import ShopMenu from './shop-menu';
-import { signOut } from '@/auth';
 
 export default function Header() {
 
@@ -63,6 +63,7 @@ export default function Header() {
                             : "text-lg m-auto ml-10 p-2 hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
                         >Contact</Link>
 
+
                         <Link href="/login" className={`${pathname === '/login'
                             ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
                                 dark:text-cyan-200 text-violet-500"
@@ -71,6 +72,7 @@ export default function Header() {
                         >
                             <span><BiLogInCircle size={20} /></span><p className='ml-1'>Login</p>
                         </Link>
+                    
 
                         <ShoppingCart />
 
@@ -95,3 +97,14 @@ export default function Header() {
 }
 
 
+/*<Link href="/order/login" className={`${pathname === '/order/login'
+    ? "flex items-center justify-center text-lg m-auto ml-10 p-2 \
+        dark:text-cyan-200 text-violet-500"
+    : "flex items-center justify-center text-lg m-auto ml-10 p-2 \
+        hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50"}`}
+>
+        <span><RiLogoutCircleLine size={20} /></span>
+        <p className='ml-1'>
+            Logout
+        </p>
+    </Link>*/

@@ -59,12 +59,12 @@ export default function LoginForm() {
                 aria-atomic="true"
             >
                 {errorMessage && (
-                    <>
+                    <div className='flex items-center justify-center w-full'>
                         <PiWarningDuotone className="h-5 w-5 text-red-500" />
-                        <p aria-live="polite" className="text-sm text-red-500">
+                        <p aria-live="polite" className="text-sm text-center text-red-500 ml-2">
                             Invalid credentials {errorMessage}
                         </p>
-                    </>
+                    </div>
                 )}
             </div>
             <div className='flex align-center justify-between text-sm font-normal text-slate-600 mx-4'>
@@ -84,7 +84,7 @@ function LoginButton() {
     const { pending } = useFormStatus();
 
     return (
-        <BtnValidate 
+        <BtnValidate
             className='flex items-center justify-center bg-slate-100 hover:bg-transparent
                 hover:scale-[0.95] hover:shadow-md active:bg-violet-200 
                 active:shadow-inviolet dark:active:bg-sky-700 dark:active:shadow-in transition-all ease-in-out 

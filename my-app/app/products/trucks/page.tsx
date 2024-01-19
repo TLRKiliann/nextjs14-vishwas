@@ -58,8 +58,10 @@ export default async function AxisShop() {
           ))}
         </div>
       </div>
-      <NavigationMenu />
-      <NavigationWheels />
+      <div className='fixed'>
+        <NavigationMenu />
+        <NavigationWheels/>
+      </div>
     </div>
   )
 }

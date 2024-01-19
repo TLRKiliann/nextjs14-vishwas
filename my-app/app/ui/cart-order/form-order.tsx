@@ -8,7 +8,7 @@ import googleLogo from '@/public/img_logo/google-icon.png';
 
 export default function FormOrder({order}: {order: CartProps[]}) {
 
-  let totalPrice: number[] = order.map((p: CartProps): number => {
+  const totalPrice: number[] = order.map((p: CartProps): number => {
     if (p.count === 0) {
       return 0;
     } else {

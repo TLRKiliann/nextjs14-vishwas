@@ -19,7 +19,6 @@ import girlDeck from "@/public/img_carousel/deck_girl2.png";
 import bakerDeck from "@/public/img_carousel/deck_baker5.png";
 import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
-import funnyRabbit from "@/public/img_bg/lapin-slide-cut.png";
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
 
@@ -93,13 +92,6 @@ export default function Home() {
                 className='object-cover' />
             </div>
           </div>
-
-          {/*<div className="absolute flex justify-end w-full mb-0 mr-0">
-            <div className="w-[440px] h-auto">
-              <Image src={funnyRabbit} width={666} height={375} alt="img lapin"
-                className="object-cover transition animate-slice-appear" />
-            </div>
-          </div>*/}
 
           <div className="absolute flex justify-start w-full mb-0">
             <div className="w-[400px] h-auto transition transform translate-y-0 animate-up-start">

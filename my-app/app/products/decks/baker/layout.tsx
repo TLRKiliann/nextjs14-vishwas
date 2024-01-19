@@ -6,8 +6,10 @@ export default function LayoutBoardShop({children}: {children: React.ReactNode})
     return (
         <div>
             {children}
-            <NavigationMenu />
-            <NavigationWheels/>
+            <div className='fixed'>
+                <NavigationMenu />
+                <NavigationWheels/>
+            </div>
         </div>
     )
 }
