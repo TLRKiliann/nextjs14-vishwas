@@ -24,7 +24,9 @@ export default function LayoutBoardShop({children}: {children: React.ReactNode})
                 <SearchUrl placeholder="Search by product name..." />
             </div>
             {children}
-            <NavigationMenu />
+            <div className='fixed'>
+                <NavigationMenu />
+            </div>
         </div>
     )
 }
