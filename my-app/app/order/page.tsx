@@ -29,8 +29,10 @@ export default async function OrderPage() {
         <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
           Order
         </h1>
-        <Link href="/order/logout" className='custom-link'>
-          <p className='mr-5 px-4 py-2 border border-sky-600 rounded-lg'>Logout</p>
+        <Link href="/order/checkorder" className='custom-link'>
+          <p className='mr-5 px-4 py-2 border border-sky-600 rounded-lg'>
+            Verify Payment
+          </p>
         </Link>
       </div>
 
