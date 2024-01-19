@@ -157,7 +157,7 @@ const queryCartDelete = async (query: string, data: FormDataEntryValue[]): Promi
   }
 }
 
-// type of checkcardValue doesn't work !
+// type of checkcardValue doesn't work (boolean & tinyint(1))!
 const paymentQuery = async (query: string, data: any[]): Promise<PaymentProps[]> => {
   let connection;
   try {
@@ -190,6 +190,25 @@ const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise
     }
   }
 }
+
+/*
+// display all items from table
+const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as AllProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+*/
 
 // erase cartorder table
 const eraseQuery = async (query: string) => {
@@ -297,6 +316,7 @@ export {
   queryCartDelete,
   shippingQuery,
   paymentQuery,
+  // queryOrderPaid,
   eraseQuery,
   sendMessage,
   showAllMessageBox,
