@@ -8,7 +8,7 @@ import DeleteOrder from './delete-order';
 
 export default function TableOrder({order}: {order: CartProps[]}) {
     
-    let totalPrice: number[] = order.map((p: CartProps): number => {
+    const totalPrice: number[] = order.map((p: CartProps): number => {
       if (p.count === 0) {
         return 0;
       } else {
@@ -17,7 +17,7 @@ export default function TableOrder({order}: {order: CartProps[]}) {
       }
     });
     
-    let filterTotal: number = totalPrice.reduce((a: number, b: number) => a += b, 0);
+    const filterTotal: number = totalPrice.reduce((a: number, b: number) => a += b, 0);
 
     return (
         <div className='flex flex-col items-start w-full min-h-[500px] pr-4'>
