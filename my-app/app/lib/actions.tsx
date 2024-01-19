@@ -13,7 +13,7 @@ import {
   eraseQuery
 } from './db';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/dist/server/api-utils';
+import { AuthError } from 'next-auth';
 
 // CRUD mariadb
 export async function mysqlServerAction(prevState: {message: string} | undefined, formData: FormData) {
@@ -368,14 +368,31 @@ export async function forgotPasswordServerAction(prevState: {message: string} | 
     throw error;
   }
 }
-
+/*
 export async function authenticate(prevState: string | undefined, formData: FormData) {
   try {
     //console.log(prevState, formData, "prevState + formData in console.log");
     await signIn('credentials', Object.fromEntries(formData));
   } catch (error) {
-    if ((error as Error).message.includes('CredentialsSignin')) {
+    if ((error as Error).message.includes('CredentialSignin')) {
       return 'CredentialSignin';
+    }
+    throw error;
+  }
+}
+*/
+
+export async function authenticate(prevState: string | undefined, formData: FormData) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
     }
     throw error;
   }

@@ -50,7 +50,7 @@ export default function ShopMenu() {
                     href="/products"
                     onClick={toggle}
                     className="flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700
-                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1"
+                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 py-2"
                 >
                     <span><FaProductHunt className="mr-4" size={18} /></span>
                     <p>Products</p>
@@ -68,7 +68,7 @@ export default function ShopMenu() {
                         <p>Decks</p>
                     </Link>
                     
-                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
                         
                         <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
 
@@ -79,7 +79,7 @@ export default function ShopMenu() {
                                 </p>
                             </Link>
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
                                 
                                 {linksDecksBaker.map((linkbaker: LinksShopMenuProps) => (
                                     <div key={linkbaker.id}>
@@ -106,7 +106,7 @@ export default function ShopMenu() {
                                 </p>
                             </Link>
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
 
                                 {linksDecksBlind.map((linkblind: LinksShopMenuProps) => (
                                     <div key={linkblind.id}>
@@ -133,7 +133,7 @@ export default function ShopMenu() {
                                 </p>
                             </Link>
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
 
                                 {linksDecksElement.map((linkelement: LinksShopMenuProps) => (
                                     <div key={linkelement.id}>
@@ -160,7 +160,7 @@ export default function ShopMenu() {
                                 </p>
                             </Link>
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
 
                                 {linksDecksGirl.map((linkgirl: LinksShopMenuProps) => (
                                     <div key={linkgirl.id}>
@@ -183,7 +183,7 @@ export default function ShopMenu() {
                 <Link href="/products/trucks"
                     onClick={toggle}
                     className="flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700 
-                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 pt-2 pb-1"
+                        hover:text-slate-200 active:bg-indigo-400 dark:active:bg-sky-500 px-3 py-2"
                 >
                     <span><CgMaximizeAlt className="mr-4" size={18} /></span>
                     <p>Trucks</p>
@@ -201,7 +201,7 @@ export default function ShopMenu() {
                         <p>Wheels</p>
                     </Link>
                     
-                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
                         
                         <div className='relative hover-trigger2'>
 
@@ -211,7 +211,7 @@ export default function ShopMenu() {
                             
                             <hr className='shopmenu-hrmapped' />
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
                                 
                                 {wheelsBones.map((wbone: LinksShopMenuProps) => (
                                     <div key={wbone.id}>
@@ -236,7 +236,7 @@ export default function ShopMenu() {
 
                             <hr className='shopmenu-hrmapped' />
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
 
                                 {wheelsSlimballs.map((wslim: LinksShopMenuProps) => (
                                     <div key={wslim.id}>
@@ -259,7 +259,7 @@ export default function ShopMenu() {
                                 Spitfire
                             </p>
 
-                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px]'>
+                            <div className='absolute top-0 w-[140px] hover-target2 bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
                                 
                                 {wheelsSpitfire.map((wfire: LinksShopMenuProps) => (
                                     <div key={wfire.id}>

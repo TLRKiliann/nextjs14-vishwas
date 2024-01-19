@@ -28,7 +28,7 @@ export default async function DetailProductWheel({params}: ParamsProps) {
 
   return (
     <div className='absolute flex items-center justify-center w-full bg-slate-100 dark:bg-slate-900 
-      pb-20 z-10'>
+      pb-20'>
       {JSON.parse(data).map((d: ProductsProps) => {
         if (d.id === parseInt(params.bonesId)) {
           return (

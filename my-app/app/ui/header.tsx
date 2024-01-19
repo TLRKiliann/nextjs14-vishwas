@@ -11,6 +11,7 @@ import { BiLogInCircle } from "react-icons/bi";
 import ShoppingCart from "./shoppingcart";
 import skateLogo from '@/public/img_logo/main-logo.png';
 import ShopMenu from './shop-menu';
+import { signOut } from '@/auth';
 
 export default function Header() {
 
@@ -92,4 +93,5 @@ export default function Header() {
         </>
     )
 }
+
 

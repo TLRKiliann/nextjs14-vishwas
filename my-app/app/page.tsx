@@ -52,7 +52,7 @@ export default function Home() {
       <ScrollIndicator />
       
       <div className='fixed flex align-center justify-center w-full h-full filter blur-sm contrast-200 m-auto
-        animate-slice-appear -z-10'>
+        transition animate-slice-appear -z-10'>
         <Image
           src={skaterBg}
           width={1920}
@@ -94,12 +94,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute flex justify-end w-full mb-0 mr-0">
+          {/*<div className="absolute flex justify-end w-full mb-0 mr-0">
             <div className="w-[440px] h-auto">
               <Image src={funnyRabbit} width={666} height={375} alt="img lapin"
                 className="object-cover transition animate-slice-appear" />
             </div>
-          </div>
+          </div>*/}
 
           <div className="absolute flex justify-start w-full mb-0">
             <div className="w-[400px] h-auto transition transform translate-y-0 animate-up-start">
