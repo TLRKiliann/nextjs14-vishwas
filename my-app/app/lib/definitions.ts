@@ -166,5 +166,5 @@ export type ConfirmationProps = {
     price: number;
     count: number;
     img: string;
-    total: number;
+    filterTotal: number;
 }
