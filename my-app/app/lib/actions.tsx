@@ -381,22 +381,24 @@ export async function confirmationPayment(prevState: {message: string} | undefin
     const price = formData.get("price");
     const count = formData.get("count");
     const img = formData.get("img");
-    const total = formData.get("total");
+    const filterTotal = formData.get("filterTotal");
     const btnConfirm = formData.get("submit");
     if (btnConfirm === "btnConfirmation") {
       if (user !== null && address !== null && npa !== null && phone !== null && email !== null && name !== null && price !== null && 
-          count !== null && img !== null && total !== null) {
+          count !== null && img !== null && filterTotal !== null) {
         console.log("step 1")
-        const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, total) \
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, total]);
+        const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, filterTotal) \
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, filterTotal]);
         console.log("step 2")
         if (query) {
           console.log("step 3")
           const resetTableCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
-          const resetTableShipping = await resetQuery("TRUNCATE TABLE shipping");
-          if (resetTableCheckout && resetTableShipping) {
-            revalidatePath("/order/checkorder");
-            return {message: "Payment done !"}
+          if (resetTableCheckout) {
+            const resetTableShipping = await resetQuery("TRUNCATE TABLE shipping");
+            if (resetTableShipping) {
+              revalidatePath("/order/checkorder");
+              return {message: "Payment done !"}
+            }
           }
         }
       }

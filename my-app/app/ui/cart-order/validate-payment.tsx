@@ -10,22 +10,22 @@ export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
     const { pending } = useFormStatus();
     const [code, formData] = useFormState(confirmationPayment, undefined);
 
-    const total: number = data[0].filterTotal;
-    
+    const dataConverter: ConfirmationProps = data[0];
+
     return (
         <>
             <form action={formData} className='flex w-full my-20 border'>
 
-                <input type="text" id="user" name="user" value={data[0].user} hidden readOnly />
-                <input type="text" id="address" name="address" value={data[0].address} hidden readOnly />
-                <input type="number" id="npa" name="npa" value={data[0].npa} hidden readOnly />
-                <input type="number" id="phone" name="phone" value={data[0].phone} hidden readOnly />
-                <input type="text" id="email" name="email" value={data[0].email} hidden readOnly />
-                <input type="text" id="name" name="name" value={data[0].name} hidden readOnly />
-                <input type="number" id="price" name="price" value={data[0].price} hidden readOnly />
-                <input type="number" id="quantity" name="quantity" value={data[0].count} hidden readOnly />
-                <input type="text" id="img" name="img" value={data[0].img} hidden readOnly />
-                <input type="number" id="total" name="total" value={total} hidden readOnly />
+                <input type="text" id="user" name="user" value={dataConverter.user} hidden readOnly />
+                <input type="text" id="address" name="address" value={dataConverter.address} hidden readOnly />
+                <input type="number" id="npa" name="npa" value={dataConverter.npa} hidden readOnly />
+                <input type="number" id="phone" name="phone" value={dataConverter.phone} hidden readOnly />
+                <input type="text" id="email" name="email" value={dataConverter.email} hidden readOnly />
+                <input type="text" id="name" name="name" value={dataConverter.name} hidden readOnly />
+                <input type="number" id="price" name="price" value={dataConverter.price} hidden readOnly />
+                <input type="number" id="quantity" name="quantity" value={dataConverter.count} hidden readOnly />
+                <input type="text" id="img" name="img" value={dataConverter.img} hidden readOnly />
+                <input type="number" id="filterTotal" name="filterTotal" value={dataConverter.filterTotal} hidden readOnly />
 
                 <button type="submit" id="submit" name="submit" value="btnConfirmation" disabled={pending}
                     className="w-full font-bold text-center text-slate-50 bg-sky-700/80
