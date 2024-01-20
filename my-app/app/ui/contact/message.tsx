@@ -33,7 +33,7 @@ export default function Message() {
     return (
         <form action={formAction}
             className='relative flex flex-col w-2/5 h-fit text-lg font-bold text-indigo-500 dark:text-slate-600 
-            bg-slate-50 mx-auto p-10 pb-6 rounded-xl shadow-inviolet dark:shadow-in'>
+            bg-slate-50 mx-auto p-10 pb-6 rounded-xl drop-shadow-inviolet dark:drop-shadow-in'>
 
             <h3 className='text-2xl font-bold pb-4'>Email</h3>
             

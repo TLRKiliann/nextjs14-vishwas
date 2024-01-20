@@ -21,7 +21,7 @@ export default function DecksCards({data}: {data: ProductsProps[]}) {
         <div className='w-full h-full bg-white dark:bg-slate-900 mt-20 px-4 pt-0 pb-4'>
             <div className={`grid md:grid-cols-4 ${load === false ? "grid-rows-1" : "grid-row-3"}
                 justify-items-center gap-y-10 dark:border-slate-900 bg-white 
-                dark:bg-slate-50 rounded-2xl shadow-inviolet dark:shadow-in p-10`}
+                dark:bg-slate-50 rounded-2xl drop-shadow-inviolet dark:drop-shadow-in p-10`}
             >
                 {load === false ? (
                     data.slice(0, 4).map((d: ProductsProps) => (

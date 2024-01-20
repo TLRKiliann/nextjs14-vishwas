@@ -9,7 +9,7 @@ import deckHorizon from '@/public/img_decks/deck2-h.png';
 type ShopProps = {
     link: string;
     children: React.ReactNode;
-}
+};
 
 export default function MainShop({link, children}: ShopProps) {
 
@@ -28,14 +28,14 @@ export default function MainShop({link, children}: ShopProps) {
                     <Link
                         href={`${link}`}
                         onClick={handleDecks}  
-                        className='relative transform ease-in-out duration-300 active:rotate-x-[180deg] z-0'
+                        className='relative transition transform ease-in-out duration-300 active:rotate-x-[180deg] 
+                        hover:scale-105 z-0'
                     >
 
                         <h2 
-                            className='absolute flex items-center justify-center w-full h-full 
-                                text-5xl font-bold text-transparent bg-clip-text
-                                bg-gradient-to-t from-fuchsia-700 from-30% 
-                                to-yellow-400 to-70% mt-1 z-10 transform animate-scale-decks'>
+                            className='absolute flex items-center justify-center w-full h-full text-5xl 
+                                font-bold text-transparent bg-clip-text bg-gradient-to-t from-fuchsia-700 
+                                from-30% to-yellow-400 to-70% mt-1 z-10 transform animate-scale-decks'>
                             {children}
                         </h2>
 

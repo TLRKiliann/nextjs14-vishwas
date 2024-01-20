@@ -18,7 +18,8 @@ export default function CartItem({id, name, img, price, stock, quantity}: ItemPr
         <div key={id} className='flex items-center justify-around mt-0 mb-4'>
 
             <div className='m-auto ml-4'>
-                <Image src={img} width={100} height={100} alt="no img" className='rounded-lg drop-shadow-lg' />
+                <Image src={img} width={100} height={100} alt="no img" 
+                    className='rounded-lg drop-shadow-fontlg' />
             </div>
 
             <div className='flex-1 items-center m-auto mr-4 ml-4 pl-4 pr-2'>

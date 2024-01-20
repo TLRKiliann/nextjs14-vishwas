@@ -24,7 +24,7 @@ export default function Cart({id, name, price, count, stock, img}: CartProps) {
 
             <div className='m-auto ml-3'>
                 <Image src={img} width={120} height={120} alt="no img"
-                    className='object-cover rounded-lg drop-shadow-lg' />
+                    className='object-cover rounded-lg drop-shadow-fontlg' />
             </div>
 
             <div className='flex flex-col items-start w-2/5 ml-4'>

@@ -33,6 +33,9 @@
 
 - scale
 
+<!-- Colored shadow-->
+<button class="shadow-lg shadow-indigo-500/40 ...">Subscribe</button>
+
 ex: scale-105 (transform + transition)
 
 example :

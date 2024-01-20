@@ -12,27 +12,27 @@ export default function Links() {
 
             <Link href="/" className={`${pathname === '/' 
             ? "text-indigo-400 dark:text-sky-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-fontlg"}`}
             >Home</Link>
             
             <Link href="/products" className={`${pathname === '/products' 
             ? "text-indigo-400 dark:text-sky-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-fontlg"}`}
             >Shop</Link>
 
             <Link href="/about" className={`${pathname === '/about' 
             ? "text-indigo-400 dark:text-sky-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-fontlg"}`}
             >Our story</Link>
 
             <Link href="/contact" className={`${pathname === '/contact' 
             ? "text-indigo-400 dark:text-sky-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-fontlg"}`}
             >Contact us</Link>
 
             <Link href="/notfound" className={`${pathname === '/notfound' 
             ? "text-indigo-400 dark:text-sky-600" 
-            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-lg"}`}
+            : "hover:text-indigo-600 dark:hover:text-blue-600 hover:scale-105 hover:drop-shadow dark:drop-shadow-fontlg"}`}
             >Notfound</Link>
 
         </div>
