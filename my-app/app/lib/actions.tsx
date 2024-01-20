@@ -11,6 +11,7 @@ import {
   shippingQuery,
   paymentQuery,
   eraseQuery,
+  resetShippingQuery,
   queryToPrepareTable, 
   queryToCopyTable
 } from './db';
@@ -307,17 +308,20 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
     if (btnShipping === "shipping") {
       if (email !== null && user !== null && address !== null && npa !== null && phone !== null && 
         passwd !== null && filterTotal !== null) {
-        const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
-          [email, user, address, npa, phone, passwd, filterTotal]);
-        if (request) {
-          const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
-          if (prepareCopy) {
-            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
-            if (copyTable) {
-              const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
-              if (eraseTable) {
-                revalidatePath("/order");
-                return {message: "Shipping done !"};
+        const resetShipping = await resetShippingQuery("TRUNCATE TABLE shipping");
+        if (resetShipping) {
+          const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [email, user, address, npa, phone, passwd, filterTotal]);
+          if (request) {
+            const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
+            if (prepareCopy) {
+              const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
+              if (copyTable) {
+                const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+                if (eraseTable) {
+                  revalidatePath("/order");
+                  return {message: "Shipping done !"};
+                }
               }
             }
           }

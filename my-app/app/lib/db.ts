@@ -193,6 +193,22 @@ const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise
 }
 
 // erase checkout_paid table to prepare copy
+const resetShippingQuery = async (query: string) => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
 //const queryToPrepareTable = async (query: string, data: GenericProps): Promise<ShippingProps[]> => {
 const queryToPrepareTable = async (query: string): Promise<ShippingProps[]> => {
   let connection;
@@ -351,6 +367,7 @@ export {
   actionOrderQuery,
   cartOrderUpdateQuery,
   queryCartDelete,
+  resetShippingQuery,
   shippingQuery,
   paymentQuery,
   queryToPrepareTable,
