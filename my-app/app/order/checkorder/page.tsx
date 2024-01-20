@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export default async function CheckOrder() {
 
-    const query: AllProps[] = await queryOrderPaid("SELECT * FROM users CROSS JOIN checkout_paid", []);
+    const query: AllProps[] = await queryOrderPaid("SELECT * FROM shipping CROSS JOIN checkout_paid", []);
     const data: string = JSON.stringify(query);
 
     console.log(data, "data");
@@ -22,16 +22,11 @@ export default async function CheckOrder() {
     return (
         <div className='w-full min-h-screen flex flex-col items-center justify-center'>
 
-            
             <div className=''>
-                <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
+                <table className='w-full text-sm my-0 rounded-tl-md rounded-tr-md'>
                     <tbody className='flex flex-col'>
                     <tr className='flex justify-between w-full text-lg text-slate-500 bg-slate-300
                         dark:text-slate-400/80 dark:bg-slate-800 py-2 rounded-tl-md rounded-tr-md'>
-                        <th className='w-1/5 py-1'>Username</th>
-                        <th className='w-2/5 py-1'>Address</th>
-                        <th className='w-2/5 py-1'>NPA</th>
-                        <th className='w-2/5 py-1'>Phone</th>
                         <th className='w-2/5 py-1'>ProductName</th>
                         <th className='w-2/5 py-1'>Price</th>
                         <th className='w-2/5 py-1'>Quantity</th>
@@ -39,21 +34,26 @@ export default async function CheckOrder() {
                     </tr>
 
                     {JSON.parse(data).map((d: AllProps) => (
-                        <tr key={d.id}>
-                            <td>Username</td>
-                            <td>Address</td>
-                            <td>NPA</td>
-                            <td>Phone</td>
-                            <td className='w-2/5 py-1'>ProductName</td>
-                            <td className='w-2/5 py-1'>Price</td>
-                            <td className='w-2/5 py-1'>Quantity</td>
-                            <td className='w-2/5 py-1'>Total</td>
+                        <tr key={d.name}>
+                            <td>Username {d.user}</td>
+                            <td>Address: {d.address}</td>
+                            <td>Address: {d.npa}</td>
+                            <td>Address: {d.phone}</td>
+                            <td>Email {d.email}</td>
+                            <td>NPA: {d.npa}</td>
+                            <td>Phone: {d.phone}</td>
+
+                            <td>Product: {d.name}</td>
+                            <td>Price: {Number(d.price.toFixed(2))}</td>
+                            <td>Quantity {d.count}</td>
+                            <td>Stock: {d.stock}</td>
+                            <td>Img: {d.img}</td>
+                            <td>Total: {d.filterTotal}</td>
                         </tr>
                     ))}
                     </tbody>
                 </table>
             </div>
-            
 
             <form
                 action={async () => {

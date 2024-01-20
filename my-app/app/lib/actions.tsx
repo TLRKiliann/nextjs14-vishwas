@@ -310,9 +310,9 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
         const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
           [email, user, address, npa, phone, passwd, filterTotal]);
         if (request) {
-          const prepareCopy = await queryToPrepareTable("TRUCATE TABLE checkout_paid");
+          const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
           if (prepareCopy) {
-            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid * FROM cartorder");
+            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
             if (copyTable) {
               const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
               if (eraseTable) {
@@ -345,9 +345,9 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
         const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?, ?)",
           [user, date, securitycode, checkcardValue, filterTotal]);
         if (request) {
-          const prepareCopy = await queryToPrepareTable("TRUCATE TABLE checkout_paid");
+          const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
           if (prepareCopy) {
-            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid * FROM cartorder");
+            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
             if (copyTable) {
               const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
               if (eraseTable) {

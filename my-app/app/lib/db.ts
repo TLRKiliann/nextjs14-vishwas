@@ -211,8 +211,8 @@ const queryToPrepareTable = async (query: string): Promise<ShippingProps[]> => {
 }
 
 // copy cartorder table to checkout_paid table
-// const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
-const queryToCopyTable = async (query: string): Promise<CartProps[]> => {
+const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+//const queryToCopyTable = async (query: string): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
