@@ -2,7 +2,7 @@ import type { AllProps } from '@/app/lib/definitions';
 import React from 'react';
 import Image from 'next/image';
 import { queryOrderPaid } from '@/app/lib/db';
-//import ValidatePayment from '@/app/ui/cart-order/validate-payment';
+import ValidatePayment from '@/app/ui/cart-order/validate-payment';
 import ReturnSignOut from '@/app/ui/cart-order/return-signout-order';
 
 export const dynamic = "force-dynamic";
@@ -77,7 +77,7 @@ export default async function CheckOrder() {
                 </table>
             </div>
             
-            {/*<ValidatePayment data={JSON.parse(data)} />*/}
+            <ValidatePayment data={JSON.parse(data)} />
 
             <ReturnSignOut />
         
