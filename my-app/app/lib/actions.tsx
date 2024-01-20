@@ -386,11 +386,15 @@ export async function confirmationPayment(prevState: {message: string} | undefin
     if (btnConfirm === "btnConfirmation") {
       if (user !== null && address !== null && npa !== null && phone !== null && email !== null && name !== null && price !== null && 
           count !== null && img !== null && total !== null) {
+        console.log("step 1")
         const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, total) \
-          VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, total]);
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, total]);
+        console.log("step 2")
         if (query) {
-          const resetCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
-          if (resetCheckout) {
+          console.log("step 3")
+          const resetTableCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
+          const resetTableShipping = await resetQuery("TRUNCATE TABLE shipping");
+          if (resetTableCheckout && resetTableShipping) {
             revalidatePath("/order/checkorder");
             return {message: "Payment done !"}
           }

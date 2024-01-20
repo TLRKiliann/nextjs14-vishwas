@@ -10,7 +10,7 @@ export default function ReturnSignOut() {
                 "use server";
                 await signOut();
             }}
-            className='flex flex-col items-center w-2/5 h-auto m-auto mb-10 border-2'
+            className='flex flex-col items-center justify-center w-2/5 h-[400px] m-auto mb-10'
         >
             <Link href="/order" className="text-sky-500 hover:text-sky-400 active:text-orange-400 mb-4">
                 Go back to order ?
