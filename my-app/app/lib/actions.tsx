@@ -11,8 +11,8 @@ import {
   shippingQuery,
   paymentQuery,
   eraseQuery,
-  //queryToPrepareTable, 
-  //queryToCopyTable
+  queryToPrepareTable, 
+  queryToCopyTable
 } from './db';
 import { revalidatePath } from 'next/cache';
 import { AuthError } from 'next-auth';

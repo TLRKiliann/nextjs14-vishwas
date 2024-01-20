@@ -6,9 +6,10 @@ import type {
   EmailProps,
   ShippingProps,
   PaymentProps,
+  AllProps
 } from './definitions';
 
-type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | [];
+type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | AllProps [];
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -192,11 +193,12 @@ const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise
 }
 
 // erase checkout_paid table to prepare copy
-const queryToPrepareTable = async (query: string, data: GenericProps): Promise<ShippingProps[]> => {
+//const queryToPrepareTable = async (query: string, data: GenericProps): Promise<ShippingProps[]> => {
+const queryToPrepareTable = async (query: string): Promise<ShippingProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
+    const [result] = await connection.execute(query);
     return result as ShippingProps[];
   } catch (error) {
     console.error(error);
@@ -209,11 +211,12 @@ const queryToPrepareTable = async (query: string, data: GenericProps): Promise<S
 }
 
 // copy cartorder table to checkout_paid table
-const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+// const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+const queryToCopyTable = async (query: string): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
+    const [result] = await connection.execute(query);
     return result as CartProps[];
   } catch (error) {
     console.error(error);
@@ -225,8 +228,8 @@ const queryToCopyTable = async (query: string, data: GenericProps): Promise<Cart
   }
 }
 
-/*
-// display all items from table
+
+// display by join table checkorder page
 const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllProps[]> => {
   let connection;
   try {
@@ -242,7 +245,7 @@ const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllPro
     }
   }
 }
-*/
+
 
 // erase cartorder table
 const eraseQuery = async (query: string) => {
@@ -350,9 +353,9 @@ export {
   queryCartDelete,
   shippingQuery,
   paymentQuery,
-  //queryToCopyTable,
-  //queryToCopyTable
-  // queryOrderPaid,
+  queryToPrepareTable,
+  queryToCopyTable,
+  queryOrderPaid,
   eraseQuery,
   sendMessage,
   showAllMessageBox,

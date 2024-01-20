@@ -1,28 +1,28 @@
-//import type { AllProps } from '@/app/lib/definitions';
+import type { AllProps } from '@/app/lib/definitions';
 import React from 'react';
 import Link from 'next/link';
 import { signOut } from '@/auth';
-//import { queryOrderPaid } from '@/app/lib/db';
+import { queryOrderPaid } from '@/app/lib/db';
 import { RiLogoutCircleLine } from "react-icons/ri";
 
-// const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
 export default async function CheckOrder() {
 
-    //const query: AllProps[] = await queryOrderPaid("SELECT * FROM checkout_paid", []);
-    //const data: string = JSON.stringify(query);
-    /*
+    const query: AllProps[] = await queryOrderPaid("SELECT * FROM users CROSS JOIN checkout_paid", []);
+    const data: string = JSON.stringify(query);
+
     console.log(data, "data");
 
     if (!data) {
         throw new Error("Error: server query failed");
     };
-    */
+    
 
     return (
         <div className='w-full min-h-screen flex flex-col items-center justify-center'>
 
-            {/*
+            
             <div className=''>
                 <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
                     <tbody className='flex flex-col'>
@@ -53,7 +53,7 @@ export default async function CheckOrder() {
                     </tbody>
                 </table>
             </div>
-            */}
+            
 
             <form
                 action={async () => {
