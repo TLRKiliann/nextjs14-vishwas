@@ -10,10 +10,11 @@ import {
   sendMessage,
   shippingQuery,
   paymentQuery,
-  eraseQuery,
+  resetQuery,
   resetShippingQuery,
   queryToPrepareTable, 
-  queryToCopyTable
+  queryToCopyTable,
+  queryConfirmation
 } from './db';
 import { revalidatePath } from 'next/cache';
 import { AuthError } from 'next-auth';
@@ -317,7 +318,7 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
             if (prepareCopy) {
               const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
               if (copyTable) {
-                const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+                const eraseTable = await resetQuery("TRUNCATE TABLE cartorder");
                 if (eraseTable) {
                   revalidatePath("/order");
                   return {message: "Shipping done !"};
@@ -353,7 +354,7 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
           if (prepareCopy) {
             const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
             if (copyTable) {
-              const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+              const eraseTable = await resetQuery("TRUNCATE TABLE cartorder");
               if (eraseTable) {
                 revalidatePath("/order");
                 return {message: "Shipping done !"};
@@ -365,6 +366,39 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
     }
   } catch (error) {
     console.log("Error", error);
+    throw error;
+  }
+}
+
+export async function confirmationPayment(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const user = formData.get("user");
+    const address = formData.get("address");
+    const npa = formData.get("npa");
+    const phone = formData.get("phone");
+    const email = formData.get("email");
+    const name = formData.get("name");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const img = formData.get("img");
+    const total = formData.get("total");
+    const btnConfirm = formData.get("submit");
+    if (btnConfirm === "btnConfirmation") {
+      if (user !== null && address !== null && npa !== null && phone !== null && email !== null && name !== null && price !== null && 
+          count !== null && img !== null && total !== null) {
+        const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, total) \
+          VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, total]);
+        if (query) {
+          const resetCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
+          if (resetCheckout) {
+            revalidatePath("/order/checkorder");
+            return {message: "Payment done !"}
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
     throw error;
   }
 }

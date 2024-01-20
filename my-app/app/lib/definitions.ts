@@ -142,16 +142,29 @@ export type LinksShopMenuProps = {
 
 export type AllProps = {
     id: number;
+    user: string;
     address: string;
     npa: number;
     phone: number;
-    user: string;
-    name: string;
     email: string;
     passwd: string;
+    name: string;
     price: number;
     count: number;
     stock: number;
     img: string;
     filterTotal: number;
+}
+
+export type ConfirmationProps = {
+    user: string;
+    address: string;
+    npa: number;
+    phone: number;
+    email: string;
+    name: string;
+    price: number;
+    count: number;
+    img: string;
+    total: number;
 }

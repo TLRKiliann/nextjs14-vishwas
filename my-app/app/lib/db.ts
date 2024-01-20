@@ -6,10 +6,11 @@ import type {
   EmailProps,
   ShippingProps,
   PaymentProps,
-  AllProps
+  AllProps,
+  ConfirmationProps
 } from './definitions';
 
-type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | AllProps [];
+type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | AllProps | ConfirmationProps | [];
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -262,9 +263,25 @@ const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllPro
   }
 }
 
+// display by join table checkorder page
+const queryConfirmation = async (query: string, data: FormDataEntryValue[]): Promise<ConfirmationProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as ConfirmationProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
 
 // erase cartorder table
-const eraseQuery = async (query: string) => {
+const resetQuery = async (query: string) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -373,7 +390,8 @@ export {
   queryToPrepareTable,
   queryToCopyTable,
   queryOrderPaid,
-  eraseQuery,
+  queryConfirmation,
+  resetQuery,
   sendMessage,
   showAllMessageBox,
   forgotQuery,
