@@ -14,10 +14,9 @@ export default function TextBlocks({title, text, children}: PropsText) {
 
             <div className='flex flex-col align-center justify-center w-4/5 m-auto'>
 
-                <h2 className='sm:text-3xl xl:text-5xl font-extrabold text-transparent bg-clip-text 
-                    dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% 
-                    dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
-                    bg-indigo-500/80 mb-4 py-4'
+                <h2 className='w-full sm:text-3xl xl:text-5xl font-extrabold text-transparent bg-clip-text 
+                        dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% 
+                        dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90% mb-4 py-4'
                 >
                     {title}
                 </h2>

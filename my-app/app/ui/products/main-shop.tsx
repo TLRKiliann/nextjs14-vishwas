@@ -20,7 +20,7 @@ export default function MainShop({link, children}: ShopProps) {
     }
 
     return (
-        <div className='flex xl:h-full'>
+        <div className='flex xl:h-full mt-4'>
 
             {deckBool === false ? (
                 <div className='flex flex-col items-center justify-center w-full h-auto my-0 xl:my-10'>
@@ -35,7 +35,8 @@ export default function MainShop({link, children}: ShopProps) {
                         <h2 
                             className='absolute flex items-center justify-center w-full h-full text-5xl 
                                 font-bold text-transparent bg-clip-text bg-gradient-to-t from-fuchsia-700 
-                                from-30% to-yellow-400 to-70% mt-1 z-10 transform animate-scale-decks'>
+                                from-30% to-yellow-400 to-70% mt-1 z-10 transform animate-scale-decks'
+                        >
                             {children}
                         </h2>
 

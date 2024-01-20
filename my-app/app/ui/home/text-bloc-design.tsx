@@ -19,7 +19,7 @@ export default function TextBlockDesign({text}: PropsText) {
                     <h2 className='sm:text-3xl xl:text-5xl font-extrabold text-transparent bg-clip-text 
                         dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% 
                         dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
-                        bg-indigo-500/80 mb-4 pb-4'
+                        mb-4 pb-4'
                     >
                         High-quality products with guarantees for our members.
                     </h2>
