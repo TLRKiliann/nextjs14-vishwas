@@ -20,7 +20,7 @@ export default function MainShop({link, children}: ShopProps) {
     }
 
     return (
-        <div className='flex xl:h-full mt-4'>
+        <div className='flex xl:h-full my-4'>
 
             {deckBool === false ? (
                 <div className='flex flex-col items-center justify-center w-full h-auto my-0 xl:my-10'>

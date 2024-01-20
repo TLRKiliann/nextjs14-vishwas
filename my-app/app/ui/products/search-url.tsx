@@ -27,7 +27,7 @@ export default function Search({placeholder}: {placeholder: string}) {
     return (
         <>
             <form id="truc" onSubmit={(e) => handleSubmit(e)} 
-                className='flex items-center justify-between w-3/5 h-content m-auto'>
+                className='flex items-center justify-between w-3/5 h-auto m-auto'>
 
                 <input
                     value={inputText}
@@ -46,7 +46,9 @@ export default function Search({placeholder}: {placeholder: string}) {
 
             </form>
             {message ? (
-                <p className='w-[280px] text-center text-lg text-orange-500 bg-slate-900/50 mt-4 px-6 py-2 rounded-lg'>
+                <p className='w-[280px] text-center text-lg text-orange-500 bg-slate-900/50 mt-4 px-6 py-2 
+                    rounded-lg'
+                >
                     {message}
                 </p>
             ) : null}        
