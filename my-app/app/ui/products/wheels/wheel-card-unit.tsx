@@ -36,8 +36,19 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                 <h3 className='text-lg font-bold'>
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                 </h3>
-                <h4 className='text-lg font-bold'>{price}.-</h4>
-                <p className='text-sm mt-2'>Stock: {stock - quantity}pcs</p>
+                <div className='flex items-center justify-between text-sm font-bold'>
+                    <p>Price:</p>
+                    <p>{price}.-</p>
+                </div>
+                {stock - quantity === 0 ? (
+                        <p className='warning-stock text-center'>No more in stock</p>
+                    ) : (
+                        <div className='flex items-center justify-between w-full text-sm'>
+                            <p>Stock:</p> 
+                            <p>{stock - quantity}pcs</p>
+                        </div>
+                    )
+                }  
                 
                 <p className='text-center text-lg font-normal text-slate-500/80 m-auto pt-2'>
                     <span className={`font-bold ${quantity === 0 ? "text-slate-500/80" : "text-red-500/80" }`}>
@@ -61,11 +72,13 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                         {pending ? "Pending..." : "Sub"}
                     </button>
 
-                    <button type="submit" id="submit" name="submit" value="addWheel"
-                        onClick={() => handleAdd(id, name, price, img, stock)}
-                        disabled={pending} className='button-card'>
-                        {pending ? "Pending..." : "Add"}
-                    </button>
+                    {stock - quantity !== 0 ? (
+                        <button type="submit" id="submit" name="submit" value="addWheel"
+                            onClick={() => handleAdd(id, name, price, img, stock)}
+                            disabled={pending} className='button-card'>
+                            {pending ? "Pending..." : "Add"}
+                        </button>
+                    ) : null}
                     
                 </form>
                 {code?.message && quantity !== 0 ? (

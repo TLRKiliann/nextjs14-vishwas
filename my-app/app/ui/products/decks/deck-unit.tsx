@@ -55,7 +55,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                 </p>
                 
                 <p className='text-sm text-slate-600/80 px-2 pt-3'>
-                    {stock - quantity === 0 ? <span className='text-red-500'>No more in stock</span> : 
+                    {stock - quantity === 0 ? <span className='warning-stock'>No more in stock</span> : 
                         "Stock: " + (stock - quantity) + "pcs"
                     }    
                 </p>
@@ -106,16 +106,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                                 className='button-card'>
                                 { pending ? "pending..." : "Add" }
                             </button>
-                            ) : (
-                                <button 
-                                    type="button"
-                                    id="btn"
-                                    name="btn"
-                                    disabled
-                                    className='button-card'>
-                                    { pending ? "pending..." : "Add" }
-                                </button>
-                            )
+                            ) : null
                         }
 
                     </div>

@@ -30,17 +30,28 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
     };
 
     return (
-        <div key={id} className='w-[200px] h-auto border border-slate-300'>
+        <div key={id} className='w-[200px] h-auto bg-slate-100 border border-slate-300'>
             <Image src={img} width={435} height={580} alt="img truck" 
                 className='object-cover' />
 
-            <div className='text-slate-600 p-2'>
-                <p className='text-sm font-bold'>{name}</p>
-                <p className='text-sm'>{price}.-</p>
-                <p className='text-sm'>Stock: {stock - quantity}pcs</p>
+            <div className='text-slate-600 px-2 pt-2'>
+                <p className='text-md font-bold'>{name}</p>
+                <div className='flex items-center justify-between text-sm'>
+                    <p>Price:</p>
+                    <p className='text-sm'>{price}.-</p>
+                </div>
+                {stock - quantity === 0 ? (
+                        <p className='warning-stock text-center'>No more in stock</p>
+                    ) : (
+                        <div className='flex items-center justify-between w-full text-sm'>
+                            <p>Stock:</p> 
+                            <p>{stock - quantity}pcs</p>
+                        </div>
+                    )
+                }  
             </div>
 
-            <p className='text-center text-lg font-normal text-slate-500/80 m-auto pt-2'>
+            <p className='text-center text-lg font-normal text-slate-500/80 m-auto p-1'>
                 <span className={`font-bold ${quantity === 0 ? "text-slate-500/80" : "text-red-500/80" }`}>
                     {quantity}&nbsp;
                 </span>
@@ -65,16 +76,19 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
                         {pending ? "Pending..." : "-"}
                     </button>
 
-                    <button type="submit" id="sumbit" name="submit" value="addTruck"
-                        onClick={() => handleAdd(id, name, price, img, stock)} 
-                        disabled={pending}
-                        className='button-card'
-                    >
-                        {pending ? "Pending..." : "+"}
-                    </button>
+                    {stock - quantity !== 0 ? (
+                        <button type="submit" id="sumbit" name="submit" value="addTruck"
+                            onClick={() => handleAdd(id, name, price, img, stock)} 
+                            disabled={pending}
+                            className='button-card'
+                            >
+                            {pending ? "Pending..." : "+"}
+                        </button>
+                        ) : null
+                    }
 
                 </div>
-                {code?.message ? (
+                {code?.message && quantity !== 0 ? (
                     <p className='message-cart'>{code.message}</p>
                 ) : null }
             </form>

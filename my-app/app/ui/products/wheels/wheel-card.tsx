@@ -40,7 +40,8 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
     };
 
     return (
-        <div key={id} className='w-[150px] h-auto'>
+        <div key={id} className='w-[150px] h-auto border first:rounded-tl-xl first:rounded-bl-xl 
+            last:rounded-br-xl last:rounded-tr-xl'>
             
             <span onClick={() => handlePath(id)}>
                 <Image src={img} width={435} height={580} alt="img wheel"
@@ -51,8 +52,19 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
                 <h3 className='text-sm font-bold'>
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                 </h3>
-                <h4 className='text-sm font-bold'>{price}.-</h4>
-                <p className='text-sm mt-2'>Stock: {stock - quantity}pcs</p>
+                <div className='flex items-center justify-between text-sm font-bold'>
+                    <p>Price:</p>
+                    <p>{price}.-</p>
+                </div>
+                {stock - quantity === 0 ? (
+                        <p className='warning-stock text-center'>No more in stock</p>
+                    ) : (
+                        <div className='flex items-center justify-between w-full text-sm'>
+                            <p>Stock:</p> 
+                            <p>{stock - quantity}pcs</p>
+                        </div>
+                    )
+                }  
             </div>
 
             <p className='text-center text-lg font-normal text-slate-500/80 m-auto pt-2'>
@@ -79,12 +91,15 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
                         {pending ? "Pending..." : "-"}
                     </button>
 
-                    <button type="submit" id="submit" name="submit" value="addWheel"
-                        onClick={() => handleAdd(id, name, price, 
-                            img, stock)}
-                        disabled={pending} className='button-wheels'>
-                        {pending ? "Pending..." : "+"}
-                    </button>
+                    {stock - quantity !== 0 ? (
+                        <button type="submit" id="submit" name="submit" value="addWheel"
+                            onClick={() => handleAdd(id, name, price, 
+                                img, stock)}
+                            disabled={pending} className='button-wheels'>
+                            {pending ? "Pending..." : "+"}
+                        </button>
+                        ) : null 
+                    }
                 </div>
                 {code?.message && quantity !== 0 ? (
                     <p className='message-cart'>

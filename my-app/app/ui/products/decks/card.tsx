@@ -69,12 +69,18 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                     <p>Price</p>
                     <p>{formatCurrency(price)}.- CHF</p>
                 </div>
-                <div className="flex items-center justify-between text-sm text-slate-500/80 mx-4 mb-2">
-                    <p className='text-sm'>
-                        {stock - quantity === 0 ? <span className='warning-stock'>No more in stock</span> : 
-                            "Stock: " + (stock - quantity) + "pcs"
-                        }    
-                    </p>
+                <div className="flex items-center justify-center text-sm text-slate-500/80 mx-4 mb-2">
+
+                    {stock - quantity === 0 ? (
+                            <p className='warning-stock'>No more in stock</p>
+                        ) : (
+                            <div className='flex items-center justify-between w-full'>
+                                <p>Stock:</p> 
+                                <p>{stock - quantity}pcs</p>
+                            </div>
+                        )
+                    }    
+
                 </div>
                 
                 <div className='flex justify-center items-center pb-2'>
