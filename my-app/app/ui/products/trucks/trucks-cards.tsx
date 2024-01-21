@@ -30,7 +30,12 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
     };
 
     return (
-        <div key={id} className='w-[200px] h-auto bg-slate-100 border border-slate-300'>
+        <div key={id} className='w-[200px] h-auto bg-slate-100 border border-slate-300
+        
+        transform transition translate-y-0 animate-down-start last:translate-y-0 last:animate-up-start 
+        first:translate-x-0 first:animate-right-start'
+        
+        >
             <Image src={img} width={435} height={580} alt="img truck" 
                 className='object-cover' />
 
