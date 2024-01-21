@@ -10,6 +10,7 @@ export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
     const { pending } = useFormStatus();
     const [code, formData] = useFormState(confirmationPayment, undefined);
 
+    // Possible to map all data in a form ?
     const dataConverter: ConfirmationProps = data[0];
 
     return (
@@ -38,7 +39,7 @@ export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
 
             </form>
             {code?.message ? (
-                <p className="w-full text-center border">
+                <p className="w-full text-center text-green-400">
                     {code.message}
                 </p>
             ) : null}
