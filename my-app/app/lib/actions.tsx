@@ -249,28 +249,6 @@ export async function deleteOrder(prevState: {message: string} | undefined, form
   }
 }
 
-// message to send from contact
-export async function messageToSend(prevState: {message: string} | undefined, formData: FormData) {
-  try {
-    const username = formData.get("username");
-    const email = formData.get("email");
-    const tetxtarea = formData.get("tetxtarea");
-    const btnEmail = formData.get("submit");
-    if (btnEmail === "sendmessage") {
-      if (username !== null && email !== null && tetxtarea !== null) {
-        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, tetxtarea]);
-        if (result) {
-          revalidatePath("/contact");
-          return {message: "Message was sent successfully !"}
-        }
-      }
-    }
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
-
 // shipping from order
 export async function shippingRequest(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -382,6 +360,28 @@ export async function confirmationPayment(prevState: {message: string} | undefin
   }
 }
 
+// message to send from contact
+export async function messageToSend(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const tetxtarea = formData.get("tetxtarea");
+    const btnEmail = formData.get("submit");
+    if (btnEmail === "sendmessage") {
+      if (username !== null && email !== null && tetxtarea !== null) {
+        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, tetxtarea]);
+        if (result) {
+          revalidatePath("/contact");
+          return {message: "Message was sent successfully !"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 // email to retrieve password
 export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -392,7 +392,7 @@ export async function forgotPasswordServerAction(prevState: {message: string} | 
         const result = await forgotQuery("INSERT INTO forgotpassword VALUES (?)", [email]);
         if (result) {
           revalidatePath("/register");
-          return {message: "You are registered"};
+          return {message: "A message will be send to you soon"};
         }
       }
     }
