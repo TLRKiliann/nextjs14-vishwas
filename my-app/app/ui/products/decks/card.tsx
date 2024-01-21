@@ -9,6 +9,7 @@ import { useShoppingCart } from '@/app/context/cart-context';
 import { formatCurrency } from "@/app/utils/formatCurrency";
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
+import RemoveAllByIdDeck from './btn-remove-allByIdDeck';
 import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
@@ -45,7 +46,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
 
     return (
         <div key={id}
-            className="text-slate-600 bg-white shadow-lg transform transition 
+            className="text-slate-600 bg-slate-100 dark:bg-slate-100 shadow-lg transform transition 
                 hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
                 rounded-xl m-auto"
         >
@@ -60,7 +61,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 />
             </span>
 
-            <div className="flex flex-col font-bold bg-slate-100/80">
+            <div className="flex flex-col font-bold bg-slate-100/80 dark:bg-slate-100">
                 <div className="flex items-center justify-between text-md text-slate-600/80 mx-4 
                     my-2">
                     <h3>{name.toUpperCase()}</h3>
@@ -130,10 +131,12 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
             </form>
             {code?.message && quantity !== 0 ? (
                 <div>
-                    <p className='message-cart'>{code.message}</p>
+                    <p className='message-cart mb-2'>{code.message}</p>
                 </div>
                 ) : null
             }
+
+            <RemoveAllByIdDeck id={id} />
 
             <div className="flex align-center justify-end text-sm bg-slate-100/80 px-4 py-2 pb-3">
                 <Link
