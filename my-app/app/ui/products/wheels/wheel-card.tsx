@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
-import BtnRemoveAll from './btnwheels-rm-all';
+import RemoveAll from './btnwheels-rm-all';
 
 export default function WheelCard({id, name, price, stock, img}: ProductsProps) {
 
@@ -40,7 +40,7 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
     };
 
     return (
-        <div key={id} className='w-[150px] h-auto border first:rounded-tl-xl first:rounded-bl-xl 
+        <div key={id} className='w-[150px] h-auto border pb-2 first:rounded-tl-xl first:rounded-bl-xl 
             last:rounded-br-xl last:rounded-tr-xl'>
             
             <span onClick={() => handlePath(id)}>
@@ -102,13 +102,13 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
                     }
                 </div>
                 {code?.message && quantity !== 0 ? (
-                    <p className='message-cart'>
+                    <p className='message-cart mb-2'>
                         {code.message}
                     </p>
                 ) : null}
             </form>
 
-            <BtnRemoveAll id={id} />
+            <RemoveAll id={id} />
 
         </div>
     )

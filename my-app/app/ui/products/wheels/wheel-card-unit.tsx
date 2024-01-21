@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
+import RemoveAll from './btnwheels-rm-all';
 
 export default function WheelCardUnit({id, name, price, stock, img}: ProductsProps) {
 
@@ -57,7 +58,7 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                     in cart
                 </p>
 
-                <form action={formAction} className="flex justify-between py-2">
+                <form action={formAction} className="w-full flex flex-col py-2">
 
                     <input type="number" id="id" name="id" value={id} hidden readOnly />
                     <input type="text" id="name" name="name" value={name} hidden readOnly />
@@ -66,26 +67,31 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                     <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
                     <input type="text" id="img" name="img" value={img} hidden readOnly />
 
-                    <button type="submit" id="submit" name="submit" value="deleteWheel"
-                        onClick={() => handleDelete(id, name, price, img, stock)}
-                        disabled={pending} className='button-card'>
-                        {pending ? "Pending..." : "Sub"}
-                    </button>
-
-                    {stock - quantity !== 0 ? (
-                        <button type="submit" id="submit" name="submit" value="addWheel"
-                            onClick={() => handleAdd(id, name, price, img, stock)}
+                    <div className='flex justify-between'>
+                        <button type="submit" id="submit" name="submit" value="deleteWheel"
+                            onClick={() => handleDelete(id, name, price, img, stock)}
                             disabled={pending} className='button-card'>
-                            {pending ? "Pending..." : "Add"}
+                            {pending ? "Pending..." : "Sub"}
                         </button>
+
+                        {stock - quantity !== 0 ? (
+                            <button type="submit" id="submit" name="submit" value="addWheel"
+                                onClick={() => handleAdd(id, name, price, img, stock)}
+                                disabled={pending} className='button-card'>
+                                {pending ? "Pending..." : "Add"}
+                            </button>
+                        ) : null}
+                    </div>
+
+                    {code?.message && quantity !== 0 ? (
+                        <p className='message-cart mt-2'>
+                            {code.message}
+                        </p>
                     ) : null}
-                    
                 </form>
-                {code?.message && quantity !== 0 ? (
-                    <p className='message-cart'>
-                        {code.message}
-                    </p>
-                ) : null}
+                    
+                <RemoveAll id={id} />
+
             </div>
         </div>
     )
