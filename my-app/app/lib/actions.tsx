@@ -10,9 +10,11 @@ import {
   sendMessage,
   shippingQuery,
   paymentQuery,
-  eraseQuery,
-  //queryToPrepareTable, 
-  //queryToCopyTable
+  resetQuery,
+  resetShippingQuery,
+  queryToPrepareTable, 
+  queryToCopyTable,
+  queryConfirmation
 } from './db';
 import { revalidatePath } from 'next/cache';
 import { AuthError } from 'next-auth';
@@ -64,7 +66,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
   }
 }
 
-// order for decks
+// query for decks
 export async function queryDecksCart(prevState: { message: string } | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
@@ -164,12 +166,12 @@ export async function queryWheelsCart(prevState: {message: string} | undefined, 
   }
 }
 
-// delete item from wheels
-export async function deleteWheels(prevState: {message: string} | undefined, formData: FormData) {
+// delete all items by id
+export async function resetById(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllByIdWheel") {
+    if (btnDelete === "removeAllById") {
       if (id !== null) {
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
@@ -225,29 +227,7 @@ export async function queryTruckCart(prevState: {message: string} | undefined, f
   }
 }
 
-// delete item from trucks
-export async function deleteTrucks(prevState: {message: string} | undefined, formData: FormData) {
-  try {
-    const id = formData.get("id");
-    const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllByIdTruck") {
-      if (id !== null) {
-        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
-        if (result) {
-          revalidatePath("/products/trucks");
-          return {
-            message: "Removed from cart"
-          }
-        }
-      }
-    }
-  } catch (error) {
-    console.log(error)
-    throw error;
-  }
-}
-
-// delete item from order
+// delete all items from order
 export async function deleteOrder(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
@@ -269,30 +249,6 @@ export async function deleteOrder(prevState: {message: string} | undefined, form
   }
 }
 
-// message to send from contact
-export async function messageToSend(prevState: {message: string} | undefined, formData: FormData) {
-  try {
-    const username = formData.get("username");
-    const email = formData.get("email");
-    const message = formData.get("message");
-    const btnEmail = formData.get("submit");
-    if (btnEmail === "sendmessage") {
-      if (username !== null && email !== null && message !== null) {
-        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, message]);
-        if (result) {
-          revalidatePath("/contact");
-          return {message: "Message was sent successfully !"}
-        }
-      }
-    }
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-}
-
-
-
 // shipping from order
 export async function shippingRequest(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -307,17 +263,20 @@ export async function shippingRequest(prevState: {message: string} | undefined, 
     if (btnShipping === "shipping") {
       if (email !== null && user !== null && address !== null && npa !== null && phone !== null && 
         passwd !== null && filterTotal !== null) {
-        const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
-          [email, user, address, npa, phone, passwd, filterTotal]);
-        if (request) {
-          const prepareCopy = await queryToPrepareTable("TRUCATE TABLE checkout_paid");
-          if (prepareCopy) {
-            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid * FROM cartorder");
-            if (copyTable) {
-              const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
-              if (eraseTable) {
-                revalidatePath("/order");
-                return {message: "Shipping done !"};
+        const resetShipping = await resetShippingQuery("TRUNCATE TABLE shipping");
+        if (resetShipping) {
+          const request = await shippingQuery("INSERT INTO shipping VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [email, user, address, npa, phone, passwd, filterTotal]);
+          if (request) {
+            const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
+            if (prepareCopy) {
+              const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
+              if (copyTable) {
+                const eraseTable = await resetQuery("TRUNCATE TABLE cartorder");
+                if (eraseTable) {
+                  revalidatePath("/order");
+                  return {message: "Shipping done !"};
+                }
               }
             }
           }
@@ -345,11 +304,11 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
         const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?, ?)",
           [user, date, securitycode, checkcardValue, filterTotal]);
         if (request) {
-          const prepareCopy = await queryToPrepareTable("TRUCATE TABLE checkout_paid");
+          const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
           if (prepareCopy) {
-            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid * FROM cartorder");
+            const copyTable = await queryToCopyTable("INSERT INTO checkout_paid SELECT * FROM cartorder", []);
             if (copyTable) {
-              const eraseTable = await eraseQuery("TRUNCATE TABLE cartorder");
+              const eraseTable = await resetQuery("TRUNCATE TABLE cartorder");
               if (eraseTable) {
                 revalidatePath("/order");
                 return {message: "Shipping done !"};
@@ -365,6 +324,64 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
   }
 }
 
+export async function confirmationPayment(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const user = formData.get("user");
+    const address = formData.get("address");
+    const npa = formData.get("npa");
+    const phone = formData.get("phone");
+    const email = formData.get("email");
+    const name = formData.get("name");
+    const price = formData.get("price");
+    const count = formData.get("count");
+    const img = formData.get("img");
+    const filterTotal = formData.get("filterTotal");
+    const btnConfirm = formData.get("submit");
+    if (btnConfirm === "btnConfirmation") {
+      if (user !== null && address !== null && npa !== null && phone !== null && email !== null && name !== null && price !== null && 
+          count !== null && img !== null && filterTotal !== null) {
+        const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, filterTotal) \
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, filterTotal]);
+        if (query) {
+          const resetTableCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
+          if (resetTableCheckout) {
+            const resetTableShipping = await resetQuery("TRUNCATE TABLE shipping");
+            if (resetTableShipping) {
+              revalidatePath("/order/checkorder");
+              return {message: "Payment done !"}
+            }
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// message to send from contact
+export async function messageToSend(prevState: {message: string} | undefined, formData: FormData) {
+  try {
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const tetxtarea = formData.get("tetxtarea");
+    const btnEmail = formData.get("submit");
+    if (btnEmail === "sendmessage") {
+      if (username !== null && email !== null && tetxtarea !== null) {
+        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, tetxtarea]);
+        if (result) {
+          revalidatePath("/contact");
+          return {message: "Message was sent successfully !"}
+        }
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 // email to retrieve password
 export async function forgotPasswordServerAction(prevState: {message: string} | undefined, formData: FormData) {
   try {
@@ -375,7 +392,7 @@ export async function forgotPasswordServerAction(prevState: {message: string} | 
         const result = await forgotQuery("INSERT INTO forgotpassword VALUES (?)", [email]);
         if (result) {
           revalidatePath("/register");
-          return {message: "You are registered"};
+          return {message: "A message will be send to you soon"};
         }
       }
     }

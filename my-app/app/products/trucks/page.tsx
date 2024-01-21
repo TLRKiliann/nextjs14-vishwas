@@ -44,8 +44,8 @@ export default async function AxisShop() {
         <SearchUrl placeholder="Search by product name..." />
       </div>
 
-      <div className='w-[800px] m-auto bg-slate-100 md:mt-10 mb-10 xl:mt-20'>
-        <div className='flex items-center justify-between'>
+      <div className='w-[800px] m-auto md:mt-10 mb-10 xl:mt-20'>
+        <div className='flex items-center justify-between h-auto'>
           {JSON.parse(data).map((truck: ProductsProps) => (
             <TrucksCards 
               key={truck.id}

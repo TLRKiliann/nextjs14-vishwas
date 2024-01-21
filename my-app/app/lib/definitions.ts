@@ -86,12 +86,6 @@ export type CartProps = {
     img: string;
 }
 
-export type MessageProps = {
-    username: string;
-    email: string;
-    message: string;
-}
-
 export type ImgSetProps = {
     id: number;
     images: StaticImageData[]
@@ -138,4 +132,43 @@ export type VideoProps = {
 export type LinksShopMenuProps = {
     id: number;
     name: string;
+}
+
+export type AllProps = {
+    id: number;
+    user: string;
+    address: string;
+    npa: number;
+    phone: number;
+    email: string;
+    passwd: string;
+    name: string;
+    price: number;
+    count: number;
+    stock: number;
+    img: string;
+    filterTotal: number;
+}
+
+export type ConfirmationProps = {
+    user: string;
+    address: string;
+    npa: number;
+    phone: number;
+    email: string;
+    name: string;
+    price: number;
+    count: number;
+    img: string;
+    filterTotal: number;
+}
+
+export type EmailMessage = {
+    email: string;
+}
+
+export type MessageProps = {
+    username: string;
+    email: string;
+    textarea: string;
 }

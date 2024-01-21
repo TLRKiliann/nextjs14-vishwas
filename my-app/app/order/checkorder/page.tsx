@@ -1,77 +1,88 @@
-//import type { AllProps } from '@/app/lib/definitions';
+import type { AllProps } from '@/app/lib/definitions';
 import React from 'react';
-import Link from 'next/link';
-import { signOut } from '@/auth';
-//import { queryOrderPaid } from '@/app/lib/db';
-import { RiLogoutCircleLine } from "react-icons/ri";
-
-// const dynamic = "force-dynamic";
+import Image from 'next/image';
+import { queryOrderPaid } from '@/app/lib/db';
+import ValidatePayment from '@/app/ui/cart-order/validate-payment';
+import ReturnSignOut from '@/app/ui/cart-order/return-signout-order';
 
 export default async function CheckOrder() {
 
-    //const query: AllProps[] = await queryOrderPaid("SELECT * FROM checkout_paid", []);
-    //const data: string = JSON.stringify(query);
-    /*
-    console.log(data, "data");
+    const query: AllProps[] = await queryOrderPaid("SELECT * FROM shipping CROSS JOIN checkout_paid", []);
+    const data: string = JSON.stringify(query);
 
     if (!data) {
         throw new Error("Error: server query failed");
     };
-    */
-
+    
     return (
-        <div className='w-full min-h-screen flex flex-col items-center justify-center'>
+        <div className='w-full min-h-screen bg-slate-white dark:bg-slate-900 py-[75px]'>
 
-            {/*
-            <div className=''>
-                <table className='w-full my-0 rounded-tl-md rounded-tr-md'>
-                    <tbody className='flex flex-col'>
-                    <tr className='flex justify-between w-full text-lg text-slate-500 bg-slate-300
-                        dark:text-slate-400/80 dark:bg-slate-800 py-2 rounded-tl-md rounded-tr-md'>
-                        <th className='w-1/5 py-1'>Username</th>
-                        <th className='w-2/5 py-1'>Address</th>
-                        <th className='w-2/5 py-1'>NPA</th>
-                        <th className='w-2/5 py-1'>Phone</th>
-                        <th className='w-2/5 py-1'>ProductName</th>
-                        <th className='w-2/5 py-1'>Price</th>
-                        <th className='w-2/5 py-1'>Quantity</th>
-                        <th className='w-2/5 py-1'>Total</th>
-                    </tr>
+            <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 p-4'>
+                Checkout
+            </h1>
 
-                    {JSON.parse(data).map((d: AllProps) => (
-                        <tr key={d.id}>
-                            <td>Username</td>
-                            <td>Address</td>
-                            <td>NPA</td>
-                            <td>Phone</td>
-                            <td className='w-2/5 py-1'>ProductName</td>
-                            <td className='w-2/5 py-1'>Price</td>
-                            <td className='w-2/5 py-1'>Quantity</td>
-                            <td className='w-2/5 py-1'>Total</td>
+            <div className='w-[900px] xl:w-[1200px] m-auto my-[40px]'>
+                <table className='w-full text-sm my-0 rounded-tl-md rounded-tr-md border border-blue-600'>
+                    <tbody className='flex flex-col w-full'>
+                        <tr className='flex justify-between w-full text-lg text-slate-500 bg-slate-300
+                            dark:text-slate-400/80 dark:bg-slate-800 py-2 rounded-tl-md rounded-tr-md'>
+                            <th className='w-2/5'>User</th>
+                            <th className='w-2/5'>Address</th>
+                            <th className='w-2/5'>NPA</th>
+                            <th className='w-2/5'>Phone</th>
+                            <th className='w-2/5'>Email</th>
+                            <th className='w-2/5'>Product</th>
+                            <th className='w-2/5'>Price</th>
+                            <th className='w-2/5'>Quantity</th>
+                            <th className='w-2/5'>Img</th>
+                            <th className='w-2/5'>Total</th>
                         </tr>
-                    ))}
+
+
+                        {JSON.parse(data).map((d: AllProps) => (
+                            <tr className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
+                                dark:text-slate-50 dark:bg-slate-900 rounded-tl-md rounded-tr-md'
+                            >
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.user}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.address}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.npa}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.phone}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.email}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.name}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                {Number(d.price).toFixed(2)}.-
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.count}
+                                </td>
+                                <td className='flex items-center justify-center w-2/5 h-auto'>
+                                <Image src={d.img} width={30} height={30} alt="img checkout" 
+                                    className='object-cover'/>
+                                </td>
+                                <td className='flex items-center justify-center w-2/5'>
+                                    {d.filterTotal}.-
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
-            */}
+            
+            <ValidatePayment data={JSON.parse(data)} />
 
-            <form
-                action={async () => {
-                    "use server";
-                    await signOut();
-                }}
-                className='w-2/5 h-auto m-auto'
-            >
-                <Link href="/order" className="text-sky-500 hover:text-sky-400 active:text-orange-400 mb-4">Go back to order ?</Link>
-                <button className='text-lg flex items-center justify-between text-slate-400 bg-slate-800 
-                    hover:text-indigo-500 hover:scale-105 dark:hover:text-slate-50 active:bg-slate-700
-                    px-6 py-2 rounded-lg border border-slate-500'>
-                    <RiLogoutCircleLine size={20} />
-                    <span className='ml-2'>
-                        Sign Out
-                    </span>
-                </button>
-            </form>
+            <ReturnSignOut />
         
         </div>
     )

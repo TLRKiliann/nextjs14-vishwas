@@ -18,7 +18,7 @@ export default function Search({placeholder}: {placeholder: string}) {
         const destructuredText = inputText?.split(" ");
         const generatedUrl = generateProductUrl(destructuredText[0], destructuredText[1]);
         if (generatedUrl === undefined) {
-            setMessage("Not found...");
+            setMessage("Product not found...");
         } else {
             router.push(generatedUrl);
         }
@@ -27,26 +27,28 @@ export default function Search({placeholder}: {placeholder: string}) {
     return (
         <>
             <form id="truc" onSubmit={(e) => handleSubmit(e)} 
-                className='flex items-center justify-center w-4/5 h-content m-auto'>
+                className='flex items-center justify-between w-3/5 h-auto m-auto'>
 
                 <input
                     value={inputText}
                     onChange={handleSearch}
                     placeholder={placeholder}
-                    className="w-2/5 text-lg text-slate-50 outline-2 bg-slate-200 dark:bg-slate-800 border 
-                        border-slate-500/70 dark:border-slate-400/70 mx-4 py-1 pl-2 placeholder:text-slate-500 
-                        dark:placeholder:text-slate-300 rounded-lg"
+                    className="w-4/5 text-lg text-slate-50 outline-2 bg-slate-200 dark:bg-slate-800 
+                        border-none mx-4 py-1 pl-2 placeholder:text-slate-500 focus:ring focus:ring-violet-400/70 
+                        dark:focus:ring-sky-500 dark:placeholder:text-slate-300 rounded shadow-inlightbox"
                 />
 
-                <button type="submit" className='w-[140px] font-bold text-slate-50 bg-violet-500 
-                    dark:bg-blue-600 hover:bg-violet-600 dark:hover:bg-blue-700 active:bg-violet-400 
-                    dark:active:bg-blue-500 cursor-pointer px-5 py-2 rounded-lg shadow-lg hover:shadow-none'>
+                <button type="submit" className='w-1/5 font-bold text-slate-50 bg-violet-500 
+                    dark:bg-blue-600 hover:bg-violet-600 dark:hover:bg-blue-600/70 active:bg-violet-400 
+                    dark:active:bg-sky-600 cursor-pointer py-2 rounded-lg shadow-inlightbox hover:shadow-none'>
                     Submit
                 </button>
 
             </form>
             {message ? (
-                <p className='text-lg text-red-500 bg-slate-800 mt-4 px-6 py-2 rounded-lg'>
+                <p className='w-[280px] text-center text-lg text-orange-500 bg-slate-900/50 mt-4 px-6 py-2 
+                    rounded-lg'
+                >
                     {message}
                 </p>
             ) : null}        

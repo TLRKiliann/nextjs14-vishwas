@@ -32,8 +32,7 @@ export default function ListProducts() {
 
             <div>
                 <h1 className='relative text-4xl font-bold text-transparent bg-clip-text dark-title-h1
-                    bg-gradient-to-br from-violet-500 from-10% 
-                    via-purple-500 via-50% to-violet-200 to-90%
+                    bg-gradient-to-br from-violet-500 from-10% via-purple-500 via-50% to-violet-200 to-90%
                     p-4'
                 >
                     Welcome to shop !

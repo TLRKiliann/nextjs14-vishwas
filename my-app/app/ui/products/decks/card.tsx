@@ -9,6 +9,7 @@ import { useShoppingCart } from '@/app/context/cart-context';
 import { formatCurrency } from "@/app/utils/formatCurrency";
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
+import RemoveAllByIdDeck from './btn-remove-allByIdDeck';
 import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
@@ -45,7 +46,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
 
     return (
         <div key={id}
-            className="text-slate-600 bg-white shadow-lg transform transition 
+            className="text-slate-600 bg-slate-100 dark:bg-slate-100 shadow-lg transform transition 
                 hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
                 rounded-xl m-auto"
         >
@@ -60,7 +61,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 />
             </span>
 
-            <div className="flex flex-col font-bold bg-slate-100/80">
+            <div className="flex flex-col font-bold bg-slate-100/80 dark:bg-slate-100">
                 <div className="flex items-center justify-between text-md text-slate-600/80 mx-4 
                     my-2">
                     <h3>{name.toUpperCase()}</h3>
@@ -69,9 +70,18 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                     <p>Price</p>
                     <p>{formatCurrency(price)}.- CHF</p>
                 </div>
-                <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2">
-                    <p>Stock</p>
-                    <p>{stock - quantity}</p>
+                <div className="flex items-center justify-center text-sm text-slate-500/80 mx-4 mb-2">
+
+                    {stock - quantity === 0 ? (
+                            <p className='warning-stock'>No more in stock</p>
+                        ) : (
+                            <div className='flex items-center justify-between w-full'>
+                                <p>Stock:</p> 
+                                <p>{stock - quantity}pcs</p>
+                            </div>
+                        )
+                    }    
+
                 </div>
                 
                 <div className='flex justify-center items-center pb-2'>
@@ -107,22 +117,26 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 >
                     {pending ? "Pending..." : "Sub"}
                 </button>
-
-                <button type="submit" id="submit" name="submit" value="order" 
-                    onClick={() => handleAddToCart(id, name, price, img, stock)}
-                    disabled={pending}
-                    className='button-card'
-                >
-                    {pending ? "Pending..." : "Add"}
-                </button>
+                {stock - quantity > 0 ? (
+                    <button type="submit" id="submit" name="submit" value="order" 
+                        onClick={() => handleAddToCart(id, name, price, img, stock)}
+                        disabled={pending}
+                        className='button-card'
+                    >
+                        {pending ? "Pending..." : "Add"}
+                    </button>
+                    ): null
+                }
 
             </form>
             {code?.message && quantity !== 0 ? (
                 <div>
-                    <p className='message-cart'>{code.message}</p>
+                    <p className='message-cart mb-2'>{code.message}</p>
                 </div>
                 ) : null
             }
+
+            <RemoveAllByIdDeck id={id} />
 
             <div className="flex align-center justify-end text-sm bg-slate-100/80 px-4 py-2 pb-3">
                 <Link

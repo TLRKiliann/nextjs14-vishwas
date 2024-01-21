@@ -1,11 +1,11 @@
 "use client";
 
-import { useShoppingCart } from '@/app/context/cart-context';
 import React from 'react'
+import { useShoppingCart } from '@/app/context/cart-context';
 import { useFormState, useFormStatus } from 'react-dom';
 import { resetById } from '@/app/lib/actions';
 
-export default function BtnRemoveAll({id}: {id: number}) {
+export default function RemoveAllByIdDeck({id}: {id: number}) {
 
     const { pending } = useFormStatus();
     const [state, formData] = useFormState(resetById, undefined);
@@ -17,17 +17,17 @@ export default function BtnRemoveAll({id}: {id: number}) {
     };
 
     return (
-        <form action={formData} className='flex flex-col items-center justify-center my-2'>
+        <form action={formData} className='flex bg-slate-100 flex-col items-center w-full'>
 
             <input type="number" id="id" name="id" value={id} hidden readOnly />
 
             <button type="submit" id="submit" name="submit" value="removeAllById" 
-                disabled={pending} onClick={() => handleRemove(id)} className='button-card'
+                disabled={pending} onClick={() => handleRemove(id)} className='w-5/6 button-card'
             >
-                {pending ? "Pending" : "Remove"}
+                {pending ? "Pending..." : "Remove"}
             </button>
             {state?.message ? (
-                <p className='w-full message-cart'>{state.message}</p>
+                <p className='w-full message-cart mt-2'>{state.message}</p>
             ) : null}
         </form>
     )

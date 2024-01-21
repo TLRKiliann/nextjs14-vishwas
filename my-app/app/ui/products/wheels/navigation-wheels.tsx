@@ -32,73 +32,73 @@ export default function NavigationWheels() {
             {closeMenu ? (
                 <div className='font-bold dark:text-amber-900 bg-orange-200 pl-6 transition transform 
                     duration-300 ease-in-out rounded-lg '>
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/bones/37" className="custom-link">
                             Bones One
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/bones/38" className="custom-link">
                             Bones Two
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/bones/39" className="custom-link">
                             Bones Three
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/bones/40" className="custom-link">
                             Bones Four
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/slimballs/41" className="custom-link">
                             Slimballs One
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/slimballs/42" className="custom-link">
                             Slimballs Two
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/slimballs/43" className="custom-link">
                             Slimballs Three
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/slimballs/44" className="custom-link">
                             Slimballs Four
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/spitfire/45" className="custom-link">
                             Spitfire One
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/spitfire/46" className="custom-link">
                             Spitfire Two
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/spitfire/47" className="custom-link">
                             Spitfire Three
                         </Link>
                     </li>
                     <hr className='border-t-amber-500/60' />
-                    <li className='custom-li'>
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/spitfire/48" className="custom-link">
                             Spitfire Four
                         </Link>

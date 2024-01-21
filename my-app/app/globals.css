@@ -47,7 +47,10 @@
     w-8 h-8 rounded-full;
   }
   .message-cart {
-    @apply text-sm text-center text-red-500 bg-orange-200/70 my-2 py-2;
+    @apply text-sm text-center text-red-500 bg-orange-200/70 py-2;
+  }
+  .warning-stock {
+    @apply text-sm font-bold text-red-500;
   }
   .shopmenu-mainlink {
     @apply flex items-center justify-start hover:bg-indigo-300 dark:hover:bg-sky-700 
@@ -88,22 +91,13 @@
 }
 
 #miniscroll-cart {
-  height: 500px;
+  position: absolute;
+  height: auto;
   overflow-y: scroll;
   scroll-behavior: smooth;
   margin: 0px;
   padding: 0px;
-}
-
-@media screen and (min-width: 1200px) {
-  #miniscroll-cart {
-    height: 500px;
-    height: 900px;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    margin: 0px;
-    padding: 0px;
-  }
+  z-index: 30;
 }
 
 #miniscroll-cart::-webkit-scrollbar {
@@ -138,4 +132,30 @@
 
 .hover-trigger2:hover .hover-target2 {
   display: block;
+}
+
+@media screen and (min-width: 800px) {
+  #miniscroll-cart {
+    position: absolute;
+    height: auto;
+    max-height: 500px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    margin: 0px;
+    padding: 0px;
+    z-index: 30;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #miniscroll-cart {
+    position: absolute;
+    height: auto;
+    max-height: 900px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    margin: 0px;
+    padding: 0px;
+    z-index: 30;
+  }
 }

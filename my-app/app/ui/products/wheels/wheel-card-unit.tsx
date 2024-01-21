@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
+import RemoveAll from './btnwheels-rm-all';
 
 export default function WheelCardUnit({id, name, price, stock, img}: ProductsProps) {
 
@@ -29,15 +30,26 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
     };
 
     return (
-        <div key={id} className='w-[300px] h-auto'>
+        <div key={id} className='md:w-[200px] lg:w-[300px] h-auto transition transform translate-y-0 animate-up-start'>
             <Image src={img} width={435} height={580} alt="img wheelUnit"
-                className='object-cover rounded-tr-md rounded-tl-md' />
+                className='object-cover md:w-[200px] lg:w-[300px] h-auto rounded-tr-md rounded-tl-md' />
             <div className='text-slate-600/80 bg-slate-50 p-4 rounded-br-md rounded-bl-md'>
                 <h3 className='text-lg font-bold'>
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                 </h3>
-                <h4 className='text-lg font-bold'>{price}.-</h4>
-                <p className='text-sm mt-2'>Stock: {stock - quantity}pcs</p>
+                <div className='flex items-center justify-between text-sm font-bold'>
+                    <p>Price:</p>
+                    <p>{price}.-</p>
+                </div>
+                {stock - quantity === 0 ? (
+                        <p className='warning-stock text-center'>No more in stock</p>
+                    ) : (
+                        <div className='flex items-center justify-between w-full text-sm'>
+                            <p>Stock:</p> 
+                            <p>{stock - quantity}pcs</p>
+                        </div>
+                    )
+                }  
                 
                 <p className='text-center text-lg font-normal text-slate-500/80 m-auto pt-2'>
                     <span className={`font-bold ${quantity === 0 ? "text-slate-500/80" : "text-red-500/80" }`}>
@@ -46,7 +58,7 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                     in cart
                 </p>
 
-                <form action={formAction} className="flex justify-between py-2">
+                <form action={formAction} className="w-full flex flex-col py-2">
 
                     <input type="number" id="id" name="id" value={id} hidden readOnly />
                     <input type="text" id="name" name="name" value={name} hidden readOnly />
@@ -55,24 +67,31 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                     <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
                     <input type="text" id="img" name="img" value={img} hidden readOnly />
 
-                    <button type="submit" id="submit" name="submit" value="deleteWheel"
-                        onClick={() => handleDelete(id, name, price, img, stock)}
-                        disabled={pending} className='button-card'>
-                        {pending ? "Pending..." : "Sub"}
-                    </button>
+                    <div className='flex justify-between'>
+                        <button type="submit" id="submit" name="submit" value="deleteWheel"
+                            onClick={() => handleDelete(id, name, price, img, stock)}
+                            disabled={pending} className='button-card'>
+                            {pending ? "Pending..." : "Sub"}
+                        </button>
 
-                    <button type="submit" id="submit" name="submit" value="addWheel"
-                        onClick={() => handleAdd(id, name, price, img, stock)}
-                        disabled={pending} className='button-card'>
-                        {pending ? "Pending..." : "Add"}
-                    </button>
-                    
+                        {stock - quantity !== 0 ? (
+                            <button type="submit" id="submit" name="submit" value="addWheel"
+                                onClick={() => handleAdd(id, name, price, img, stock)}
+                                disabled={pending} className='button-card'>
+                                {pending ? "Pending..." : "Add"}
+                            </button>
+                        ) : null}
+                    </div>
+
+                    {code?.message && quantity !== 0 ? (
+                        <p className='message-cart mt-2'>
+                            {code.message}
+                        </p>
+                    ) : null}
                 </form>
-                {code?.message && quantity !== 0 ? (
-                    <p className='message-cart'>
-                        {code.message}
-                    </p>
-                ) : null}
+                    
+                <RemoveAll id={id} />
+
             </div>
         </div>
     )

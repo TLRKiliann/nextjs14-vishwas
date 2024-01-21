@@ -6,9 +6,12 @@ import type {
   EmailProps,
   ShippingProps,
   PaymentProps,
+  AllProps,
+  ConfirmationProps,
+  EmailMessage
 } from './definitions';
 
-type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | [];
+type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | AllProps | ConfirmationProps | [];
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -191,12 +194,29 @@ const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise
   }
 }
 
-// erase checkout_paid table to prepare copy
-const queryToPrepareTable = async (query: string, data: GenericProps): Promise<ShippingProps[]> => {
+// reset checkout_paid table to prepare copy
+const resetShippingQuery = async (query: string) => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
+    const [result] = await connection.execute(query);
+    return result;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
+
+// truncate table shipping
+const queryToPrepareTable = async (query: string): Promise<ShippingProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query);
     return result as ShippingProps[];
   } catch (error) {
     console.error(error);
@@ -210,10 +230,11 @@ const queryToPrepareTable = async (query: string, data: GenericProps): Promise<S
 
 // copy cartorder table to checkout_paid table
 const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+//const queryToCopyTable = async (query: string): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const [result] = await connection.execute(query, data);
+    const [result] = await connection.execute(query);
     return result as CartProps[];
   } catch (error) {
     console.error(error);
@@ -225,8 +246,7 @@ const queryToCopyTable = async (query: string, data: GenericProps): Promise<Cart
   }
 }
 
-/*
-// display all items from table
+// display by join table checkorder page
 const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllProps[]> => {
   let connection;
   try {
@@ -242,10 +262,26 @@ const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllPro
     }
   }
 }
-*/
+
+// display by join table checkorder page
+const queryConfirmation = async (query: string, data: FormDataEntryValue[]): Promise<ConfirmationProps[]> => {
+  let connection;
+  try {
+    connection = await pool.getConnection();
+    const [result] = await connection.execute(query, data);
+    return result as ConfirmationProps[];
+  } catch (error) {
+    console.error(error);
+    throw error;
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+}
 
 // erase cartorder table
-const eraseQuery = async (query: string) => {
+const resetQuery = async (query: string) => {
   let connection;
   try {
     connection = await pool.getConnection();
@@ -296,12 +332,12 @@ const showAllMessageBox = async (query: string, data: MessageProps[]) => {
 }
 
 // send email if password forgotten
-const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailProps[]> => {
+const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailMessage[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result as EmailProps[];
+    return result as EmailMessage[];
   } catch (error) {
     console.error(error);
     throw error;
@@ -324,7 +360,6 @@ const authQuery = async (query: string, data: FormDataEntryValue[]): Promise<Ema
       namedPlaceholders: true,
     })
     const [result] = await db.execute(query, data);
-    //await db.end();
     return result as EmailProps[];
   } catch (error) {
     console.log(error);
@@ -348,12 +383,14 @@ export {
   actionOrderQuery,
   cartOrderUpdateQuery,
   queryCartDelete,
+  resetShippingQuery,
   shippingQuery,
   paymentQuery,
-  //queryToCopyTable,
-  //queryToCopyTable
-  // queryOrderPaid,
-  eraseQuery,
+  queryToPrepareTable,
+  queryToCopyTable,
+  queryOrderPaid,
+  queryConfirmation,
+  resetQuery,
   sendMessage,
   showAllMessageBox,
   forgotQuery,

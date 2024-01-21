@@ -1,6 +1,7 @@
 import type { CartProps } from '@/app/lib/definitions';
 import React from 'react'
 import CartDisplay from '@/app/ui/cart/cart-display';
+import Link from 'next/link';
 
 export default function CartItems({order}: {order: CartProps[]}) {
     return (
@@ -17,9 +18,11 @@ export default function CartItems({order}: {order: CartProps[]}) {
                     img={item.img}
                 />
                 )) : (
-                <p className='text-lg text-center text-slate-500 dark:text-sky-600 mb-2'>
+                <Link href="/products"
+                     className='text-lg text-center 
+                        text-slate-500 dark:text-sky-600 dark:hover:text-sky-700 dark:active:text-sky-500 mb-2'>
                     Add product to cart
-                </p>
+                </Link>
             )}
 
         </div>

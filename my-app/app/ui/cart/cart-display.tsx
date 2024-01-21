@@ -24,7 +24,7 @@ export default function Cart({id, name, price, count, stock, img}: CartProps) {
 
             <div className='m-auto ml-3'>
                 <Image src={img} width={120} height={120} alt="no img"
-                    className='object-cover rounded-lg drop-shadow-lg' />
+                    className='object-cover rounded-lg drop-shadow-fontlg' />
             </div>
 
             <div className='flex flex-col items-start w-2/5 ml-4'>
@@ -53,8 +53,8 @@ export default function Cart({id, name, price, count, stock, img}: CartProps) {
                 <button type="submit" id="submit" name="submit" value="deletecartorder"
                     onClick={() => handleDeleteItem(id)}
                     disabled={pending}
-                    className='text-slate-50 font-bold bg-red-500 hover:bg-red-500/80 
-                        hover:shadow-none active:text-slate-50 active:bg-red-400 mb-0 px-4 py-1
+                    className='text-slate-50 font-bold bg-red-500 hover:bg-red-600 
+                        hover:shadow-none active:text-slate-50 active:bg-orange-600 mb-0 px-4 py-1
                         rounded shadow-lg'
                 >
                     {pending ? "Pending" : "Remove"}

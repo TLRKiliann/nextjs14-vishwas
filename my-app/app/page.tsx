@@ -21,6 +21,7 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
+//import imgWaves from '@/public/img_bg/stacked-waves2.png';
 
 export default function Home() {
   
@@ -70,17 +71,17 @@ export default function Home() {
 
           <div className='flex flex-col py-[100px]'>
             <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
-              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mb-0'
+              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto mb-0'
             >
               The
             </p>
             <h1 className='text-4xl font-bold text-transparent bg-clip-text 
-              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto my-0 transform animate-scale-decks'
+              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto my-0'
             >
               Skateboard-Shop
             </h1>
             <p className='text-lg text-blue-800 font-bold text-transparent bg-clip-text 
-              light-bg-gradient dark-bg-gradient drop-shadow-lg m-auto mt-0'
+              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto mt-0'
             >
               Decks - Trucks - Wheels
             </p>
@@ -94,9 +95,9 @@ export default function Home() {
           </div>
 
           <div className="absolute flex justify-start w-full mb-0">
-            <div className="w-[400px] h-auto transition transform translate-y-0 animate-up-start">
+            <div className="w-[400px] h-auto">
               <Image src={skaterFly} width={1920} height={1260} alt="img skaterFly"
-                className="object-cover" />
+                className="object-cover transition transform translate-y-0 animate-up-start" />
             </div>
           </div>
 
@@ -120,10 +121,10 @@ export default function Home() {
           <h2 className='text-2xl font-bold m-auto text-transparent bg-clip-text
             dark:bg-gradient-to-br dark:from-slate-500 dark:from-10% 
             dark:via-cyan-200 dark:via-40% dark:to-slate-500 dark:to-90%
-            dark:drop-shadow-lg 
+            dark:drop-shadow-fontlg 
             bg-gradient-to-br from-indigo-500 from-10% 
             via-indigo-400 via-40% to-indigo-500 to-90%
-            drop-shadow-lg transition animate-slice-appear'
+            drop-shadow-fontlg transition animate-slice-appear'
           >
             Take a look !
           </h2>
@@ -177,7 +178,7 @@ export default function Home() {
           </div>
 
           <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 
-            shadow-inviolet dark:bg-sky-700/70'>
+            drop-shadow-inviolet dark:bg-sky-700/70'>
 
             <div className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
               ml-2 rotate-[15deg] z-20'>
@@ -212,7 +213,7 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-4/5 m-auto shadow-inviolet dark:shadow-in py-10'>
+          <div className='flex align-center justify-around w-4/5 m-auto drop-shadow-inviolet dark:drop-shadow-in py-10'>
 
             <SectionImgOne />
 
@@ -236,7 +237,7 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-4/5 m-auto shadow-inviolet dark:shadow-in py-10'>
+          <div className='flex align-center justify-around w-4/5 m-auto drop-shadow-inviolet dark:drop-shadow-in py-10'>
 
             <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
 
@@ -249,13 +250,18 @@ export default function Home() {
 
         </div>
 
-        <Separator />
+          <Separator />
 
-          <TextBlocks title={titleFour} text={textFour}>
-            <SocialIcons />
-          </TextBlocks>
+            <TextBlocks title={titleFour} text={textFour}>
+              <SocialIcons />
+            </TextBlocks>
 
-        <Separator />
+          <Separator />
+
+        {/*<div className='absolute bottom-0 w-full h-auto'>
+          <Image src={imgWaves} width={500} height={333} alt="waves img" 
+            className='w-full h-auto object-cover opacity-1' />
+        </div>*/}
 
       </main>
 

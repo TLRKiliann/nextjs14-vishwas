@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
+import RemoveAllByIdDeck from './btn-remove-allByIdDeck';
 
 export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
@@ -20,6 +21,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     } = useShoppingCart();
 
     const quantity: number = getItemQuantity(id);
+    const defineName = name.split(" ");
 
     const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
@@ -28,11 +30,11 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
-
+    
     return (
-        <div key={id} className='flex items-center justify-center w-full h-full text-md'>
+        <div key={id} className='flex flex-col items-center justify-center w-full h-content text-md pb-2'>
 
-            <form action={formAction} className='flex flex-col w-full h-full bg-slate-100
+            <form action={formAction} className='flex flex-col w-full h-auto bg-slate-100
                 transform transition translate-y-0 animate-up-start rounded-tr-xl rounded-br-xl'
             >
                 <div className='w-full h-auto'>
@@ -54,13 +56,8 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                 </p>
                 
                 <p className='text-sm text-slate-600/80 px-2 pt-3'>
-                    {stock >= quantity 
-                        ? "Stock: " + (stock - quantity) + "pcs"
-                        : (
-                            <span className='text-red-500'>
-                                No more in stock
-                            </span>
-                        )
+                    {stock - quantity === 0 ? <span className='warning-stock'>No more in stock</span> : 
+                        "Stock: " + (stock - quantity) + "pcs"
                     }    
                 </p>
 
@@ -72,8 +69,8 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                     <summary className="text-xs text-slate-600/80 hover:cursor-pointer">
                         Video
                     </summary>
-                    <Link href="#" className="text-sm text-blue-500 hover:text-blue-600 px-3">
-                        https://www.{name}.link
+                    <Link href={`/products/decks/${defineName[0]}/${id}/reviews/${id}`} className="text-sm text-blue-500 hover:text-blue-600 px-3">
+                        Go to video
                     </Link>
                 </details>
 
@@ -84,7 +81,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                 <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
                 <input type="text" id="img" name="img" value={img} hidden readOnly />
 
-                <div className='flex items-end w-full h-full'>
+                <div className='w-full h-full'>
 
                     <div className='w-full flex items-center justify-between my-2 px-2'>
                         
@@ -99,7 +96,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                                 { pending ? "pending..." : "Sub" }
                         </button>
 
-                        {(quantity !== 0) || (stock >= 0) ? (
+                        {stock - quantity > 0 ? (
                             <button 
                                 type="submit"
                                 id="submit"
@@ -114,14 +111,15 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                         }
 
                     </div>
-
+                    {code?.message && quantity !== 0 ? (
+                        <p className='message-cart mb-2'>{code.message}</p>
+                    ) : null}
                 </div>
 
-                {code?.message && quantity !== 0 ? (
-                    <p className='message-cart'>{code.message}</p>
-                ) : null}
-
             </form>
+
+            <RemoveAllByIdDeck id={id} />
+
         </div>
     )
 }
