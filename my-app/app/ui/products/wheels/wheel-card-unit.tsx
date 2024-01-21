@@ -29,9 +29,9 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
     };
 
     return (
-        <div key={id} className='w-[300px] h-auto'>
+        <div key={id} className='md:w-[200px] lg:w-[300px] h-auto transition transform translate-y-0 animate-up-start'>
             <Image src={img} width={435} height={580} alt="img wheelUnit"
-                className='object-cover rounded-tr-md rounded-tl-md' />
+                className='object-cover md:w-[200px] lg:w-[300px] h-auto rounded-tr-md rounded-tl-md' />
             <div className='text-slate-600/80 bg-slate-50 p-4 rounded-br-md rounded-bl-md'>
                 <h3 className='text-lg font-bold'>
                     {name.charAt(0).toUpperCase() + name.slice(1)}

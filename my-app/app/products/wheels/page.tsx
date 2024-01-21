@@ -42,7 +42,7 @@ export default async function AxisShop() {
 
         <div className='md:flex md:flex-col lg:grid grid-cols-4 grid-row-3 gap-0 justify-items-center 
           md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
-          shadow-none'>
+          shadow-none transition transform ease duration-300 animate-slice-appear'>
 
           {JSON.parse(data).map((wheelUnit: ProductsProps) => (
             <WheelCard
