@@ -293,8 +293,6 @@ export async function messageToSend(prevState: {message: string} | undefined, fo
   }
 }
 
-
-
 // shipping from order
 export async function shippingRequest(prevState: {message: string} | undefined, formData: FormData) {
   try {
