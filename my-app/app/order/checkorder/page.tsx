@@ -5,14 +5,12 @@ import { queryOrderPaid } from '@/app/lib/db';
 import ValidatePayment from '@/app/ui/cart-order/validate-payment';
 import ReturnSignOut from '@/app/ui/cart-order/return-signout-order';
 
-export const dynamic = "force-dynamic";
-
 export default async function CheckOrder() {
 
     const query: AllProps[] = await queryOrderPaid("SELECT * FROM shipping CROSS JOIN checkout_paid", []);
     const data: string = JSON.stringify(query);
 
-    if (!data) {
+    if (!data[0]) {
         throw new Error("Error: server query failed");
     };
     
@@ -42,35 +40,35 @@ export default async function CheckOrder() {
                         <tr className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
                             dark:text-slate-50 dark:bg-slate-900 rounded-tl-md rounded-tr-md'>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].user}
+                                {JSON.parse(data)[0]?.user}
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].address}
+                                {JSON.parse(data)[0]?.address}
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].npa}
+                                {JSON.parse(data)[0]?.npa}
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].phone}
+                                {JSON.parse(data)[0]?.phone}
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].email}
+                                {JSON.parse(data)[0]?.email}
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].name}
+                                {JSON.parse(data)[0]?.name}
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {Number(JSON.parse(data)[0].price).toFixed(2)}.-
+                                {Number(JSON.parse(data)[0]?.price).toFixed(2)}.-
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].count}
+                                {JSON.parse(data)[0]?.count}
                             </td>
                             <td className='flex items-center justify-center w-2/5 h-auto'>
-                                <Image src={JSON.parse(data)[0].img} width={30} height={30} alt="img checkout" 
+                                <Image src={JSON.parse(data)[0]?.img} width={30} height={30} alt="img checkout" 
                                     className='object-cover'/>
                             </td>
                             <td className='flex items-center justify-center w-2/5'>
-                                {JSON.parse(data)[0].filterTotal}.-
+                                {JSON.parse(data)[0]?.filterTotal}.-
                             </td>
                         </tr>
                     </tbody>
