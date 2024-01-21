@@ -63,7 +63,7 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
                 in cart
             </p>
 
-            <form action={formAction} className=''>
+            <form action={formAction}>
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="name" name="name" value={name} hidden readOnly />
@@ -94,7 +94,7 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
 
                 </div>
                 {code?.message && quantity !== 0 ? (
-                    <p className='message-cart'>{code.message}</p>
+                    <p className='message-cart mt-2'>{code.message}</p>
                 ) : null }
             </form>
 
