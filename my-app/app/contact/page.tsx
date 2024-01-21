@@ -8,7 +8,7 @@ import mauricio from "@/public/img_bg/mauricio.jpg";
 export const metadata: Metadata = {
     title: "Contact",
     description: "access accepted"
-}
+};
 
 export default function Contact() {
     return (
