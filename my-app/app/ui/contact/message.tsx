@@ -50,7 +50,7 @@ export default function Message() {
                 className='text-slate-500 bg-slate-200 px-2 py-1 rounded' />
             
             <label className="mt-2 mb-1" htmlFor="message">Enter your text</label>
-            <textarea name="message" id="message" cols={20} rows={5}
+            <textarea id="tetxtarea" name="tetxtarea" cols={20} rows={5}
                 onChange={(event) => handleTextArea(event)}
                 value={textArea}
                 placeholder="Enter something here..."

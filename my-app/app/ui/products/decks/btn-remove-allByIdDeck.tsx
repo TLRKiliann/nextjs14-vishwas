@@ -3,12 +3,12 @@
 import React from 'react'
 import { useShoppingCart } from '@/app/context/cart-context';
 import { useFormState, useFormStatus } from 'react-dom';
-import { deleteWheels } from '@/app/lib/actions';
+import { resetById } from '@/app/lib/actions';
 
 export default function RemoveAllByIdDeck({id}: {id: number}) {
 
     const { pending } = useFormStatus();
-    const [state, formData] = useFormState(deleteWheels, undefined);
+    const [state, formData] = useFormState(resetById, undefined);
 
     const { removeFromCart } = useShoppingCart();
 
@@ -21,7 +21,7 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
 
             <input type="number" id="id" name="id" value={id} hidden readOnly />
 
-            <button type="submit" id="submit" name="submit" value="removeAllByIdWheel" 
+            <button type="submit" id="submit" name="submit" value="removeAllById" 
                 disabled={pending} onClick={() => handleRemove(id)} className='w-5/6 button-card'
             >
                 {pending ? "Pending..." : "Remove"}

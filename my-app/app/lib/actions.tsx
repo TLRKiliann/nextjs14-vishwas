@@ -66,7 +66,7 @@ export async function mysqlServerAction(prevState: {message: string} | undefined
   }
 }
 
-// order for decks
+// query for decks
 export async function queryDecksCart(prevState: { message: string } | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
@@ -166,12 +166,12 @@ export async function queryWheelsCart(prevState: {message: string} | undefined, 
   }
 }
 
-// delete item from wheels
-export async function deleteWheels(prevState: {message: string} | undefined, formData: FormData) {
+// delete all items by id
+export async function resetById(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
     const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllByIdWheel") {
+    if (btnDelete === "removeAllById") {
       if (id !== null) {
         const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
         if (result) {
@@ -227,29 +227,7 @@ export async function queryTruckCart(prevState: {message: string} | undefined, f
   }
 }
 
-// delete item from trucks
-export async function deleteTrucks(prevState: {message: string} | undefined, formData: FormData) {
-  try {
-    const id = formData.get("id");
-    const btnDelete = formData.get("submit");
-    if (btnDelete === "removeAllByIdTruck") {
-      if (id !== null) {
-        const result = await queryCartDelete("DELETE FROM cartorder WHERE id=?", [id])
-        if (result) {
-          revalidatePath("/products/trucks");
-          return {
-            message: "Removed from cart"
-          }
-        }
-      }
-    }
-  } catch (error) {
-    console.log(error)
-    throw error;
-  }
-}
-
-// delete item from order
+// delete all items from order
 export async function deleteOrder(prevState: {message: string} | undefined, formData: FormData) {
   try {
     const id = formData.get("id");
@@ -276,11 +254,11 @@ export async function messageToSend(prevState: {message: string} | undefined, fo
   try {
     const username = formData.get("username");
     const email = formData.get("email");
-    const message = formData.get("message");
+    const tetxtarea = formData.get("tetxtarea");
     const btnEmail = formData.get("submit");
     if (btnEmail === "sendmessage") {
-      if (username !== null && email !== null && message !== null) {
-        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, message]);
+      if (username !== null && email !== null && tetxtarea !== null) {
+        const result = await sendMessage("INSERT INTO messagebox VALUES (?, ?, ?)", [username, email, tetxtarea]);
         if (result) {
           revalidatePath("/contact");
           return {message: "Message was sent successfully !"}

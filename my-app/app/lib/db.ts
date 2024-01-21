@@ -193,7 +193,7 @@ const shippingQuery = async (query: string, data: FormDataEntryValue[]): Promise
   }
 }
 
-// erase checkout_paid table to prepare copy
+// reset checkout_paid table to prepare copy
 const resetShippingQuery = async (query: string) => {
   let connection;
   try {
@@ -210,7 +210,7 @@ const resetShippingQuery = async (query: string) => {
   }
 }
 
-//const queryToPrepareTable = async (query: string, data: GenericProps): Promise<ShippingProps[]> => {
+// truncate table shipping
 const queryToPrepareTable = async (query: string): Promise<ShippingProps[]> => {
   let connection;
   try {
@@ -360,7 +360,6 @@ const authQuery = async (query: string, data: FormDataEntryValue[]): Promise<Ema
       namedPlaceholders: true,
     })
     const [result] = await db.execute(query, data);
-    //await db.end();
     return result as EmailProps[];
   } catch (error) {
     console.log(error);
