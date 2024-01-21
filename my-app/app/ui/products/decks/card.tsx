@@ -69,9 +69,12 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                     <p>Price</p>
                     <p>{formatCurrency(price)}.- CHF</p>
                 </div>
-                <div className="flex justify-between text-sm text-slate-500/80 mx-4 mb-2">
-                    <p>Stock</p>
-                    <p>{stock - quantity}</p>
+                <div className="flex items-center justify-between text-sm text-slate-500/80 mx-4 mb-2">
+                    <p className='text-sm'>
+                        {stock - quantity === 0 ? <span className='warning-stock'>No more in stock</span> : 
+                            "Stock: " + (stock - quantity) + "pcs"
+                        }    
+                    </p>
                 </div>
                 
                 <div className='flex justify-center items-center pb-2'>
@@ -107,14 +110,16 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 >
                     {pending ? "Pending..." : "Sub"}
                 </button>
-
-                <button type="submit" id="submit" name="submit" value="order" 
-                    onClick={() => handleAddToCart(id, name, price, img, stock)}
-                    disabled={pending}
-                    className='button-card'
-                >
-                    {pending ? "Pending..." : "Add"}
-                </button>
+                {stock - quantity > 0 ? (
+                    <button type="submit" id="submit" name="submit" value="order" 
+                        onClick={() => handleAddToCart(id, name, price, img, stock)}
+                        disabled={pending}
+                        className='button-card'
+                    >
+                        {pending ? "Pending..." : "Add"}
+                    </button>
+                    ): null
+                }
 
             </form>
             {code?.message && quantity !== 0 ? (

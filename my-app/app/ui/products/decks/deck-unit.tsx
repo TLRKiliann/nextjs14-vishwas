@@ -20,6 +20,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     } = useShoppingCart();
 
     const quantity: number = getItemQuantity(id);
+    const defineName = name.split(" ");
 
     const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
@@ -28,7 +29,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
     };
-
+    
     return (
         <div key={id} className='flex items-center justify-center w-full h-full text-md'>
 
@@ -54,13 +55,8 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                 </p>
                 
                 <p className='text-sm text-slate-600/80 px-2 pt-3'>
-                    {stock >= quantity 
-                        ? "Stock: " + (stock - quantity) + "pcs"
-                        : (
-                            <span className='text-red-500'>
-                                No more in stock
-                            </span>
-                        )
+                    {stock - quantity === 0 ? <span className='text-red-500'>No more in stock</span> : 
+                        "Stock: " + (stock - quantity) + "pcs"
                     }    
                 </p>
 
@@ -72,8 +68,8 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                     <summary className="text-xs text-slate-600/80 hover:cursor-pointer">
                         Video
                     </summary>
-                    <Link href="#" className="text-sm text-blue-500 hover:text-blue-600 px-3">
-                        https://www.{name}.link
+                    <Link href={`/products/decks/${defineName[0]}/${id}/reviews/${id}`} className="text-sm text-blue-500 hover:text-blue-600 px-3">
+                        Go to video
                     </Link>
                 </details>
 
@@ -99,7 +95,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                                 { pending ? "pending..." : "Sub" }
                         </button>
 
-                        {(quantity !== 0) || (stock >= 0) ? (
+                        {stock - quantity > 0 ? (
                             <button 
                                 type="submit"
                                 id="submit"
@@ -110,7 +106,16 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                                 className='button-card'>
                                 { pending ? "pending..." : "Add" }
                             </button>
-                            ) : null
+                            ) : (
+                                <button 
+                                    type="button"
+                                    id="btn"
+                                    name="btn"
+                                    disabled
+                                    className='button-card'>
+                                    { pending ? "pending..." : "Add" }
+                                </button>
+                            )
                         }
 
                     </div>
