@@ -7,7 +7,8 @@ import type {
   ShippingProps,
   PaymentProps,
   AllProps,
-  ConfirmationProps
+  ConfirmationProps,
+  EmailMessage
 } from './definitions';
 
 type GenericProps = ProductsProps | CartProps | MessageProps | EmailProps | AllProps | ConfirmationProps | [];
@@ -245,7 +246,6 @@ const queryToCopyTable = async (query: string, data: GenericProps): Promise<Cart
   }
 }
 
-
 // display by join table checkorder page
 const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllProps[]> => {
   let connection;
@@ -332,12 +332,12 @@ const showAllMessageBox = async (query: string, data: MessageProps[]) => {
 }
 
 // send email if password forgotten
-const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailProps[]> => {
+const forgotQuery = async (query: string, data: FormDataEntryValue[]): Promise<EmailMessage[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result as EmailProps[];
+    return result as EmailMessage[];
   } catch (error) {
     console.error(error);
     throw error;
