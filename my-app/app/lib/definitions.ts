@@ -86,12 +86,6 @@ export type CartProps = {
     img: string;
 }
 
-export type MessageProps = {
-    username: string;
-    email: string;
-    message: string;
-}
-
 export type ImgSetProps = {
     id: number;
     images: StaticImageData[]
@@ -167,4 +161,14 @@ export type ConfirmationProps = {
     count: number;
     img: string;
     filterTotal: number;
+}
+
+export type EmailMessage = {
+    email: string;
+}
+
+export type MessageProps = {
+    username: string;
+    email: string;
+    textarea: string;
 }
