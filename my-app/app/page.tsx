@@ -21,6 +21,7 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
+//import imgWaves from '@/public/img_bg/stacked-waves2.png';
 
 export default function Home() {
   
@@ -249,13 +250,18 @@ export default function Home() {
 
         </div>
 
-        <Separator />
+          <Separator />
 
-          <TextBlocks title={titleFour} text={textFour}>
-            <SocialIcons />
-          </TextBlocks>
+            <TextBlocks title={titleFour} text={textFour}>
+              <SocialIcons />
+            </TextBlocks>
 
-        <Separator />
+          <Separator />
+
+        {/*<div className='absolute bottom-0 w-full h-auto'>
+          <Image src={imgWaves} width={500} height={333} alt="waves img" 
+            className='w-full h-auto object-cover opacity-1' />
+        </div>*/}
 
       </main>
 
