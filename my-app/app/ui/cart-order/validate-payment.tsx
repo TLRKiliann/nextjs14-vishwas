@@ -5,6 +5,8 @@ import React from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { confirmationPayment } from '@/app/lib/actions';
 
+export const dynamic = "force-dynamic";
+
 export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
 
     const { pending } = useFormStatus();
