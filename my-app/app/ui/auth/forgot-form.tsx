@@ -22,11 +22,12 @@ export default function ForgetForm() {
         <form
             action={formData}
             autoComplete='off'
-            className='flex flex-col w-2/5 text-md bg-slate-50 p-6 rounded-lg shadow-lg'
+            className='flex flex-col w-[400px] h-[200px] text-md bg-slate-50 p-6 rounded-lg 
+                shadow-outviolet dark:shadow-inlightbox'
         >
             <label
                 htmlFor="email"
-                className='text-xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mb-1'>
+                className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 mx-4 mb-1'>
                 Email :
             </label>
             <input
@@ -36,9 +37,9 @@ export default function ForgetForm() {
                 placeholder='Enter your email'
                 required
                 className='text-lg text-violet-600 dark:text-slate-600 bg-violet-100 hover:bg-violet-200 
-                active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-800
+                active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300
                 focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
-                mx-4 pl-2 py-1 rounded-lg'
+                placeholder:text-sm placeholder:text-slate-500 mx-4 pl-2 py-1 rounded-lg'
             />
             
             <input type="reset" id="resetMessage" hidden />
@@ -50,14 +51,10 @@ export default function ForgetForm() {
                 value="btnForgotPassword"
                 onClick={handleTimer}
                 disabled={pending}
-                className='text-sm font-bold text-slate-600 bg-slate-100
-                    hover:bg-slate-200
-                    hover:text-slate-500
-                    hover:shadow-none
-                    active:text-slate-400
-                    active:bg-slate-100
-                    mx-4 mt-6 py-2
-                    rounded-lg shadow-lg'
+                className='flex items-center justify-center text-slate-500 bg-white dark:bg-slate-50 hover:bg-violet-100 
+                dark:hover:bg-blue-100 hover:scale-[0.95] hover:shadow-none active:text-slate-50 active:bg-violet-200 
+                dark:active:bg-blue-500 active:drop-shadow-inviolet dark:active:drop-shadow-inbtn mx-4 mt-8 rounded-xl 
+                shadow drop-shadow-inviolet transition-all ease py-2'
             >
                 {pending ? "Pending..." : "Submit"}
             </button>
