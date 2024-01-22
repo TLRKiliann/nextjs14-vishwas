@@ -5,6 +5,8 @@ import { queryOrderPaid } from '@/app/lib/db';
 import ValidatePayment from '@/app/ui/cart-order/validate-payment';
 import ReturnSignOut from '@/app/ui/cart-order/return-signout-order';
 
+export const dynamic = "force-dynamic";
+
 export default async function CheckOrder() {
 
     const query: AllProps[] = await queryOrderPaid("SELECT * FROM shipping CROSS JOIN checkout_paid", []);

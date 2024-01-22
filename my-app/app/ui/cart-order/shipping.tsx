@@ -57,7 +57,7 @@ export default function Shipping({filterTotal}: {filterTotal: number}) {
                     my-3 ml-2 px-2 py-2' />
             </div>
 
-            <input type="number" id="phone" name="phone" placeholder="Phone" required
+            <input type="string" id="phone" name="phone" placeholder="Phone" required
                 className='text-lg w-full bg-slate-200 dark:bg-slate-700 rounded focus:outline 
                     focus:outline-blue-600 focus:border focus:border-blue-600 placeholder:text-slate-600
                     dark:placeholder:text-slate-400
