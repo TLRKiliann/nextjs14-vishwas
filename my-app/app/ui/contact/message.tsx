@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
 import { messageToSend } from '@/app/lib/actions';
 
+export const dynamic = "force-dynamic";
+
 export default function Message() {
 
     const {pending} = useFormStatus();

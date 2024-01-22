@@ -264,12 +264,12 @@ const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllPro
 }
 
 // display by join table checkorder page
-const queryConfirmation = async (query: string, data: FormDataEntryValue[]): Promise<ConfirmationProps[]> => {
+const queryConfirmation = async (query: string, data: FormDataEntryValue[]): Promise<AllProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result as ConfirmationProps[];
+    return result as AllProps[];
   } catch (error) {
     console.error(error);
     throw error;

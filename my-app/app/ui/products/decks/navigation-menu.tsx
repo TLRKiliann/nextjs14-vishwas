@@ -33,6 +33,12 @@ export default function NavigationMenu() {
                 <div className='font-bold dark:text-amber-900 bg-orange-200 pl-6 transition transform 
                     duration-300 ease-in-out rounded-lg z-30'>
                     <li className='custom-li py-1'>
+                        <Link href="/products/decks" className='custom-link'>
+                            Deecks
+                        </Link>
+                    </li>
+                    <hr className="border-t-amber-500/60" />
+                    <li className='custom-li py-1'>
                         <Link href="/products/decks/baker" className='custom-link'>
                             Baker
                         </Link>

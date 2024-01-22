@@ -32,10 +32,11 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     };
     
     return (
-        <div key={id} className='flex flex-col items-center justify-center w-full h-content text-md pb-2'>
+        <div key={id} className='flex flex-col items-center justify-center w-full h-auto text-md
+            transform transition translate-y-0 animate-up-start'>
 
             <form action={formAction} className='flex flex-col w-full h-auto bg-slate-100
-                transform transition translate-y-0 animate-up-start rounded-tr-xl rounded-br-xl'
+                rounded-tr-xl'
             >
                 <div className='w-full h-auto'>
                     <Image

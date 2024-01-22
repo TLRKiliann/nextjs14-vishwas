@@ -33,6 +33,12 @@ export default function NavigationWheels() {
                 <div className='font-bold dark:text-amber-900 bg-orange-200 pl-6 transition transform 
                     duration-300 ease-in-out rounded-lg '>
                     <li className='custom-li py-1'>
+                        <Link href="/products/wheels" className="custom-link">
+                            All Wheels
+                        </Link>
+                    </li>
+                    <hr className="border-t-amber-500/60" />
+                    <li className='custom-li py-1'>
                         <Link href="/products/wheels/bones/37" className="custom-link">
                             Bones One
                         </Link>

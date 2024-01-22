@@ -5,6 +5,8 @@ import { queryOrderPaid } from '@/app/lib/db';
 import ValidatePayment from '@/app/ui/cart-order/validate-payment';
 import ReturnSignOut from '@/app/ui/cart-order/return-signout-order';
 
+export const dynamic = "force-dynamic";
+
 export default async function CheckOrder() {
 
     const query: AllProps[] = await queryOrderPaid("SELECT * FROM shipping CROSS JOIN checkout_paid", []);
@@ -13,7 +15,7 @@ export default async function CheckOrder() {
     if (!data) {
         throw new Error("Error: server query failed");
     };
-    
+
     return (
         <div className='w-full min-h-screen bg-slate-white dark:bg-slate-900 py-[75px]'>
 
@@ -38,9 +40,8 @@ export default async function CheckOrder() {
                             <th className='w-2/5'>Total</th>
                         </tr>
 
-
                         {JSON.parse(data).map((d: AllProps) => (
-                            <tr className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
+                            <tr key={d.id} className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
                                 dark:text-slate-50 dark:bg-slate-900 rounded-tl-md rounded-tr-md'
                             >
                                 <td className='flex items-center justify-center w-2/5'>

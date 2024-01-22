@@ -111,7 +111,7 @@ export type ShippingProps = {
     user: string;
     address: string;
     npa: number;
-    phone: number;
+    phone: string;
     passwd: string;
     filterTotal: number;
 }
@@ -139,7 +139,7 @@ export type AllProps = {
     user: string;
     address: string;
     npa: number;
-    phone: number;
+    phone: string;
     email: string;
     passwd: string;
     name: string;
@@ -151,10 +151,11 @@ export type AllProps = {
 }
 
 export type ConfirmationProps = {
+    id: number;
     user: string;
     address: string;
     npa: number;
-    phone: number;
+    phone: string;
     email: string;
     name: string;
     price: number;

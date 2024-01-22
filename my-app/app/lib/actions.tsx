@@ -300,9 +300,8 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
       if (user !== null && date !== null && securitycode !== null && filterTotal !== null) {
-        const checkcardValue: number = checkcard === "true" ? 1 : 0;
         const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?, ?)",
-          [user, date, securitycode, checkcardValue, filterTotal]);
+          [user, date, securitycode, checkcard, filterTotal]);
         if (request) {
           const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
           if (prepareCopy) {
@@ -326,6 +325,7 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
 
 export async function confirmationPayment(prevState: {message: string} | undefined, formData: FormData) {
   try {
+    const id = formData.get("id");
     const user = formData.get("user");
     const address = formData.get("address");
     const npa = formData.get("npa");
@@ -338,10 +338,10 @@ export async function confirmationPayment(prevState: {message: string} | undefin
     const filterTotal = formData.get("filterTotal");
     const btnConfirm = formData.get("submit");
     if (btnConfirm === "btnConfirmation") {
-      if (user !== null && address !== null && npa !== null && phone !== null && email !== null && name !== null && price !== null && 
-          count !== null && img !== null && filterTotal !== null) {
-        const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, filterTotal) \
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, filterTotal]);
+      if (id !== null && user !== null && address !== null && npa !== null && phone !== null && email !== null && 
+          name !== null && price !== null && count !== null && img !== null && filterTotal !== null) {
+        const query = await queryConfirmation("INSERT INTO confirmation (id, user, address, npa, phone, email, name, price, count, img, filterTotal) \
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [id, user, address, npa, phone, email, name, price, count, img, filterTotal]);
         if (query) {
           const resetTableCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
           if (resetTableCheckout) {

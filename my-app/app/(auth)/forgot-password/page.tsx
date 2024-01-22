@@ -14,7 +14,7 @@ export default function ForgotPassword() {
         Forgot Password
       </h1>
 
-      <div className='w-full flex align-center justify-center'>
+      <div className='w-full md:min-h-[400px] xl:min-h-[800px] flex items-center justify-center'>
         <ForgotForm />
       </div>
 

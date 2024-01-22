@@ -5,28 +5,35 @@ import React from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { confirmationPayment } from '@/app/lib/actions';
 
+export const dynamic = "force-dynamic";
+
 export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
 
     const { pending } = useFormStatus();
     const [code, formData] = useFormState(confirmationPayment, undefined);
 
-    // Possible to map all data in a form ?
-    const dataConverter: ConfirmationProps = data[0];
+    //const dataConverter: ConfirmationProps = data[0];
 
     return (
         <>
             <form action={formData} className='flex items-center justify-center w-full my-20'>
 
-                <input type="text" id="user" name="user" value={dataConverter?.user} hidden readOnly />
-                <input type="text" id="address" name="address" value={dataConverter?.address} hidden readOnly />
-                <input type="number" id="npa" name="npa" value={dataConverter?.npa} hidden readOnly />
-                <input type="number" id="phone" name="phone" value={dataConverter?.phone} hidden readOnly />
-                <input type="text" id="email" name="email" value={dataConverter?.email} hidden readOnly />
-                <input type="text" id="name" name="name" value={dataConverter?.name} hidden readOnly />
-                <input type="number" id="price" name="price" value={dataConverter?.price} hidden readOnly />
-                <input type="number" id="count" name="count" value={dataConverter?.count} hidden readOnly />
-                <input type="text" id="img" name="img" value={dataConverter?.img} hidden readOnly />
-                <input type="number" id="filterTotal" name="filterTotal" value={dataConverter?.filterTotal} hidden readOnly />
+                {data?.map((d: ConfirmationProps) => (
+                    <div key={d?.id}>
+                        <input type="number" id="id" name="id" value={d?.id} hidden readOnly />
+                        <input type="text" id="user" name="user" value={d?.user} hidden readOnly />
+                        <input type="text" id="address" name="address" value={d?.address} hidden readOnly />
+                        <input type="number" id="npa" name="npa" value={d?.npa} hidden readOnly />
+                        <input type="string" id="phone" name="phone" value={d?.phone} hidden readOnly />
+                        <input type="text" id="email" name="email" value={d?.email} hidden readOnly />
+                        <input type="text" id="name" name="name" value={d?.name} hidden readOnly />
+                        <input type="number" id="price" name="price" value={d?.price} hidden readOnly />
+                        <input type="number" id="count" name="count" value={d?.count} hidden readOnly />
+                        <input type="text" id="img" name="img" value={d?.img} hidden readOnly />
+                        <input type="number" id="filterTotal" name="filterTotal" value={d?.filterTotal} 
+                            hidden readOnly />
+                    </div>
+                ))}
 
                 <button type="submit" id="submit" name="submit" value="btnConfirmation" 
                     disabled={pending}
