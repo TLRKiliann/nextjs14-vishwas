@@ -4,6 +4,8 @@ import React from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
 import { forgotPasswordServerAction } from '@/app/lib/actions';
 
+export const dynamic = "force-dynamic";
+
 export default function ForgetForm() {
 
     const { pending } = useFormStatus();
