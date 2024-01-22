@@ -16,8 +16,6 @@ export default async function CheckOrder() {
         throw new Error("Error: server query failed");
     };
 
-    console.log(data)
-    
     return (
         <div className='w-full min-h-screen bg-slate-white dark:bg-slate-900 py-[75px]'>
 
