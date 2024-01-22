@@ -326,6 +326,7 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
 
 export async function confirmationPayment(prevState: {message: string} | undefined, formData: FormData) {
   try {
+    const id = formData.get("id");
     const user = formData.get("user");
     const address = formData.get("address");
     const npa = formData.get("npa");
@@ -338,10 +339,10 @@ export async function confirmationPayment(prevState: {message: string} | undefin
     const filterTotal = formData.get("filterTotal");
     const btnConfirm = formData.get("submit");
     if (btnConfirm === "btnConfirmation") {
-      if (user !== null && address !== null && npa !== null && phone !== null && email !== null && name !== null && price !== null && 
-          count !== null && img !== null && filterTotal !== null) {
-        const query = await queryConfirmation("INSERT INTO confirmation (user, address, npa, phone, email, name, price, count, img, filterTotal) \
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [user, address, npa, phone, email, name, price, count, img, filterTotal]);
+      if (id !== null && user !== null && address !== null && npa !== null && phone !== null && email !== null && 
+          name !== null && price !== null && count !== null && img !== null && filterTotal !== null) {
+        const query = await queryConfirmation("INSERT INTO confirmation (id, user, address, npa, phone, email, name, price, count, img, filterTotal) \
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [id, user, address, npa, phone, email, name, price, count, img, filterTotal]);
         if (query) {
           const resetTableCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
           if (resetTableCheckout) {

@@ -42,7 +42,7 @@ export default async function CheckOrder() {
 
 
                         {JSON.parse(data).map((d: AllProps) => (
-                            <tr key={d.user} className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
+                            <tr key={d.id} className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
                                 dark:text-slate-50 dark:bg-slate-900 rounded-tl-md rounded-tr-md'
                             >
                                 <td className='flex items-center justify-center w-2/5'>
