@@ -300,9 +300,8 @@ export async function paymentRequest(prevState: {message: string} | undefined, f
     const btnPayment = formData.get("submit");
     if (btnPayment === "payment") {
       if (user !== null && date !== null && securitycode !== null && filterTotal !== null) {
-        const checkcardBool: number = checkcard === "true" ? 1 : 0;
         const request = await paymentQuery("INSERT INTO payment VALUES (?, ?, ?, ?, ?)",
-          [user, date, securitycode, checkcardBool, filterTotal]);
+          [user, date, securitycode, checkcard, filterTotal]);
         if (request) {
           const prepareCopy = await queryToPrepareTable("TRUNCATE TABLE checkout_paid");
           if (prepareCopy) {
