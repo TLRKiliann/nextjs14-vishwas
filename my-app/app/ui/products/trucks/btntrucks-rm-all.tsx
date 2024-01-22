@@ -1,19 +1,31 @@
 "use client";
 
 import { useShoppingCart } from '@/app/context/cart-context';
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
 import { resetById } from '@/app/lib/actions';
+
+export const dynamic = "force-dynamic";
 
 export default function BtnRemoveAll({id}: {id: number}) {
 
     const { pending } = useFormStatus();
-    const [state, formData] = useFormState(resetById, undefined);
+    const [code, formData] = useFormState(resetById, undefined);
+
+    const [removeById, setRemoveById] = useState<boolean>(false);
 
     const { removeFromCart } = useShoppingCart();
 
     const handleRemove = (id: number): void => {
+        setRemoveById(true);
         removeFromCart(id);
+    };
+
+    if (removeById === true) {
+        const timer = setTimeout(() => {
+            setRemoveById(false);
+            console.log(timer)
+        }, 2000);
     };
 
     return (
@@ -26,8 +38,8 @@ export default function BtnRemoveAll({id}: {id: number}) {
             >
                 {pending ? "Pending" : "Remove"}
             </button>
-            {state?.message ? (
-                <p className='w-full message-cart'>{state.message}</p>
+            {code?.message && removeById === true ? (
+                <p className='w-full message-cart mt-2'>{code.message}</p>
             ) : null}
         </form>
     )

@@ -1,7 +1,7 @@
 "use client";
 
 import type { ProductsProps } from '@/app/lib/definitions';
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
@@ -14,8 +14,6 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
-    const [removeById, setRemoveById] = useState<boolean>(false);
-
     const {
         getItemQuantity,
         increaseCartQuantity,
@@ -27,12 +25,10 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
     const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
-        setRemoveById(false);
     };
   
     const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
-        setRemoveById(false);
     };
     
     return (
@@ -123,7 +119,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
             </form>
 
-            <RemoveAllByIdDeck id={id} removeById={removeById} setRemoveById={setRemoveById} />
+            <RemoveAllByIdDeck id={id} />
 
         </div>
     )

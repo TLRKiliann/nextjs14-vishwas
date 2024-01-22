@@ -5,8 +5,7 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 
 export default function ReturnSignOut() {
     return (
-        <form
-            action={async () => {
+        <form action={async () => {
                 "use server";
                 await signOut();
             }}

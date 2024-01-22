@@ -5,18 +5,20 @@ import { useShoppingCart } from '@/app/context/cart-context';
 import { useFormState, useFormStatus } from 'react-dom';
 import { resetById } from '@/app/lib/actions';
 
-//export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
-export default function RemoveAllByIdDeck({id, removeById, setRemoveById}: {id: number, 
-    removeById: boolean, setRemoveById: React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function RemoveAllByIdDeck({id}: {id: number}) {
 
     const { pending } = useFormStatus();
     const [state, formData] = useFormState(resetById, undefined);
 
+
+    const [removeById, setRemoveById] = useState<boolean>(false);
+
     const { removeFromCart } = useShoppingCart();
 
     const handleRemove = (id: number): void => {
-        setRemoveById((old: boolean) => !old);
+        setRemoveById(true);
         removeFromCart(id);
     };
 
@@ -24,7 +26,6 @@ export default function RemoveAllByIdDeck({id, removeById, setRemoveById}: {id: 
         const timer = setTimeout(() => {
             setRemoveById(false);
             console.log(timer)
-            return () => clearTimeout(timer);
         }, 2000);
     };
 
