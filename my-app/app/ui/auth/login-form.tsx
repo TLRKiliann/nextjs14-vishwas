@@ -15,7 +15,7 @@ export default function LoginForm() {
 
     return (
         <form action={dispatch} autoComplete='off'
-            className='flex flex-col md:w-[400px] xl:w-[500px] h-auto text-md font-bold bg-slate-100 
+            className='flex flex-col md:w-[400px] xl:w-[500px] h-auto text-md bg-slate-100 
                 dark:bg-slate-100 shadow-outviolet p-5 rounded-lg dark:shadow-inlightbox transform transition translate-y-0 
                 animate-up-start'
         >
@@ -33,7 +33,7 @@ export default function LoginForm() {
                 required
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
                 dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-500 focus:outline-none 
-                placeholder:text-sm placeholder:text-violet-300 dark:placeholder:text-blue-300 focus:ring 
+                placeholder:text-sm placeholder:text-slate-500 focus:ring 
                 focus:ring-violet-400/70 dark:focus:ring-sky-500 mx-4 pl-2 py-1 rounded-lg'
             />
 
@@ -51,7 +51,7 @@ export default function LoginForm() {
                 placeholder="Enter password of 12 caracters"  
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
                 dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-500 focus:outline-none 
-                placeholder:text-sm placeholder:text-violet-300 dark:placeholder:text-blue-300 focus:ring 
+                placeholder:text-sm placeholder:text-slate-500 focus:ring 
                 focus:ring-violet-400/70 dark:focus:ring-sky-500 mx-4 pl-2 py-1 rounded-lg'
             />
             <LoginButton />
