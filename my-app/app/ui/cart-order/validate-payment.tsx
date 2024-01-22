@@ -1,28 +1,28 @@
 "use client";
 
-import type { AllProps } from '@/app/lib/definitions';
+import type { ConfirmationProps } from '@/app/lib/definitions';
 import React from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { confirmationPayment } from '@/app/lib/actions';
 
-export default function ValidatePayment({data}: {data: AllProps[]}) {
+export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
 
     const { pending } = useFormStatus();
     const [code, formData] = useFormState(confirmationPayment, undefined);
 
-    //const dataConverter: AllProps = data[0];
+    //const dataConverter: ConfirmationProps = data[0];
 
     return (
         <>
             <form action={formData} className='flex items-center justify-center w-full my-20'>
 
-                {data?.map((d: AllProps) => (
+                {data?.map((d: ConfirmationProps) => (
                     <div key={d?.id}>
                         <input type="number" id="id" name="id" value={d?.id} hidden readOnly />
                         <input type="text" id="user" name="user" value={d?.user} hidden readOnly />
                         <input type="text" id="address" name="address" value={d?.address} hidden readOnly />
                         <input type="number" id="npa" name="npa" value={d?.npa} hidden readOnly />
-                        <input type="number" id="phone" name="phone" value={d?.phone} hidden readOnly />
+                        <input type="string" id="phone" name="phone" value={d?.phone} hidden readOnly />
                         <input type="text" id="email" name="email" value={d?.email} hidden readOnly />
                         <input type="text" id="name" name="name" value={d?.name} hidden readOnly />
                         <input type="number" id="price" name="price" value={d?.price} hidden readOnly />
