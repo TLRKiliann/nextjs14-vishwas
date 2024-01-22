@@ -44,7 +44,7 @@ const DetailsProduct = async ({params}: Props) => {
     })
     return (
         <>
-            <div className='flex justify-center w-3/5 h-auto bg-slate-100 m-auto mt-10 xl:mt-[8%] rounded-xl'>
+            <div className='flex justify-center w-3/5 h-auto m-auto mt-10 xl:mt-[8%] rounded-xl'>
                 <BoxImage paramsId={params.productId} data={JSON.parse(data)} />
 
                 {productName}
