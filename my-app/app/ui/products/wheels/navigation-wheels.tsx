@@ -37,6 +37,7 @@ export default function NavigationWheels() {
                             All Wheels
                         </Link>
                     </li>
+                    <hr className="border-t-amber-500/60" />
                     <li className='custom-li py-1'>
                         <Link href="/products/wheels/bones/37" className="custom-link">
                             Bones One

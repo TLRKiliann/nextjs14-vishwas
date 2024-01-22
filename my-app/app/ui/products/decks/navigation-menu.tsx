@@ -37,6 +37,7 @@ export default function NavigationMenu() {
                             Deecks
                         </Link>
                     </li>
+                    <hr className="border-t-amber-500/60" />
                     <li className='custom-li py-1'>
                         <Link href="/products/decks/baker" className='custom-link'>
                             Baker
