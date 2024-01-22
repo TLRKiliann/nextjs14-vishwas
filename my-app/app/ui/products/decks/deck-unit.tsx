@@ -1,7 +1,7 @@
 "use client";
 
 import type { ProductsProps } from '@/app/lib/definitions';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
@@ -14,6 +14,8 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
     const { pending } = useFormStatus();
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
+    const [removeById, setRemoveById] = useState<boolean>(false);
+
     const {
         getItemQuantity,
         increaseCartQuantity,
@@ -25,17 +27,20 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
     const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
+        setRemoveById(false);
     };
   
     const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
+        setRemoveById(false);
     };
     
     return (
-        <div key={id} className='flex flex-col items-center justify-center w-full h-content text-md pb-2'>
+        <div key={id} className='flex flex-col items-center justify-center w-full h-auto text-md
+            transform transition translate-y-0 animate-up-start'>
 
             <form action={formAction} className='flex flex-col w-full h-auto bg-slate-100
-                transform transition translate-y-0 animate-up-start rounded-tr-xl rounded-br-xl'
+                rounded-tr-xl'
             >
                 <div className='w-full h-auto'>
                     <Image
@@ -118,7 +123,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
             </form>
 
-            <RemoveAllByIdDeck id={id} />
+            <RemoveAllByIdDeck id={id} removeById={removeById} setRemoveById={setRemoveById} />
 
         </div>
     )

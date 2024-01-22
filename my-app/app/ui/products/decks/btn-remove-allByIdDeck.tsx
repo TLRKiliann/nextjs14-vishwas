@@ -1,11 +1,14 @@
 "use client";
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useShoppingCart } from '@/app/context/cart-context';
 import { useFormState, useFormStatus } from 'react-dom';
 import { resetById } from '@/app/lib/actions';
 
-export default function RemoveAllByIdDeck({id}: {id: number}) {
+//export const dynamic = "force-dynamic";
+
+export default function RemoveAllByIdDeck({id, removeById, setRemoveById}: {id: number, 
+    removeById: boolean, setRemoveById: React.Dispatch<React.SetStateAction<boolean>>}) {
 
     const { pending } = useFormStatus();
     const [state, formData] = useFormState(resetById, undefined);
@@ -13,7 +16,16 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
     const { removeFromCart } = useShoppingCart();
 
     const handleRemove = (id: number): void => {
+        setRemoveById((old: boolean) => !old);
         removeFromCart(id);
+    };
+
+    if (removeById === true) {
+        const timer = setTimeout(() => {
+            setRemoveById(false);
+            console.log(timer)
+            return () => clearTimeout(timer);
+        }, 2000);
     };
 
     return (
@@ -26,7 +38,7 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
             >
                 {pending ? "Pending..." : "Remove"}
             </button>
-            {state?.message ? (
+            {state?.message && removeById === true ? (
                 <p className='w-full message-cart mt-2'>{state.message}</p>
             ) : null}
         </form>
