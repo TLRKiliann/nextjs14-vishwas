@@ -59,8 +59,7 @@ export default async function Cart() {
             <div className='flex items-center justify-center w-full pt-4 pb-4'>
                 <Link href="/order"
                     className='w-3/5 font-bold text-center text-slate-50 hover:text-slate-200 
-                    hover:shadow-none active:text-slate-50 bg-blue-600 hover:bg-blue-700 
-                    active:bg-blue-500 active:scale-95 active:shadow-none border-none mx-4 py-2 rounded-lg 
+                    hover:shadow-none active:text-slate-50 color-btn active:shadow-none border-none mx-4 py-2 rounded-lg 
                     shadow-lg'
                 >
                     CHECKOUT
