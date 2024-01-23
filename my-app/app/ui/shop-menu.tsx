@@ -17,6 +17,7 @@ import { FaProductHunt } from "react-icons/fa6";
 import { MdSkateboarding } from "react-icons/md";
 import { CgMaximizeAlt } from "react-icons/cg";
 import { GiBoomerangSun } from "react-icons/gi";
+import { RiTapeFill } from "react-icons/ri";
 
 export default function ShopMenu() {
 
@@ -191,8 +192,7 @@ export default function ShopMenu() {
 
                 <hr className='shopmenu-hr' />
 
-                <div id="parent" className='relative hover-trigger hover:bg-indigo-300 dark:hover:bg-sky-700 
-                    rounded-br-lg rounded-bl-lg'>
+                <div id="parent" className='relative hover-trigger hover:bg-indigo-300 dark:hover:bg-sky-700'>
                     <Link href="/products/wheels"
                         onClick={toggle}
                         className="shopmenu-mainlink"
@@ -276,6 +276,72 @@ export default function ShopMenu() {
                         </div>
                     </div>
                 </div>
+
+                <hr className='shopmenu-hr' />
+                
+                <div id="parent" className='relative hover-trigger hover:bg-indigo-300 dark:hover:bg-sky-700
+                    rounded-br-lg rounded-bl-lg'>
+                    <Link href="/products/decks"
+                        onClick={toggle}
+                        className="shopmenu-mainlink"
+                    >
+                        <span><RiTapeFill className="mr-4" size={18} /></span>
+                        <p>Video</p>
+                    </Link>
+                    
+                    <div className='absolute top-0 w-[140px] hover-target bg-indigo-200 dark:bg-slate-800 ml-[140px] z-20'>
+                        
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/baker/1/reviews" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Baker video
+                                </p>
+                            </Link>
+                        </div>
+
+                        <hr className='shopmenu-hrmapped' />
+
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/blind/10/reviews" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Blind video
+                                </p>
+                            </Link>
+                        </div>
+                    
+                        <hr className='shopmenu-hrmapped' />
+                            
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/element/19/reviews" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Element video
+                                </p>
+                            </Link>
+
+                        </div>
+                    
+                        <hr className='shopmenu-hrmapped' />
+                    
+                        <div className='relative hover-trigger2 hover:bg-indigo-300 dark:hover:bg-sky-700'>
+
+                            <Link href="/products/decks/girl/28/reviews" onClick={toggle}>
+                                <p className='text-sm hover:bg-indigo-300 dark:hover:bg-sky-700 active:bg-indigo-400 
+                                dark:active:bg-sky-500 py-2 pl-4'>
+                                    Girl video
+                                </p>
+                            </Link>
+
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     )
