@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { queryDecks} from '@/app/lib/db';
 import { reviewsGirl } from "@/app/lib/reviews-data";
 
-export const dynamic = "force-dynamic";
-
 export default async function ReviewById({ params }: PropsProdReview) {
     
     if (parseInt(params.reviewId) > 36) {
