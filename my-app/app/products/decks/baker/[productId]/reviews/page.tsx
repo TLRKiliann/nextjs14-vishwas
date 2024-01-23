@@ -23,7 +23,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
     };
 
     const handlePath = (id: number, video: string) => {
-        router.push(`/products/decks/${video}/${id}/reviews`);
+        router.push(`/products/decks/${video}/${params.productId}/reviews/${id}`);
     };
 
     return (
