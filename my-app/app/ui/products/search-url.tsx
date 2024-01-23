@@ -38,9 +38,8 @@ export default function Search({placeholder}: {placeholder: string}) {
                         dark:focus:ring-sky-500 dark:placeholder:text-slate-300 rounded shadow-inlightbox"
                 />
 
-                <button type="submit" className='w-1/5 font-bold text-slate-50 bg-violet-500 
-                    dark:bg-blue-600 hover:bg-violet-600 dark:hover:bg-blue-600/70 active:bg-violet-400 
-                    dark:active:bg-sky-600 cursor-pointer py-2 rounded-lg shadow-inlightbox hover:shadow-none'>
+                <button type="submit" className='w-1/5 font-bold text-slate-50 color-btn
+                    cursor-pointer py-2 rounded-lg shadow-inlightbox hover:shadow-none'>
                     Submit
                 </button>
 
