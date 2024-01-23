@@ -53,7 +53,7 @@ export default async function ReviewById({ params }: PropsProdReview) {
             ))}
 
             {JSON.parse(elementdecks).map((prod: ProductsProps) => (
-                prod.id === parseInt(params.productId) ? (
+                prod.id === parseInt(params.reviewId) ? (
                     <div key={prod.id} className='flex text-slate-200 bg-slate-800 my-10 px-6 py-6'>
                         
                         <div>
