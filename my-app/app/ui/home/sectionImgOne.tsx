@@ -9,8 +9,8 @@ export default function sectionImgOne() {
             width={1920}
             height={1280}
             alt="forest img"
-            className='flex md:w-[350px] xl:w-[450px] h-auto m-auto object-cover rounded-lg shadow-out 
-                transition hover:shadow-none hover:filter hover:hue-rotate-90 '
+            className='flex md:w-[350px] xl:w-[450px] h-auto m-auto object-cover rounded-lg shadow-none 
+                transition transform ease hover:scale-105 hover:shadow-out hover:filter hover:hue-rotate-90 '
         />
     )
 }
