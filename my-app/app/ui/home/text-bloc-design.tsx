@@ -30,12 +30,9 @@ export default function TextBlockDesign({text}: PropsText) {
 
                 </div>
 
-                <div className='flex items-center justify-center w-2/5 h-auto xl:w-[400px]'>
-
-                    <Image src={flipFamily} width={2048} height={1365} alt="img text bloc design"
-                        className='object-cover rounded-lg dark:shadow-lgblue' />
-
-                </div>
+                <Image src={flipFamily} width={2048} height={1365} alt="img text bloc design"
+                    className='flex items-center justify-center w-2/5 h-auto xl:w-[400px] object-cover 
+                        rounded-lg dark:shadow-lgblue' />
 
             </div>
 
