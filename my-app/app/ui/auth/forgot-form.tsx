@@ -53,8 +53,8 @@ export default function ForgetForm() {
                 disabled={pending}
                 className='flex items-center justify-center text-slate-500 bg-white dark:bg-slate-50 hover:bg-violet-100 
                 dark:hover:bg-blue-100 hover:shadow-none active:text-slate-50 active:bg-violet-200 
-                dark:active:bg-blue-500 active:drop-shadow-inviolet dark:active:drop-shadow-inbtn mx-4 mt-8 rounded-xl 
-                shadow drop-shadow-inviolet transition transform duration-300 hover:scale-[0.95] py-2'
+                dark:active:bg-blue-500 active:shadow-inviolet dark:active:shadow-inbtn mx-4 mt-8 rounded-xl 
+                shadow-inviolet transition transform duration-300 hover:scale-[0.95] py-2'
             >
                 {pending ? "Pending..." : "Submit"}
             </button>

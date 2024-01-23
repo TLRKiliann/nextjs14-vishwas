@@ -46,9 +46,8 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
 
     return (
         <div key={id}
-            className="text-slate-600 bg-slate-100 dark:bg-slate-100 shadow-lg transform transition 
-                hover:scale-[1.025] hover:shadow-xl translate-y-0 animate-up-start 
-                rounded-xl m-auto"
+            className="md:w-[180px] lg:w-[200px] text-slate-600 bg-white shadow-mdoutviolet dark:shadow-lg transform transition 
+                hover:scale-[1.025] hover:shadow-bigoutviolet dark:hover:shadow-xl translate-y-0 animate-up-start rounded-xl"
         >
             <span onClick={() => handleImg(id)}>
                 <Image
@@ -56,8 +55,9 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                     width={200}
                     height={200}
                     alt="img deck"
-                    className="m-auto transform ease-in-out hover:opacity-70 cursor-pointer 
-                        hover:scale-90 active:animate-decks-rotation active:duration-300"
+                    className="w-full h-auto m-auto transform duration-300 ease-in-out cursor-pointer 
+                        rounded-tl-xl rounded-tr-xl object-cover 
+                        hover:opacity-70 hover:scale-90 active:animate-decks-rotation"
                 />
             </span>
 
@@ -96,12 +96,13 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
             </div>
 
             <div className="bg-slate-100/80 px-4">
-                <p className="w-[200px] text-sm text-slate-500 bg-white p-2">
-                    Some text about decks une petite histoire ...
+                <p className="w-full text-sm text-justify text-slate-500 bg-white p-2">
+                    Make sure that it will be a good experience for you !
                 </p>
             </div>
 
-            <form action={formAction} className='flex justify-between px-4 py-2 pt-4 bg-slate-100/80'>
+            <form action={formAction} className='flex items-center justify-between w-full bg-slate-100/80 
+                px-4 py-2 pt-4'>
                 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
                 <input type="text" id="name" name="name" value={name} hidden readOnly />
@@ -149,7 +150,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 </Link>
             </div>
 
-            <div className="bg-slate-100/80">
+            <div className="bg-slate-100/80 rounded-bl-xl rounded-br-xl">
                 <div className="flex align-center justify-end px-4 py-2">
                     <span className="text-slate-500 hover:text-slate-600 cursor-pointer ml-2">
                         <IoShareSocial size={24} />

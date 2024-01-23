@@ -90,8 +90,8 @@ function LoginButton() {
         <BtnValidate
             className='flex items-center justify-center bg-white dark:bg-slate-50 hover:bg-violet-100 
                 dark:hover:bg-blue-100 hover:shadow-none active:bg-violet-200 
-                dark:active:bg-blue-500 active:drop-shadow-inviolet dark:active:drop-shadow-inbtn mx-4 mt-8 rounded-xl 
-                shadow drop-shadow-inviolet transition transform duration-300 hover:scale-[0.95]'
+                dark:active:bg-blue-500 active:shadow-inviolet dark:active:shadow-inbtn mx-4 mt-8 rounded-xl 
+                shadow-inviolet transition transform duration-300 hover:scale-[0.95]'
             disabled={pending}
         >
             <p className='text-lg font-extrabold text-transparent bg-clip-text dark-title-h1 light-title-h1'>
