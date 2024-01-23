@@ -2,7 +2,7 @@ import type { ProductsProps, PropsProdReview, ReviewsProps } from '@/app/lib/def
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { queryDecks } from '@/app/lib/db';
-import { reviewsBaker } from "@/app/lib/datas";
+import { reviewsBaker } from "@/app/lib/reviews-data";
 
 export default async function ReviewById({ params }: PropsProdReview) {
     
