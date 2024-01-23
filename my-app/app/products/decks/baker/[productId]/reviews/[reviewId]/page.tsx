@@ -9,7 +9,6 @@ export default async function ReviewById({ params }: PropsProdReview) {
     if (parseInt(params.reviewId) > 9) {
         notFound();
     };
-    console.log({params})
 
     if (parseInt(params.reviewId) !== Number(params.reviewId)) {
         throw new Error("Error review id is not a number");

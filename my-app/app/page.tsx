@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { allTitle, allText } from '@/app/lib/datas';
-import Links from '@/app/ui/home/links';
 import Carousel from '@/app/ui/carousel';
 import ScrollIndicator from '@/app//ui/scroll-indicator';
 import SocialIcons from '@/app/ui/home/social-icons';
@@ -51,25 +50,23 @@ export default function Home() {
       
       <ScrollIndicator />
       
-      <div className='fixed flex align-center justify-center w-full h-full filter blur-sm contrast-200 m-auto
-        transition animate-slice-appear -z-10'>
-        <Image
-          src={skaterBg}
-          width={1920}
-          height={1080}
-          alt="cpu img" 
-          className='object-cover'
-        />
-      </div>
+      <Image
+        src={skaterBg}
+        width={1920}
+        height={1080}
+        alt="cpu img" 
+        className='fixed flex items-center justify-center w-full h-full filter blur-sm contrast-200 m-auto
+        transition animate-slice-appear -z-10 object-cover'
+      />
 
       <main className="flex flex-col w-full min-h-screen">
   
-        <div className="flex flex-col align-center justify-center w-full
+        <div className="flex flex-col items-center justify-center w-full
           dark:bg-cyan-50 bg-slate-50 border-b border-indigo-200 dark:border-blue-200
           shadow-xllight my-0 z-10"
         >
 
-          <div className='flex flex-col py-[100px]'>
+          <div className='flex flex-col items-center justify-center py-[120px]'>
             <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
               light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto mb-0'
             >
@@ -87,12 +84,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="absolute flex justify-center w-full mb-10 -z-10">
-            <div className='w-[550px] h-auto'>
-              <Image src={deckTitle} width={550} height={200} alt="img title"
-                className='object-cover' />
-            </div>
-          </div>
+          <Image src={deckTitle} width={550} height={200} alt="img title"
+            className='absolute flex items-center justify-center w-[550px] h-auto mb-0 object-cover -z-10' />
 
           <div className="absolute flex justify-start w-full mb-0">
             <div className="w-[400px] h-auto">
@@ -102,13 +95,9 @@ export default function Home() {
           </div>
 
           <div className="absolute top-0 left-0 w-full -z-30">
-            <div className="flex w-full h-[407px]">
               <Image src={bgPark} width={2560} height={1709} alt="img bgPark" 
-                className="object-cover opacity-70" />
-            </div>
+                className="flex w-full h-[412px] object-cover opacity-70" />
           </div>
-
-          <Links />
 
         </div>
 
