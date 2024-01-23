@@ -20,7 +20,6 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
-//import imgWaves from '@/public/img_bg/stacked-waves2.png';
 
 export default function Home() {
   
@@ -87,17 +86,12 @@ export default function Home() {
           <Image src={deckTitle} width={550} height={200} alt="img title"
             className='absolute flex items-center justify-center w-[550px] h-auto mb-0 object-cover -z-10' />
 
-          <div className="absolute flex justify-start w-full mb-0">
-            <div className="w-[400px] h-auto">
-              <Image src={skaterFly} width={1920} height={1260} alt="img skaterFly"
-                className="object-cover transition transform translate-y-0 animate-up-start" />
-            </div>
-          </div>
+          <Image src={skaterFly} width={1920} height={1260} alt="img skaterFly"
+            className="absolute left-0 w-[400px] h-auto mb-0 object-cover transition transform 
+              translate-y-0 animate-up-start" />
 
-          <div className="absolute top-0 left-0 w-full -z-30">
-              <Image src={bgPark} width={2560} height={1709} alt="img bgPark" 
-                className="flex w-full h-[412px] object-cover opacity-70" />
-          </div>
+          <Image src={bgPark} width={2560} height={1709} alt="img bgPark" 
+            className="absolute top-0 left-0 flex w-full h-[412px] object-cover opacity-70 -z-30 " />
 
         </div>
 
@@ -132,18 +126,13 @@ export default function Home() {
             <Carousel loop>
               {images.map((src, i) => {
                 return (
-                  <div 
-                    key={i}
-                    className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
-                      xs:h-[100px] sm:h-[200px] md:h-[300px] sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
-                      mt-9 mb-0"
-                  >
-                    <Image src={src} 
+                    <Image key={i} src={src} 
                       width={300} height={300} fill={false} 
-                      className="m-auto" 
+                      className="relative flex shrink-0 grow-0 xs:w-[100px] sm:w-[200px] md:w-[300px] 
+                      xs:h-[100px] sm:h-[200px] md:h-[300px] m-auto sm:mx-[350px] lg:mx-[380px] 2xl:mx-[850px] 
+                      mt-9 mb-0" 
                       alt="img carousel"
                     />
-                  </div>
                 );
               })}
             </Carousel>
@@ -169,20 +158,17 @@ export default function Home() {
           <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 
             drop-shadow-inviolet dark:bg-sky-700/70'>
 
-            <div className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
-              ml-2 rotate-[15deg] z-20'>
-              <Image src={allan} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
-            </div>
+            <Image src={allan} width={1920} height={1280} alt="img photo" 
+              className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+                object-cover ml-2 rotate-[15deg] rounded-xl z-20' />
 
-            <div className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
-              rotate-[15deg] z-10'>
-              <Image src={sunSet} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
-            </div>
-  
-            <div className='absolute sm:ml-[500px] xl:ml-[700px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
-              mr-2 rotate-[15deg] z-0'>
-              <Image src={allanFranca} width={1920} height={1280} alt="img photo" className='object-cover rounded-xl' />
-            </div>
+            <Image src={sunSet} width={1920} height={1280} alt="img photo" 
+              className='absolute sm:ml-[20px] xl:ml-[20px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+                object-cover rounded-xl rotate-[15deg] z-10' />
+
+            <Image src={allanFranca} width={1920} height={1280} alt="img photo" 
+              className='absolute sm:ml-[500px] xl:ml-[700px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
+              mr-2 object-cover rounded-xl rotate-[15deg] z-0' />
 
           </div>
 
@@ -246,11 +232,6 @@ export default function Home() {
             </TextBlocks>
 
           <Separator />
-
-        {/*<div className='absolute bottom-0 w-full h-auto'>
-          <Image src={imgWaves} width={500} height={333} alt="waves img" 
-            className='w-full h-auto object-cover opacity-1' />
-        </div>*/}
 
       </main>
 
