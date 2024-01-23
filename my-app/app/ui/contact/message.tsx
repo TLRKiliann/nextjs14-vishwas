@@ -57,9 +57,9 @@ export default function Message() {
                 onChange={(event) => handleUser(event)}
                 placeholder='Username' required
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
-                dark:bg-slate-200 dark:hover:bg-slate-300 focus:outline-none 
+                dark:bg-slate-200 dark:hover:bg-slate-300 focus:outline-none dark:focus:outline-none 
                 placeholder:text-sm placeholder:text-slate-500 focus:ring 
-                focus:ring-violet-400/70 dark:focus:ring-sky-500 pl-2 py-1 rounded-lg'
+                focus:ring-violet-400/70 dark:focus:ring-blue-500 pl-2 py-1 rounded-lg'
             />
 
             <label htmlFor="email" className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 
@@ -70,9 +70,9 @@ export default function Message() {
                 onChange={(event) => handleEmail(event)}
                 placeholder="Email" required
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
-                dark:bg-slate-200 dark:hover:bg-slate-300 focus:outline-none 
-                placeholder:text-sm placeholder:text-slate-500 focus:ring 
-                focus:ring-violet-400/70 dark:focus:ring-sky-500 pl-2 py-1 rounded-lg'
+                dark:bg-slate-200 dark:hover:bg-slate-300 border-none focus:outline-none dark:focus:outline-none 
+                placeholder:text-sm placeholder:text-slate-500 focus:ring border
+                focus:ring-violet-400/70 dark:focus:ring-blue-500 pl-2 py-1 rounded-lg'
             />
             
             <label htmlFor="message" className='text-xl text-transparent bg-clip-text dark-title-h1 light-title-h1 
@@ -83,15 +83,15 @@ export default function Message() {
                 onChange={(event) => handleTextArea(event)}
                 value={textArea}
                 placeholder="Enter something here..."
-                className='text-slate-500 bg-violet-100 dark:bg-slate-200 p-2 hover:bg-violet-200 dark:hover:bg-slate-300 placeholder:text-sm placeholder:text-slate-500 rounded'>
+                className='text-slate-500 bg-violet-100 dark:bg-slate-200 p-2 hover:bg-violet-200 
+                    dark:hover:bg-slate-300 placeholder:text-sm placeholder:text-slate-500 rounded'>
             </textarea>
             
             <input type="reset" id="resetForgot" hidden />
 
             <button type="submit" id="submit" name="submit" value="sendmessage"
                 onClick={handleTimer}
-                disabled={pending} className='text-slate-50 bg-blue-500 mt-6 
-                hover:bg-blue-600 active:hover:bg-blue-400 py-2 rounded-lg shadow-lg'
+                disabled={pending} className='text-slate-50 color-btn mt-6 py-2 rounded-lg shadow-lg'
             >
                 {pending ? "Pending..." : "Submit"}
             </button>
