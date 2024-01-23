@@ -21,49 +21,49 @@ export const reviewsBaker: ReviewsProps[] = [
         categories: "Baker's Video 3",
         label: "B3",
         review: "Trick with (baker 3)",
-        video: "/video/skate-trick1.mp4"
+        video: "/video/bakervideo_3.mp4"
     },
     {
         id: 4,
         categories: "Baker's Video 4",
         label: "B4",
         review: "Trick with (baker 4)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/bakervideo_4.mp4"
     },
     {
         id: 5,
         categories: "Baker's Video 5",
         label: "B5",
         review: "Trick with (baker 5)",
-        video: "/video/skate-trick1.mp4"
+        video: "/video/bakervideo_5.mp4"
     },
     {
         id: 6,
         categories: "Baker's Video 6",
         label: "B6",
         review: "Trick with (baker 6)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/bakervideo_6.mp4"
     },
     {
         id: 7,
         categories: "Baker's Video 7",
         label: "B7",
         review: "Trick with (baker 7)",
-        video: "/video/skate-trick1.mp4"
+        video: "/video/bakervideo_7.mp4"
     },
     {
         id: 8,
         categories: "Baker's Video 8",
         label: "B8",
         review: "Trick with (baker 8)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/bakervideo_8.mp4"
     },
     {
         id: 9,
         categories: "Baker's Video 9",
         label: "B9",
         review: "Trick with (baker 9)",
-        video: "/video/skate-trick1.mp4"
+        video: "/video/bakervideo_9.mp4"
     }
 ];
 
@@ -108,28 +108,28 @@ export const reviewsBlind: ReviewsProps[] = [
         categories: "Blind's Video 6",
         label: "B6",
         review: "Trick with (blind 6)",
-        video: "/video/blind-trick1.mp4"
+        video: "/video/blindvideo_6.mp4"
     },
     {
         id: 16,
         categories: "Blind's Video 7",
         label: "B7",
         review: "Trick with (blind 7)",
-        video: "/video/blind-trick2.mp4"
+        video: "/video/blindvideo_7.mp4"
     },
     {
         id: 17,
         categories: "Blind's Video 8",
         label: "B8",
         review: "Trick with (blind 8)",
-        video: "/video/blind-trick3.mp4"
+        video: "/video/blindvideo_8.mp4"
     },
     {
         id: 18,
         categories: "Blind's Video 9",
         label: "B9",
         review: "Trick with (blind 9)",
-        video: "/video/blind-trick4.mp4"
+        video: "/video/blindvideo_9.mp4"
     }
 ];
 
@@ -139,21 +139,21 @@ export const reviewsElement: ReviewsProps[] = [
         categories: "Element's Video 1",
         label: "E1",
         review: "Trick with (element 1)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/elementvideo_1.mp4"
     },
     {
         id: 20,
         categories: "Element's Video 2",
         label: "E2",
         review: "Trick with (element 2)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/elementvideo_2.mp4"
     },
     {
         id: 21,
         categories: "Element's Video 3",
         label: "E3",
         review: "Trick with (element 3)",
-        video: "/video/skate-trick2.mp4"
+        video: "/video/elementvideo_3.mp4"
     },
     {
         id: 22,
