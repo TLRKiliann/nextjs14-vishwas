@@ -46,6 +46,10 @@
     hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80
     w-8 h-8 rounded-full;
   }
+  .color-btn {
+    @apply bg-blue-500 hover:bg-blue-600 active:hover:bg-blue-400 transition transform 
+    duration-300 hover:scale-95;
+  }
   .message-cart {
     @apply text-sm text-center text-red-500 bg-orange-200/70 py-2;
   }

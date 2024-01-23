@@ -34,7 +34,7 @@ export default function NavigationMenu() {
                     duration-300 ease-in-out rounded-lg z-30'>
                     <li className='custom-li py-1'>
                         <Link href="/products/decks" className='custom-link'>
-                            Deecks
+                            All Decks
                         </Link>
                     </li>
                     <hr className="border-t-amber-500/60" />

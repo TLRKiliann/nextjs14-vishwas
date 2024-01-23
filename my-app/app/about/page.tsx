@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
 import Partners from '@/app/ui/about/partners-bloc';
-import story from '@/public/img_bg/wallpaper-about.jpg';
+import story from '@/public/img_bg/bg-bowl-title.jpg';
 import ScrollIndicator from '@/app//ui/scroll-indicator';
 
 export const metadata: Metadata = {

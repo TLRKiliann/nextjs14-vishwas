@@ -2,7 +2,7 @@ import type { ProductsProps, ReviewsProps } from '@/app/lib/definitions';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { queryDecks } from '@/app/lib/db';
-import { reviewsGirl } from "@/app/lib/datas";
+import { reviewsGirl } from "@/app/lib/reviews-data";
 import BoxImage from '@/app/ui/products/decks/box-image';
 import DeckUnit from '@/app/ui/products/decks/deck-unit';
 

@@ -6,15 +6,15 @@ export const videoDecks: VideoProps[] = [
         video: "baker"
     },
     {
-        id: 2,
+        id: 10,
         video: "blind"
     },
     {
-        id: 3,
+        id: 19,
         video: "element"
     },
     {
-        id: 4,
+        id: 28,
         video: "girl"
     }
 ];

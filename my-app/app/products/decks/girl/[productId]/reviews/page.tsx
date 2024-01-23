@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { reviewsGirl } from '@/app/lib/datas';
+import { reviewsGirl } from '@/app/lib/reviews-data';
 import { videoDecks } from '@/app/lib/video-data';
 import videoTape from '@/public/video/video-tape.png';
 

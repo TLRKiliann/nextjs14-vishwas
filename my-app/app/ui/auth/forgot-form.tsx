@@ -38,7 +38,7 @@ export default function ForgetForm() {
                 required
                 className='text-lg text-violet-600 dark:text-slate-600 bg-violet-100 hover:bg-violet-200 
                 active:bg-white dark:bg-slate-200 dark:hover:bg-slate-300
-                focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-sky-500
+                focus:outline-none focus:ring focus:ring-violet-400/70 dark:focus:ring-blue-500
                 placeholder:text-sm placeholder:text-slate-500 mx-4 pl-2 py-1 rounded-lg'
             />
             
@@ -52,9 +52,9 @@ export default function ForgetForm() {
                 onClick={handleTimer}
                 disabled={pending}
                 className='flex items-center justify-center text-slate-500 bg-white dark:bg-slate-50 hover:bg-violet-100 
-                dark:hover:bg-blue-100 hover:scale-[0.95] hover:shadow-none active:text-slate-50 active:bg-violet-200 
+                dark:hover:bg-blue-100 hover:shadow-none active:text-slate-50 active:bg-violet-200 
                 dark:active:bg-blue-500 active:drop-shadow-inviolet dark:active:drop-shadow-inbtn mx-4 mt-8 rounded-xl 
-                shadow drop-shadow-inviolet transition-all ease py-2'
+                shadow drop-shadow-inviolet transition transform duration-300 hover:scale-[0.95] py-2'
             >
                 {pending ? "Pending..." : "Submit"}
             </button>

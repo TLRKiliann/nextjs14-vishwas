@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
     return (
-        <div className='w-full min-h-screen text-slate-900 dark:text-slate-50 py-[75px]'>
+        <div className='w-full min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]'>
             
             <div className='-z-10'>
                 <Image
@@ -26,7 +26,7 @@ export default function Contact() {
                 Contact us
             </h1>
 
-            <div className="flex w-full h-auto md:mt-[0%] xl:mt-[5%]">
+            <div className="flex w-full h-auto">
 
                 <DataShop />
 

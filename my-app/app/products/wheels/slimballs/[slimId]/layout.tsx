@@ -46,12 +46,6 @@ export default async function DetailsProduct({children}: {children: React.ReactN
       
       <div className='flex'>
         <div className='absolute flex flex-col w-[300px] z-20'>
-          <Link href="/products/wheels" className='text-lg custom-link py-2 pl-4'>
-            Back to Wheels
-          </Link>
-          <Link href="/products" className='text-lg custom-link mb-2 py-2 pl-4'>
-            Back to Products
-          </Link>
           <AccessWheels />
         </div>
           {children}

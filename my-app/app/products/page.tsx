@@ -20,15 +20,13 @@ export default function ListProducts() {
     return (
         <div className="w-full min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]">
 
-            <div className='-z-10'>
-                <Image
-                    src={bgProducts}
-                    width={1920}
-                    height={1080}
-                    alt="img sunset"
-                    className="fixed opacity-50 object-cover"
-                />
-            </div>
+            <Image
+                src={bgProducts}
+                width={1920}
+                height={1080}
+                alt="img sunset"
+                className="fixed w-full h-auto opacity-50 object-cover"
+            />
 
             <div>
                 <h1 className='relative text-4xl font-bold text-transparent bg-clip-text dark-title-h1

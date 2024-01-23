@@ -12,17 +12,15 @@ export const metadata: Metadata = {
 
 export default function BoardShop() {
   return (
-    <div className='min-h-screen py-[75px] mb-[80px]'>
+    <div className='min-h-screen py-[75px]'>
     
-      <div className='fixed -z-20'>
-        <Image
-          src={allanSkate}
-          width={1920}
-          height={1080}
-          alt="img bg"
-          className='opacity-50 object-cover'
-        />
-      </div>
+      <Image
+        src={allanSkate}
+        width={1920}
+        height={1080}
+        alt="img bg"
+        className='fixed w-full h-auto opacity-50 object-cover -z-20'
+      />
 
       <h1 className='text-4xl font-bold text-transparent bg-clip-text dark-title-h1 light-title-h1 pl-4 pt-4'>
         Decks

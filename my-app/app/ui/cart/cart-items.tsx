@@ -19,8 +19,9 @@ export default function CartItems({order}: {order: CartProps[]}) {
                 />
                 )) : (
                 <Link href="/products"
-                     className='text-lg text-center 
-                        text-slate-500 dark:text-sky-600 dark:hover:text-sky-700 dark:active:text-sky-500 mb-2'>
+                     className='text-lg text-center text-violet-500 hover:text-violet-600 
+                     active:text-violet-400 dark:text-sky-500 dark:hover:text-sky-400 
+                     dark:active:text-sky-600 mb-2'>
                     Add product to cart
                 </Link>
             )}

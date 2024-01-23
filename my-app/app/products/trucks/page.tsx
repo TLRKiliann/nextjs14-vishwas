@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import { queryTrucks } from '@/app/lib/db';
 import TrucksCards from '@/app/ui/products/trucks/trucks-cards';
@@ -24,7 +25,19 @@ export default async function AxisShop() {
   }
 
   return (
-    <div className='min-h-screen bg-slate-200 dark:bg-slate-900 py-[75px]'>
+    <div className='min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]'>
+        <div className="absolute left-4 flex flex-col text-lg mt-8 p-4">
+          <li className='custom-li'>
+              <Link href="/products/wheels" className='custom-link'>
+                  Go to Wheels
+              </Link>
+          </li>
+          <li className='custom-li'>
+              <Link href="/products" className="custom-link">
+                  Go back to products
+              </Link>
+          </li>
+      </div>
 
       <div className='flex items-center justify-center w-full h-auto overflow-hidden'>
         <Image

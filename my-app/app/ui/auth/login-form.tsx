@@ -32,9 +32,9 @@ export default function LoginForm() {
                 placeholder="Enter your email address"
                 required
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
-                dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-500 focus:outline-none 
+                dark:bg-slate-200 dark:hover:bg-slate-300 focus:outline-none 
                 placeholder:text-sm placeholder:text-slate-500 focus:ring 
-                focus:ring-violet-400/70 dark:focus:ring-sky-500 mx-4 pl-2 py-1 rounded-lg'
+                focus:ring-violet-400/70 dark:focus:ring-blue-500 mx-4 pl-2 py-1 rounded-lg'
             />
 
             <label htmlFor="password"
@@ -50,9 +50,9 @@ export default function LoginForm() {
                 minLength={6}
                 placeholder="Enter password of 12 caracters"  
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
-                dark:bg-slate-200 dark:hover:bg-slate-300 dark:active:bg-sky-500 focus:outline-none 
+                dark:bg-slate-200 dark:hover:bg-slate-300 focus:outline-none 
                 placeholder:text-sm placeholder:text-slate-500 focus:ring 
-                focus:ring-violet-400/70 dark:focus:ring-sky-500 mx-4 pl-2 py-1 rounded-lg'
+                focus:ring-violet-400/70 dark:focus:ring-blue-500 mx-4 pl-2 py-1 rounded-lg'
             />
             <LoginButton />
             <div className="flex h-8 items-center text-slate-900"
@@ -89,9 +89,9 @@ function LoginButton() {
     return (
         <BtnValidate
             className='flex items-center justify-center bg-white dark:bg-slate-50 hover:bg-violet-100 
-                dark:hover:bg-blue-100 hover:scale-[0.95] hover:shadow-none active:bg-violet-200 
+                dark:hover:bg-blue-100 hover:shadow-none active:bg-violet-200 
                 dark:active:bg-blue-500 active:drop-shadow-inviolet dark:active:drop-shadow-inbtn mx-4 mt-8 rounded-xl 
-                shadow drop-shadow-inviolet transition-all ease'
+                shadow drop-shadow-inviolet transition transform duration-300 hover:scale-[0.95]'
             disabled={pending}
         >
             <p className='text-lg font-extrabold text-transparent bg-clip-text dark-title-h1 light-title-h1'>

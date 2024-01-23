@@ -10,9 +10,8 @@ type PropsTitleText = {
 
 export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleText) {
     return (
-        <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto
-                transform transition ease duration-0 hover:duration-300
-                hover:scale-105 hover:text-blue-200 hover:shadow-xl rounded-lg'
+        <div className='w-6/12 max-w-xl flex flex-col text-blue-300 m-auto transition ease duration-600 
+            hover:scale-105 hover:text-blue-200 hover:shadow-xl rounded-lg'
         >
             <span className='h-10 border-none
                 dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% 
@@ -25,14 +24,11 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
 
                 <article className='h-auto dark:bg-slate-900 bg-white'>
 
-                    <div className='inline-flex items-center px-10'>
-
-                        <h2 className='md:text-xl xl:text-2xl text-justify font-bold 
-                            text-transparent bg-clip-text 
+                    <div className='inline-flex items-center px-10 text-transparent bg-clip-text 
                             dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% dark:via-sky-500 
-                            dark:via-50% dark:to-emerald-500 dark:to-90%
-                            bg-indigo-500 py-4'
-                        >
+                            dark:via-50% dark:to-emerald-500 dark:to-90% bg-indigo-500'>
+
+                        <h2 className='md:text-xl xl:text-2xl text-justify font-bold py-4'>
                             {titleBox}
                         </h2>
                         <MdSkateboarding size={24} className="dark:text-blue-400 text-indigo-500 ml-2" />
