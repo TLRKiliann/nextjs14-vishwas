@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function BoardShop() {
   return (
-    <div className='min-h-screen py-[75px] mb-[80px]'>
+    <div className='min-h-screen py-[75px]'>
     
       <div className='fixed -z-20'>
         <Image
