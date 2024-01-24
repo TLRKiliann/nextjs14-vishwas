@@ -11,6 +11,7 @@ export default function LoadMore({load, handleClick}: LoadmoreProps) {
         <>
             {load === false ? (
                 <div className='relative flex items-center justify-center w-full h-auto
+                    bg-gradient-to-b from-transparent from-10% to-violet-100/20 to-90% 
                     dark:bg-gradient-to-b dark:from-transparent dark:from-10% dark:to-slate-900/90
                     dark:to-90% py-6 -mt-[90px] z-10'>
                     <button

@@ -40,15 +40,17 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
     };
 
     return (
-        <div key={id} className='w-[150px] h-auto border pb-2 first:rounded-tl-xl first:rounded-bl-xl 
-            last:rounded-br-xl last:rounded-tr-xl'>
+        <div key={id} className='flex flex-col w-[150px] xl:w-[240px] h-auto bg-slate-100 border xl:mx-10 pb-2 
+            first:rounded-tl-lg first:rounded-bl-lg last:rounded-br-lg last:rounded-tr-lg
+            xl:rounded-lg xl:shadow-mdoutviolet xl:dark:shadow-lg'>
             
             <span onClick={() => handlePath(id)}>
                 <Image src={img} width={435} height={580} alt="img wheel"
-                    className='object-cover cursor-pointer hover:opacity-90 rounded-tr-xl rounded-tl-xl' />
+                    className='w-[150px] xl:w-[240px] object-cover cursor-pointer hover:opacity-90 
+                    md:rounded-tl-lg md:rounded-tr-lg xl:rounded-tr-lg xl:rounded-tl-lg' />
             </span>
 
-            <div className='text-slate-600/80 p-2'>
+            <div className='flex flex-col w-full text-slate-600/80 p-2'>
                 <h3 className='text-sm font-bold'>
                     {name.charAt(0).toUpperCase() + name.slice(1)}
                 </h3>

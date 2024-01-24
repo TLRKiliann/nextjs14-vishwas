@@ -156,7 +156,7 @@ export default function Home() {
           </div>
 
           <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 
-            drop-shadow-inviolet dark:bg-sky-700/70'>
+            shadow-inviolet dark:bg-sky-700/70'>
 
             <Image src={allan} width={1920} height={1280} alt="img photo" 
               className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
@@ -188,7 +188,7 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-4/5 m-auto drop-shadow-inviolet dark:drop-shadow-in py-10'>
+          <div className='flex align-center justify-around w-4/5 m-auto shadow-inviolet dark:shadow-in py-10'>
 
             <SectionImgOne />
 
@@ -212,7 +212,7 @@ export default function Home() {
           <div className='flex-1 h-auto dark:bg-slate-900 bg-slate-100'>
           </div>
 
-          <div className='flex align-center justify-around w-4/5 m-auto drop-shadow-inviolet dark:drop-shadow-in py-10'>
+          <div className='flex align-center justify-around w-4/5 m-auto shadow-inviolet dark:shadow-in py-10'>
 
             <SectionTextColorBlock titleBox={titlebox_2} textBox={textbox_2} />
 

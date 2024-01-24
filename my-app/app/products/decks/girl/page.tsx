@@ -21,8 +21,8 @@ export default async function GirlDecks() {
   }
 
   return (
-    <div className='min-h-screen bg-slate-900 py-[75px]'>
-      <h1 className='baker-blind-element-girl-title'>
+    <div className='w-full min-h-screen bg-violet-100/20 dark:bg-slate-900 py-[75px]'>
+      <h1 className='w-[320px] baker-blind-element-girl-title'>
         Girl&apos;s Decks
       </h1>
 

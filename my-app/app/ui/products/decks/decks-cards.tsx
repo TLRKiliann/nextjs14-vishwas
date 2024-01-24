@@ -5,6 +5,8 @@ import React, { useState } from 'react'
 import Card from './card';
 import LoadMore from './loadmore';
 
+export const dynamic = "force-dynamic";
+
 export default function DecksCards({data}: {data: ProductsProps[]}) {
 
     const [load, setLoad] = useState<boolean>(false);
@@ -18,10 +20,10 @@ export default function DecksCards({data}: {data: ProductsProps[]}) {
     };
 
     return (
-        <div className='w-full h-full bg-white dark:bg-slate-900 mt-20 px-4 pt-0 pb-4'>
+        <div className='w-4/5 h-full bg-white dark:bg-slate-900 m-auto mt-2 mb-10'>
             <div className={`grid md:grid-cols-4 ${load === false ? "grid-rows-1" : "grid-row-3"}
-                justify-items-center gap-y-10 dark:border-slate-900 bg-white 
-                dark:bg-slate-50 rounded-2xl drop-shadow-inviolet dark:drop-shadow-in p-10`}
+                justify-items-center gap-x-4 md:gap-y-6 dark:border-slate-900 bg-white
+                dark:bg-slate-50 p-10 pb-10 rounded-2xl shadow-inviolet dark:shadow-in`}
             >
                 {load === false ? (
                     data.slice(0, 4).map((d: ProductsProps) => (
