@@ -3,6 +3,7 @@ import React from 'react';
 import { queryWheels } from '@/app/lib/db';
 import { notFound } from 'next/navigation';
 import WheelCardUnit from '@/app/ui/products/wheels/wheel-card-unit';
+import Link from 'next/link';
 
 type ParamsProps = {
   params: {
@@ -27,8 +28,8 @@ export default async function DetailProductWheel({params}: ParamsProps) {
   };
 
   return (
-    <div className='absolute flex items-center justify-center w-full bg-slate-100 dark:bg-slate-900 
-      pb-20'>
+    <div className='absolute flex items-center justify-center w-full bg-slate-100 dark:bg-slate-900 pb-20'>
+
       {JSON.parse(data).map((d: ProductsProps) => {
         if (d.id === parseInt(params.spitId)) {
           return (
