@@ -84,7 +84,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
         const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/decks");
-          return { message: "Inserted to cart" };
+          return { message: "Inserted to cart !" };
         }
       }
     }
@@ -95,7 +95,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
           [id, name, price, count, stock, img, id]);
         if (result) {
           revalidatePath("/products/decks");
-          return {message: "Decrease from cart"}
+          return {message: "Deleted from cart"}
         }
       }
     }
