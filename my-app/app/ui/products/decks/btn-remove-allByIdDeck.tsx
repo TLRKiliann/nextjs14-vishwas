@@ -32,7 +32,7 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
     return (
         <form action={formData} className='flex bg-slate-100 flex-col items-center w-full'>
 
-            <div className='w-full px-4'>
+            <div className='w-full'>
 
                 <input type="number" id="id" name="id" value={id} hidden readOnly />
 
