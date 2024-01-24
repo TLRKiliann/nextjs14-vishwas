@@ -112,9 +112,11 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                         }
 
                     </div>
-                    {code?.message && quantity !== 0 ? (
-                        <p className='message-cart mb-2'>{code.message}</p>
-                    ) : null}
+                    {(code?.message === "Inserted to cart !") && (quantity !== 0) ? (
+                        <p className='message-cart-green my-2'>{code.message}</p>
+                    ) : (code?.message === "Deleted from cart") && (quantity !== 0) ? (
+                        <p className='message-cart my-2'>{code.message}</p>
+                    ) : null }
                 </div>
 
             </form>
