@@ -53,6 +53,9 @@
   .message-cart {
     @apply text-sm text-center text-red-500 bg-orange-200/70 py-2;
   }
+  .message-cart-green {
+    @apply text-sm text-center text-green-700 bg-green-200/70 py-2;
+  }
   .warning-stock {
     @apply text-sm font-bold text-red-500;
   }
