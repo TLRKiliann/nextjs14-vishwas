@@ -62,16 +62,16 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 />
             </span>
 
-            <div className="w-full h-full flex flex-col font-bold dark:bg-slate-100 rounded-bl-xl rounded-br-xl">
-                <div className="flex items-center justify-between text-md text-slate-600/80 mx-4 
+            <div className="w-full h-full flex flex-col font-bold dark:bg-slate-100 rounded-bl-xl px-4 rounded-br-xl">
+                <div className="flex items-center justify-between text-md text-slate-600/80 
                     my-2">
                     <h3>{name.toUpperCase()}</h3>
                 </div>
-                <div className="flex items-center justify-between text-sm text-slate-500/80 mx-4">
+                <div className="flex items-center justify-between text-sm text-slate-500/80">
                     <p>Price</p>
                     <p>{formatCurrency(price)}.- CHF</p>
                 </div>
-                <div className="flex items-center justify-center text-sm text-slate-500/80 mx-4 mb-2">
+                <div className="flex items-center justify-center text-sm text-slate-500/80 mb-2">
 
                     {stock - quantity === 0 ? (
                             <p className='warning-stock'>No more in stock</p>
@@ -96,13 +96,13 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
             
 
 
-                <div className="bg-slate-100/80 px-4">
+                <div className="bg-slate-100/80">
                     <p className="w-full text-sm text-justify text-slate-500 bg-white p-2">
                         Make sure that it will be a good experience for you !
                     </p>
                 </div>
 
-                <form action={formAction} className='w-full bg-slate-100/80 px-4 py-2 pt-4'>
+                <form action={formAction} className='w-full bg-slate-100/80 py-2 pt-4'>
                     
                     <input type="number" id="id" name="id" value={id} hidden readOnly />
                     <input type="text" id="name" name="name" value={name} hidden readOnly />
@@ -141,7 +141,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
     
                 <RemoveAllByIdDeck id={id} />
 
-                <div className="flex align-center justify-end text-sm bg-slate-100/80 px-4 py-2 pb-3">
+                <div className="flex align-center justify-end text-sm bg-slate-100/80 py-2 pb-3">
                     <button className='button-view'>
                         <Link
                             href={`/products/decks/${deckPath}/${id}`}
@@ -152,7 +152,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 </div>
 
                 <div className="bg-slate-100/80 rounded-bl-xl rounded-br-xl">
-                    <div className="flex align-center justify-end px-4 py-2">
+                    <div className="flex align-center justify-end py-2">
                         <span className="text-slate-500 hover:text-slate-600 cursor-pointer ml-2">
                             <IoShareSocial size={24} />
                         </span>
