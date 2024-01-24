@@ -103,11 +103,11 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
                         ) : null 
                     }
                 </div>
-                {code?.message && quantity !== 0 ? (
-                    <p className='message-cart mb-2'>
-                        {code.message}
-                    </p>
-                ) : null}
+                {(code?.message === "Inserted to cart !") && (quantity !== 0) ? (
+                    <p className='message-cart-green mt-2'>{code.message}</p>
+                ) : (code?.message === "Deleted from cart") && (quantity !== 0) ? (
+                    <p className='message-cart mt-2'>{code.message}</p>
+                ) : null }
             </form>
 
             <RemoveAll id={id} />
