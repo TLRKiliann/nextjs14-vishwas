@@ -40,7 +40,8 @@ export default async function CheckOrder() {
                             <th className='w-2/5'>Total</th>
                         </tr>
 
-                        {JSON.parse(data).map((d: AllProps) => (
+                        {JSON.parse(data).length !== 0 ? (
+                            JSON.parse(data).map((d: AllProps) => (
                             <tr key={d.id} className='flex justify-between w-full text-sm text-slate-500 bg-slate-300
                                 dark:text-slate-50 dark:bg-slate-900 rounded-tl-md rounded-tr-md'
                             >
@@ -76,7 +77,12 @@ export default async function CheckOrder() {
                                     {d.filterTotal}.-
                                 </td>
                             </tr>
-                        ))}
+                            ))) : (
+                                <p className='text-2xl text-center text-green-400'>
+                                    Table validate
+                                </p>
+                            ) 
+                        }
                     </tbody>
                 </table>
             </div>

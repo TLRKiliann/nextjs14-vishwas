@@ -22,7 +22,7 @@ export default async function AxisShop() {
 
   if (!data) {
     throw new Error("Error: server failed to return data from db.");
-  }
+  };
 
   return (
     <div className='min-h-screen bg-slate-100 dark:bg-slate-900 py-[75px]'>

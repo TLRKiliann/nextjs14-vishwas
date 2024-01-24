@@ -229,13 +229,13 @@ const queryToPrepareTable = async (query: string): Promise<ShippingProps[]> => {
 }
 
 // copy cartorder table to checkout_paid table
-const queryToCopyTable = async (query: string, data: GenericProps): Promise<CartProps[]> => {
+const queryToCopyTable = async (query: string, data: GenericProps): Promise<[]> => {
 //const queryToCopyTable = async (query: string): Promise<CartProps[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
-    const [result] = await connection.execute(query);
-    return result as CartProps[];
+    const [result] = await connection.execute(query, data);
+    return result as [];
   } catch (error) {
     console.error(error);
     throw error;
@@ -264,12 +264,12 @@ const queryOrderPaid = async (query: string, data: GenericProps): Promise<AllPro
 }
 
 // display by join table checkorder page
-const queryConfirmation = async (query: string, data: FormDataEntryValue[]): Promise<AllProps[]> => {
+const queryConfirmation = async (query: string, data: GenericProps): Promise<[]> => {
   let connection;
   try {
     connection = await pool.getConnection();
     const [result] = await connection.execute(query, data);
-    return result as AllProps[];
+    return result as [];
   } catch (error) {
     console.error(error);
     throw error;

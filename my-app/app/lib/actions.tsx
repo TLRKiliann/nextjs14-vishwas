@@ -84,7 +84,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
         const result = await actionOrderQuery(query, [id, name, price, count, stock, img]);
         if (result) {
           revalidatePath("/products/decks");
-          return { message: "Inserted to cart" };
+          return { message: "Inserted to cart !" };
         }
       }
     }
@@ -95,7 +95,7 @@ export async function queryDecksCart(prevState: { message: string } | undefined,
           [id, name, price, count, stock, img, id]);
         if (result) {
           revalidatePath("/products/decks");
-          return {message: "Decrease from cart"}
+          return {message: "Deleted from cart"}
         }
       }
     }
@@ -340,8 +340,8 @@ export async function confirmationPayment(prevState: {message: string} | undefin
     if (btnConfirm === "btnConfirmation") {
       if (id !== null && user !== null && address !== null && npa !== null && phone !== null && email !== null && 
           name !== null && price !== null && count !== null && img !== null && filterTotal !== null) {
-        const query = await queryConfirmation("INSERT INTO confirmation (id, user, address, npa, phone, email, name, price, count, img, filterTotal) \
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [id, user, address, npa, phone, email, name, price, count, img, filterTotal]);
+        const query = await queryConfirmation("INSERT INTO confirmation SELECT * FROM checkout_paid CROSS JOIN \
+          shipping", []);
         if (query) {
           const resetTableCheckout = await resetQuery("TRUNCATE TABLE checkout_paid");
           if (resetTableCheckout) {

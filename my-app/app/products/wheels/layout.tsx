@@ -8,12 +8,7 @@ import SearchUrl from '@/app/ui/products/search-url';
 export default function LayoutBoardShop({children}: {children: React.ReactNode}) {
     return (
         <div className='bg-slate-100 dark:bg-slate-900 py-[75px]'>
-            <div className="absolute left-4 flex flex-col text-lg mt-8 p-4">
-                <li className='custom-li'>
-                    <Link href="/products/wheels" className='custom-link'>
-                        Main page of wheels
-                    </Link>
-                </li>
+            <div className="absolute left-4 flex flex-col text-lg mt-8 pt-4 pl-4">
                 <li className='custom-li'>
                     <Link href="/products" className="custom-link">
                         Go back to products
@@ -25,6 +20,7 @@ export default function LayoutBoardShop({children}: {children: React.ReactNode})
                     </Link>
                 </li>
             </div>
+
             <div className='flex items-center justify-center w-full h-auto'>
                 <Image
                     src={deckTitle}

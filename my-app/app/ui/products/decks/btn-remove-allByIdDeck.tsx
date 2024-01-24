@@ -32,16 +32,21 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
     return (
         <form action={formData} className='flex bg-slate-100 flex-col items-center w-full'>
 
-            <input type="number" id="id" name="id" value={id} hidden readOnly />
+            <div className='w-full'>
 
-            <button type="submit" id="submit" name="submit" value="removeAllById" 
-                disabled={pending} onClick={() => handleRemove(id)} className='w-5/6 button-card'
-            >
-                {pending ? "Pending..." : "Remove"}
-            </button>
-            {state?.message && removeById === true ? (
-                <p className='w-full message-cart mt-2'>{state.message}</p>
-            ) : null}
+                <input type="number" id="id" name="id" value={id} hidden readOnly />
+
+                <button type="submit" id="submit" name="submit" value="removeAllById" 
+                    disabled={pending} onClick={() => handleRemove(id)} className='w-full button-card'
+                >
+                    {pending ? "Pending..." : "Remove"}
+                </button>
+                {state?.message && (removeById === true) ? (
+                    <p className='w-full message-cart mt-2'>{state.message}</p>
+                ) : null}
+
+            </div>
+
         </form>
     )
 }

@@ -113,6 +113,53 @@ export default function Home() {
           </h2>
         </div>
 
+        <div className='w-full h-auto shadow-in'>
+
+          <div className='h-content font-bold font-serif text-blue-800 bg-slate-100/50 m-4 rounded'>
+            
+            <h2 className='text-2xl px-4 py-2 pt-3 rounded-tl-md rounded-tr-md'>
+              Links
+            </h2>
+            
+            <hr className='w-[300px] border-1 border-blue-900/70 mx-4 rounded-full'/>
+
+            <ol className='flex flex-col items-start justify-start py-2 rounded'>
+              
+              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+                <a href='#high-quality'
+                  className='block text-md shadow-fontlg active:text-blue-200 pt-2'>
+                  High Quality
+                </a>
+              </li>
+              
+              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+                <a href='#choose-wisely'
+                  className='block text-md shadow-fontlg active:text-blue-200'>
+                  Choose Wisely
+                </a>
+              </li>
+
+              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+                <a href='#allwhatyouneed'
+                  className='block text-md shadow-fontlg active:text-blue-200'>
+                  All what you need !
+                </a>
+              </li>
+
+              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+                <a href='#network'
+                  className='block text-md shadow-fontlg active:text-blue-400 pb-2
+                    rounded-bl-md rounded-br-md'>
+                  Social Network
+                </a>
+              </li>
+
+            </ol>
+
+          </div>
+
+        </div>
+
         <TextBlocks title={titleOne} text={textOne} />
         <Separator />
 
@@ -143,12 +190,15 @@ export default function Home() {
           </div>
 
         </div>
+      
+        <div id="high-quality">
+          <Separator />
 
-        <Separator />
+            <TextBlockDesign text={textTwo} />
 
-          <TextBlockDesign text={textTwo} />
+          <Separator />
+        </div>
 
-        <Separator />
 
         <div id="targetElement" className='flex  w-full'>
 
@@ -176,12 +226,14 @@ export default function Home() {
           </div>
 
         </div>
-        
-        <Separator />
 
-          <TextBlocks title={titleTwo} text={textTwo} />
+        <div id="choose-wisely">
+          <Separator />
 
-        <Separator />
+            <TextBlocks title={titleTwo} text={textTwo} />
+
+          <Separator />
+        </div>
 
         <div className='flex w-full'>
 
@@ -201,11 +253,13 @@ export default function Home() {
 
         </div>
 
-        <Separator />
+        <div id="allwhatyouneed">
+          <Separator />
 
-          <TextBlocks title={titleThree} text={textThree} />
+            <TextBlocks title={titleThree} text={textThree} />
 
-        <Separator />
+          <Separator />
+        </div>
 
         <div className='flex w-full'>
 
@@ -225,13 +279,13 @@ export default function Home() {
 
         </div>
 
+        <div id="network">
           <Separator />
-
             <TextBlocks title={titleFour} text={textFour}>
               <SocialIcons />
             </TextBlocks>
-
           <Separator />
+        </div>
 
       </main>
 

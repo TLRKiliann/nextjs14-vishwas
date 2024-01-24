@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 export default function BtnRemoveAll({id}: {id: number}) {
 
     const { pending } = useFormStatus();
-    const [state, formData] = useFormState(resetById, undefined);
+    const [code, formData] = useFormState(resetById, undefined);
     
     const [removeById, setRemoveById] = useState<boolean>(false);
 
@@ -38,8 +38,8 @@ export default function BtnRemoveAll({id}: {id: number}) {
             >
                 {pending ? "Pending..." : "Remove"}
             </button>
-            {state?.message && removeById === true ? (
-                <p className='w-full message-cart mt-2'>{state.message}</p>
+            {code?.message && (removeById === true) ? (
+                <p className='w-full message-cart mt-2'>{code.message}</p>
             ) : null}
         </form>
     )
