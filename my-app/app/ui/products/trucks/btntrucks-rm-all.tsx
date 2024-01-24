@@ -38,7 +38,7 @@ export default function BtnRemoveAll({id}: {id: number}) {
             >
                 {pending ? "Pending" : "Remove"}
             </button>
-            {code?.message && removeById === true ? (
+            {code?.message && (removeById === true) ? (
                 <p className='w-full message-cart mt-2'>{code.message}</p>
             ) : null}
         </form>

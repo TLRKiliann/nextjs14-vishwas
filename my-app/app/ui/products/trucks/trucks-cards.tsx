@@ -93,7 +93,9 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
                     }
 
                 </div>
-                {code?.message && quantity !== 0 ? (
+                {(code?.message === "Inserted to cart !") && (quantity !== 0) ? (
+                    <p className='message-cart-green mt-2'>{code.message}</p>
+                ) : (code?.message === "Deleted from cart") && (quantity !== 0) ? (
                     <p className='message-cart mt-2'>{code.message}</p>
                 ) : null }
             </form>
