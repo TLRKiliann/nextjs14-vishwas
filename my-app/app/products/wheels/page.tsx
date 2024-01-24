@@ -31,18 +31,18 @@ export default async function AxisShop() {
   return (
     <div className='min-h-screen bg-slate-100 dark:bg-slate-900 mt-20'>
       
-      <div className='xs:w-4/5 w-3/5 h-auto bg-slate-300 m-auto mb-10 pt-4 pb-10 rounded dark:shadow-in 
-          shadow-inviolet'>
+      <div className='flex flex-col items-center w-4/5 h-auto m-auto bg-slate-50 dark:bg-slate-900 
+        mb-10 pb-10 rounded dark:shadow-in shadow-inviolet'>
     
-        <div className="w-[600px] m-auto py-2">
-          <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+        <div className="w-full m-auto my-4">
+          <h2 className='w-[600px] xl:w-full xl:pl-[70px] m-auto text-4xl text-transparent bg-clip-text 
+            dark-title-h1 light-title-h1'>
             Bones
           </h2>
         </div>
 
-        <div className='md:flex md:flex-col lg:grid grid-cols-4 grid-row-3 gap-0 justify-items-center 
-          md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
-          shadow-none transition transform ease duration-300 animate-slice-appear'>
+        <div className='flex items-center justify-center rounded-xl xl:shadow-none 
+          md:shadow-mdoutviolet md:dark:shadow-lg'>
 
           {JSON.parse(data).map((wheelUnit: ProductsProps) => (
             <WheelCard
@@ -57,18 +57,18 @@ export default async function AxisShop() {
         </div>
       </div>
 
-      <div className='xs:w-4/5 w-3/5 h-auto bg-slate-300 m-auto mb-10 pt-4 pb-10 rounded dark:shadow-in 
-          shadow-inviolet'>
+      <div className='flex flex-col items-center w-4/5 h-auto m-auto bg-slate-50 dark:bg-slate-900 
+        mb-10 pb-10 rounded dark:shadow-in shadow-inviolet'>
     
-        <div className="w-[600px] m-auto py-2">
-          <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+        <div className="w-full m-auto my-4">
+          <h2 className='w-[600px] xl:w-full xl:pl-[70px] m-auto text-4xl text-transparent bg-clip-text 
+            dark-title-h1 light-title-h1'>
             Slimballs
           </h2>
         </div>
 
-        <div className='md:flex md:flex-col lg:grid grid-cols-4 grid-row-3 gap-0 justify-items-center 
-          md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
-          shadow-none'>
+        <div className='flex items-center justify-center rounded-xl xl:shadow-none 
+          md:shadow-mdoutviolet md:dark:shadow-lg'>
 
           {JSON.parse(dataTwo).map((wheelUnit: ProductsProps) => (
             <WheelCard
@@ -83,18 +83,18 @@ export default async function AxisShop() {
         </div>
       </div>
 
-      <div className='xs:w-4/5 w-3/5 h-auto bg-slate-300 m-auto mb-10 pt-4 pb-10 rounded dark:shadow-in 
-          shadow-inviolet'>
+      <div className='flex flex-col items-center w-4/5 h-auto m-auto bg-slate-50 dark:bg-slate-900 
+        mb-10 pb-10 rounded dark:shadow-in shadow-inviolet'>
     
-        <div className="w-[600px] m-auto py-2">
-          <h2 className='text-4xl text-transparent bg-clip-text dark-title-h1 light-title-h1'>
+        <div className="w-full m-auto my-4">
+          <h2 className='w-[600px] xl:w-full xl:pl-[70px] m-auto text-4xl text-transparent bg-clip-text 
+            dark-title-h1 light-title-h1'>
             Spitfire
           </h2>
         </div>
 
-        <div className='md:flex md:flex-col lg:grid grid-cols-4 grid-row-3 gap-0 justify-items-center 
-          md:w-[150px] lg:w-[600px] bg-slate-50 m-auto rounded-xl dark:shadow-lg 
-          shadow-none'>
+        <div className='flex items-center justify-center rounded-xl xl:shadow-none 
+          md:shadow-mdoutviolet md:dark:shadow-lg'>
 
           {JSON.parse(dataThree).map((wheelUnit: ProductsProps) => (
             <WheelCard
