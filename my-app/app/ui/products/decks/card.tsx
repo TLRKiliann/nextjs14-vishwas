@@ -142,14 +142,13 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                 <RemoveAllByIdDeck id={id} />
 
                 <div className="flex align-center justify-end text-sm bg-slate-100/80 px-4 py-2 pb-3">
-                    <Link
-                        href={`/products/decks/${deckPath}/${id}`}
-                        className="text-sm text-slate-500 bg-slate-300 hover:text-slate-100 
-                        hover:bg-slate-400 active:text-slate-50 active:bg-slate-500/80 
-                        cursor-pointer px-4 py-1 rounded"
-                    >
-                        View
-                    </Link>
+                    <button className='button-view'>
+                        <Link
+                            href={`/products/decks/${deckPath}/${id}`}
+                        >
+                            View
+                        </Link>
+                    </button>
                 </div>
 
                 <div className="bg-slate-100/80 rounded-bl-xl rounded-br-xl">
