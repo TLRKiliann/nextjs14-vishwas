@@ -35,93 +35,94 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
         <div key={id} className='flex flex-col items-center justify-center w-full h-auto text-md
             transform transition translate-y-0 animate-up-start'>
 
-            <form action={formAction} className='flex flex-col w-full h-auto bg-slate-100
-                rounded-tr-xl'
-            >
-                <div className='w-full h-auto'>
-                    <Image
-                        src={img}
-                        width={500}
-                        height={500}
-                        alt="img product" 
-                        className='object-cover rounded-tr-lg rounded-tl-lg'
-                    />
-                </div>
+            <Image
+                src={img}
+                width={500}
+                height={500}
+                alt="img product" 
+                className='w-full h-auto object-cover rounded-tr-lg'
+            />
 
-                <h3 className='text-lg text-gray-500 font-bold pt-2 pl-2'>
-                    {name.toUpperCase()}
-                </h3>
+            <div className='flex flex-col w-full h-auto bg-slate-100 px-4 py-2 xl:p-4'>
 
-                <p className='text-md text-slate-600/80 px-2 pt-0'>
-                    {Number(price).toFixed(2)}.- CHF
-                </p>
-                
-                <p className='text-sm text-slate-600/80 px-2 pt-3'>
-                    {stock - quantity === 0 ? <span className='warning-stock'>No more in stock</span> : 
-                        "Stock: " + (stock - quantity) + "pcs"
-                    }    
-                </p>
+                <form action={formAction}>
 
-                <p className='text-sm text-slate-600/80 px-2'>
-                    Quantity: {quantity}
-                </p>
-                
-                <details className="px-2 py-1 pt-2">
-                    <summary className="text-xs text-slate-600/80 hover:cursor-pointer">
-                        Video
-                    </summary>
-                    <Link href={`/products/decks/${defineName[0]}/${id}/reviews/${id}`} className="text-sm text-blue-500 hover:text-blue-600 px-3">
-                        Go to video
-                    </Link>
-                </details>
+                    <h3 className='text-lg text-gray-500 font-bold'>
+                        {name.toUpperCase()}
+                    </h3>
 
-                <input type="number" id="id" name="id" value={id} hidden readOnly />
-                <input type="text" id="name" name="name" value={name} hidden readOnly />
-                <input type="number" id="price" name="price" value={price} hidden readOnly />
-                <input type="number" id="count" name="count" value={quantity} hidden readOnly />
-                <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
-                <input type="text" id="img" name="img" value={img} hidden readOnly />
+                    <p className='text-md text-slate-600/80 pt-0'>
+                        {Number(price).toFixed(2)}.- CHF
+                    </p>
+                    
+                    <p className='text-sm text-slate-600/80 pt-3'>
+                        {stock - quantity === 0 ? <span className='warning-stock'>No more in stock</span> : 
+                            "Stock: " + (stock - quantity) + "pcs"
+                        }    
+                    </p>
 
-                <div className='w-full h-full'>
+                    <p className='text-sm text-slate-600/80'>
+                        Quantity: {quantity}
+                    </p>
+                    
+                    <details className="py-1 pt-2">
+                        <summary className="text-xs text-slate-600/80 hover:cursor-pointer">
+                            Video
+                        </summary>
+                        <Link href={`/products/decks/${defineName[0]}/${id}/reviews/${id}`} className="text-sm text-blue-500 hover:text-blue-600 px-3">
+                            Go to video
+                        </Link>
+                    </details>
 
-                    <div className='w-full flex items-center justify-between my-2 px-2'>
-                        
-                        <button
-                            type="submit"
-                            id="submit"
-                            name="submit"
-                            value="decrease"
-                            disabled={pending}
-                            onClick={() => handleRemoveFromCart(id, name, price, img, stock)}
-                            className='button-card'>
-                                { pending ? "pending..." : "Sub" }
-                        </button>
+                    <input type="number" id="id" name="id" value={id} hidden readOnly />
+                    <input type="text" id="name" name="name" value={name} hidden readOnly />
+                    <input type="number" id="price" name="price" value={price} hidden readOnly />
+                    <input type="number" id="count" name="count" value={quantity} hidden readOnly />
+                    <input type="number" id="stock" name="stock" value={stock} hidden readOnly />
+                    <input type="text" id="img" name="img" value={img} hidden readOnly />
 
-                        {stock - quantity > 0 ? (
-                            <button 
+                    <div className='w-full h-full'>
+
+                        <div className='w-full flex items-center justify-between my-2'>
+                            
+                            <button
                                 type="submit"
                                 id="submit"
                                 name="submit"
-                                value="order"
+                                value="decrease"
                                 disabled={pending}
-                                onClick={() => handleAddToCart(id, name, price, img, stock)}
+                                onClick={() => handleRemoveFromCart(id, name, price, img, stock)}
                                 className='button-card'>
-                                { pending ? "pending..." : "Add" }
+                                    { pending ? "pending..." : "Sub" }
                             </button>
-                            ) : null
-                        }
 
+                            {stock - quantity > 0 ? (
+                                <button 
+                                    type="submit"
+                                    id="submit"
+                                    name="submit"
+                                    value="order"
+                                    disabled={pending}
+                                    onClick={() => handleAddToCart(id, name, price, img, stock)}
+                                    className='button-card'>
+                                    { pending ? "pending..." : "Add" }
+                                </button>
+                                ) : null
+                            }
+
+                        </div>
+                        {(code?.message === "Inserted to cart !") && (quantity !== 0) ? (
+                            <p className='message-cart-green my-2'>{code.message}</p>
+                        ) : (code?.message === "Deleted from cart") && (quantity !== 0) ? (
+                            <p className='message-cart my-2'>{code.message}</p>
+                        ) : null }
                     </div>
-                    {(code?.message === "Inserted to cart !") && (quantity !== 0) ? (
-                        <p className='message-cart-green my-2'>{code.message}</p>
-                    ) : (code?.message === "Deleted from cart") && (quantity !== 0) ? (
-                        <p className='message-cart my-2'>{code.message}</p>
-                    ) : null }
-                </div>
 
-            </form>
+                </form>
 
-            <RemoveAllByIdDeck id={id} />
+                <RemoveAllByIdDeck id={id} />
+
+            </div>
 
         </div>
     )
