@@ -46,7 +46,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
 
     return (
         <div key={id}
-            className="md:w-[180px] lg:w-[200px] text-slate-600 bg-white shadow-mdoutviolet dark:shadow-lg transform transition 
+            className="sm:w-[200px] md:w-[180px] lg:w-[200px] 2xl:w-[300px] text-slate-600 bg-white shadow-mdoutviolet dark:shadow-lg transform transition 
                 hover:scale-[1.025] hover:shadow-bigoutviolet dark:hover:shadow-xl translate-y-0 animate-up-start rounded-xl"
         >
             <span onClick={() => handleImg(id)}>
