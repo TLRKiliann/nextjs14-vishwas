@@ -65,9 +65,6 @@ export default function Home() {
         />
       </Parallax>
 
-
-      {/* bg-fixed bg-no-repeat bg-cover bg-center */}
-
       <main className="flex flex-col w-full min-h-screen">
   
         <div className="flex flex-col items-center justify-center w-full
@@ -208,16 +205,6 @@ export default function Home() {
 
         </div>
 
-        <Parallax speed={5} translateY={['1800px', '0px']} className='fixed -z-10 w-full'>  
-          <Image
-            src={skaterBg}
-            width={1920}
-            height={1080}
-            alt="cpu img" 
-            className='w-full h-auto transition animate-slice-appear object-cover'
-          />
-        </Parallax>
-
         <div id="high-quality">
           <Separator />
 
@@ -226,6 +213,15 @@ export default function Home() {
           <Separator />
         </div>
 
+        <Parallax speed={5} translateY={['2800px', '-300px']} className='fixed -z-10 w-full'>  
+          <Image
+            src={skaterBg}
+            width={1920}
+            height={1080}
+            alt="cpu img" 
+            className='w-full h-auto transition animate-slice-appear object-cover'
+          />
+        </Parallax>
 
         <div id="targetElement" className='flex  w-full'>
 
