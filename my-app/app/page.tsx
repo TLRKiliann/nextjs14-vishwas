@@ -23,7 +23,7 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
-import skaterArt from '@/public/img_bg/skateboard-art.jpg';
+import skateTrix from '@/public/img_bg/skate-trick-park.jpg';
 
 export default function Home() {
   
@@ -52,12 +52,11 @@ export default function Home() {
     <div className='relative flex text-slate-600 bg-black pt-[75px] pb-[20px] z-0'>
       
       <ScrollIndicator />
-
       
-      <Parallax speed={5} translateY={['0px', '-200px']}
+      <Parallax speed={5} translateY={['-300px', '100px']}
         className='fixed -z-20 flex items-center justify-center w-full min-h-screen'>  
         <Image
-          src={skaterArt}
+          src={skaterBg}
           width={1920}
           height={1080}
           alt="cpu img" 
@@ -213,9 +212,9 @@ export default function Home() {
           <Separator />
         </div>
 
-        <Parallax speed={5} translateY={['2800px', '-300px']} className='fixed -z-10 w-full'>  
+        <Parallax speed={5} translateY={['4000px', '0px']} className='fixed -z-10 w-full'>  
           <Image
-            src={skaterBg}
+            src={skateTrix}
             width={1920}
             height={1080}
             alt="cpu img" 
