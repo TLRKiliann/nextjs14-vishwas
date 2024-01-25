@@ -17,9 +17,7 @@ export default function TextBlockDesign({text}: PropsText) {
                 <div className='flex flex-col items-center justify-center w-3/5 h-[260px] xl:py-10'>
 
                     <h2 className='sm:text-3xl xl:text-5xl font-extrabold text-transparent bg-clip-text 
-                        dark:bg-gradient-to-r dark:from-indigo-500 dark:from-10% 
-                        dark:via-sky-500 dark:via-50% dark:to-emerald-500 dark:to-90%
-                        mb-4 pb-4'
+                        light-main-tile dark-main-tile mb-4 pb-4'
                     >
                         High-quality products with guarantees for our members.
                     </h2>

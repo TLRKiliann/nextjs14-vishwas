@@ -1,7 +1,10 @@
+"use client";
+
 import Image from 'next/image';
+import { Parallax } from 'react-scroll-parallax';
 import { allTitle, allText } from '@/app/lib/datas';
 import Carousel from '@/app/ui/carousel';
-import ScrollIndicator from '@/app//ui/scroll-indicator';
+import ScrollIndicator from '@/app/ui/scroll-indicator';
 import SocialIcons from '@/app/ui/home/social-icons';
 import TextBlocks from '@/app/ui/home/text-blocs';
 import TextBlockDesign from '@/app/ui/home/text-bloc-design';
@@ -9,7 +12,7 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-import skaterBg from "@/public/img_bg/skate-trick-park.jpg";
+import skaterBg from "@/public/img_bg/mauricio.jpg";
 import allan from "@/public/img_bg/pexels-allan-mas.jpg";
 import sunSet from "@/public/img_bg/sunset-board.jpg";
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
@@ -20,6 +23,7 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
+import skateTrix from '@/public/img_bg/skate-trick-park.jpg';
 
 export default function Home() {
   
@@ -49,14 +53,16 @@ export default function Home() {
       
       <ScrollIndicator />
       
-      <Image
-        src={skaterBg}
-        width={1920}
-        height={1080}
-        alt="cpu img" 
-        className='fixed flex items-center justify-center w-full h-full filter blur-sm contrast-200 m-auto
-        transition animate-slice-appear -z-10 object-cover'
-      />
+      <Parallax speed={5} translateY={['-300px', '100px']}
+        className='fixed -z-20 flex items-center justify-center w-full min-h-screen'>  
+        <Image
+          src={skaterBg}
+          width={1920}
+          height={1080}
+          alt="cpu img" 
+          className='w-full h-auto transition animate-slice-appear object-cover'
+        />
+      </Parallax>
 
       <main className="flex flex-col w-full min-h-screen">
   
@@ -113,40 +119,45 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className='w-full h-auto shadow-in'>
+        <div className='w-full h-10 bg-slate-100 dark:bg-slate-900'></div>
 
-          <div className='h-content font-bold font-serif text-blue-800 bg-slate-100/50 m-4 rounded'>
+        <div className='flex w-full h-auto m-auto shadow-inviolet dark:shadow-in'>
+
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
+          </div>
+
+          <div className='w-4/5 h-content font-bold font-serif text-white bg-violet-400/50 dark:bg-sky-700/70 m-4 rounded'>
             
             <h2 className='text-2xl px-4 py-2 pt-3 rounded-tl-md rounded-tr-md'>
               Links
             </h2>
             
-            <hr className='w-[300px] border-1 border-blue-900/70 mx-4 rounded-full'/>
+            <hr className='w-[300px] border-1 border-slate-100/50 mx-4 rounded-full'/>
 
             <ol className='flex flex-col items-start justify-start py-2 rounded'>
               
-              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+              <li className='list-disc hover:text-violet-200 dark:hover:text-sky-400 ml-10 p-0'>
                 <a href='#high-quality'
-                  className='block text-md shadow-fontlg active:text-blue-200 pt-2'>
+                  className='block overscroll-y-auto text-md shadow-fontlg active:text-blue-200 pt-2'>
                   High Quality
                 </a>
               </li>
               
-              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+              <li className='list-disc hover:text-violet-200 dark:hover:text-sky-400 ml-10 p-0'>
                 <a href='#choose-wisely'
                   className='block text-md shadow-fontlg active:text-blue-200'>
                   Choose Wisely
                 </a>
               </li>
 
-              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+              <li className='list-disc hover:text-violet-200 dark:hover:text-sky-400 ml-10 p-0'>
                 <a href='#allwhatyouneed'
                   className='block text-md shadow-fontlg active:text-blue-200'>
                   All what you need !
                 </a>
               </li>
 
-              <li className='list-disc hover:text-sky-600 ml-10 p-0'>
+              <li className='list-disc hover:text-violet-200 dark:hover:text-sky-400 ml-10 p-0'>
                 <a href='#network'
                   className='block text-md shadow-fontlg active:text-blue-400 pb-2
                     rounded-bl-md rounded-br-md'>
@@ -158,6 +169,8 @@ export default function Home() {
 
           </div>
 
+          <div className='flex-1 bg-slate-100 dark:bg-slate-900'></div>
+
         </div>
 
         <TextBlocks title={titleOne} text={textOne} />
@@ -168,7 +181,7 @@ export default function Home() {
           <div className='flex-1 bg-slate-100 dark:bg-slate-900'>
           </div>
 
-          <div className='w-4/5 h-[440px] bg-slate-200/80 dark:bg-sky-700/70'>
+          <div className='w-4/5 h-[440px] bg-slate-100/50 dark:bg-sky-700/70 shadow-inviolet dark:shadow-in'>
 
             <Carousel loop>
               {images.map((src, i) => {
@@ -190,7 +203,7 @@ export default function Home() {
           </div>
 
         </div>
-      
+
         <div id="high-quality">
           <Separator />
 
@@ -199,6 +212,15 @@ export default function Home() {
           <Separator />
         </div>
 
+        <Parallax speed={5} translateY={['4000px', '0px']} className='fixed -z-10 w-full'>  
+          <Image
+            src={skateTrix}
+            width={1920}
+            height={1080}
+            alt="cpu img" 
+            className='w-full h-auto transition animate-slice-appear object-cover'
+          />
+        </Parallax>
 
         <div id="targetElement" className='flex  w-full'>
 
@@ -206,7 +228,7 @@ export default function Home() {
           </div>
 
           <div className='relative flex items-center justify-center w-4/5 h-[400px] bg-slate-100/50 
-            shadow-inviolet dark:bg-sky-700/70'>
+            shadow-inviolet dark:bg-sky-700/70 dark:shadow-in'>
 
             <Image src={allan} width={1920} height={1280} alt="img photo" 
               className='absolute sm:mr-[460px] xl:left-[140px] sm:w-[300px] sm:h-auto xl:w-[400px] xl:h-auto 
