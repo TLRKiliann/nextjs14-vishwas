@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { ProviderParallax } from '@/app/providerParallax';
 import { ThemeProvider } from '@/app/providers'
-//import Header from '@/app/ui/header';
 import Footer from '@/app/ui/footer';
 import { ShoppingCartProvider } from '@/app/context/cart-context'; 
 import '@/app/globals.css';
@@ -22,11 +22,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className='bg-background'>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ShoppingCartProvider>
-            <DynamicHeader />
-              {children}
-            <Footer />
-          </ShoppingCartProvider>
+          <ProviderParallax>
+            <ShoppingCartProvider>
+              <DynamicHeader />
+                {children}
+              <Footer />
+            </ShoppingCartProvider>
+          </ProviderParallax>
         </ThemeProvider>
       </body>
     </html>
