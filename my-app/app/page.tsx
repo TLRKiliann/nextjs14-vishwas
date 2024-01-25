@@ -1,7 +1,10 @@
+"use client";
+
 import Image from 'next/image';
+import { Parallax } from 'react-scroll-parallax';
 import { allTitle, allText } from '@/app/lib/datas';
 import Carousel from '@/app/ui/carousel';
-import ScrollIndicator from '@/app//ui/scroll-indicator';
+import ScrollIndicator from '@/app/ui/scroll-indicator';
 import SocialIcons from '@/app/ui/home/social-icons';
 import TextBlocks from '@/app/ui/home/text-blocs';
 import TextBlockDesign from '@/app/ui/home/text-bloc-design';
@@ -9,7 +12,7 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-import skaterBg from "@/public/img_bg/skate-trick-park.jpg";
+import skaterBg from "@/public/img_bg/mauricio.jpg";
 import allan from "@/public/img_bg/pexels-allan-mas.jpg";
 import sunSet from "@/public/img_bg/sunset-board.jpg";
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
@@ -20,6 +23,7 @@ import blindDeck from "@/public/img_carousel/deck_blind6.png";
 import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
+import skaterArt from '@/public/img_bg/skateboard-art.jpg';
 
 export default function Home() {
   
@@ -48,15 +52,21 @@ export default function Home() {
     <div className='relative flex text-slate-600 bg-black pt-[75px] pb-[20px] z-0'>
       
       <ScrollIndicator />
+
       
-      <Image
-        src={skaterBg}
-        width={1920}
-        height={1080}
-        alt="cpu img" 
-        className='fixed flex items-center justify-center w-full h-full filter blur-sm contrast-200 m-auto
-        transition animate-slice-appear -z-10 object-cover'
-      />
+      <Parallax speed={5} translateY={['0px', '-200px']}
+        className='fixed -z-20 flex items-center justify-center w-full min-h-screen'>  
+        <Image
+          src={skaterArt}
+          width={1920}
+          height={1080}
+          alt="cpu img" 
+          className='w-full h-auto transition animate-slice-appear object-cover'
+        />
+      </Parallax>
+
+
+      {/* bg-fixed bg-no-repeat bg-cover bg-center */}
 
       <main className="flex flex-col w-full min-h-screen">
   
@@ -132,7 +142,7 @@ export default function Home() {
               
               <li className='list-disc hover:text-violet-200 dark:hover:text-sky-400 ml-10 p-0'>
                 <a href='#high-quality'
-                  className='block text-md shadow-fontlg active:text-blue-200 pt-2'>
+                  className='block overscroll-y-auto text-md shadow-fontlg active:text-blue-200 pt-2'>
                   High Quality
                 </a>
               </li>
@@ -197,7 +207,17 @@ export default function Home() {
           </div>
 
         </div>
-      
+
+        <Parallax speed={5} translateY={['1800px', '0px']} className='fixed -z-10 w-full'>  
+          <Image
+            src={skaterBg}
+            width={1920}
+            height={1080}
+            alt="cpu img" 
+            className='w-full h-auto transition animate-slice-appear object-cover'
+          />
+        </Parallax>
+
         <div id="high-quality">
           <Separator />
 
