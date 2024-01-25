@@ -25,15 +25,13 @@ export default function SectionTextColorBlock({titleBox, textBox}: PropsTitleTex
                 <article className='h-auto dark:bg-slate-900 bg-white'>
 
                     <div className='inline-flex items-center px-10 text-transparent bg-clip-text 
-                            dark:bg-gradient-to-br dark:from-indigo-500 dark:from-10% dark:via-sky-500 
-                            dark:via-50% dark:to-emerald-500 dark:to-90% bg-indigo-500'>
+                        light-main-tile dark-main-tile'>
 
                         <h2 className='md:text-xl xl:text-2xl text-justify font-bold py-4'>
                             {titleBox}
                         </h2>
-                        <MdSkateboarding size={24} className="dark:text-blue-400 text-indigo-500 ml-2" />
+                        <MdSkateboarding size={24} className="dark:text-blue-400 text-violet-500/90 ml-2" />
                         
-
                     </div>
 
                     <p className='text-justify dark:text-blue-300 text-slate-600 px-10 pb-5'>
