@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { Parallax } from 'react-scroll-parallax';
+import { useParallaxController } from 'react-scroll-parallax';
 import { allTitle, allText } from '@/app/lib/datas';
 import Carousel from '@/app/ui/carousel';
 import ScrollIndicator from '@/app/ui/scroll-indicator';
@@ -12,7 +13,7 @@ import SectionTextColorBlock from '@/app/ui/home/sectionTextColorBlock';
 import SectionImgOne from '@/app/ui/home/sectionImgOne';
 import SectionImgTwo from '@/app/ui/home/sectionImgTwo';
 import Separator from '@/app/ui/home/separator';
-import skaterBg from "@/public/img_bg/mauricio.jpg";
+import skaterBg from "@/public/img_bg/skate-ride.jpg";
 import allan from "@/public/img_bg/pexels-allan-mas.jpg";
 import sunSet from "@/public/img_bg/sunset-board.jpg";
 import allanFranca from "@/public/img_bg/allan-franca-carmo.jpg";
@@ -24,9 +25,12 @@ import skaterFly from '@/public/img_bg/skater_fly_title.png';
 import deckTitle from '@/public/img_decks/deck-h.png';
 import bgPark from '@/public/img_bg/bg-park-title.jpg';
 import skateTrix from '@/public/img_bg/skate-trick-park.jpg';
+import skateSleep from '@/public/img_bg/skate-sleep.jpg';
 
 export default function Home() {
-  
+
+  const parallaxController = useParallaxController();
+
   const images = [
     bakerDeck,
     elementDeck,
@@ -53,19 +57,39 @@ export default function Home() {
       
       <ScrollIndicator />
       
-      <Parallax speed={5} translateY={['-300px', '100px']}
-        className='fixed -z-20 flex items-center justify-center w-full min-h-screen'>  
+      <Parallax speed={-5} translateY={['0px', '200px']} className='fixed min-h-screen -z-10'>
         <Image
           src={skaterBg}
           width={1920}
           height={1080}
-          alt="cpu img" 
+          alt="cpu img"
+          onLoad={() => parallaxController?.update()}
           className='w-full h-auto transition animate-slice-appear object-cover'
+        />
+      </Parallax>
+      <Parallax speed={-5} translateY={['5000px', '-1200px']} className='fixed min-h-screen -z-10'>
+        <Image
+          src={skateTrix}
+          width={1920}
+          height={1080}
+          alt="cpu img"
+          onLoad={() => parallaxController?.update()}
+          className='w-full h-auto transition animate-slice-appear object-cover'
+        />
+      </Parallax>
+      <Parallax speed={-5} translateY={['7000px', '100px']} className='fixed min-h-screen -z-10'>
+        <Image
+          src={skateSleep}
+          width={1920}
+          height={1080}
+          alt="cpu img"
+          onLoad={() => parallaxController?.update()}
+          className='w-full h-auto filter blur-sm contrast-200 transition animate-slice-appear object-cover'
         />
       </Parallax>
 
       <main className="flex flex-col w-full min-h-screen">
-  
+
         <div className="flex flex-col items-center justify-center w-full
           dark:bg-cyan-50 bg-slate-50 border-b border-indigo-200 dark:border-blue-200
           shadow-xllight my-0 z-10"
@@ -211,16 +235,6 @@ export default function Home() {
 
           <Separator />
         </div>
-
-        <Parallax speed={5} translateY={['4000px', '0px']} className='fixed -z-10 w-full'>  
-          <Image
-            src={skateTrix}
-            width={1920}
-            height={1080}
-            alt="cpu img" 
-            className='w-full h-auto transition animate-slice-appear object-cover'
-          />
-        </Parallax>
 
         <div id="targetElement" className='flex  w-full'>
 
