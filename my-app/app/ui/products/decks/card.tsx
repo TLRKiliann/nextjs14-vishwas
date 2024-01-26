@@ -2,6 +2,7 @@
 
 import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -20,6 +21,16 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
     const router = useRouter();
+    
+    const increment = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const decrement = () => toast.success("Deleted from cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
 
     const {
         getItemQuantity,
@@ -34,10 +45,12 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
 
     const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
+        increment;
     };
   
     const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
+        decrement;
     };
 
     const handleImg = (id: number): void => {
@@ -50,6 +63,9 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
             text-slate-600 shadow-mdoutviolet dark:shadow-lg transform transition hover:scale-[1.025] 
             hover:shadow-bigoutviolet dark:hover:shadow-xl translate-y-0 animate-up-start rounded-xl"
         >
+            
+            <ToastContainer />
+
             <span onClick={() => handleImg(id)}>
                 <Image
                     src={img}
@@ -93,8 +109,6 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                         in cart
                     </p>
                 </div>
-            
-
 
                 <div className="bg-slate-100/80">
                     <p className="w-full text-sm text-justify text-slate-500 bg-white p-2">
