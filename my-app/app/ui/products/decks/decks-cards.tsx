@@ -1,7 +1,7 @@
 "use client";
 
 import type { ProductsProps } from "@/app/lib/definitions";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Card from './card';
 import LoadMore from './loadmore';
 

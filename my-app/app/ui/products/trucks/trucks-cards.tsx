@@ -2,6 +2,7 @@
 
 import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
+import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useShoppingCart } from '@/app/context/cart-context';
@@ -21,12 +22,29 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
 
     const quantity = getItemQuantity(id);
 
+    const increment = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const decrement = () => toast.warning("Deleted from cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const notifyRemoveAll = () => toast.error("All of this product removed !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
     const handleDelete = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
+        decrement();
     };
 
     const handleAdd = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
+        increment();
     };
 
     return (
@@ -100,7 +118,7 @@ export default function TrucksCards({id, name, price, stock, img}: ProductsProps
                 ) : null }
             </form>
 
-            <BtnRemoveAll id={id} />
+            <BtnRemoveAll id={id} notifyRemoveAll={notifyRemoveAll} />
 
         </div>
     )

@@ -2,6 +2,7 @@
 
 import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
+import { toast } from 'react-toastify';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
@@ -20,15 +21,32 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
         decreaseCartQuantity
     } = useShoppingCart();
 
+    const increment = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const decrement = () => toast.warning("Deleted from cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const notifyRemoveAll = () => toast.error("All of this product removed !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
     const quantity: number = getItemQuantity(id);
     const defineName = name.split(" ");
 
     const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
+        increment();
     };
   
     const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
+        decrement();
     };
     
     return (
@@ -120,7 +138,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
                 </form>
 
-                <RemoveAllByIdDeck id={id} />
+                <RemoveAllByIdDeck id={id} notifyRemoveAll={notifyRemoveAll} />
 
             </div>
 

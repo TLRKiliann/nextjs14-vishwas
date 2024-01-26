@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { ToastContainer } from 'react-toastify';
 import { ProviderParallax } from '@/app/providerParallax';
 import { ThemeProvider } from '@/app/providers'
 import Footer from '@/app/ui/footer';
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ProviderParallax>
             <ShoppingCartProvider>
               <DynamicHeader />
+              <ToastContainer />
                 {children}
               <Footer />
             </ShoppingCartProvider>
