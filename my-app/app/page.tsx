@@ -1,6 +1,7 @@
 "use client";
-
+import React, { useRef } from 'react';
 import Image from 'next/image';
+import { Parallax, useParallax, useParallaxController } from 'react-scroll-parallax';
 import { allTitle, allText } from '@/app/lib/datas';
 import Carousel from '@/app/ui/carousel';
 import ScrollIndicator from '@/app/ui/scroll-indicator';
@@ -26,6 +27,10 @@ import skateTrix from '@/public/img_bg/skate-trick-park.jpg';
 import skateSleep from '@/public/img_bg/skate-sleep.jpg';
 
 export default function Home() {
+
+  const inputRef = useRef(null);
+
+  const parallaxController = useParallaxController();
 
   const images = [
     bakerDeck,
@@ -53,38 +58,28 @@ export default function Home() {
       
       <ScrollIndicator />
       
-      {/*<Parallax speed={-5} translateY={['0px', '100px']} className='fixed -z-10'>
+      <Parallax speed={-5} translateY={['-200px', '300px']} className='fixed -z-10'>
         <Image
+          ref={inputRef}
           src={skaterBg}
           width={1920}
           height={1080}
           alt="cpu img"
           onLoad={() => parallaxController?.update()}
-          className='w-full h-auto transition animate-slice-appear object-cover'
+          className='w-full h-auto pb-40 transition animate-slice-appear object-cover'
         />
       </Parallax>
 
-      <Parallax speed={-5} translateY={['6000px', '-300px']} className='fixed -z-10'>
+      <Parallax speed={-5} translateY={['4200px', '0px']} className='fixed -z-10'>
         <Image
-          src={skateSleep}
+          ref={inputRef}
+          src={allan}
           width={1920}
           height={1080}
           alt="cpu img"
-          onLoad={() => parallaxController?.update()}
           className='w-full h-auto filter blur-xs contrast-200 object-cover'
         />
       </Parallax>
-
-      <Parallax speed={-5} translateY={['8000px', '0px']} className='fixed -z-10'>
-        <Image
-          src={skateSleep}
-          width={1920}
-          height={1080}
-          alt="cpu img"
-          onLoad={() => parallaxController?.update()}
-          className='w-full h-auto filter blur-xs contrast-200 object-cover'
-        />
-      </Parallax>*/}
 
       <main className="flex flex-col w-full min-h-screen">
 
@@ -95,12 +90,12 @@ export default function Home() {
 
           <div className='flex flex-col items-center justify-center py-[120px]'>
             <p className='text-xl text-blue-800 font-bold text-transparent bg-clip-text 
-              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto mb-0'
+              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto'
             >
               The
             </p>
             <h1 className='text-4xl font-bold text-transparent bg-clip-text 
-              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto my-0'
+              light-bg-gradient dark-bg-gradient drop-shadow-fontlg m-auto'
             >
               Skateboard-Shop
             </h1>
