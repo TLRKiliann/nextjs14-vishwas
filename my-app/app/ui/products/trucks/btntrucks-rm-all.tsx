@@ -7,7 +7,7 @@ import { resetById } from '@/app/lib/actions';
 
 export const dynamic = "force-dynamic";
 
-export default function BtnRemoveAll({id}: {id: number}) {
+export default function BtnRemoveAll({id, notifyRemoveAll}: {id: number, notifyRemoveAll: () => void}) {
 
     const { pending } = useFormStatus();
     const [code, formData] = useFormState(resetById, undefined);
@@ -19,6 +19,7 @@ export default function BtnRemoveAll({id}: {id: number}) {
     const handleRemove = (id: number): void => {
         setRemoveById(true);
         removeFromCart(id);
+        notifyRemoveAll();
     };
 
     if (removeById === true) {

@@ -7,6 +7,7 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 import RemoveAll from './btnwheels-rm-all';
+import { toast } from 'react-toastify';
 
 export default function WheelCardUnit({id, name, price, stock, img}: ProductsProps) {
 
@@ -21,12 +22,29 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
 
     const quantity: number = getItemQuantity(id);
 
+    const increment = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const decrement = () => toast.warning("Deleted from cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const notifyRemoveAll = () => toast.error("All of this product removed !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
     const handleDelete = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
+        decrement();
     };
 
     const handleAdd = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
+        increment();
     };
 
     return (
@@ -90,7 +108,7 @@ export default function WheelCardUnit({id, name, price, stock, img}: ProductsPro
                     ) : null }
                 </form>
                     
-                <RemoveAll id={id} />
+                <RemoveAll id={id} notifyRemoveAll={notifyRemoveAll} />
 
             </div>
         </div>

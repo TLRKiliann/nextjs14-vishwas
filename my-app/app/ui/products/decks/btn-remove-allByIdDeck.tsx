@@ -1,22 +1,16 @@
 "use client";
 
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
 import { useShoppingCart } from '@/app/context/cart-context';
 import { useFormState, useFormStatus } from 'react-dom';
 import { resetById } from '@/app/lib/actions';
 
 export const dynamic = "force-dynamic";
 
-export default function RemoveAllByIdDeck({id}: {id: number}) {
+export default function RemoveAllByIdDeck({id, notifyRemoveAll}: {id: number, notifyRemoveAll: () => void}) {
 
     const { pending } = useFormStatus();
     const [state, formData] = useFormState(resetById, undefined);
-
-    const notifyRemoveAll = toast.error("All of this product removed !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
 
     const [removeById, setRemoveById] = useState<boolean>(false);
 
@@ -25,7 +19,7 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
     const handleRemove = (id: number): void => {
         setRemoveById(true);
         removeFromCart(id);
-        notifyRemoveAll;
+        notifyRemoveAll();
     };
 
     if (removeById === true) {
@@ -55,7 +49,6 @@ export default function RemoveAllByIdDeck({id}: {id: number}) {
                 </div>
 
             </form>
-            <ToastContainer />
         </>
     )
 }

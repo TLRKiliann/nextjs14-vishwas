@@ -1,7 +1,8 @@
 "use client";
 
 import type { ProductsProps } from '@/app/lib//definitions';
-import React from 'react'
+import React from 'react';
+import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
@@ -27,12 +28,29 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
     const wordCut = name.split(" ");
     const wheelPath = wordCut?.[0];
 
+    const increment = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const decrement = () => toast.warning("Deleted from cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
+    const notifyRemoveAll = () => toast.error("All of this product removed !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+
     const handleDelete = (id: number, name: string, price: number, img: string, stock: number): void => {
         decreaseCartQuantity(id, name, price, img, stock);
+        decrement();
     };
 
     const handleAdd = (id: number, name: string, price: number, img: string, stock: number): void => {
         increaseCartQuantity(id, name, price, img, stock);
+        increment();
     };
 
     const handlePath = (id: number): void => {
@@ -110,7 +128,7 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
                 ) : null }
             </form>
 
-            <RemoveAll id={id} />
+            <RemoveAll id={id} notifyRemoveAll={notifyRemoveAll} />
 
         </div>
     )
