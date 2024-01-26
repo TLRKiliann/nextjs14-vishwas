@@ -1,8 +1,6 @@
 "use client";
 
 import Image from 'next/image';
-import { Parallax } from 'react-scroll-parallax';
-import { useParallaxController } from 'react-scroll-parallax';
 import { allTitle, allText } from '@/app/lib/datas';
 import Carousel from '@/app/ui/carousel';
 import ScrollIndicator from '@/app/ui/scroll-indicator';
@@ -28,8 +26,6 @@ import skateTrix from '@/public/img_bg/skate-trick-park.jpg';
 import skateSleep from '@/public/img_bg/skate-sleep.jpg';
 
 export default function Home() {
-
-  const parallaxController = useParallaxController();
 
   const images = [
     bakerDeck,
@@ -57,7 +53,7 @@ export default function Home() {
       
       <ScrollIndicator />
       
-      <Parallax speed={-5} translateY={['0px', '200px']} className='fixed min-h-screen -z-10'>
+      {/*<Parallax speed={-5} translateY={['0px', '100px']} className='fixed -z-10'>
         <Image
           src={skaterBg}
           width={1920}
@@ -67,26 +63,28 @@ export default function Home() {
           className='w-full h-auto transition animate-slice-appear object-cover'
         />
       </Parallax>
-      <Parallax speed={-5} translateY={['5000px', '-1200px']} className='fixed min-h-screen -z-10'>
-        <Image
-          src={skateTrix}
-          width={1920}
-          height={1080}
-          alt="cpu img"
-          onLoad={() => parallaxController?.update()}
-          className='w-full h-auto transition animate-slice-appear object-cover'
-        />
-      </Parallax>
-      <Parallax speed={-5} translateY={['7000px', '100px']} className='fixed min-h-screen -z-10'>
+
+      <Parallax speed={-5} translateY={['6000px', '-300px']} className='fixed -z-10'>
         <Image
           src={skateSleep}
           width={1920}
           height={1080}
           alt="cpu img"
           onLoad={() => parallaxController?.update()}
-          className='w-full h-auto filter blur-sm contrast-200 transition animate-slice-appear object-cover'
+          className='w-full h-auto filter blur-xs contrast-200 object-cover'
         />
       </Parallax>
+
+      <Parallax speed={-5} translateY={['8000px', '0px']} className='fixed -z-10'>
+        <Image
+          src={skateSleep}
+          width={1920}
+          height={1080}
+          alt="cpu img"
+          onLoad={() => parallaxController?.update()}
+          className='w-full h-auto filter blur-xs contrast-200 object-cover'
+        />
+      </Parallax>*/}
 
       <main className="flex flex-col w-full min-h-screen">
 
