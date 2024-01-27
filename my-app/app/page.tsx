@@ -54,11 +54,11 @@ export default function Home() {
   const textbox_2: string = allText.textbox_2;
 
   return (
-    <div className='relative flex text-slate-600 bg-black pt-[75px] pb-[20px] z-0'>
+    <div className='relative flex text-slate-600 bg-black pt-[75px] z-0'>
       
       <ScrollIndicator />
       
-      <Parallax speed={-5} translateY={['-200px', '300px']} className='fixed -z-10'>
+      <Parallax speed={-5} translateY={['-400px', '300px']} className='fixed min-h-screen -z-20'>
         <Image
           ref={inputRef}
           src={skaterBg}
@@ -66,11 +66,11 @@ export default function Home() {
           height={1080}
           alt="cpu img"
           onLoad={() => parallaxController?.update()}
-          className='w-full h-auto pb-40 transition animate-slice-appear object-cover'
+          className='w-full h-auto transition animate-slice-appear object-cover'
         />
       </Parallax>
 
-      <Parallax speed={-5} translateY={['4200px', '0px']} className='fixed -z-10'>
+      <Parallax speed={-5} translateY={['4200px', '-400px']} className='fixed pt-[400px] min-h-screen -z-10'>
         <Image
           ref={inputRef}
           src={allan}
