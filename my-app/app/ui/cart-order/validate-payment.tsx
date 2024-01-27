@@ -4,6 +4,8 @@ import type { ConfirmationProps } from '@/app/lib/definitions';
 import React from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { confirmationPayment } from '@/app/lib/actions';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +15,12 @@ export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
     const [code, formData] = useFormState(confirmationPayment, undefined);
 
     //const dataConverter: ConfirmationProps = data[0];
-
+    
+    const confirmationToast = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+    
     return (
         <>
             <form action={formData} className='flex items-center justify-center w-full my-20'>
@@ -35,13 +42,14 @@ export default function ValidatePayment({data}: {data: ConfirmationProps[]}) {
                     </div>
                 ))}
 
-                <button type="submit" id="submit" name="submit" value="btnConfirmation" 
+                <button type="submit" id="submit" name="submit" value="btnConfirmation"
+                    onClick={confirmationToast} 
                     disabled={pending}
                     className="w-[200px] font-bold text-center text-slate-50 bg-sky-700/80
                     hover:text-slate-200 hover:bg-sky-700/90 hover:shadow-none
                     active:text-slate-50 active:bg-sky-700/70 active:scale-95 active:shadow-none
                     border-none mx-4 py-2 rounded-lg shadow-md">
-                    {pending ? "Pending..." : "Validate Payment"}
+                    {pending ? "Pending..." : "Confirm payment"}
                 </button>
 
             </form>

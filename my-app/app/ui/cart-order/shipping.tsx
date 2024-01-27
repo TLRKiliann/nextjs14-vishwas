@@ -4,6 +4,8 @@ import React from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
 import { shippingRequest } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +15,12 @@ export default function Shipping({filterTotal}: {filterTotal: number}) {
     const [code, formAction] = useFormState(shippingRequest, undefined);
 
     const { removeAllFromCart } = useShoppingCart();
-
+    
+    const validateToastShipping = () => toast.success("Added to cart !", {
+        autoClose: 2000,
+        position: 'bottom-center'
+    });
+    
     const resetCall = (): void => {
         if (typeof window !== "undefined") {
             const timer = setTimeout(() => {
@@ -24,6 +31,7 @@ export default function Shipping({filterTotal}: {filterTotal: number}) {
 
     const handleDeleteAllItem = (): void => {
         removeAllFromCart();
+        validateToastShipping();
         resetCall();
         console.log("shipping done");
     };
