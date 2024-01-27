@@ -2,13 +2,19 @@
 
 import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
-import { toast } from 'react-toastify';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 import RemoveAllByIdDeck from './btn-remove-allByIdDeck';
+import { 
+    incrementToastMessage,
+    decrementToastMessage, 
+    notifyRemoveAllToast, 
+    handleDeleteCart, 
+    handleAddToCart
+} from '@/app/lib/functions';
 
 export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
 
@@ -21,32 +27,19 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
         decreaseCartQuantity
     } = useShoppingCart();
 
-    const increment = () => toast.success("Added to cart !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
-    const decrement = () => toast.warning("Deleted from cart !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
-    const notifyRemoveAll = () => toast.error("All of this product removed !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
     const quantity: number = getItemQuantity(id);
     const defineName = name.split(" ");
 
-    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
-        increaseCartQuantity(id, name, price, img, stock);
-        increment();
+    const increment = () => incrementToastMessage();
+    const decrement = () => decrementToastMessage();
+    const notifyRemoveAll = () => notifyRemoveAllToast();
+
+    const handleAdd = (id: number, name: string, price: number, img: string, stock: number) => {
+        return handleAddToCart(id, name, price, img, stock, increment, increaseCartQuantity);
     };
-  
-    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
-        decreaseCartQuantity(id, name, price, img, stock);
-        decrement();
+
+    const handleDelete = (id: number, name: string, price: number, img: string, stock: number) => {
+        return handleDeleteCart(id, name, price, img, stock, decrement, decreaseCartQuantity);
     };
     
     return (
@@ -109,7 +102,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                                 name="submit"
                                 value="decrease"
                                 disabled={pending}
-                                onClick={() => handleRemoveFromCart(id, name, price, img, stock)}
+                                onClick={() => handleDelete(id, name, price, img, stock)}
                                 className='button-card'>
                                     { pending ? "pending..." : "Sub" }
                             </button>
@@ -121,7 +114,7 @@ export default function DeckUnit({id, name, img, price, stock}: ProductsProps) {
                                     name="submit"
                                     value="order"
                                     disabled={pending}
-                                    onClick={() => handleAddToCart(id, name, price, img, stock)}
+                                    onClick={() => handleAdd(id, name, price, img, stock)}
                                     className='button-card'>
                                     { pending ? "pending..." : "Add" }
                                 </button>

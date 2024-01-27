@@ -2,7 +2,6 @@
 
 import type { ProductsProps } from '@/app/lib/definitions';
 import React from 'react';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -12,6 +11,11 @@ import { formatCurrency } from "@/app/utils/formatCurrency";
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryDecksCart } from '@/app/lib/actions';
 import RemoveAllByIdDeck from './btn-remove-allByIdDeck';
+import { incrementToastMessage,
+    decrementToastMessage, 
+    notifyRemoveAllToast, 
+    handleDeleteCart, 
+    handleAddToCart } from '@/app/lib/functions';
 import { IoShareSocial } from 'react-icons/io5';
 import { SlSocialTwitter } from 'react-icons/sl';
 import { FaGithub } from 'react-icons/fa6';
@@ -22,21 +26,6 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
     const [ code, formAction ] = useFormState(queryDecksCart, undefined)
 
     const router = useRouter();
-    
-    const increment = () => toast.success("Added to cart !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
-    const decrement = () => toast.warning("Deleted from cart !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
-    const notifyRemoveAll = () => toast.error("All of this product removed !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
 
     const {
         getItemQuantity,
@@ -49,14 +38,16 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
     const cutword = name.split(" ");
     const deckPath = cutword[0];
 
-    const handleAddToCart = (id: number, name: string, price: number, img: string, stock: number): void => {
-        increaseCartQuantity(id, name, price, img, stock);
-        increment();
+    const increment = () => incrementToastMessage();
+    const decrement = () => decrementToastMessage();
+    const notifyRemoveAll = () => notifyRemoveAllToast();
+
+    const handleAdd = (id: number, name: string, price: number, img: string, stock: number) => {
+        return handleAddToCart(id, name, price, img, stock, increment, increaseCartQuantity);
     };
-  
-    const handleRemoveFromCart = (id: number, name: string, price: number, img: string, stock: number): void => {
-        decreaseCartQuantity(id, name, price, img, stock);
-        decrement();
+
+    const handleDelete = (id: number, name: string, price: number, img: string, stock: number) => {
+        return handleDeleteCart(id, name, price, img, stock, decrement, decreaseCartQuantity);
     };
 
     const handleImg = (id: number): void => {
@@ -132,7 +123,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                     <div className='flex items-center justify-between'>
 
                         <button type="submit" id="submit" name="submit" value="decrease" 
-                                onClick={() => handleRemoveFromCart(id, name, price, img, stock)}
+                                onClick={() => handleDelete(id, name, price, img, stock)}
                                 disabled={pending}
                                 className='button-card'
                             >
@@ -140,7 +131,7 @@ const Card = ({ id, name, price, img, stock }: ProductsProps) => {
                             </button>
                             {stock - quantity > 0 ? (
                                 <button type="submit" id="submit" name="submit" value="order" 
-                                    onClick={() => handleAddToCart(id, name, price, img, stock)}
+                                    onClick={() => handleAdd(id, name, price, img, stock)}
                                     disabled={pending}
                                     className='button-card'
                                 >

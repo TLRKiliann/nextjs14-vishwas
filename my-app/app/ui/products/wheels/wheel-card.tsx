@@ -2,13 +2,19 @@
 
 import type { ProductsProps } from '@/app/lib//definitions';
 import React from 'react';
-import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useFormState, useFormStatus } from 'react-dom';
 import { queryWheelsCart } from '@/app/lib/actions';
 import { useShoppingCart } from '@/app/context/cart-context';
 import RemoveAll from './btnwheels-rm-all';
+import { 
+    incrementToastMessage,
+    decrementToastMessage, 
+    notifyRemoveAllToast, 
+    handleDeleteCart, 
+    handleAddToCart
+} from '@/app/lib/functions';
 
 export default function WheelCard({id, name, price, stock, img}: ProductsProps) {
 
@@ -28,29 +34,16 @@ export default function WheelCard({id, name, price, stock, img}: ProductsProps) 
     const wordCut = name.split(" ");
     const wheelPath = wordCut?.[0];
 
-    const increment = () => toast.success("Added to cart !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
+    const increment = () => incrementToastMessage();
+    const decrement = () => decrementToastMessage();
+    const notifyRemoveAll = () => notifyRemoveAllToast();
 
-    const decrement = () => toast.warning("Deleted from cart !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
-    const notifyRemoveAll = () => toast.error("All of this product removed !", {
-        autoClose: 2000,
-        position: 'bottom-center'
-    });
-
-    const handleDelete = (id: number, name: string, price: number, img: string, stock: number): void => {
-        decreaseCartQuantity(id, name, price, img, stock);
-        decrement();
+    const handleAdd = (id: number, name: string, price: number, img: string, stock: number) => {
+        return handleAddToCart(id, name, price, img, stock, increment, increaseCartQuantity);
     };
 
-    const handleAdd = (id: number, name: string, price: number, img: string, stock: number): void => {
-        increaseCartQuantity(id, name, price, img, stock);
-        increment();
+    const handleDelete = (id: number, name: string, price: number, img: string, stock: number) => {
+        return handleDeleteCart(id, name, price, img, stock, decrement, decreaseCartQuantity);
     };
 
     const handlePath = (id: number): void => {
