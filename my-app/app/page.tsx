@@ -77,7 +77,7 @@ export default function Home() {
           width={1920}
           height={1080}
           alt="cpu img"
-          className='w-full h-auto filter blur-xs contrast-200 object-cover'
+          className='w-full h-auto filter grayscale contrast-100 object-cover'
         />
       </Parallax>
 
