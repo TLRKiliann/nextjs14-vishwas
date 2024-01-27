@@ -22,7 +22,7 @@ export default async function ElementDecks() {
 
   return (
     <div className='w-full min-h-screen bg-violet-100/20 dark:bg-slate-900 py-[75px]'>
-      <h1 className='w-[320px] baker-blind-element-girl-title'>
+      <h1 className='w-[400px] baker-blind-element-girl-title'>
         Element&apos;s Decks
       </h1>
 
