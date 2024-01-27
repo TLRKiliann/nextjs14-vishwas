@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      grayscale: {
+        50: '50%',
+      },
       keyframes: {
         sliceappear: {
           "0%": {
