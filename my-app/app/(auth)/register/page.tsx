@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default async function Register() {
 
-  const data: unknown = await newMemberQuery("SELECT * FROM users", []);
+  const data = await newMemberQuery("SELECT * FROM users", []);
   const users: string = JSON.stringify(data);
 
   return (
