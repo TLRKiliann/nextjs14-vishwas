@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import React from 'react';
 import Image from 'next/image';
+import ScrollIndicator from '@/app//ui/scroll-indicator';
 import Partners from '@/app/ui/about/partners-bloc';
 import story from '@/public/img_bg/bg-bowl-title.jpg';
-import ScrollIndicator from '@/app//ui/scroll-indicator';
+import separator from '@/public/img_logo/separator.png';
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -28,13 +29,13 @@ export default function About() {
 
       <section className='md:w-4/5 xl:w-3/5 m-auto bg-slate-100/80'>
         <article>
-          <h1 className='text-3xl text-transparent bg-clip-text dark-bg-gradient-story light-title-h1 
-            text-center pt-10 transform transition translate-y-0 animate-right-start'
+          <h1 className='w-4/5 text-6xl font-bold text-transparent bg-clip-text dark-bg-gradient-story light-title-h1 
+            text-center m-auto pt-[60px] pb-10 transition transform translate-y-0 animate-right-start'
           >
             Our story
           </h1>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
-            light-title-h1 text-center my-4'
+            light-title-h1 mt-2 mb-4 px-20'
           >
             A Luxurious Experience
           </h2>
@@ -49,7 +50,7 @@ export default function About() {
 
           <p className='text-slate-600 
             text-justify
-            px-20 pb-8'
+            px-20'
           >
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -57,11 +58,16 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-indigo-500/40 dark:border-blue-800/30' />
+
+        <div className='flex items-center justify-center w-full mb-[0px]'>
+          <Image src={separator} width={948} height={263} alt="separator img" 
+            className="w-[400px] h-auto object-cover" />
+        </div>
+
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story
-            light-title-h1 text-center my-4'
+            light-title-h1 mt-10 mb-4 px-20'
           >
             Great products for high performances !
           </h2>
@@ -76,7 +82,7 @@ export default function About() {
 
           <p className='text-slate-600 
             text-justify
-            px-20 pb-8'
+            px-20'
           >
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -84,11 +90,16 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-indigo-500/40 dark:border-blue-800/30' />
+
+        <div className='flex items-center justify-center w-full mb-[0px]'>
+          <Image src={separator} width={948} height={263} alt="separator img" 
+            className="w-[400px] h-auto object-cover" />
+        </div>
+
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
-            light-title-h1 text-center my-4'
+            light-title-h1 mt-10 mb-4 px-20'
           >
             Discovery our shop as an adventure
           </h2>
@@ -112,7 +123,7 @@ export default function About() {
 
           <p className='text-slate-600 
             text-justify
-            px-20 pb-8'
+            px-20'
           >
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -120,11 +131,14 @@ export default function About() {
           </p>
         </article>
 
-        <hr className='mx-40 border border-indigo-500/40 dark:border-blue-800/30' />
+        <div className='flex items-center justify-center w-full mb-[0px]'>
+          <Image src={separator} width={948} height={263} alt="separator img" 
+            className="w-[400px] h-auto object-cover" />
+        </div>
 
         <article>
           <h2 className='text-lg font-bold italic text-transparent bg-clip-text dark-bg-gradient-story 
-            light-title-h1 text-center my-4'
+            light-title-h1 mt-10 mb-4 px-20'
           >
             All our partners put their trust in us
           </h2>
