@@ -25,7 +25,7 @@ export default function ShopMenu() {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const toggle = () => {
+    const toggle = (): void => {
         setIsOpen((old) => !old);
     };
 

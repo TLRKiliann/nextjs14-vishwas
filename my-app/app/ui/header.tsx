@@ -20,7 +20,8 @@ export default function Header() {
     const [mounted, setMounted] = useState<boolean>(false);
 
     useEffect(() => {
-        setMounted(true)
+        setMounted(true);
+        return () => console.log("Clean-up mounted (header)");
     }, []);
 
     return (

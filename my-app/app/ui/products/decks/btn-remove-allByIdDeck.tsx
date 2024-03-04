@@ -23,9 +23,8 @@ export default function RemoveAllByIdDeck({id, notifyRemoveAll}: {id: number, no
     };
 
     if (removeById === true) {
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             setRemoveById(false);
-            console.log(timer)
         }, 2000);
     };
 
