@@ -22,7 +22,7 @@ const ReviewsList = ({params}: {params: {productId: string}}) => {
         throw new Error("Error product id is not a number");
     };
 
-    const handlePath = (id: number, video: string) => {
+    const handlePath = (id: number, video: string): void => {
         router.push(`/products/decks/${video}/${id}/reviews`);
     };
 

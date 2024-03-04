@@ -5,8 +5,6 @@ import React, { useState } from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
 import { resetById } from '@/app/lib/actions';
 
-export const dynamic = "force-dynamic";
-
 export default function BtnRemoveAll({id, notifyRemoveAll}: {id: number, notifyRemoveAll: () => void}) {
 
     const { pending } = useFormStatus();
@@ -23,9 +21,8 @@ export default function BtnRemoveAll({id, notifyRemoveAll}: {id: number, notifyR
     };
 
     if (removeById === true) {
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             setRemoveById(false);
-            console.log(timer)
         }, 2000);
     };
 

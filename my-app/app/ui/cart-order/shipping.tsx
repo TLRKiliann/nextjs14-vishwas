@@ -7,8 +7,6 @@ import { useShoppingCart } from '@/app/context/cart-context';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const dynamic = "force-dynamic";
-
 export default function Shipping({filterTotal}: {filterTotal: number}) {
 
     const { pending } = useFormStatus();
@@ -21,11 +19,12 @@ export default function Shipping({filterTotal}: {filterTotal: number}) {
         position: 'bottom-center'
     });
     
-    const resetCall = (): void => {
+    const resetCall = (): void | (() => void) => {
         if (typeof window !== "undefined") {
             const timer = setTimeout(() => {
                 document.getElementById("resetShipping")?.click();
             }, 1000)
+            return () => clearTimeout(timer);
         }
     };
 

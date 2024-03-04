@@ -26,7 +26,7 @@ const DetailsProduct = async ({params}: Props) => {
     const data: string = JSON.stringify(request);
     
     // Display card in side right
-    const productName = JSON.parse(data).map((prod: ProductsProps) => {
+    const productName = JSON.parse(data).map((prod: ProductsProps): JSX.Element | undefined => {
         if (prod.id === parseInt(params.productId)) {
             return (
                 <div key={prod.id} className='w-2/5'>

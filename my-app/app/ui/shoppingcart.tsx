@@ -12,7 +12,7 @@ export default function ShoppingCart() {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const toggle = () => {
+    const toggle = (): void => {
         setIsOpen((old) => !old);
     };
 

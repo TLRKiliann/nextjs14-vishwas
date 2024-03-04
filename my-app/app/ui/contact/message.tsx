@@ -4,39 +4,44 @@ import React, { useState } from 'react'
 import { useFormState, useFormStatus } from 'react-dom';
 import { messageToSend } from '@/app/lib/actions';
 
-export const dynamic = "force-dynamic";
+type StateGroupProps = {
+    username: string;
+    email: string;
+    textArea: string;
+};
 
 export default function Message() {
 
     const {pending} = useFormStatus();
     const [code, formAction] = useFormState(messageToSend, undefined)
 
-    const [username, setUserName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [textArea, setTextArea] = useState<string>("");
+    const [stateGroup, setStateGroup] = useState<StateGroupProps>({
+        username: "",
+        email: "",
+        textArea: ""
+    });
 
     const handleUser = (event: React.ChangeEvent<HTMLInputElement>): void => {
         let value_user: string = event.target.value;
-        console.log(value_user);
-        setUserName(value_user);
-    }
+        setStateGroup((prev) => ({...prev, username: value_user}));
+    };
 
     const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
         let value_email: string = event.target.value;
-        console.log(value_email);
-        setEmail(value_email);
-    }
+        setStateGroup((prev) => ({...prev, email: value_email}));
+    };
 
     const handleTextArea = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         let textValue: string = event.target.value;
-        setTextArea(textValue);
-    }
+        setStateGroup((prev) => ({...prev, textArea: textValue}));
+    };
 
-    const handleTimer = () => {
+    const handleTimer = (): (() => void) | undefined => {
         if (typeof window !== "undefined") {
             const timer = setTimeout(() => {
                 document.getElementById("resetForgot")?.click();
             }, 1000)
+            return () => clearTimeout(timer);
         }
     };
 
@@ -53,7 +58,7 @@ export default function Message() {
                 mt-2 mb-1'>
                 Username
             </label>
-            <input type="text" id="username" name="username" value={username}
+            <input type="text" id="username" name="username" value={stateGroup.username}
                 onChange={(event) => handleUser(event)}
                 placeholder='Username' required
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
@@ -66,7 +71,7 @@ export default function Message() {
                 mt-2 mb-1'>
                 Email
             </label>
-            <input type="email" id="email" name="email" value={email} 
+            <input type="email" id="email" name="email" value={stateGroup.email} 
                 onChange={(event) => handleEmail(event)}
                 placeholder="Email" required
                 className='text-lg text-gray-500 bg-violet-100 hover:bg-violet-200 active:bg-white 
@@ -81,7 +86,7 @@ export default function Message() {
             </label>
             <textarea id="tetxtarea" name="tetxtarea" cols={20} rows={5}
                 onChange={(event) => handleTextArea(event)}
-                value={textArea}
+                value={stateGroup.textArea}
                 placeholder="Enter something here..."
                 className='text-slate-500 bg-violet-100 dark:bg-slate-200 p-2 hover:bg-violet-200 
                     dark:hover:bg-slate-300 placeholder:text-sm placeholder:text-slate-500 rounded'>
